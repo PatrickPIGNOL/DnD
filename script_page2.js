@@ -50,15 +50,34 @@ const mChargerRace = async () => {
         vRacesData.forEach((vRace, vIndex) => {
             const vChecked = (vRace.nom === vRaceSelectionnee) ? 'checked' : ''; 
             
+            // Utilisez <table> et <td> pour la structure demandée
             const vHtml = `
                 <div class="race-option-card">
                     <input type="radio" name="pRaceSelectionnee" value="${vRace.nom}" id="vRaceRadio-${vIndex}" ${vChecked}>
+                    
                     <label for="vRaceRadio-${vIndex}">
-                        <img src="${vRace.image_url}" alt="Image de ${vRace.nom}" class="race-image">
-                        <div class="race-info">
-                            <div class="race-name">${vRace.nom} (${vRace.bonusCarac})</div>
-                            <div class="race-description">${vRace.description}</div>
-                        </div>
+                        <table class="race-layout-table">
+                            <tbody>
+                                <tr>
+                                    <td class="radio-cell" rowspan="2">
+                                        </td>
+                                    
+                                    <td colspan="2" class="race-header-title">
+                                        ${vRace.nom} (${vRace.bonusCarac})
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="race-image-cell">
+                                        <img src="${vRace.image_url}" alt="Image de ${vRace.nom}" class="race-image">
+                                    </td>
+                                    
+                                    <td class="race-description-cell">
+                                        <div class="race-description">${vRace.description}</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </label>
                 </div>
             `;
