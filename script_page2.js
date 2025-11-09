@@ -50,14 +50,14 @@ const mChargerRace = async () => {
         vRacesData.forEach((vRace, vIndex) => {
             const vChecked = (vRace.nom === vRaceSelectionnee) ? 'checked' : ''; 
             
-            // Structure finale qui place le radio DANS le tableau
+            // Structure finale avec styles INLINE pour garantir le centrage du radio bouton
             const vHtml = `
                 <div class="race-option-card" onclick="document.getElementById('vRaceRadio-${vIndex}').checked = true;">
                     
                     <table class="race-layout-table">
                         <tbody>
                             <tr>
-                                <td class="radio-cell" rowspan="2">
+                                <td class="radio-cell" rowspan="2" style="text-align: center; vertical-align: middle;">
                                     <input type="radio" name="pRaceSelectionnee" value="${vRace.nom}" id="vRaceRadio-${vIndex}" ${vChecked}>
                                 </td>
                                 

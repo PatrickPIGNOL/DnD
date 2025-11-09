@@ -254,15 +254,13 @@ button[type="submit"]:hover, .button-link:hover {
     vertical-align: top;
 }
 
+/* COLONNE 1 (Radio) */
 .radio-cell {
     width: 40px; 
     
-    /* Centrage de la cellule */
-    text-align: center; 
-    vertical-align: middle; 
-    
-    /* IMPORTANT : Annuler les propriétés Flexbox précédentes */
-    display: table-cell; 
+    /* Les règles d'alignement sont maintenant en INLINE dans le JS */
+    /* text-align: center;  <-- À supprimer/éviter */
+    /* vertical-align: middle; <-- À supprimer/éviter */
     
     padding: 0 10px; 
 }
