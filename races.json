@@ -3,18 +3,18 @@
         "nom": "Elfe",
         "description": "Fins, gracieux et immortels. Connus pour leur agilité et leur connexion avec la nature.",
         "bonusCarac": "+2 Dextérité",
-        "image_url": "images/elfe.png"
+        "image_url": "images/races/elfe.jpg"
     },
     {
         "nom": "Nain",
         "description": "Robustes, forts, et maîtres artisans. Ils ont un penchant naturel pour la forge et la pierre.",
         "bonusCarac": "+2 Constitution",
-        "image_url": "images/nain.png"
+        "image_url": "images/races/nain.jpg"
     },
     {
         "nom": "Humain",
         "description": "Les plus adaptables et ambitieux des peuples. Ils excellent dans tous les domaines, mais pour une courte durée.",
         "bonusCarac": "+1 à toutes les caractéristiques",
-        "image_url": "images/humain.png"
+        "image_url": "images/races/humain.png"
     }
 ]
