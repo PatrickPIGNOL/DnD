@@ -3,47 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page de Test GitHub Pages</title>
+    <title>Créateur de Personnage DnD - Accueil</title>
     <link rel="stylesheet" href="style.css">
-</head>
+    </head>
 <body>
     <header>
-        <h1>Bienvenue sur ma Page de Test</h1>
-        <p>Hébergée avec succès sur GitHub Pages !</p>
+        <h1>⚔️ Bienvenue dans le Créateur de Personnage !</h1>
     </header>
 
     <main>
-        <section class="info-section">
-            <h2>Informations Générales</h2>
-            <p>
-                Ceci est un exemple simple de page web statique. Elle utilise du HTML pour la structure, du CSS pour le style et du JavaScript pour une petite interactivité.
-            </p>
+        <section>
+            <h2>Commencer l'Aventure !</h2>
+            <p>Ce guide simple est conçu pour vous aider à créer un personnage de jeu de rôle passionnant en quelques étapes faciles.</p>
+            
+            <hr>
+
+            <h3>1. Passer le Test de Classe (Étape 1)</h3>
+            <p>Si vous ne l'avez pas encore fait, cliquez ci-dessous pour lancer le test qui déterminera votre classe de départ. Le Maître du Jeu ou le système vous donnera le résultat.</p>
+            
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdNma04s8TPzZP8g28kWGQxzGNa6o4os5ztF8x-V8B9ELUyRA/viewform?usp=header" target="_blank" class="button-link">Lancer le Test de Classe</a>
+            
+            <hr>
+
+            <h3>2. Démarrer la Création (Étape 2)</h3>
+            <p>Une fois que vous connaissez votre classe, vous pouvez commencer la création de votre personnage en choisissant sa race, son niveau et ses caractéristiques.</p>
+            
+            <a href="page1_classe.html" class="button-link">Commencer >> Étape 2 (Choix de Classe)</a>
+        </section>
+
+        <section>
+            <h2>Ressources Utiles 📚</h2>
+            <p>Voici des liens vers des ressources externes qui pourraient vous aider pendant votre création de personnage ou pendant votre jeu :</p>
             <ul>
-                <li><strong>HTML:</strong> Structure du contenu.</li>
-                <li><strong>CSS:</strong> Aspect visuel et mise en page.</li>
-                <li><strong>JavaScript:</strong> Interactivité et dynamisme léger.</li>
+                <li>
+                    <strong>AideDD.org :</strong> Toutes les règles et informations sur l'univers de Donjons et Dragons.
+                    <br>
+                    <a href="https://www.aidedd.org/" target="_blank" class="secondary-button" style="flex-grow: 0; margin-top: 5px;">Visiter AideDD.org</a>
+                </li>
+                <li>
+                    <strong>D&D 5e SRD :</strong> Le manuel de référence des règles de base (en anglais).
+                    <br>
+                    <a href="https://dnd.wizards.com/resources/systems-reference-document" target="_blank" class="secondary-button" style="flex-grow: 0; margin-top: 5px;">Visiter le SRD</a>
+                </li>
             </ul>
         </section>
-
-        <section class="interactive-section">
-            <h2>Section Interactive</h2>
-            <p>Cliquez sur le bouton ci-dessous pour changer la couleur de fond de cette section.</p>
-            <button id="changeColorButton">Changer la couleur</button>
-            <p id="message"></p>
-        </section>
-
-        <section class="image-section">
-            <h2>Une Image pour l'exemple</h2>
-            <p>Voici une image générée aléatoirement pour illustrer l'inclusion d'images.</p>
-            <img src="https://picsum.photos/400/250" alt="Image aléatoire" class="responsive-image">
-            <p class="image-caption">Image aléatoire de Lorem Picsum.</p>
-        </section>
     </main>
-
+    
     <footer>
-        <p>&copy; <span id="currentYear"></span> Ma Page de Test. Tous droits réservés.</p>
+        <p>&copy; 2025 Character Builder</p>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
