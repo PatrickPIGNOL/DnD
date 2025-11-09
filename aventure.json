@@ -4,7 +4,7 @@
     "steps": [
         {
             "id": "step-test",
-            "stepTitle": "1. Passer le Test de Classe (Étape 1)",
+            "stepTitle": "Passer le Test de Classe",
             "stepText": "Si vous ne l'avez pas encore fait, cliquez ci-dessous pour lancer le test qui déterminera votre classe de départ. Le Maître du Jeu ou le système vous donnera le résultat.",
             "buttonText": "Lancer le Test de Classe",
             "buttonLink": "https://docs.google.com/forms/d/e/1FAIpQLSdNma04s8TPzZP8g28kWGQxzGNa6o4os5ztF8x-V8B9ELUyRA/viewform?usp=header",
@@ -13,9 +13,9 @@
         },
         {
             "id": "step-creation",
-            "stepTitle": "2. Démarrer la Création (Étape 2)",
+            "stepTitle": "1. Créez votre personnage",
             "stepText": "Une fois que vous connaissez votre classe, vous pouvez commencer la création de votre personnage en choisissant sa race, son niveau et ses caractéristiques.",
-            "buttonText": "Commencer >> Étape 2 (Choix de Classe)",
+            "buttonText": "Créez votre personnage",
             "buttonLink": "page1_classe.html",
             "buttonClass": "button-link",
             "external": false
