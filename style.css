@@ -110,7 +110,6 @@ input[type="text"], input[type="number"], select {
     transition: background-color 0.3s ease, transform 0.1s;
     flex-grow: 1; 
     
-    /* CORRECTION CRITIQUE DU DÉBORDEMENT */
     box-sizing: border-box; 
 }
 
@@ -214,8 +213,8 @@ button[type="submit"]:hover, .button-link:hover {
 
 /* Positionnement du vrai input radio */
 .race-option-card input[type="radio"] {
-    position: static; /* Retirer le positionnement absolu pour le centrage Flexbox */
-    margin: 0; /* Réinitialiser les marges */
+    position: static; 
+    margin: 0; 
     width: 20px;
     height: 20px;
     z-index: 10;
@@ -246,54 +245,46 @@ button[type="submit"]:hover, .button-link:hover {
     border-collapse: collapse;
 }
 
-.race-layout-table th, .race-layout-table td {
+.race-layout-table td { /* Remplacé th, td par td pour adhérer aux règles sans TH */
     padding: 0; 
     border: none;
     vertical-align: top;
 }
 
+/* COLONNE 1 (Radio) */
 .radio-cell {
     width: 40px; 
-    /* C'est ici que le centrage fonctionne */
+    /* Centrage parfait via Flexbox pour le rowspan */
     display: flex; 
-    justify-content: center; /* Centrage horizontal */
-    align-items: center; /* Centrage vertical (grâce au rowspan=2) */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
     
-    padding: 0 10px; /* Espace autour du radio */
+    padding: 0 10px; 
 }
 
+/* Titre de la Race (Colspan 2) */
 .race-header-title {
     background-color: #252525; 
     color: var(--couleur-accent);
     font-size: 1.3em;
     font-weight: bold;
     text-align: left;
-    /* Suppression du padding-top (était 15px) */
-    padding: 5px 10px 10px 5px; /* Nouveau padding: Haut=5px, Bas=10px */
+    /* PADDING COLLÉ AU SOMMET (Haut=0) */
+    padding: 0 10px 10px 5px; /* Haut=0, Bas=10px */
     border-bottom: 2px solid var(--couleur-border);
-    vertical-align: top; /* Assure qu'il est en haut de la cellule (même si padding est faible) */
+    vertical-align: top;
 }
 
 /* COLONNE 2 (Image) */
 .race-image-cell {
     width: 100px; 
     text-align: center;
-    padding: 10px 10px 10px 0; /* Padding réduit sur le haut et le bas */
-}
-
-/* Image */
-.race-image {
-    width: 90px;
-    height: 90px;
-    object-fit: cover;
-    border-radius: 4px;
-    margin: 0 auto;
-    display: block;
+    padding: 10px 10px 10px 0; /* Padding minimal */
 }
 
 /* COLONNE 3 (Description) */
 .race-description-cell {
-    padding: 10px 10px 10px 10px; /* Padding réduit sur le haut et le bas */
+    padding: 10px 10px 10px 10px; /* Padding minimal */
     text-align: left;
 }
 
@@ -359,13 +350,14 @@ button[type="submit"]:hover, .button-link:hover {
     border-bottom: 1px solid var(--couleur-border);
 }
 
-.resource-table thead th {
+.resource-table th { /* TH est utilisé seulement pour la table des ressources */
     background-color: #252525;
     color: var(--couleur-accent);
     border-bottom: 2px solid var(--couleur-accent);
     font-weight: bold;
     text-transform: uppercase;
 }
+
 /* Masquer les titres des colonnes 1 et 3 et ajuster leur hauteur */
 .resource-table thead th:nth-child(1),
 .resource-table thead th:nth-child(3) {

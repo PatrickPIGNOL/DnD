@@ -51,6 +51,7 @@ const mChargerRace = async () => {
             const vChecked = (vRace.nom === vRaceSelectionnee) ? 'checked' : ''; 
             
             // Structure finale en <tr> avec 3 <td>/<th>
+            // Structure stricte demandée (TD sans TH)
             const vHtml = `
                 <div class="race-option-card">
                     <input type="radio" name="pRaceSelectionnee" value="${vRace.nom}" id="vRaceRadio-${vIndex}" ${vChecked}>
@@ -59,8 +60,7 @@ const mChargerRace = async () => {
                         <table class="race-layout-table">
                             <tbody>
                                 <tr>
-                                    <td class="radio-cell" rowspan="2">
-                                        </td>
+                                    <td class="radio-cell" rowspan="2"></td>
                                     
                                     <td colspan="2" class="race-header-title">
                                         ${vRace.nom} (${vRace.bonusCarac})
