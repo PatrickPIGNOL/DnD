@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => { 
     // Variables de classe
     let aPersonnage = {};
     const vLocalStorageKey = 'personnage_en_cours';
