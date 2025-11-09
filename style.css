@@ -219,6 +219,9 @@ button[type="submit"]:hover, .button-link:hover {
     height: 20px;
     z-index: 10;
     cursor: pointer;
+    
+    /* Application du centrage vertical sur l'élément lui-même */
+    vertical-align: middle;
 }
 
 .race-option-card label {
@@ -251,13 +254,15 @@ button[type="submit"]:hover, .button-link:hover {
     vertical-align: top;
 }
 
-/* COLONNE 1 (Radio) */
 .radio-cell {
     width: 40px; 
     
-    /* Centrage classique demandé */
-    text-align: center; /* Centre horizontalement */
-    vertical-align: middle; /* Centre verticalement */
+    /* Centrage de la cellule */
+    text-align: center; 
+    vertical-align: middle; 
+    
+    /* IMPORTANT : Annuler les propriétés Flexbox précédentes */
+    display: table-cell; 
     
     padding: 0 10px; 
 }
