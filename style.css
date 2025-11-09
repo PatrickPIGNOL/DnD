@@ -1,7 +1,7 @@
 /* Import de la police - Roboto Slab pour un look de 'manuel' ou de 'parchemin' */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap');
 
-/* Variables pour le thème */
+/* Variables pour le thème DnD Noir & Rouge */
 :root {
     --couleur-fond: #121212; /* Noir très foncé, presque anthracite */
     --couleur-fond-section: #1E1E1E; /* Fond des blocs intérieurs */
@@ -51,7 +51,6 @@ section {
     padding: 20px;
     margin-bottom: 25px;
     border-radius: 5px;
-    /* Ombre rouge subtile pour faire ressortir le bloc */
     box-shadow: 0 0 10px rgba(176, 0, 32, 0.5); 
 }
 
@@ -125,30 +124,25 @@ button[type="submit"]:hover, .button-link:hover {
 
 /* Bouton Secondaire (Retour/Autre) */
 .secondary-button {
-    /* Styles existants... */
     background-color: var(--couleur-border);
     color: var(--couleur-texte-principal);
-    
-    /* NOUVELLE RÈGLE : Ajouter une marge externe pour éviter le chevauchement */
-    margin: 30px 10px 30px 0; 
-    /*padding: 12px 25px;*/
+    /* Marge ajoutée pour éviter le chevauchement (comme discuté) */
+    margin: 5px 10px 5px 0; 
+    flex-grow: 0; /* Ne doit pas grandir dans la flexbox */
 }
 
 .secondary-button:hover {
     background-color: #444444;
 }
 
-
 /* 4. Styles Spécifiques à la Page 1 (Sélection de Classe) */
-
 .classe-options-list {
     display: flex;
     flex-direction: column;
-    gap: 0; /* Pas d'espace entre les éléments pour que les <hr> soient contigus */
+    gap: 0; 
     margin-top: 20px;
 }
 
-/* Enlève les styles de section par défaut pour les cartes */
 .classe-option-card { margin-bottom: 0; border: none; padding: 0; background-color: transparent; box-shadow: none; }
 
 .classe-item-container { 
@@ -157,7 +151,6 @@ button[type="submit"]:hover, .button-link:hover {
     border-radius: 5px; 
     border: 1px solid var(--couleur-border); 
     display: grid;
-    /* 3 colonnes : Radio | Image/Infos */
     grid-template-columns: 1fr;
     gap: 10px;
 }
@@ -191,17 +184,14 @@ button[type="submit"]:hover, .button-link:hover {
 .classe-details { flex-grow: 1; }
 .classe-details p { margin: 0; font-size: 0.95em; }
 
-/* Alignement du radio button à côté de l'image/texte */
 .classe-content input[type="radio"] { 
     align-self: center; 
-    margin-right: -5px; /* Petit ajustement visuel */
+    margin-right: -5px; 
 }
 
 
 /* 5. Styles Spécifiques à la Page 2 (Sélection de Race) */
-
 .race-options-grid {
-    /* Liste verticale */
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -218,7 +208,6 @@ button[type="submit"]:hover, .button-link:hover {
 }
 
 .race-option-card label {
-    /* Colonnes : Radio (30px) | Image (100px) | Nom/Description (prend l'espace) */
     display: grid;
     grid-template-columns: 30px 100px 1fr; 
     gap: 15px;
@@ -273,10 +262,9 @@ button[type="submit"]:hover, .button-link:hover {
 
 
 /* 6. Styles Spécifiques à la Page 3 (Caractéristiques) */
-
 .carac-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adaptatif */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
     gap: 15px;
     margin-top: 20px;
     padding: 10px;
@@ -313,8 +301,47 @@ button[type="submit"]:hover, .button-link:hover {
     margin-top: 5px;
 }
 
+/* 7. Styles pour les Tables de Ressources (index.html) */
+.resource-table {
+    width: 100%;
+    border-collapse: collapse; 
+    margin-top: 20px;
+    font-size: 0.95em;
+}
 
-/* 7. Footer */
+.resource-table th, .resource-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--couleur-border);
+}
+
+.resource-table thead th {
+    background-color: #252525;
+    color: var(--couleur-accent);
+    border-bottom: 2px solid var(--couleur-accent);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.resource-table tbody tr:hover {
+    background-color: #333333;
+}
+
+/* Ciblage de la colonne Action (la 3ème) */
+.resource-table td:nth-child(3) {
+    text-align: right; /* Aligner le contenu à droite */
+    width: 150px; 
+    vertical-align: top;
+}
+
+.resource-table .secondary-button {
+    display: inline-block; 
+    margin: 0; 
+    padding: 8px 15px;
+}
+
+
+/* 8. Footer */
 footer {
     text-align: center;
     padding: 15px;
