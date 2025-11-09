@@ -126,9 +126,8 @@ button[type="submit"]:hover, .button-link:hover {
 .secondary-button {
     background-color: var(--couleur-border);
     color: var(--couleur-texte-principal);
-    /* Marge ajoutée pour éviter le chevauchement (comme discuté) */
     margin: 5px 10px 5px 0; 
-    flex-grow: 0; /* Ne doit pas grandir dans la flexbox */
+    flex-grow: 0; 
 }
 
 .secondary-button:hover {
@@ -303,7 +302,7 @@ button[type="submit"]:hover, .button-link:hover {
 
 /* 7. Styles pour les Tables de Ressources (index.html) */
 .resource-table {
-    width: 100%;
+    width: 100%; /* Tableau étendu au maximum */
     border-collapse: collapse; 
     margin-top: 20px;
     font-size: 0.95em;
@@ -322,14 +321,38 @@ button[type="submit"]:hover, .button-link:hover {
     font-weight: bold;
     text-transform: uppercase;
 }
+/* Masquer les titres des colonnes 1 et 3 et ajuster leur hauteur */
+.resource-table thead th:nth-child(1),
+.resource-table thead th:nth-child(3) {
+    color: transparent; 
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+/* Centrer le titre "Ressources" */
+.resource-table thead th:nth-child(2) {
+    text-align: center;
+}
 
 .resource-table tbody tr:hover {
     background-color: #333333;
 }
 
-/* Ciblage de la colonne Action (la 3ème) */
+/* 1ère colonne (Nom de la ressource) : Largeur fixe */
+.resource-table td:nth-child(1) {
+    width: 15%; 
+    font-weight: bold;
+    vertical-align: top;
+}
+
+/* 2ème colonne (Description) : Prend tout l'espace restant */
+.resource-table td:nth-child(2) {
+    vertical-align: top;
+}
+
+/* 3ème colonne (Action) : Largeur fixe et alignement à droite */
 .resource-table td:nth-child(3) {
-    text-align: right; /* Aligner le contenu à droite */
+    text-align: right; 
     width: 150px; 
     vertical-align: top;
 }
