@@ -333,11 +333,11 @@ button[type="submit"]:hover, .button-link:hover {
 .resource-table thead th:nth-child(2) {
     text-align: center;
 }
-
+/*
 .resource-table tbody tr:hover {
     background-color: #333333;
 }
-
+*/
 /* 1ère colonne (Nom de la ressource) : Largeur fixe */
 .resource-table td:nth-child(1) {
     width: 15%; 
@@ -358,8 +358,11 @@ button[type="submit"]:hover, .button-link:hover {
 }
 
 .resource-table .secondary-button {
-    display: inline-block; 
-    margin: 0; 
+    /* Nouvelle règle : Force la largeur 100% pour occuper la cellule */
+    display: block; 
+    width: 100%;
+    text-align: center;
+    margin: 0; /* Pas de marge parasite */
     padding: 8px 15px;
 }
 
