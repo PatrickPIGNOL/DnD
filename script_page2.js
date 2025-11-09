@@ -50,35 +50,33 @@ const mChargerRace = async () => {
         vRacesData.forEach((vRace, vIndex) => {
             const vChecked = (vRace.nom === vRaceSelectionnee) ? 'checked' : ''; 
             
-            // Structure finale en <tr> avec 3 <td>/<th>
-            // Structure stricte demandée (TD sans TH)
+            // Structure finale qui place le radio DANS le tableau
             const vHtml = `
-                <div class="race-option-card">
-                    <input type="radio" name="pRaceSelectionnee" value="${vRace.nom}" id="vRaceRadio-${vIndex}" ${vChecked}>
+                <div class="race-option-card" onclick="document.getElementById('vRaceRadio-${vIndex}').checked = true;">
                     
-                    <label for="vRaceRadio-${vIndex}">
-                        <table class="race-layout-table">
-                            <tbody>
-                                <tr>
-                                    <td class="radio-cell" rowspan="2"></td>
-                                    
-                                    <td colspan="2" class="race-header-title">
-                                        ${vRace.nom} (${vRace.bonusCarac})
-                                    </td>
-                                </tr>
+                    <table class="race-layout-table">
+                        <tbody>
+                            <tr>
+                                <td class="radio-cell" rowspan="2">
+                                    <input type="radio" name="pRaceSelectionnee" value="${vRace.nom}" id="vRaceRadio-${vIndex}" ${vChecked}>
+                                </td>
                                 
-                                <tr>
-                                    <td class="race-image-cell">
-                                        <img src="${vRace.image_url}" alt="Image de ${vRace.nom}" class="race-image">
-                                    </td>
-                                    
-                                    <td class="race-description-cell">
-                                        <div class="race-description">${vRace.description}</div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </label>
+                                <td colspan="2" class="race-header-title">
+                                    ${vRace.nom} (${vRace.bonusCarac})
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="race-image-cell">
+                                    <img src="${vRace.image_url}" alt="Image de ${vRace.nom}" class="race-image">
+                                </td>
+                                <td class="race-description-cell">
+                                    <div class="race-description">${vRace.description}</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
                 </div>
             `;
             vOptionsContainer.innerHTML += vHtml;
