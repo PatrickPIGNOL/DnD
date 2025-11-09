@@ -252,34 +252,33 @@ button[type="submit"]:hover, .button-link:hover {
     vertical-align: top;
 }
 
-/* COLONNE 1 (Radio) */
 .radio-cell {
     width: 40px; 
-    /* Flexbox pour le centrage horizontal et vertical */
+    /* C'est ici que le centrage fonctionne */
     display: flex; 
-    justify-content: center; 
-    align-items: center; 
+    justify-content: center; /* Centrage horizontal */
+    align-items: center; /* Centrage vertical (grâce au rowspan=2) */
     
-    padding: 0 10px; 
+    padding: 0 10px; /* Espace autour du radio */
 }
 
-/* Titre de la Race (Colspan 2) */
 .race-header-title {
     background-color: #252525; 
     color: var(--couleur-accent);
     font-size: 1.3em;
     font-weight: bold;
     text-align: left;
-    padding: 15px 10px 10px 5px; 
+    /* Suppression du padding-top (était 15px) */
+    padding: 5px 10px 10px 5px; /* Nouveau padding: Haut=5px, Bas=10px */
     border-bottom: 2px solid var(--couleur-border);
-    vertical-align: top;
+    vertical-align: top; /* Assure qu'il est en haut de la cellule (même si padding est faible) */
 }
 
 /* COLONNE 2 (Image) */
 .race-image-cell {
     width: 100px; 
     text-align: center;
-    padding: 10px 10px 20px 0; 
+    padding: 10px 10px 10px 0; /* Padding réduit sur le haut et le bas */
 }
 
 /* Image */
@@ -294,7 +293,7 @@ button[type="submit"]:hover, .button-link:hover {
 
 /* COLONNE 3 (Description) */
 .race-description-cell {
-    padding: 10px 10px 20px 10px; 
+    padding: 10px 10px 10px 10px; /* Padding réduit sur le haut et le bas */
     text-align: left;
 }
 

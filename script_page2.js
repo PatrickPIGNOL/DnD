@@ -50,7 +50,7 @@ const mChargerRace = async () => {
         vRacesData.forEach((vRace, vIndex) => {
             const vChecked = (vRace.nom === vRaceSelectionnee) ? 'checked' : ''; 
             
-            // Utilisez <table> et <td> pour la structure demandée
+            // Structure finale en <tr> avec 3 <td>/<th>
             const vHtml = `
                 <div class="race-option-card">
                     <input type="radio" name="pRaceSelectionnee" value="${vRace.nom}" id="vRaceRadio-${vIndex}" ${vChecked}>
