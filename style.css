@@ -209,16 +209,25 @@ button[type="submit"]:hover, .button-link:hover {
     position: relative;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    padding: 0; 
+}
+
+/* Positionnement du vrai input radio (pour le rendre cliquable et visible) */
+.race-option-card input[type="radio"] {
+    position: absolute;
+    top: 5px; 
+    left: 5px;
+    z-index: 10;
+    margin: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
 }
 
 .race-option-card label {
-    display: grid;
-    grid-template-columns: 30px 100px 1fr; 
-    gap: 15px;
-    padding: 15px;
+    display: block; 
+    padding: 0; 
     cursor: pointer;
-    align-items: center; 
-    min-height: 100px;
     margin-top: 0;
 }
 
@@ -226,42 +235,73 @@ button[type="submit"]:hover, .button-link:hover {
     background-color: #333333;
 }
 
-.race-option-card input[type="radio"] {
-    width: 20px;
-    height: 20px;
-    margin: 0;
-    align-self: flex-start;
-    cursor: pointer;
-}
-
-.race-image {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border: 2px solid var(--couleur-border);
-    border-radius: 4px;
-}
-
-.race-info {
-    padding-right: 10px;
-}
-
-.race-name {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: var(--couleur-accent);
-    margin-bottom: 5px;
-}
-
-.race-description {
-    font-size: 0.9em;
-    color: var(--couleur-texte-secondaire);
-}
-
+/* Style de la carte sélectionnée */
 .race-option-card input[type="radio"]:checked + label {
     background-color: #38000A; 
     border-color: var(--couleur-accent-hover);
     box-shadow: 0 0 15px rgba(176, 0, 32, 0.9);
+}
+
+/* --- Styles du Tableau Interne (race-layout-table) --- */
+.race-layout-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.race-layout-table th, .race-layout-table td {
+    padding: 0; /* Gérer le padding des cellules individuellement */
+    border: none;
+    vertical-align: top;
+}
+
+/* COLONNE 1 (Radio) */
+.radio-cell {
+    width: 40px; /* Largeur fixe pour la colonne du radio bouton */
+    text-align: center;
+    padding: 0 10px; 
+    vertical-align: middle; 
+}
+
+/* Titre de la Race (Colspan 2) */
+.race-header-title {
+    background-color: #252525; 
+    color: var(--couleur-accent);
+    font-size: 1.3em;
+    font-weight: bold;
+    text-align: left;
+    padding: 15px 10px 10px 5px; 
+    border-bottom: 2px solid var(--couleur-border);
+    vertical-align: top;
+}
+
+/* COLONNE 2 (Image) */
+.race-image-cell {
+    width: 100px; 
+    text-align: center;
+    padding: 10px 10px 20px 0; 
+}
+
+/* Image */
+.race-image {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin: 0 auto;
+    display: block;
+}
+
+/* COLONNE 3 (Description) */
+.race-description-cell {
+    padding: 10px 10px 20px 10px; 
+    text-align: left;
+}
+
+/* Le texte de description */
+.race-description {
+    font-size: 0.9em;
+    color: var(--couleur-texte-secondaire);
+    padding-right: 10px;
 }
 
 
