@@ -1,122 +1,190 @@
-/* Styles de base */
+/* Import de la police - Roboto Slab pour un look de 'manuel' ou de 'parchemin' */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap');
+
+/* Variables pour le thème */
+:root {
+    --couleur-fond: #121212; /* Noir très foncé, presque anthracite */
+    --couleur-texte-principal: #F0F0F0; /* Blanc cassé */
+    --couleur-accent: #B00020; /* Rouge profond (Crimson) */
+    --couleur-border: #333333; /* Gris foncé pour les séparations */
+    --couleur-texte-secondaire: #AAAAAA;
+    --font-principal: 'Roboto Slab', serif;
+}
+
+/* Styles Généraux */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--font-principal);
+    background-color: var(--couleur-fond);
+    color: var(--couleur-texte-principal);
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Pour que le footer reste en bas */
+    min-height: 100vh;
 }
 
 header {
-    background-color: #0056b3;
+    background-color: var(--couleur-accent);
     color: white;
-    padding: 1rem 0;
+    padding: 20px;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-bottom: 3px solid var(--couleur-texte-principal);
 }
 
 header h1 {
     margin: 0;
     font-size: 2.5em;
-}
-
-header p {
-    font-size: 1.1em;
-    opacity: 0.9;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 main {
-    flex: 1; /* Pour que le main prenne l'espace disponible */
     max-width: 900px;
-    margin: 20px auto;
+    margin: 30px auto;
     padding: 20px;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    border-radius: 8px;
 }
 
 section {
-    margin-bottom: 30px;
+    background-color: #1E1E1E; /* Léger décalage par rapport au fond */
+    border: 1px solid var(--couleur-accent);
     padding: 20px;
-    border-left: 5px solid #007bff;
-    background-color: #f9f9f9;
+    margin-bottom: 25px;
     border-radius: 5px;
+    box-shadow: 0 0 10px rgba(176, 0, 32, 0.3); /* Ombre rouge subtile */
 }
 
-section h2 {
-    color: #007bff;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
+h2 {
+    color: var(--couleur-accent);
+    border-bottom: 2px solid var(--couleur-border);
+    padding-bottom: 5px;
     margin-top: 0;
 }
 
-ul {
-    list-style-type: disc;
-    margin-left: 20px;
+hr {
+    border: 0;
+    height: 1px;
+    background-color: var(--couleur-border);
+    margin: 20px 0;
 }
 
-/* Section interactive */
-.interactive-section {
-    background-color: #e6f7ff;
-    border-left-color: #28a745;
-    transition: background-color 0.5s ease; /* Transition douce pour le changement de couleur */
+/* Formulaires et Entrées */
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: var(--couleur-texte-principal);
 }
 
-button {
-    background-color: #28a745;
-    color: white;
+input[type="text"], input[type="number"], select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid var(--couleur-accent);
+    background-color: var(--couleur-fond);
+    color: var(--couleur-texte-principal);
+    border-radius: 3px;
+    box-sizing: border-box; /* Pour inclure padding et border dans la largeur */
+}
+
+/* Boutons et Liens */
+.button-link, button[type="submit"], .secondary-button {
+    display: inline-block;
+    padding: 12px 25px;
+    margin-right: 10px;
     border: none;
-    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1em;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
     transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #218838;
-}
-
-/* Section image */
-.image-section {
-    text-align: center;
-    border-left-color: #ffc107;
-}
-
-.responsive-image {
-    max-width: 100%;
-    height: auto;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-top: 15px;
-}
-
-.image-caption {
-    font-style: italic;
-    color: #666;
-    margin-top: 10px;
-}
-
-footer {
-    background-color: #333;
+/* Bouton Primaire (Suivant/Démarrer) */
+button[type="submit"], .button-link {
+    background-color: var(--couleur-accent);
     color: white;
-    text-align: center;
-    padding: 1rem 0;
-    margin-top: auto; /* Pousse le footer vers le bas */
 }
 
-/* Media Queries pour les petits écrans */
-@media (max-width: 768px) {
-    main {
-        margin: 10px;
-        padding: 15px;
-    }
+button[type="submit"]:hover, .button-link:hover {
+    background-color: #D32F2F; /* Rouge plus clair au survol */
+}
 
-    header h1 {
-        font-size: 1.8em;
-    }
+/* Bouton Secondaire (Retour) */
+.secondary-button {
+    background-color: var(--couleur-border);
+    color: var(--couleur-texte-principal);
+}
+
+.secondary-button:hover {
+    background-color: #444444;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    border-top: 1px solid var(--couleur-border);
+    margin-top: 40px;
+    color: var(--couleur-texte-secondaire);
+    font-size: 0.9em;
+}
+
+/* --- Styles Spécifiques à la Page 2 (Race) --- */
+
+.race-options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.race-option-card {
+    background-color: #252525;
+    border: 1px solid var(--couleur-border);
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.race-option-card label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    height: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.race-option-card label:hover {
+    background-color: #333333;
+}
+
+.race-image {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    object-fit: cover;
+    border: 1px solid var(--couleur-border);
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.race-name {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--couleur-accent);
+}
+
+/* Masquer les boutons radio natifs mais laisser le label cliquable */
+.race-option-card input[type="radio"] {
+    display: none;
+}
+
+/* Mettre en évidence la carte sélectionnée */
+.race-option-card input[type="radio"]:checked + label {
+    background-color: #38000A; /* Un rouge très foncé */
+    border: 2px solid var(--couleur-accent);
+    box-shadow: 0 0 15px var(--couleur-accent);
 }
