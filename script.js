@@ -1,16 +1,15 @@
-// Utilisation des règles de nommage personnalisées (mLoadResources, vTableBody, etc.)
+// Utilisation des règles de nommage personnalisées
 
+// Fonction pour charger et afficher les ressources utiles
 const mLoadResources = async () => {
     const vTableBody = document.getElementById('resources-table-body');
     
-    // Vérification de l'existence du corps du tableau avant de continuer
     if (!vTableBody) {
         console.error("mLoadResources - Élément 'resources-table-body' introuvable.");
         return;
     }
     
     try {
-        // Récupérer le fichier JSON
         const vResponse = await fetch('resources.json');
         
         if (!vResponse.ok) {
@@ -19,7 +18,6 @@ const mLoadResources = async () => {
         
         const vResourcesData = await vResponse.json();
 
-        // Boucler sur chaque ressource et créer la ligne de tableau (<tr>)
         vResourcesData.forEach(pResource => {
             const vRow = document.createElement('tr');
             
@@ -40,15 +38,61 @@ const mLoadResources = async () => {
 
     } catch (vError) {
         console.error("mLoadResources - Erreur lors de la construction du tableau :", vError);
-        
-        // Afficher un message d'erreur dans la page pour l'utilisateur
         vTableBody.innerHTML = `<tr><td colspan="3" style="text-align: center; color: var(--couleur-accent);">Impossible de charger les ressources.</td></tr>`;
     }
 };
 
-// Événement pour s'assurer que le DOM est complètement chargé avant d'exécuter le script.
-// C'est nécessaire si la balise <script> est placée dans le <head> (ce que l'on n'a pas fait), 
-// mais c'est une bonne pratique de s'assurer que tous les éléments existent avant de les manipuler.
+
+// NOUVELLE FONCTION : pour charger et afficher l'introduction
+const mLoadIntroSection = async () => {
+    const vSection = document.getElementById('adventure-start-section');
+    
+    if (!vSection) {
+        console.error("mLoadIntroSection - Élément 'adventure-start-section' introuvable.");
+        return;
+    }
+
+    try {
+        const vResponse = await fetch('intro.json');
+        
+        if (!vResponse.ok) {
+            throw new Error(`Erreur HTTP: Le fichier intro.json n'a pas été trouvé (Statut ${vResponse.status}).`);
+        }
+        
+        const vData = await vResponse.json();
+
+        let vHTMLContent = `<h2>${vData.title}</h2><p>${vData.introText}</p><hr>`;
+
+        vData.steps.forEach(pStep => {
+            // Détermine l'attribut target
+            const vTarget = pStep.external ? 'target="_blank"' : '';
+            
+            vHTMLContent += `
+                <h3>${pStep.stepTitle}</h3>
+                <p>${pStep.stepText}</p>
+                <a href="${pStep.buttonLink}" ${vTarget} class="${pStep.buttonClass}">${pStep.buttonText}</a>
+                <hr>
+            `;
+        });
+        
+        // Retirer le dernier <hr> superflu
+        vHTMLContent = vHTMLContent.replace(/<hr>$/, '');
+
+        vSection.innerHTML = vHTMLContent;
+
+    } catch (vError) {
+        console.error("mLoadIntroSection - Erreur lors du chargement de l'introduction :", vError);
+        vSection.innerHTML = `
+            <h2>Erreur de Chargement</h2>
+            <p style="color: var(--couleur-accent);">Impossible de charger la section d'introduction. Veuillez vérifier la console pour les détails.</p>
+        `;
+    }
+};
+
+
+// Événement pour démarrer le chargement des deux sections
 document.addEventListener('DOMContentLoaded', () => {
+    // Appel des deux fonctions de chargement
+    mLoadIntroSection();
     mLoadResources();
 });
