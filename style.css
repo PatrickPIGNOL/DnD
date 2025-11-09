@@ -212,15 +212,13 @@ button[type="submit"]:hover, .button-link:hover {
     padding: 0; 
 }
 
-/* Positionnement du vrai input radio (pour le rendre cliquable et visible) */
+/* Positionnement du vrai input radio */
 .race-option-card input[type="radio"] {
-    position: absolute;
-    top: 5px; 
-    left: 5px;
-    z-index: 10;
-    margin: 10px;
+    position: static; /* Retirer le positionnement absolu pour le centrage Flexbox */
+    margin: 0; /* Réinitialiser les marges */
     width: 20px;
     height: 20px;
+    z-index: 10;
     cursor: pointer;
 }
 
@@ -249,17 +247,20 @@ button[type="submit"]:hover, .button-link:hover {
 }
 
 .race-layout-table th, .race-layout-table td {
-    padding: 0; /* Gérer le padding des cellules individuellement */
+    padding: 0; 
     border: none;
     vertical-align: top;
 }
 
 /* COLONNE 1 (Radio) */
 .radio-cell {
-    width: 40px; /* Largeur fixe pour la colonne du radio bouton */
-    text-align: center;
+    width: 40px; 
+    /* Flexbox pour le centrage horizontal et vertical */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    
     padding: 0 10px; 
-    vertical-align: middle; 
 }
 
 /* Titre de la Race (Colspan 2) */
