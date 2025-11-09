@@ -3,31 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Étape 2 : Choix de la Race</title>
+    <title>Créateur de Personnage - Étape 2 : Choix de Race</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Création de Personnage - Étape 2/11</h1>
-        <p>Votre Classe actuelle : <strong id="vClasseAffichee">... Chargement ...</strong></p>
+        <h1>🧬 Étape 2 : Choisissez votre Race</h1>
     </header>
 
     <main>
-        <form id="raceSelectionForm">
-            <h2>Choisissez votre Race</h2>
-            <p>Sélectionnez une race compatible pour votre classe. Les images ci-dessous illustrent cette combinaison (si disponibles).</p>
+        <section>
+            <h2>Origines et Traits</h2>
+            <p>La race détermine l'apparence physique de votre personnage, sa longévité, et lui confère des **bonus de caractéristiques** ainsi que des **traits spéciaux**.</p>
             
-            <div id="vRaceOptionsContainer" class="race-options-grid">
+            <form id="raceSelectionForm">
+                
+                <div id="vRaceOptionsContainer" class="race-options-grid">
+                    <div id="vLoadingMessage">Chargement des options de race...</div>
                 </div>
 
-            <p id="vErrorMessage" style="color: red; margin-top: 20px;"></p>
-            <div class="navigation-buttons">
-                <button type="button" onclick="window.location.href='page1_classe.html'" class="secondary-button">Retour</button>
-                <button type="submit" id="vNextButton">Suivant >> Étape 3</button>
-            </div>
-        </form>
-    </main>
+                <div id="vErrorMessage" style="color: var(--couleur-accent); margin-top: 15px;"></div>
 
+                <div class="navigation-buttons">
+                    <a href="page1_classe.html" class="secondary-button">Retour</a>
+                    <button type="submit" id="vNextButton" disabled>Continuer vers Caractéristiques >> (Étape 3)</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    
     <footer>
         <p>&copy; 2025 Character Builder</p>
     </footer>

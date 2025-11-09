@@ -1,123 +1,144 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Variable pour l'objet Personnage
-    let aPersonnage = {};
-    // Constante pour le nom de la clé de stockage
-    const vLocalStorageKey = 'personnage_en_cours';
-
-    // Variables DOM
-    const vClasseAffichee = document.getElementById('vClasseAffichee');
-    const vRaceOptionsContainer = document.getElementById('vRaceOptionsContainer');
+const mChargerRace = async () => {
+    // Variables locales pour les éléments du DOM
     const vForm = document.getElementById('raceSelectionForm');
+    const vOptionsContainer = document.getElementById('vRaceOptionsContainer');
+    const vLoadingMessage = document.getElementById('vLoadingMessage');
+    const vNextButton = document.getElementById('vNextButton');
     const vErrorMessage = document.getElementById('vErrorMessage');
-
-    // ** DONNÉES SIMULÉES : REMPLACER PAR LE CHARGEMENT DE classes.json **
-    // Dans votre code final, cette donnée sera chargée via un fetch('classes.json')
-    const vClassesDataSimule = [
-        {
-            aNom: "Guerrier",
-            aRacesPreferees: ["Humain", "Nain", "Demi-Orque", "Elfe"],
-            aImagesPath: "images/Guerrier"
-        },
-        {
-            aNom: "Mage",
-            aRacesPreferees: ["Elfe", "Tieffelin", "Gnome"],
-            aImagesPath: "images/Mage"
-        },
-        // ... (ajouter les autres classes ici)
-    ];
+    
+    // État
+    let vRacesData = [];
+    let personnage = null;
+    const localStorageKey = 'personnage_en_cours';
 
     /**
-     * @method mChargerSessionEtInitialiser
-     * @description Charge la session du localStorage et prépare l'affichage.
-     * @returns {boolean} Vrai si le chargement a réussi.
+     * @method mChargerEtatInitial
+     * @description Charge l'état du personnage depuis le localStorage.
      */
-    function mChargerSessionEtInitialiser() {
-        const vPersonnageJson = localStorage.getItem(vLocalStorageKey);
-
-        if (!vPersonnageJson) {
-            alert("Session expirée ou non démarrée. Redirection vers l'Étape 1.");
-            window.location.href = 'page1_classe.html';
-            return false;
+    function mChargerEtatInitial() {
+        const vPersonnageJson = localStorage.getItem(localStorageKey);
+        if (vPersonnageJson) {
+            personnage = JSON.parse(vPersonnageJson);
+            
+            // Vérification de la continuité (doit avoir une classe)
+            if (!personnage.aClasse) {
+                // Si la classe manque, rediriger ou désactiver
+                // window.location.href = 'page1_classe.html'; 
+                vErrorMessage.textContent = "Erreur de session. Veuillez choisir une classe en premier.";
+                vNextButton.disabled = true;
+            } else if (personnage.aRace) {
+                // Activer le bouton si un choix existe déjà
+                vNextButton.disabled = false;
+            }
+        } else {
+             // Si aucune session, redirection vers le début
+             vErrorMessage.textContent = "Session de personnage introuvable.";
+             vNextButton.disabled = true;
+             // window.location.href = 'index.html';
         }
-
-        this.aPersonnage = JSON.parse(vPersonnageJson);
-
-        // Afficher la classe chargée
-        this.vClasseAffichee.textContent = this.aPersonnage.aClasse;
-
-        // Trouver les données de la classe dans notre base de données locale
-        const vDefClasse = this.vClassesDataSimule.find(vC => vC.aNom === this.aPersonnage.aClasse);
-
-        if (!vDefClasse) {
-            this.vRaceOptionsContainer.innerHTML = "<p>Erreur : Définition de la classe non trouvée.</p>";
-            return false;
-        }
-
-        mAfficherOptionsRace(vDefClasse);
-        return true;
     }
 
     /**
-     * @method mAfficherOptionsRace
-     * @param {object} pDefClasse - Définition de la classe actuelle.
+     * @method mAfficherListeRaces
+     * @description Injecte le HTML pour chaque race disponible.
      */
-    function mAfficherOptionsRace(pDefClasse) {
-        this.vRaceOptionsContainer.innerHTML = '';
+    function mAfficherListeRaces() {
+        vOptionsContainer.innerHTML = '';
         
-        pDefClasse.aRacesPreferees.forEach((vRace) => {
-            const vRaceElement = document.createElement('div');
-            vRaceElement.className = 'race-option-card';
+        const vRaceSelectionnee = personnage ? personnage.aRace : null;
+
+        vRacesData.forEach((vRace, vIndex) => {
+            const vChecked = (vRace.nom === vRaceSelectionnee) ? 'checked' : ''; 
             
-            // Le nom d'image est construit avec le chemin de la classe et le nom de la race en minuscules
-            const vImagePath = `${pDefClasse.aImagesPath}/${vRace.toLowerCase()}.jpg`;
-            
-            vRaceElement.innerHTML = `
-                <input type="radio" name="pRaceSelectionnee" value="${vRace}" id="vRace-${vRace}">
-                <label for="vRace-${vRace}">
-                    <img src="${vImagePath}" alt="${vRace} ${pDefClasse.aNom}" class="race-image">
-                    <span class="race-name">${vRace}</span>
-                </label>
+            const vHtml = `
+                <div class="race-option-card">
+                    <input type="radio" name="pRaceSelectionnee" value="${vRace.nom}" id="vRaceRadio-${vIndex}" ${vChecked}>
+                    <label for="vRaceRadio-${vIndex}">
+                        <img src="${vRace.image_url}" alt="Image de ${vRace.nom}" class="race-image">
+                        <div class="race-info">
+                            <div class="race-name">${vRace.nom} (${vRace.bonusCarac})</div>
+                            <div class="race-description">${vRace.description}</div>
+                        </div>
+                    </label>
+                </div>
             `;
-            this.vRaceOptionsContainer.appendChild(vRaceElement);
+            vOptionsContainer.innerHTML += vHtml;
         });
-        
-        // Pré-sélectionner la race si elle existe déjà dans l'objet aPersonnage
-        if (this.aPersonnage.aRace) {
-            const vRadio = document.getElementById(`vRace-${this.aPersonnage.aRace}`);
-            if (vRadio) vRadio.checked = true;
-        }
+
+        // Écouteur de changement pour vérifier la sélection
+        vOptionsContainer.addEventListener('change', mVerifierSelection);
+    }
+    
+    /**
+     * @method mVerifierSelection
+     * @description Active/Désactive le bouton suivant lors du choix.
+     */
+    function mVerifierSelection() {
+        vNextButton.disabled = !vForm.querySelector('input[name="pRaceSelectionnee"]:checked');
     }
 
     /**
      * @method mSoumettreRaceEtContinuer
-     * @description Valide la sélection, sauvegarde la race et passe à l'étape 3.
+     * @description Enregistre le choix et passe à l'étape suivante.
      */
     function mSoumettreRaceEtContinuer(pEvent) {
         pEvent.preventDefault();
-        this.vErrorMessage.textContent = '';
+        vErrorMessage.textContent = '';
         
-        // Récupérer la valeur du radio button sélectionné
-        const vRaceSelectionneeElement = this.vForm.querySelector('input[name="pRaceSelectionnee"]:checked');
-
-        if (!vRaceSelectionneeElement) {
-            this.vErrorMessage.textContent = "Veuillez sélectionner une race pour continuer.";
+        const vSelectionne = vForm.querySelector('input[name="pRaceSelectionnee"]:checked');
+        
+        if (!vSelectionne) {
+            vErrorMessage.textContent = "Veuillez sélectionner une race.";
             return;
         }
+
+        const vRaceNom = vSelectionne.value;
         
-        const vRaceChoisie = vRaceSelectionneeElement.value;
-        
-        // Mise à jour de l'objet Personnage
-        this.aPersonnage.aRace = vRaceChoisie;
-        
-        // Sauvegarde de l'état dans le localStorage
-        localStorage.setItem(vLocalStorageKey, JSON.stringify(this.aPersonnage));
-        
-        // Redirection vers l'étape 3
-        window.location.href = 'page3_niveau_carac.html';
+        // Mise à jour de l'Objet Personnage dans le localStorage
+        if (personnage) {
+            personnage.aRace = vRaceNom;
+            
+            // Si la race change, les caractéristiques générées précédemment ne sont plus valides (bonus différents)
+            // Donc, on réinitialise l'étape des caractéristiques
+            personnage.aScoreCarac = null; 
+            
+            // Stockage et redirection (vers la page 3 : Caractéristiques/Niveau)
+            localStorage.setItem(localStorageKey, JSON.stringify(personnage));
+            window.location.href = 'page3_niveau_carac.html'; 
+        } else {
+             vErrorMessage.textContent = "Erreur: Session de personnage introuvable.";
+             // window.location.href = 'index.html';
+        }
     }
 
-    // --- INITIALISATION ---
-    if (mChargerSessionEtInitialiser()) {
-        this.vForm.addEventListener('submit', mSoumettreRaceEtContinuer);
+
+    // --- INITIALISATION PRINCIPALE ---
+    mChargerEtatInitial();
+    
+    try {
+        // Charger les données JSON
+        const vResponse = await fetch('races.json');
+        
+        if (!vResponse.ok) {
+            throw new Error(`Erreur de chargement du fichier (Statut ${vResponse.status}).`);
+        }
+        
+        vRacesData = await vResponse.json();
+        
+        vLoadingMessage.style.display = 'none';
+        mAfficherListeRaces();
+        
+    } catch (vError) {
+        console.error("Erreur critique lors du chargement de races.json:", vError);
+        vLoadingMessage.style.display = 'none';
+        vErrorMessage.textContent = `Erreur : Impossible de charger les options de race.`;
+        vNextButton.disabled = true; 
     }
-});
+
+    if (vForm) {
+        vForm.addEventListener('submit', mSoumettreRaceEtContinuer);
+    }
+};
+
+// Démarrer le processus une fois que le DOM est complètement chargé
+document.addEventListener('DOMContentLoaded', mChargerRace);
