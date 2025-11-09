@@ -1,26 +1,54 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Mettre à jour l'année dans le footer
-    const currentYearSpan = document.getElementById('currentYear');
-    if (currentYearSpan) {
-        currentYearSpan.textContent = new Date().getFullYear();
+// Utilisation des règles de nommage personnalisées (mLoadResources, vTableBody, etc.)
+
+const mLoadResources = async () => {
+    const vTableBody = document.getElementById('resources-table-body');
+    
+    // Vérification de l'existence du corps du tableau avant de continuer
+    if (!vTableBody) {
+        console.error("mLoadResources - Élément 'resources-table-body' introuvable.");
+        return;
     }
+    
+    try {
+        // Récupérer le fichier JSON
+        const vResponse = await fetch('resources.json');
+        
+        if (!vResponse.ok) {
+            throw new Error(`Erreur HTTP: Le fichier resources.json n'a pas été trouvé (Statut ${vResponse.status}).`);
+        }
+        
+        const vResourcesData = await vResponse.json();
 
-    // Gérer le bouton de changement de couleur
-    const changeColorButton = document.getElementById('changeColorButton');
-    const interactiveSection = document.querySelector('.interactive-section');
-    const messageParagraph = document.getElementById('message');
+        // Boucler sur chaque ressource et créer la ligne de tableau (<tr>)
+        vResourcesData.forEach(pResource => {
+            const vRow = document.createElement('tr');
+            
+            vRow.innerHTML = `
+                <td data-label="Ressource">
+                    <strong>${pResource.name}</strong>
+                </td>
+                <td data-label="Description">
+                    ${pResource.description}
+                </td>
+                <td data-label="Action">
+                    <a href="${pResource.link}" target="_blank" class="secondary-button">${pResource.buttonText}</a>
+                </td>
+            `;
 
-    if (changeColorButton && interactiveSection && messageParagraph) {
-        const colors = ['#e6f7ff', '#fff0e6', '#e6ffe6', '#f7e6ff']; // Couleurs pastel
-        let currentColorIndex = 0;
-
-        changeColorButton.addEventListener('click', () => {
-            currentColorIndex = (currentColorIndex + 1) % colors.length;
-            interactiveSection.style.backgroundColor = colors[currentColorIndex];
-            messageParagraph.textContent = `La couleur a été changée en : ${colors[currentColorIndex]}`;
-            console.log(`Couleur changée en ${colors[currentColorIndex]}`);
+            vTableBody.appendChild(vRow);
         });
-    } else {
-        console.warn("Un élément JS n'a pas été trouvé (bouton, section interactive ou paragraphe de message).");
+
+    } catch (vError) {
+        console.error("mLoadResources - Erreur lors de la construction du tableau :", vError);
+        
+        // Afficher un message d'erreur dans la page pour l'utilisateur
+        vTableBody.innerHTML = `<tr><td colspan="3" style="text-align: center; color: var(--couleur-accent);">Impossible de charger les ressources.</td></tr>`;
     }
+};
+
+// Événement pour s'assurer que le DOM est complètement chargé avant d'exécuter le script.
+// C'est nécessaire si la balise <script> est placée dans le <head> (ce que l'on n'a pas fait), 
+// mais c'est une bonne pratique de s'assurer que tous les éléments existent avant de les manipuler.
+document.addEventListener('DOMContentLoaded', () => {
+    mLoadResources();
 });
