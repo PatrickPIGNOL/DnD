@@ -15,6 +15,6 @@
         "nom": "Humain",
         "description": "Les plus adaptables et ambitieux des peuples. Ils excellent dans tous les domaines, mais pour une courte durée.",
         "bonusCarac": "+1 à toutes les caractéristiques",
-        "image_url": "images/races/humain.png"
+        "image_url": "images/races/humain.jpg"
     }
 ]
