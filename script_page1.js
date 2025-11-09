@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Variables pour les éléments du DOM
+    // Variables locales pour les éléments du DOM (sans 'this.')
     const vForm = document.getElementById('classSelectionForm');
     const vClassesOptionsContainer = document.getElementById('vClassesOptionsContainer');
     const vLoadingMessage = document.getElementById('vLoadingMessage');
     const vNextButton = document.getElementById('vNextButton');
     const vErrorMessage = document.getElementById('vErrorMessage');
     
-    // Attributs de la classe (stockage des données)
-    let aClassesData = [];
-    const vLocalStorageKey = 'personnage_en_cours';
+    // Variables pour l'état de l'application (sans 'a' car dans la portée locale du script)
+    let classesData = [];
+    const localStorageKey = 'personnage_en_cours';
 
     /**
      * @method mChargerClasses
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     async function mChargerClasses() {
         try {
-            // Requête GET vers le fichier statique
+            // Utilisation du chemin relatif réel vers le fichier de données
             const vResponse = await fetch('classes.json');
             
             if (!vResponse.ok) {
@@ -24,16 +24,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error(`Erreur HTTP: Le fichier classes.json n'a pas été trouvé (Statut ${vResponse.status}).`);
             }
             
-            this.aClassesData = await vResponse.json();
+            classesData = await vResponse.json();
             
-            this.vLoadingMessage.style.display = 'none';
+            vLoadingMessage.style.display = 'none';
             mAfficherListeClasses();
             
         } catch (vError) {
-            console.error("Erreur lors du chargement de classes.json:", vError);
-            // AFFICHAGE DE L'ERREUR DANS LE DOM UNIQUEMENT, AUCUN POPUP D'ALERTE
-            this.vLoadingMessage.style.display = 'none';
-            this.vErrorMessage.textContent = `Erreur : Impossible de charger les options de classe. Détails : ${vError.message}`;
+            console.error("Erreur critique lors du chargement de classes.json:", vError);
+            // Affichage de l'erreur dans le DOM
+            vLoadingMessage.style.display = 'none';
+            vErrorMessage.textContent = `Erreur : Impossible de charger les options de classe. Vérifiez la Console (F12) pour les détails.`;
+            vNextButton.disabled = true; // Bloque la suite si les données ne sont pas chargées
         }
     }
 
@@ -42,9 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
      * @description Injecte le HTML pour chaque classe dans le conteneur.
      */
     function mAfficherListeClasses() {
-        this.vClassesOptionsContainer.innerHTML = '';
+        vClassesOptionsContainer.innerHTML = '';
         
-        this.aClassesData.forEach((vClasse, vIndex) => {
+        classesData.forEach((vClasse, vIndex) => {
             const vHtml = `
                 <div class="classe-option-card">
                     <hr>
@@ -58,19 +59,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     </label>
                 </div>
             `;
-            this.vClassesOptionsContainer.innerHTML += vHtml;
+            vClassesOptionsContainer.innerHTML += vHtml;
         });
 
-        this.vNextButton.disabled = false;
-        this.vClassesOptionsContainer.addEventListener('change', mVerifierSelection);
+        // Activation du bouton et écouteur de changement
+        vNextButton.disabled = false;
+        vClassesOptionsContainer.addEventListener('change', mVerifierSelection);
     }
     
     /**
      * @method mVerifierSelection
-     * @description Vérifie si une classe est cochée.
+     * @description Active/Désactive le bouton suivant selon la sélection.
      */
     function mVerifierSelection() {
-        this.vNextButton.disabled = !this.vForm.querySelector('input[name="pClasseSelectionnee"]:checked');
+        // Utilisation directe des variables locales sans 'this.'
+        vNextButton.disabled = !vForm.querySelector('input[name="pClasseSelectionnee"]:checked');
     }
 
     /**
@@ -79,19 +82,20 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     function mSoumettreClasseEtContinuer(pEvent) {
         pEvent.preventDefault();
-        this.vErrorMessage.textContent = '';
+        vErrorMessage.textContent = '';
         
-        const vSelectionne = this.vForm.querySelector('input[name="pClasseSelectionnee"]:checked');
+        const vSelectionne = vForm.querySelector('input[name="pClasseSelectionnee"]:checked');
         
         if (!vSelectionne) {
-            this.vErrorMessage.textContent = "Veuillez sélectionner une classe.";
+            vErrorMessage.textContent = "Veuillez sélectionner une classe.";
             return;
         }
 
         const vClasseNom = vSelectionne.value;
         
-        // 1. Initialisation de l'Objet Personnage
-        const vPersonnage = {
+        // Initialisation de l'Objet Personnage
+        // Utilisation des règles de nommage personnalisées dans l'objet de données
+        const personnage = {
             aNom: "", 
             aClasse: vClasseNom,
             aNiveau: 1, 
@@ -102,14 +106,14 @@ document.addEventListener('DOMContentLoaded', () => {
             aHistorique: null
         };
 
-        // 2. Stockage dans le localStorage
-        localStorage.setItem(vLocalStorageKey, JSON.stringify(vPersonnage));
+        // Stockage dans le localStorage
+        localStorage.setItem(localStorageKey, JSON.stringify(personnage));
 
-        // 3. Redirection vers l'étape 2
+        // Redirection vers l'étape 2
         window.location.href = 'page2_race.html'; 
     }
 
     // --- INITIALISATION ---
-    this.vForm.addEventListener('submit', mSoumettreClasseEtContinuer);
+    vForm.addEventListener('submit', mSoumettreClasseEtContinuer);
     mChargerClasses();
 });
