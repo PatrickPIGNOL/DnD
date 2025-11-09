@@ -1,62 +1,114 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Les règles de nommage des artefacts de programmation est "camelcase" par défaut.
-    // Une méthode commence par un "m" minuscule, une variable locale par un "v" minuscule.
-    // Les attributs de classes commencent par un "a" minuscule.
-    
-    // Références DOM
-    const vForm = document.getElementById('classSubmissionForm');
-    const vClasseInput = document.getElementById('vClasseInput');
+    // Variables pour les éléments du DOM
+    const vForm = document.getElementById('classSelectionForm');
+    const vClassesOptionsContainer = document.getElementById('vClassesOptionsContainer');
+    const vLoadingMessage = document.getElementById('vLoadingMessage');
+    const vNextButton = document.getElementById('vNextButton');
     const vErrorMessage = document.getElementById('vErrorMessage');
+    
+    // Attributs de la classe (stockage des données)
+    let aClassesData = [];
+    const vLocalStorageKey = 'personnage_en_cours';
 
-    // Définitions de classes valides pour une validation côté client rapide
-    // Ce tableau doit correspondre exactement aux noms dans votre classes.json
-    const vClassesValides = ["Guerrier", "Mage", "Voleur", "Prêtre", "Barde", "Barbare", "Druide", "Paladin", "Rôdeur", "Sorcier", "Moine", "Occultiste"];
-
-    // Méthode pour formater la chaîne entrée par l'utilisateur
-    function mFormatClasse(pClasse) {
-        // Enlève les espaces inutiles, met en minuscules, puis capitalise la première lettre
-        let vClasse = pClasse.trim().toLowerCase();
-        if (vClasse.length > 0) {
-            return vClasse.charAt(0).toUpperCase() + vClasse.slice(1);
+    /**
+     * @method mChargerClasses
+     * @description Charge les données de classes depuis le fichier JSON.
+     */
+    async function mChargerClasses() {
+        try {
+            // Requête GET vers le fichier statique
+            const vResponse = await fetch('classes.json');
+            if (!vResponse.ok) {
+                throw new Error(`Erreur HTTP: ${vResponse.status}`);
+            }
+            this.aClassesData = await vResponse.json();
+            
+            this.vLoadingMessage.style.display = 'none';
+            mAfficherListeClasses();
+            
+        } catch (vError) {
+            console.error("Erreur lors du chargement de classes.json:", vError);
+            this.vLoadingMessage.textContent = "Impossible de charger les données de classes. Veuillez contacter l'administrateur.";
+            this.vLoadingMessage.style.color = 'red';
         }
-        return "";
+    }
+
+    /**
+     * @method mAfficherListeClasses
+     * @description Injecte le HTML pour chaque classe dans le conteneur.
+     */
+    function mAfficherListeClasses() {
+        this.vClassesOptionsContainer.innerHTML = '';
+        
+        this.aClassesData.forEach((vClasse, vIndex) => {
+            const vHtml = `
+                <div class="classe-option-card">
+                    <hr>
+                    <label for="vClasseRadio-${vIndex}" class="classe-item-container">
+                        <div class="classe-header">${vClasse.nom}</div>
+                        <div class="classe-content">
+                            <input type="radio" name="pClasseSelectionnee" value="${vClasse.nom}" id="vClasseRadio-${vIndex}">
+                            <img src="${vClasse.image_url}" alt="Icône ${vClasse.nom}">
+                            <div class="classe-details">${vClasse.description_html}</div>
+                        </div>
+                    </label>
+                </div>
+            `;
+            this.vClassesOptionsContainer.innerHTML += vHtml;
+        });
+
+        // Activer le bouton Suivant après l'affichage
+        this.vNextButton.disabled = false;
+        
+        // Écouter les changements pour s'assurer qu'une option est cochée
+        this.vClassesOptionsContainer.addEventListener('change', mVerifierSelection);
     }
     
-    // Méthode de validation et de soumission
-    function mSoumettreClasse(pEvent) {
-        pEvent.preventDefault(); // Empêche la soumission traditionnelle
-        this.vErrorMessage.textContent = ''; // Réinitialise l'erreur
+    /**
+     * @method mVerifierSelection
+     * @description Vérifie si une classe est cochée.
+     */
+    function mVerifierSelection() {
+        this.vNextButton.disabled = !this.vForm.querySelector('input[name="pClasseSelectionnee"]:checked');
+    }
 
-        const vClasseNom = mFormatClasse(this.vClasseInput.value);
-
-        // 1. Validation : vérifier si la classe est valide
-        if (this.vClassesValides.indexOf(vClasseNom) === -1) {
-            this.vErrorMessage.textContent = `Erreur : La classe "${vClasseNom}" n'est pas reconnue ou la syntaxe est incorrecte.`;
+    /**
+     * @method mSoumettreClasseEtContinuer
+     * @description Enregistre le choix et passe à l'étape 2.
+     */
+    function mSoumettreClasseEtContinuer(pEvent) {
+        pEvent.preventDefault();
+        this.vErrorMessage.textContent = '';
+        
+        const vSelectionne = this.vForm.querySelector('input[name="pClasseSelectionnee"]:checked');
+        
+        if (!vSelectionne) {
+            this.vErrorMessage.textContent = "Veuillez sélectionner une classe.";
             return;
         }
 
-        // 2. Initialisation de l'Objet Personnage (utilise les attributs de classe 'a' pour l'objet interne)
-        // Note: Nous utilisons une structure d'objet simple ici, elle sera enrichie aux étapes suivantes.
+        const vClasseNom = vSelectionne.value;
+        
+        // 1. Initialisation de l'Objet Personnage (avec la classe sélectionnée)
         const vPersonnage = {
             aNom: "", 
             aClasse: vClasseNom,
             aNiveau: 1, 
             aRace: null,
-            aScores: { for: 0, dex: 0, con: 0, int: 0, sag: 0, cha: 0 }, // Les 6 caractéristiques
+            aScores: { for: 0, dex: 0, con: 0, int: 0, sag: 0, cha: 0 }, 
             aPvMax: 0,
             aGrimoire: [],
             aHistorique: null
-            // Les autres attributs seront initialisés ou ajoutés dans les pages suivantes
         };
 
-        // 3. Stockage dans le localStorage
-        // La clé doit être unique pour l'application
-        localStorage.setItem('personnage_en_cours', JSON.stringify(vPersonnage));
+        // 2. Stockage dans le localStorage
+        localStorage.setItem(vLocalStorageKey, JSON.stringify(vPersonnage));
 
-        // 4. Redirection vers l'étape 2
+        // 3. Redirection vers l'étape 2
         window.location.href = 'page2_race.html'; 
     }
 
-    // Écouteur d'événement sur le formulaire
-    this.vForm.addEventListener('submit', mSoumettreClasse);
+    // --- INITIALISATION ---
+    this.vForm.addEventListener('submit', mSoumettreClasseEtContinuer);
+    mChargerClasses();
 });
