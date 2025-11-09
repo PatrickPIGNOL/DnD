@@ -1,0 +1,56 @@
+{
+    "classes_scores_fixes": {
+        "Barbare": {
+            "jetDeVie": "d12",
+            "Force": 17, "Dextérité": 13, "Constitution": 15, "Intelligence": 10, "Sagesse": 12, "Charisme": 8
+        },
+        "Barde": {
+            "jetDeVie": "d8",
+            "Force": 8, "Dextérité": 15, "Constitution": 12, "Intelligence": 13, "Sagesse": 10, "Charisme": 17
+        },
+        "Clerc": {
+            "jetDeVie": "d8",
+            "Force": 15, "Dextérité": 8, "Constitution": 13, "Intelligence": 10, "Sagesse": 16, "Charisme": 12
+        },
+        "Druide": {
+            "jetDeVie": "d8",
+            "Force": 8, "Dextérité": 12, "Constitution": 15, "Intelligence": 13, "Sagesse": 16, "Charisme": 10
+        },
+        "Guerrier": {
+            "jetDeVie": "d10",
+            "Force": 17, "Dextérité": 15, "Constitution": 13, "Intelligence": 8, "Sagesse": 10, "Charisme": 12
+        },
+        "Moine": {
+            "jetDeVie": "d8",
+            "Force": 12, "Dextérité": 17, "Constitution": 13, "Intelligence": 10, "Sagesse": 15, "Charisme": 8
+        },
+        "Paladin": {
+            "jetDeVie": "d10",
+            "Force": 17, "Dextérité": 10, "Constitution": 13, "Intelligence": 8, "Sagesse": 12, "Charisme": 15
+        },
+        "Rôdeur": {
+            "jetDeVie": "d10",
+            "Force": 12, "Dextérité": 17, "Constitution": 13, "Intelligence": 8, "Sagesse": 15, "Charisme": 10
+        },
+        "Roublard": {
+            "jetDeVie": "d8",
+            "Force": 12, "Dextérité": 17, "Constitution": 13, "Intelligence": 15, "Sagesse": 10, "Charisme": 8
+        },
+        "Ensorceleur": {
+            "jetDeVie": "d6",
+            "Force": 10, "Dextérité": 13, "Constitution": 15, "Intelligence": 8, "Sagesse": 12, "Charisme": 17
+        },
+        "Occultiste": {
+            "jetDeVie": "d8",
+            "Force": 8, "Dextérité": 15, "Constitution": 13, "Intelligence": 12, "Sagesse": 10, "Charisme": 17
+        },
+        "Magicien": {
+            "jetDeVie": "d6",
+            "Force": 8, "Dextérité": 12, "Constitution": 13, "Intelligence": 17, "Sagesse": 15, "Charisme": 10
+        },
+        "Artificier": {
+            "jetDeVie": "d8",
+            "Force": 10, "Dextérité": 12, "Constitution": 13, "Intelligence": 17, "Sagesse": 15, "Charisme": 8
+        }
+    }
+}

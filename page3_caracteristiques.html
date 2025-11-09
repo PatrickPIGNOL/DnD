@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title id="vPageTitle"></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 id="vHeaderTitre"></h1>
+    </header>
+    <main>
+        <section id="vSectionNiveau">
+            <h2 id="vNiveauTitre"></h2>
+            <label for="pLevel" id="vNiveauLabel"></label>
+            <select id="pLevel">
+                </select>
+        </section>
+
+        <section id="vSectionBonusRace">
+            <h2 id="vBonusRaceTitre"></h2>
+            <div id="vBonusRaceDisplay">
+                <p id="vBonusChargement"></p>
+            </div>
+            
+            <div id="vRaceBonusModification" class="race-bonus-modification-grid" style="display: none;">
+                <hr>
+                <h3 id="vBonusModTitre"></h3>
+                <p id="vBonusModDescription" class="description"></p>
+                <div id="vRaceBonusPointsContainer">
+                    </div>
+            </div>
+        </section>
+
+        <section id="vSectionCaracteristiques">
+            <h2 id="vCaracTitre"></h2>
+            <div class="carac-grid" id="vCaracGridContainer">
+                </div>
+        </section>
+
+        <div class="navigation-buttons">
+            <a href="page2_race.html" class="secondary-button" id="vBoutonRetour"></a>
+            <button type="submit" id="vSuivantButton"></button>
+        </div>
+    </main>
+    <script src="script_page3.js"></script>
+</body>
+</html>

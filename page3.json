@@ -1,0 +1,101 @@
+{
+    "page3": {
+        "titre_page": "Création de Personnage - Caractéristiques",
+        "titre_header": "⚔️ Niveau de Départ & Caractéristiques",
+        
+        "section_niveau_titre": "Niveau de Départ",
+        "select_niveau_label": "Sélectionnez le niveau de départ :",
+        "niveau_options": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10",
+            "11": "11",
+            "12": "12",
+            "13": "13",
+            "14": "14",
+            "15": "15",
+            "16": "16",
+            "17": "17",
+            "18": "18",
+            "19": "19",
+            "20": "20"
+        },
+        
+        "section_bonus_titre": "Récapitulatif des Bonus de Race",
+        "bonus_chargement": "Chargement des bonus de race...",
+        "bonus_mod_titre": "Allocation des points de Caractéristique (Race)",
+        "bonus_mod_description": "Vous avez des points de race à distribuer (+2, +1, ou trois +1) sur deux ou trois Caractéristiques différentes.",
+        
+        "section_carac_titre": "Vos Caractéristiques",
+        
+        "caracteristiques": {
+            "For": "Force",
+            "Dex": "Dextérité",
+            "Con": "Constitution",
+            "Int": "Intelligence",
+            "Sag": "Sagesse",
+            "Cha": "Charisme"
+        },
+        
+        "bouton_retour": "Retour",
+        "bouton_suivant": "Suivant (Historique)"
+    }
+}
+
+{
+    "page3": {
+        "titre_page": "Création de Personnage - Caractéristiques",
+        "titre_header": "⚔️ Niveau de Départ & Caractéristiques",
+        
+        "section_niveau_titre": "Niveau de Départ",
+        "select_niveau_label": "Sélectionnez le niveau de départ :",
+        "niveau_options": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10",
+            "11": "11",
+            "12": "12",
+            "13": "13",
+            "14": "14",
+            "15": "15",
+            "16": "16",
+            "17": "17",
+            "18": "18",
+            "19": "19",
+            "20": "20"
+        },
+        
+        "section_bonus_titre": "Récapitulatif des Bonus de Race",
+        "bonus_chargement": "Chargement des bonus de race...",
+        "bonus_mod_titre": "Allocation des points de Caractéristique (Race)",
+        "bonus_mod_description": "Vous avez des points de race à distribuer (+2, +1, ou trois +1) sur deux ou trois Caractéristiques différentes.",
+        
+        "section_carac_titre": "Vos Caractéristiques",
+        
+        "caracteristiques": {
+            "For": "Force",
+            "Dex": "Dextérité",
+            "Con": "Constitution",
+            "Int": "Intelligence",
+            "Sag": "Sagesse",
+            "Cha": "Charisme"
+        },
+        
+        "bouton_retour": "Retour",
+        "bouton_suivant": "Suivant (Historique)"
+    }
+}
