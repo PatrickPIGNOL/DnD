@@ -125,8 +125,12 @@ button[type="submit"]:hover, .button-link:hover {
 
 /* Bouton Secondaire (Retour/Autre) */
 .secondary-button {
+    /* Styles existants... */
     background-color: var(--couleur-border);
     color: var(--couleur-texte-principal);
+    
+    /* NOUVELLE RÈGLE : Ajouter une marge externe pour éviter le chevauchement */
+    margin: 5px 10px 5px 0; 
 }
 
 .secondary-button:hover {
