@@ -6,12 +6,12 @@
     },
     {
         "nom": "Magicien",
-        "image_url": "images/classes/magicien.jpg",
+        "image_url": "images/classes/magicien.png",
         "description_html": "<p>Le Mage est un lanceur de sorts puissant. Il utilise son <strong>Intelligence</strong> pour manipuler l'énergie arcanique. Idéal pour ceux qui aiment la tactique et les effets spectaculaires.</p>"
     },
     {
-        "nom": "Voleur",
-        "image_url": "images/classes/voleur_icone.jpg",
+        "nom": "Roublard",
+        "image_url": "images/classes/roublard.png",
         "description_html": "<p>Spécialiste de la <strong>discrétion</strong> et de l'agilité. Le Voleur est essentiel pour explorer, désamorcer les pièges et frapper les ennemis là où ça fait le plus mal.</p>"
     }
 ]
