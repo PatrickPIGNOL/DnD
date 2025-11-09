@@ -99,10 +99,222 @@ input[type="text"], input[type="number"], select {
     gap: 15px;
 }
 
+/* Base des boutons et liens pour le style bouton */
 .button-link, button[type="submit"], .secondary-button {
     padding: 12px 25px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
-    text-
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.1s;
+    flex-grow: 1; 
+}
+
+/* Bouton Primaire (Suivant/Démarrer/Lien Google Form) */
+button[type="submit"], .button-link {
+    background-color: var(--couleur-accent);
+    color: white;
+}
+
+button[type="submit"]:hover, .button-link:hover {
+    background-color: var(--couleur-accent-hover);
+    transform: translateY(-1px);
+}
+
+/* Bouton Secondaire (Retour/Autre) */
+.secondary-button {
+    background-color: var(--couleur-border);
+    color: var(--couleur-texte-principal);
+}
+
+.secondary-button:hover {
+    background-color: #444444;
+}
+
+
+/* 4. Styles Spécifiques à la Page 1 (Sélection de Classe) */
+
+.classe-options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* Pas d'espace entre les éléments pour que les <hr> soient contigus */
+    margin-top: 20px;
+}
+
+/* Enlève les styles de section par défaut pour les cartes */
+.classe-option-card { margin-bottom: 0; border: none; padding: 0; background-color: transparent; box-shadow: none; }
+
+.classe-item-container { 
+    background-color: var(--couleur-fond-section); 
+    padding: 15px; 
+    border-radius: 5px; 
+    border: 1px solid var(--couleur-border); 
+    display: grid;
+    /* 3 colonnes : Radio | Image/Infos */
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.classe-item-container:hover { background-color: #333333; }
+
+.classe-header { 
+    color: var(--couleur-accent); 
+    font-size: 1.4em; 
+    font-weight: bold; 
+    margin-bottom: 5px; 
+    border-bottom: 2px solid var(--couleur-accent); 
+    padding-bottom: 5px; 
+}
+
+.classe-content { 
+    display: flex; 
+    align-items: flex-start; 
+    gap: 15px; 
+    margin-top: 10px; 
+}
+
+.classe-content img { 
+    width: 80px; 
+    height: 80px; 
+    object-fit: cover; 
+    border: 2px solid var(--couleur-border); 
+    border-radius: 4px; 
+}
+
+.classe-details { flex-grow: 1; }
+.classe-details p { margin: 0; font-size: 0.95em; }
+
+/* Alignement du radio button à côté de l'image/texte */
+.classe-content input[type="radio"] { 
+    align-self: center; 
+    margin-right: -5px; /* Petit ajustement visuel */
+}
+
+
+/* 5. Styles Spécifiques à la Page 2 (Sélection de Race) */
+
+.race-options-grid {
+    /* Liste verticale */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.race-option-card {
+    background-color: #252525;
+    border: 1px solid var(--couleur-border);
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.race-option-card label {
+    /* Colonnes : Radio (30px) | Image (100px) | Nom/Description (prend l'espace) */
+    display: grid;
+    grid-template-columns: 30px 100px 1fr; 
+    gap: 15px;
+    padding: 15px;
+    cursor: pointer;
+    align-items: center; 
+    min-height: 100px;
+    margin-top: 0;
+}
+
+.race-option-card label:hover {
+    background-color: #333333;
+}
+
+.race-option-card input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    align-self: flex-start;
+    cursor: pointer;
+}
+
+.race-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 2px solid var(--couleur-border);
+    border-radius: 4px;
+}
+
+.race-info {
+    padding-right: 10px;
+}
+
+.race-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--couleur-accent);
+    margin-bottom: 5px;
+}
+
+.race-description {
+    font-size: 0.9em;
+    color: var(--couleur-texte-secondaire);
+}
+
+.race-option-card input[type="radio"]:checked + label {
+    background-color: #38000A; 
+    border-color: var(--couleur-accent-hover);
+    box-shadow: 0 0 15px rgba(176, 0, 32, 0.9);
+}
+
+
+/* 6. Styles Spécifiques à la Page 3 (Caractéristiques) */
+
+.carac-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adaptatif */
+    gap: 15px;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.carac-item {
+    background-color: var(--couleur-fond); 
+    border: 1px solid var(--couleur-accent);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.carac-nom {
+    display: block;
+    font-size: 0.9em;
+    color: var(--couleur-texte-secondaire);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.carac-score {
+    display: block;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--couleur-accent);
+}
+
+.carac-mod {
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--couleur-texte-principal);
+    margin-top: 5px;
+}
+
+
+/* 7. Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    border-top: 1px solid var(--couleur-border);
+    margin-top: 40px;
+    color: var(--couleur-texte-secondaire);
+    font-size: 0.9em;
+}
