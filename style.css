@@ -131,6 +131,7 @@ button[type="submit"]:hover, .button-link:hover {
     
     /* NOUVELLE RÈGLE : Ajouter une marge externe pour éviter le chevauchement */
     margin: 5px 10px 5px 0; 
+    padding: 12px 25px;
 }
 
 .secondary-button:hover {
