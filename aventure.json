@@ -1,0 +1,24 @@
+{
+    "title": "Commencer l'Aventure !",
+    "introText": "Ce guide simple est conçu pour vous aider à créer un personnage de jeu de rôle passionnant en quelques étapes faciles.",
+    "steps": [
+        {
+            "id": "step-test",
+            "stepTitle": "1. Passer le Test de Classe (Étape 1)",
+            "stepText": "Si vous ne l'avez pas encore fait, cliquez ci-dessous pour lancer le test qui déterminera votre classe de départ. Le Maître du Jeu ou le système vous donnera le résultat.",
+            "buttonText": "Lancer le Test de Classe",
+            "buttonLink": "https://docs.google.com/forms/d/e/1FAIpQLSdNma04s8TPzZP8g28kWGQxzGNa6o4os5ztF8x-V8B9ELUyRA/viewform?usp=header",
+            "buttonClass": "button-link",
+            "external": true
+        },
+        {
+            "id": "step-creation",
+            "stepTitle": "2. Démarrer la Création (Étape 2)",
+            "stepText": "Une fois que vous connaissez votre classe, vous pouvez commencer la création de votre personnage en choisissant sa race, son niveau et ses caractéristiques.",
+            "buttonText": "Commencer >> Étape 2 (Choix de Classe)",
+            "buttonLink": "page1_classe.html",
+            "buttonClass": "button-link",
+            "external": false
+        }
+    ]
+}

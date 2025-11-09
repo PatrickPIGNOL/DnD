@@ -53,7 +53,7 @@ const mLoadIntroSection = async () => {
     }
 
     try {
-        const vResponse = await fetch('intro.json');
+        const vResponse = await fetch('aventure.json');
         
         if (!vResponse.ok) {
             throw new Error(`Erreur HTTP: Le fichier intro.json n'a pas été trouvé (Statut ${vResponse.status}).`);
