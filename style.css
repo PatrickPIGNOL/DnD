@@ -109,6 +109,9 @@ input[type="text"], input[type="number"], select {
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.1s;
     flex-grow: 1; 
+    
+    /* CORRECTION CRITIQUE DU DÉBORDEMENT */
+    box-sizing: border-box; 
 }
 
 /* Bouton Primaire (Suivant/Démarrer/Lien Google Form) */
@@ -128,11 +131,13 @@ button[type="submit"]:hover, .button-link:hover {
     color: var(--couleur-texte-principal);
     margin: 5px 10px 5px 0; 
     flex-grow: 0; 
+    transition: background-color 0.3s ease; 
 }
 
 .secondary-button:hover {
-    background-color: #444444;
+    background-color: var(--couleur-border);
 }
+
 
 /* 4. Styles Spécifiques à la Page 1 (Sélection de Classe) */
 .classe-options-list {
@@ -302,7 +307,7 @@ button[type="submit"]:hover, .button-link:hover {
 
 /* 7. Styles pour les Tables de Ressources (index.html) */
 .resource-table {
-    width: 100%; /* Tableau étendu au maximum */
+    width: 100%; 
     border-collapse: collapse; 
     margin-top: 20px;
     font-size: 0.95em;
@@ -333,11 +338,7 @@ button[type="submit"]:hover, .button-link:hover {
 .resource-table thead th:nth-child(2) {
     text-align: center;
 }
-/*
-.resource-table tbody tr:hover {
-    background-color: #333333;
-}
-*/
+
 /* 1ère colonne (Nom de la ressource) : Largeur fixe */
 .resource-table td:nth-child(1) {
     width: 15%; 
@@ -350,19 +351,18 @@ button[type="submit"]:hover, .button-link:hover {
     vertical-align: top;
 }
 
-/* 3ème colonne (Action) : Largeur fixe et alignement à droite */
+/* 3ème colonne (Action) : Largeur fixe et alignement NEUTRE/Centré */
 .resource-table td:nth-child(3) {
-    text-align: right; 
+    text-align: center; 
     width: 150px; 
     vertical-align: top;
 }
 
 .resource-table .secondary-button {
-    /* Nouvelle règle : Force la largeur 100% pour occuper la cellule */
     display: block; 
-    width: 100%;
+    width: 100%; 
     text-align: center;
-    margin: 0; /* Pas de marge parasite */
+    margin: 0; 
     padding: 8px 15px;
 }
 
