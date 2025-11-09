@@ -5,8 +5,8 @@
         "description_html": "<p>Maître des armes et des armures, le Guerrier excelle au combat direct. Il est <strong>robuste</strong> et peut se spécialiser dans n'importe quel type d'équipement.</p>"
     },
     {
-        "nom": "Mage",
-        "image_url": "images/classes/mage_icone.jpg",
+        "nom": "Magicien",
+        "image_url": "images/classes/magicien.jpg",
         "description_html": "<p>Le Mage est un lanceur de sorts puissant. Il utilise son <strong>Intelligence</strong> pour manipuler l'énergie arcanique. Idéal pour ceux qui aiment la tactique et les effets spectaculaires.</p>"
     },
     {
