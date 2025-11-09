@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Étape 1 : Classe du Personnage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Création de Personnage - Étape 1/11</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>1. Passer le Test de Classe</h2>
+            <p>Cliquez sur le lien ci-dessous pour lancer le test qui déterminera votre classe de départ. L'administrateur vous communiquera le résultat après le test.</p>
+            <a href="URL_DE_VOTRE_GOOGLE_FORM" target="_blank" class="button-link">Lancer le Test</a>
+        </section>
+
+        <hr>
+        
+        <section>
+            <h2>2. Confirmer votre Classe</h2>
+            <p>Entrez le nom de la classe que vous avez obtenue. Utilisez la nomenclature exacte (ex: Guerrier, Mage, Prêtre).</p>
+            
+            <form id="classSubmissionForm">
+                <label for="vClasseInput">Classe Obtenue :</label>
+                <input type="text" id="vClasseInput" name="classe" required placeholder="Ex: Guerrier, Mage, etc.">
+                <br><br>
+                <button type="submit" id="vNextButton">Démarrer la Création >> Étape 2</button>
+            </form>
+            
+            <p id="vErrorMessage" style="color: red; margin-top: 10px;"></p>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Character Builder</p>
+    </footer>
+
+    <script src="script_page1.js"></script>
+</body>
+</html>
