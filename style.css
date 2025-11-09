@@ -245,7 +245,7 @@ button[type="submit"]:hover, .button-link:hover {
     border-collapse: collapse;
 }
 
-.race-layout-table td { /* Remplacé th, td par td pour adhérer aux règles sans TH */
+.race-layout-table td { 
     padding: 0; 
     border: none;
     vertical-align: top;
@@ -254,10 +254,10 @@ button[type="submit"]:hover, .button-link:hover {
 /* COLONNE 1 (Radio) */
 .radio-cell {
     width: 40px; 
-    /* Centrage parfait via Flexbox pour le rowspan */
-    display: flex; 
-    justify-content: center; /* Centre horizontalement */
-    align-items: center; /* Centre verticalement */
+    
+    /* Centrage classique demandé */
+    text-align: center; /* Centre horizontalement */
+    vertical-align: middle; /* Centre verticalement */
     
     padding: 0 10px; 
 }
@@ -269,7 +269,7 @@ button[type="submit"]:hover, .button-link:hover {
     font-size: 1.3em;
     font-weight: bold;
     text-align: left;
-    /* PADDING COLLÉ AU SOMMET (Haut=0) */
+    /* PADDING COLLÉ AU SOMMET */
     padding: 0 10px 10px 5px; /* Haut=0, Bas=10px */
     border-bottom: 2px solid var(--couleur-border);
     vertical-align: top;
@@ -280,6 +280,16 @@ button[type="submit"]:hover, .button-link:hover {
     width: 100px; 
     text-align: center;
     padding: 10px 10px 10px 0; /* Padding minimal */
+}
+
+/* Image (Taille limitée à 90px comme demandé) */
+.race-image {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin: 0 auto;
+    display: block;
 }
 
 /* COLONNE 3 (Description) */
@@ -350,7 +360,7 @@ button[type="submit"]:hover, .button-link:hover {
     border-bottom: 1px solid var(--couleur-border);
 }
 
-.resource-table th { /* TH est utilisé seulement pour la table des ressources */
+.resource-table th { 
     background-color: #252525;
     color: var(--couleur-accent);
     border-bottom: 2px solid var(--couleur-accent);
