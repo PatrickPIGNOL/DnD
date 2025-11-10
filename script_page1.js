@@ -20,11 +20,11 @@ class CPage1 {
             const vDataTextes = await vResponseTextes.json();
             this.aTextes = vDataTextes.page1;
 
-            // Chargement des classes
+            // Chargement des classes (Correction: utilise 'classes.json')
             const vResponseClasses = await fetch('classes.json');
             const vDataClasses = await vResponseClasses.json();
             
-            // CORRECTION : Assignation directe du tableau des classes (car le JSON est un tableau à la racine)
+            // CORRECTION: Assignation directe du tableau des classes 
             this.aClasses = vDataClasses; 
             
         } catch (vError) {
@@ -70,6 +70,12 @@ class CPage1 {
      * @brief Génère les cartes d'options de classe à partir des données JSON.
      */
     mGenererOptionsClasse() {
+        // Ajout d'une vérification pour éviter l'erreur forEach si les données JSON n'ont pas chargé
+        if (!this.aClasses || this.aClasses.length === 0) {
+            console.warn("Aucune classe à générer. Vérifiez 'classes.json'.");
+            return;
+        }
+        
         const vContainer = document.getElementById('vClasseOptionsList');
         if (!vContainer) return; 
 
@@ -79,15 +85,13 @@ class CPage1 {
             const vHTML = `
                 <div class="classe-option-card">
                     <label>
-                        <input type="radio" name="classe" value="${pClasse.id}" onclick="oCPage1.mActiverBoutonSuivant(true)">
+                        <input type="radio" name="classe" value="${pClasse.nom}" onclick="oCPage1.mActiverBoutonSuivant(true)">
                         <div class="classe-item-container">
                             <div class="classe-header">${pClasse.nom}</div>
                             <div class="classe-content">
-                                <img src="${pClasse.image}" alt="Image de la classe ${pClasse.nom}">
+                                <img src="${pClasse.image_url}" alt="Image de la classe ${pClasse.nom}">
                                 <div class="classe-details">
-                                    <p>${pClasse.description_courte}</p>
-                                    <p><strong>Dés de Vie :</strong> ${pClasse.de_vie}</p>
-                                    <p><strong>Armes & Armures :</strong> ${pClasse.maitrises}</p>
+                                    <p>${pClasse.description_html}</p>
                                 </div>
                             </div>
                         </div>
