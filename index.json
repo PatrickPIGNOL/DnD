@@ -8,30 +8,16 @@
         "sections_titre": "Étapes de création",
         "sections": [
             {
-                "titre": "Quizz de déter",
-                "description": "Définissez la vocation de votre héros (Guerrier, Magicien, etc.).",
-                "lien": "page1_classe.html",
+                "titre": "Quelle est votre classe d'aventurier D&D ?",
+                "description": "Définissez la classe de votre personnage Donjons & Dragons.",
+                "lien": "https://docs.google.com/forms/d/e/1FAIpQLSdNma04s8TPzZP8g28kWGQxzGNa6o4os5ztF8x-V8B9ELUyRA/viewform?usp=header",
                 "exeternal": true
             },
             {
-                "titre": "Étape 1 : Classe",
+                "titre": "Créer votre personnage",
                 "description": "Définissez la vocation de votre héros (Guerrier, Magicien, etc.).",
-                "lien": "page1_classe.html"
-            },
-            {
-                "titre": "Étape 2 : Race",
-                "description": "Choisissez son origine et ses attributs innés (Humain, Elfe, Nain, etc.).",
-                "lien": "page2_race.html"
-            },
-            {
-                "titre": "Étape 3 : Caractéristiques",
-                "description": "Calculez ses scores de caractéristiques (Force, Constitution, etc.) et ses Points de Vie.",
-                "lien": "page3_caracteristiques.html"
-            },
-            {
-                "titre": "Étape 4 : Historique",
-                "description": "Donnez une histoire, une personnalité et un alignement à votre personnage.",
-                "lien": "page4_historique.html"
+                "lien": "page1_classe.html",
+                "exeternal": false
             }
         ],
         
