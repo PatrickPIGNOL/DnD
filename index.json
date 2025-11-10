@@ -10,12 +10,14 @@
             {
                 "titre": "Quelle est votre classe d'aventurier D&D ?",
                 "description": "Définissez la classe de votre personnage Donjons & Dragons.",
+                "bouton_texte": "Déterminez votre classe en passant le quizz",
                 "lien": "https://docs.google.com/forms/d/e/1FAIpQLSdNma04s8TPzZP8g28kWGQxzGNa6o4os5ztF8x-V8B9ELUyRA/viewform?usp=header",
                 "external": true
             },
             {
                 "titre": "Créer votre personnage",
                 "description": "Définissez la vocation de votre héros (Guerrier, Magicien, etc.).",
+                "bouton_texte": "Créez votre personnage",
                 "lien": "page1_classe.html",
                 "external": false
             }
