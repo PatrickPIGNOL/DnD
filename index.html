@@ -3,39 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Créateur de Personnage DnD - Accueil</title>
+    <title></title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>⚔️ Bienvenue dans le Créateur de Personnage !</h1>
+        <h1 id="vHeaderTitre"></h1>
     </header>
 
     <main>
         <section id="adventure-start-section"></section>
 
         <section>
-            <h2>Ressources Utiles 📚</h2>
-            <p>Voici des liens vers des ressources externes qui pourraient vous aider pendant votre création de personnage ou pendant votre jeu :</p>
+            <h2 id="vRessourcesTitre"></h2> 
+            <p id="vRessourcesIntro"></p>
             
             <table class="resource-table">
                 <thead>
                     <tr>
                         <th></th> 
-                        <th style="text-align: center;">Ressources</th> 
+                        <th style="text-align: center;" id="vRessourcesColonne"></th> 
                         <th></th> 
                     </tr>
                 </thead>
                 <tbody id="resources-table-body">
-                    </tbody>
+                </tbody>
             </table>
         </section>
     </main>
     
     <footer>
-        <p>&copy; 2025 Character Builder</p>
+        <p id="vFooterTexte"></p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script_index.js"></script>
 </body>
 </html>

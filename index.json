@@ -1,0 +1,54 @@
+{
+    "index": {
+        "titre_page": "Création de Personnage - Accueil",
+        "titre_header": "Bienvenue dans l'outil de création de personnage",
+        "intro_titre": "Lancez votre aventure",
+        "intro_texte": "Cet outil interactif vous guidera étape par étape dans la création de votre héros, depuis le choix de sa classe jusqu'à son historique personnel et ses statistiques.",
+        
+        "sections_titre": "Étapes de création",
+        "sections": [
+            {
+                "titre": "Étape 1 : Classe",
+                "description": "Définissez la vocation de votre héros (Guerrier, Magicien, etc.).",
+                "lien": "page1_classe.html"
+            },
+            {
+                "titre": "Étape 2 : Race",
+                "description": "Choisissez son origine et ses attributs innés (Humain, Elfe, Nain, etc.).",
+                "lien": "page2_race.html"
+            },
+            {
+                "titre": "Étape 3 : Caractéristiques",
+                "description": "Calculez ses scores de caractéristiques (Force, Constitution, etc.) et ses Points de Vie.",
+                "lien": "page3_caracteristiques.html"
+            },
+            {
+                "titre": "Étape 4 : Historique",
+                "description": "Donnez une histoire, une personnalité et un alignement à votre personnage.",
+                "lien": "page4_historique.html"
+            }
+        ],
+        
+        "bouton_demarrer": "Démarrer la création",
+        "bouton_continuer": "Continuer où j'en étais",
+        
+        "ressources_titre": "Ressources Utiles 📚",
+        "ressources_intro": "Voici des liens vers des ressources externes qui pourraient vous aider pendant votre création de personnage ou pendant votre jeu :",
+        "tableau_ressources_colonne": "Ressources",
+        
+        "resources": [
+            {
+                "nom": "Règles SRD D&D 5e",
+                "lien": "https://dnd.wizards.com/articles/features/systems-reference-document-srd",
+                "description": "Le document de référence officiel pour les règles de base."
+            },
+            {
+                "nom": "Liste des Sorts",
+                "lien": "https://www.dnd-spells.com/",
+                "description": "Une base de données complète des sorts par classe et niveau."
+            }
+        ],
+        
+        "footer_texte": "&copy; 2025 Character Builder"
+    }
+}
