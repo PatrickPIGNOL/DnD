@@ -40,20 +40,19 @@ class CPage1 {
     mRemplirTextes() {
         if (!this.aTextes) return;
 
-        // --- LIGNES CRITIQUES AUTOUR DE L'ERREUR (LIGNE 39) ---
-        // Vérifiez que ces IDs existent dans page1_classe.html
-
-        // Ligne ~36
+        // Le titre est la première chose à mettre à jour, il ne devrait pas causer de problème
         document.title = this.aTextes.titre_page; 
-        document.getElementById('vHeaderTitre').textContent = this.aTextes.titre_header;
         
-        // Ligne ~39 (L'ERREUR est probablement sur l'un de ces deux IDs)
-        document.getElementById('vPage1Titre').textContent = this.aTextes.titre_section; 
-        document.getElementById('vPage1Introduction').textContent = this.aTextes.introduction; 
+        // Utilisation de la méthode sécurisée pour tous les autres éléments
+        this.mRemplirElement('vHeaderTitre', this.aTextes.titre_header);
+        
+        // Ligne 39 (où l'erreur se produisait) est maintenant sécurisée
+        this.mRemplirElement('vPage1Titre', this.aTextes.titre_section); 
+        this.mRemplirElement('vPage1Introduction', this.aTextes.introduction); 
 
+        // Les autres éléments de la page
         document.getElementById('vFooterTexte').innerHTML = this.aTextes.footer_texte;
-        document.getElementById('vBoutonSuivant').textContent = this.aTextes.bouton_suivant;
-        // --------------------------------------------------------
+        this.mRemplirElement('vBoutonSuivant', this.aTextes.bouton_suivant);
     }
     
     // ... (Reste des méthodes : mGenererOptionsClasse, mSelectionnerClasse, etc.)
