@@ -77,43 +77,27 @@ class CIndexPage {
         vSection.innerHTML = vHTMLContent;
     }
 
-    /**
-     * @brief Génère le contenu de la table des ressources.
-     */
-    mGenererRessources() {
-        const vTableBody = document.getElementById('resources-table-body');
-        
-        if (!vTableBody) {
-            console.error("mGenererRessources - Élément 'resources-table-body' introuvable.");
-            return;
-        }
-        
-        if (!this.aTextes.resources) {
-            vTableBody.innerHTML = '<tr><td colspan="3" style="text-align: center;">Aucune ressource disponible.</td></tr>';
-            return;
-        }
+    // --- script_index.js - méthode mGenererSectionDemarrage ---
+    
+    mGenererSectionDemarrage() {
+        let vHTMLContent = ''; // Suppression de <hr> et autres éléments si besoin
 
-        vTableBody.innerHTML = ''; 
+        // Création d'une <section> unique pour contenir toutes les étapes
+        this.aTextes.sections.forEach(pSection => {
+            const vTarget = pSection.external ? 'target="_blank"' : ''; 
+            const vBoutonText = pSection.bouton_texte; 
 
-        this.aTextes.resources.forEach(pResource => {
-            const vRow = document.createElement('tr');
-            
-            vRow.innerHTML = `
-                <td data-label="Titre">
-                    <strong>${pResource.name}</strong>
-                </td>
-                
-                <td data-label="Description" style="width: 100%;">
-                    ${pResource.description}
-                </td>
-                
-                <td data-label="Action" style="white-space: nowrap;">
-                    <a href="${pResource.link}" target="_blank" class="secondary-button">${pResource.buttonText}</a>
-                </td>
+            // Chaque étape est maintenant son propre bloc (cadre)
+            vHTMLContent += `
+                <section class="etape-item-card">
+                    <h2>${pSection.titre}</h2>
+                    <p>${pSection.description}</p>
+                    <a href="${pSection.lien}" ${vTarget} class="button-link">${vBoutonText}</a>
+                </section>
             `;
-
-            vTableBody.appendChild(vRow);
         });
+
+        vSection.innerHTML = vHTMLContent;        
     }
 
     // Les méthodes mVerifierSauvegarde, mDemarrerCreation et mContinuerCreation sont conservées

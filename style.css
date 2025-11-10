@@ -54,14 +54,11 @@ main {
     flex-grow: 1;
 }
 
+/* LE STYLE DE CADRE UNIFORME EST RETIRÉ D'ICI pour éviter le double encadrement. */
+/* Il ne reste que la mise en page de base pour les sections de la page. */
 section {
-    /* Style de carte uniforme (Titre rouge, Cadre, Ombre) */
-    background-color: var(--couleur-fond-section); 
-    border: 1px solid var(--couleur-accent);
     padding: 20px;
     margin-bottom: 25px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(176, 0, 32, 0.5); 
 }
 
 /* Styles de titre uniformisés pour toutes les sections */
@@ -149,22 +146,15 @@ button[type="submit"]:hover, .button-link:hover, .etape-link:hover {
 }
 
 
-/* 4. Section des Étapes (Grille) */
+/* 4. Section des Étapes (Uniformisation des Cartes) */
 
-/* Pas de style de carte sur le conteneur, le style est maintenant appliqué au <h2> de l'étape */
-.etapes-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-    /* La grille elle-même doit être affichée dans une <section> avec le style unifié */
-}
-
-/* Chaque élément de la grille reçoit le style de carte (cadre individuel) */
-.etape-item {
+/* Classe pour chaque carte d'étape, remplace l'ancienne .etape-item */
+.etape-item-card {
+    /* Style de carte uniforme appliqué ici */
     background-color: var(--couleur-fond-section); 
     border: 1px solid var(--couleur-accent);
     padding: 20px;
+    margin-bottom: 25px; /* Pour un affichage en ligne, séparé verticalement */
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(176, 0, 32, 0.5); 
     
@@ -174,21 +164,26 @@ button[type="submit"]:hover, .button-link:hover, .etape-link:hover {
 }
 
 /* On applique le style de titre de section à chaque h2 de l'étape */
-.etape-item h2 {
+.etape-item-card h2 {
     color: var(--couleur-accent);
     border-bottom: 2px solid var(--couleur-border);
     padding-bottom: 5px;
     margin-top: 0;
-    font-size: 1.4em; /* Rendre le titre un peu plus petit que les titres de section principaux */
+    font-size: 1.4em;
 }
 
-.etape-item p {
+.etape-item-card p {
     margin: 10px 0 15px 0;
+}
+
+/* Suppression des styles inutiles de l'ancienne grille */
+.etapes-grid {
+    display: block; /* Rétablit le flux normal pour que les cartes s'affichent les unes sous les autres */
+    margin-top: 20px;
 }
 
 
 /* 5. Styles Spécifiques à la Page 1 (Sélection de Classe) */
-/* ... (pas de changement dans cette section pour l'uniformisation) ... */
 .classe-options-list {
     display: flex;
     flex-direction: column;
@@ -244,7 +239,6 @@ button[type="submit"]:hover, .button-link:hover, .etape-link:hover {
 
 
 /* 6. Styles Spécifiques à la Page 2 (Sélection de Race) */
-/* ... (pas de changement dans cette section pour l'uniformisation) ... */
 .race-options-grid {
     display: flex;
     flex-direction: column;
@@ -353,7 +347,6 @@ button[type="submit"]:hover, .button-link:hover, .etape-link:hover {
 
 
 /* 7. Styles Spécifiques à la Page 3 (Caractéristiques) */
-/* ... (pas de changement dans cette section pour l'uniformisation) ... */
 .carac-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
@@ -394,7 +387,6 @@ button[type="submit"]:hover, .button-link:hover, .etape-link:hover {
 }
 
 /* 8. Styles pour les Tables de Ressources (index.html) */
-/* ... (pas de changement dans cette section pour l'uniformisation) ... */
 .resource-table {
     width: 100%; 
     border-collapse: collapse; 
