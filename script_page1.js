@@ -67,10 +67,9 @@ class CPage1 {
     }
 
     /**
-     * @brief Génère les cartes d'options de classe à partir des données JSON.
+     * @brief Génère les cartes d'options de classe en utilisant une structure de tableau interne.
      */
     mGenererOptionsClasse() {
-        // Ajout d'une vérification pour éviter l'erreur forEach si les données JSON n'ont pas chargé
         if (!this.aClasses || this.aClasses.length === 0) {
             console.warn("Aucune classe à générer. Vérifiez 'classes.json'.");
             return;
@@ -85,16 +84,28 @@ class CPage1 {
             const vHTML = `
                 <div class="classe-option-card">
                     <label>
-                        <input type="radio" name="classe" value="${pClasse.nom}" onclick="oCPage1.mActiverBoutonSuivant(true)">
-                        <div class="classe-item-container">
-                            <div class="classe-header">${pClasse.nom}</div>
-                            <div class="classe-content">
-                                <img src="${pClasse.image_url}" alt="Image de la classe ${pClasse.nom}">
-                                <div class="classe-details">
-                                    <p>${pClasse.description_html}</p>
-                                </div>
-                            </div>
-                        </div>
+                        <table class="classe-layout-table">
+                            <tr>
+                                <td rowspan="2" class="radio-cell" style="text-align: center; vertical-align: middle;">
+                                    <input type="radio" name="classe" value="${pClasse.nom}" onclick="oCPage1.mActiverBoutonSuivant(true)">
+                                </td>
+                                
+                                <td colspan="2" class="classe-header-title">
+                                    ${pClasse.nom}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="classe-image-cell">
+                                    <img src="${pClasse.image_url}" alt="Image de la classe ${pClasse.nom}" class="classe-image">
+                                </td>
+                                
+                                <td class="classe-description-cell">
+                                    <div class="classe-description">
+                                        ${pClasse.description_html}
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
                     </label>
                 </div>
             `;
