@@ -19,13 +19,13 @@ class CPage1 {
 
     async mChargerDonnees() {
         try {
-            // Chargement des textes de la page 1
+            // Chargement des textes de la page 1 (inchangé)
             const vResponseTextes = await fetch('page1.json');
             const vDataTextes = await vResponseTextes.json();
             this.aTextes = vDataTextes.page1;
 
-            // Chargement des données de classe
-            const vResponseClasses = await fetch('data_classes.json');
+            // CORRECTION ICI : Utilisation de 'classes.json' au lieu de 'data_classes.json'
+            const vResponseClasses = await fetch('classes.json');
             const vDataClasses = await vResponseClasses.json();
             this.aClasses = vDataClasses.classes;
             
