@@ -30,14 +30,16 @@
         
         "resources": [
             {
-                "nom": "Règles SRD D&D 5e",
-                "lien": "https://dnd.wizards.com/articles/features/systems-reference-document-srd",
-                "description": "Le document de référence officiel pour les règles de base."
+                "name": "Règles SRD D&D 5e",
+                "description": "Le document de référence officiel pour les règles de base.",
+                "buttonText": "Visiter le site",
+                "link": "https://dnd.wizards.com/articles/features/systems-reference-document-srd",
             },
             {
-                "nom": "Liste des Sorts",
-                "lien": "https://www.dnd-spells.com/",
-                "description": "Une base de données complète des sorts par classe et niveau."
+                "name": "Liste des Sorts",
+                "description": "Une base de données complète des sorts par classe et niveau.",
+                "buttonText": "Visiter le site",
+                "link": "https://www.dnd-spells.com/"
             }
         ],
         

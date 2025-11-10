@@ -105,24 +105,25 @@ class CIndexPage {
             return;
         }
 
+        vTableBody.innerHTML = ''; // Assurer que le corps est vide avant de le remplir
+
         this.aTextes.resources.forEach(pResource => {
             const vRow = document.createElement('tr');
             
             vRow.innerHTML = `
-                <td data-label="Icône" style="text-align: center;">🔗</td>
-                <td data-label="Nom/Description">
+                <td data-label="Titre">
                     <strong>${pResource.name}</strong>
-                    <br>
-                    <small>${pResource.description}</small>
-                </td>
-                <td data-label="Action">
+                </td>                
+                <td data-label="Description" style="width: 100%;">
+                    ${pResource.description}
+                </td>                
+                <td data-label="Action" style="white-space: nowrap;">
                     <a href="${pResource.link}" target="_blank" class="secondary-button">${pResource.buttonText}</a>
                 </td>
             `;
 
-            vTableBody.appendChild(vRow); // Utilisation de vTableBody (CORRIGÉ)
+            vTableBody.appendChild(vRow);
         });
-
     }
 
     mVerifierSauvegarde() {
