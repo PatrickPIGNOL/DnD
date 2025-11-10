@@ -11,13 +11,13 @@
                 "titre": "Quelle est votre classe d'aventurier D&D ?",
                 "description": "Définissez la classe de votre personnage Donjons & Dragons.",
                 "lien": "https://docs.google.com/forms/d/e/1FAIpQLSdNma04s8TPzZP8g28kWGQxzGNa6o4os5ztF8x-V8B9ELUyRA/viewform?usp=header",
-                "exeternal": true
+                "external": true
             },
             {
                 "titre": "Créer votre personnage",
                 "description": "Définissez la vocation de votre héros (Guerrier, Magicien, etc.).",
                 "lien": "page1_classe.html",
-                "exeternal": false
+                "external": false
             }
         ],
         
@@ -33,7 +33,7 @@
                 "name": "Règles SRD D&D 5e",
                 "description": "Le document de référence officiel pour les règles de base.",
                 "buttonText": "Visiter le site",
-                "link": "https://dnd.wizards.com/articles/features/systems-reference-document-srd",
+                "link": "https://dnd.wizards.com/articles/features/systems-reference-document-srd"
             },
             {
                 "name": "Liste des Sorts",
