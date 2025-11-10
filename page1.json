@@ -22,7 +22,7 @@
         "bouton_retour": "Accueil",
         "lien_retour": "index.html",
         
-        "bouton_suivant": "Suivant (Race)",
+        "bouton_suivant": "Suivant",
         "lien_suivant": "page2_race.html"
     }
 }

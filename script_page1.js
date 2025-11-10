@@ -20,10 +20,12 @@ class CPage1 {
             const vDataTextes = await vResponseTextes.json();
             this.aTextes = vDataTextes.page1;
 
-            // Correction de l'erreur 404/SyntaxError en utilisant 'classes.json'
+            // Chargement des classes
             const vResponseClasses = await fetch('classes.json');
             const vDataClasses = await vResponseClasses.json();
-            this.aClasses = vDataClasses.classes;
+            
+            // CORRECTION : Assignation directe du tableau des classes (car le JSON est un tableau à la racine)
+            this.aClasses = vDataClasses; 
             
         } catch (vError) {
             console.error("Erreur de chargement des données pour la page 1:", vError);

@@ -14,7 +14,7 @@
             {
                 "titre": "Créer votre personnage",
                 "description": "Créez votre personnage pour pouvoir jouer à Donjons & Dragons et vivre des aventures épiques dans un monde médiéval fantastique",
-                "bouton_texte": "Créez votre personnage",
+                "bouton_texte": "Créez votre personnage...",
                 "lien": "page1_classe.html",
                 "external": false
             }
