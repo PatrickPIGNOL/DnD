@@ -81,7 +81,7 @@ class CIndexPage {
         });
         
         vHTMLContent += '</div>';
-        this.vSection.innerHTML = vHTMLContent;
+        vSection.innerHTML = vHTMLContent; // Utilisation de vSection (CORRIGÉ)
 
         // Attacher les écouteurs après l'injection
         this.mVerifierSauvegarde();
@@ -100,7 +100,7 @@ class CIndexPage {
         }
         
         if (!this.aTextes.resources) {
-            this.vTableBody.innerHTML = '<tr><td colspan="3" style="text-align: center;">Aucune ressource disponible.</td></tr>';
+            vTableBody.innerHTML = '<tr><td colspan="3" style="text-align: center;">Aucune ressource disponible.</td></tr>';
             return;
         }
 
@@ -119,7 +119,7 @@ class CIndexPage {
                 </td>
             `;
 
-            this.vTableBody.appendChild(vRow);
+            vTableBody.appendChild(vRow); // Utilisation de vTableBody (CORRIGÉ)
         });
 
     }
@@ -128,9 +128,9 @@ class CIndexPage {
         const vContinuerBtn = document.getElementById('vBoutonContinuer');
         const vClasseSauvegardee = localStorage.getItem('classeSelectionnee');
         
-        if (vClasseSauvegardee) {
-            this.vContinuerBtn.disabled = false;
-            this.vContinuerBtn.onclick = () => this.mContinuerCreation();
+        if (vContinuerBtn && vClasseSauvegardee) {
+            vContinuerBtn.disabled = false;
+            vContinuerBtn.onclick = () => this.mContinuerCreation();
         }
     }
     
@@ -140,8 +140,7 @@ class CIndexPage {
     }
     
     mContinuerCreation() {
-        const vLienParDefaut = this.aTextes.sections[0].lien;
-
+        // Les sections sont ordonnées dans le JSON : [0:Classe, 1:Race, 2:Caractéristiques, 3:Historique]
         if (localStorage.getItem('historiqueSelectionne')) {
              window.location.href = this.aTextes.sections[3].lien;
         } else if (localStorage.getItem('raceSelectionnee')) {
