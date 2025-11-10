@@ -69,8 +69,7 @@ class CIndexPage {
                 <div class="etape-item">
                     <h3>${pSection.titre}</h3>
                     <p>${pSection.description}</p>
-                    <a href="${pSection.lien}" ${vTarget} class="etape-link">${vBoutonText}</a>
-                </div>
+                    <a href="${pSection.lien}" ${vTarget} class="button-link">${vBoutonText}</a> </div>
             `;
         });
         

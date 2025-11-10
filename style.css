@@ -14,6 +14,12 @@
 }
 
 /* 1. Styles Généraux de la Page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: var(--font-principal);
     background-color: var(--couleur-fond);
@@ -22,6 +28,8 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
+    display: flex; /* ANCRAGE FOOTER */
+    flex-direction: column; /* ANCRAGE FOOTER */
 }
 
 header {
@@ -43,6 +51,7 @@ main {
     max-width: 900px;
     margin: 30px auto;
     padding: 20px;
+    flex-grow: 1; /* ANCRAGE FOOTER */
 }
 
 section {
@@ -98,8 +107,8 @@ input[type="text"], input[type="number"], select {
     gap: 15px;
 }
 
-/* Base des boutons et liens pour le style bouton */
-.button-link, button[type="submit"], .secondary-button {
+/* Base des boutons et liens pour le style bouton (Inclut .etape-link) */
+.button-link, button[type="submit"], .secondary-button, .etape-link {
     padding: 12px 25px;
     border: none;
     border-radius: 5px;
@@ -108,23 +117,23 @@ input[type="text"], input[type="number"], select {
     text-decoration: none;
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.1s;
-    flex-grow: 1; 
     
     box-sizing: border-box; 
+    display: inline-block;
 }
 
-/* Bouton Primaire (Suivant/Démarrer/Lien Google Form) */
-button[type="submit"], .button-link {
+/* Bouton Primaire (Rouge) */
+button[type="submit"], .button-link, .etape-link {
     background-color: var(--couleur-accent);
     color: white;
 }
 
-button[type="submit"]:hover, .button-link:hover {
+button[type="submit"]:hover, .button-link:hover, .etape-link:hover {
     background-color: var(--couleur-accent-hover);
     transform: translateY(-1px);
 }
 
-/* Bouton Secondaire (Retour/Autre) */
+/* Bouton Secondaire (Gris) */
 .secondary-button {
     background-color: var(--couleur-border);
     color: var(--couleur-texte-principal);
@@ -134,7 +143,7 @@ button[type="submit"]:hover, .button-link:hover {
 }
 
 .secondary-button:hover {
-    background-color: var(--couleur-border);
+    background-color: #555555; 
 }
 
 
@@ -219,8 +228,6 @@ button[type="submit"]:hover, .button-link:hover {
     height: 20px;
     z-index: 10;
     cursor: pointer;
-    
-    /* Application du centrage vertical sur l'élément lui-même */
     vertical-align: middle;
 }
 
@@ -257,11 +264,6 @@ button[type="submit"]:hover, .button-link:hover {
 /* COLONNE 1 (Radio) */
 .radio-cell {
     width: 40px; 
-    
-    /* Les règles d'alignement sont maintenant en INLINE dans le JS */
-    /* text-align: center;  <-- À supprimer/éviter */
-    /* vertical-align: middle; <-- À supprimer/éviter */
-    
     padding: 0 10px; 
 }
 
@@ -272,8 +274,7 @@ button[type="submit"]:hover, .button-link:hover {
     font-size: 1.3em;
     font-weight: bold;
     text-align: left;
-    /* PADDING COLLÉ AU SOMMET */
-    padding: 0 10px 10px 5px; /* Haut=0, Bas=10px */
+    padding: 0 10px 10px 5px; 
     border-bottom: 2px solid var(--couleur-border);
     vertical-align: top;
 }
@@ -282,7 +283,7 @@ button[type="submit"]:hover, .button-link:hover {
 .race-image-cell {
     width: 100px; 
     text-align: center;
-    padding: 10px 10px 10px 0; /* Padding minimal */
+    padding: 10px 10px 10px 0; 
 }
 
 /* Image (Taille limitée à 90px comme demandé) */
@@ -297,7 +298,7 @@ button[type="submit"]:hover, .button-link:hover {
 
 /* COLONNE 3 (Description) */
 .race-description-cell {
-    padding: 10px 10px 10px 10px; /* Padding minimal */
+    padding: 10px 10px 10px 10px; 
     text-align: left;
 }
 
@@ -371,49 +372,9 @@ button[type="submit"]:hover, .button-link:hover {
     text-transform: uppercase;
 }
 
-/* Masquer les titres des colonnes 1 et 3 et ajuster leur hauteur */
-.resource-table thead th:nth-child(1),
-.resource-table thead th:nth-child(3) {
-    color: transparent; 
-    height: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-}
-/* Centrer le titre "Ressources" */
-.resource-table thead th:nth-child(2) {
-    text-align: center;
-}
-
-/* 1ère colonne (Nom de la ressource) : Largeur fixe */
-.resource-table td:nth-child(1) {
-    width: 15%; 
-    font-weight: bold;
-    vertical-align: top;
-}
-
-/* 2ème colonne (Description) : Prend tout l'espace restant */
-.resource-table td:nth-child(2) {
-    vertical-align: top;
-}
-
-/* 3ème colonne (Action) : Largeur fixe et alignement NEUTRE/Centré */
-.resource-table td:nth-child(3) {
-    text-align: center; 
-    width: 150px; 
-    vertical-align: top;
-}
-
-.resource-table .secondary-button {
-    display: block; 
-    width: 100%; 
-    text-align: center;
-    margin: 0; 
-    padding: 8px 15px;
-}
-
-
 /* 8. Footer */
 footer {
+    background-color: var(--couleur-fond); 
     text-align: center;
     padding: 15px;
     border-top: 1px solid var(--couleur-border);
