@@ -76,7 +76,46 @@ class CIndexPage {
         // C'est à cette ligne (environ 100) que l'erreur se produisait
         vSection.innerHTML = vHTMLContent; 
     }
+    /**
+     * @brief Génère le contenu de la table des ressources.
+     */
+    mGenererRessources() {
+        const vTableBody = document.getElementById('resources-table-body');
+        
+        if (!vTableBody) {
+            console.error("mGenererRessources - Élément 'resources-table-body' introuvable.");
+            return;
+        }
+        
+        if (!this.aTextes.resources) {
+            vTableBody.innerHTML = '<tr><td colspan="3" style="text-align: center;">Aucune ressource disponible.</td></tr>';
+            return;
+        }
 
+        // Nettoyer le contenu existant
+        vTableBody.innerHTML = ''; 
+
+        // Remplir le tableau avec les données des ressources
+        this.aTextes.resources.forEach(pResource => {
+            const vRow = document.createElement('tr');
+            
+            vRow.innerHTML = `
+                <td data-label="Titre">
+                    <strong>${pResource.name}</strong>
+                </td>
+                
+                <td data-label="Description" style="width: 100%;">
+                    ${pResource.description}
+                </td>
+                
+                <td data-label="Action" style="white-space: nowrap;">
+                    <a href="${pResource.link}" target="_blank" class="secondary-button">${pResource.buttonText}</a>
+                </td>
+            `;
+
+            vTableBody.appendChild(vRow);
+        });
+    }
     // Les méthodes mVerifierSauvegarde, mDemarrerCreation et mContinuerCreation sont conservées
     // car elles pourraient être nécessaires plus tard pour la navigation, mais elles ne sont plus appelées par la page d'accueil.
     
