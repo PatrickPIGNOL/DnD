@@ -54,8 +54,17 @@ class CPage1 {
         document.getElementById('vFooterTexte').innerHTML = this.aTextes.footer_texte;
         this.mRemplirElement('vBoutonSuivant', this.aTextes.bouton_suivant);
     }
-    
-    // ... (Reste des méthodes : mGenererOptionsClasse, mSelectionnerClasse, etc.)
+    /**
+     * @brief Vérifie l'existence de l'élément avant de lui attribuer du texte.
+     * @param {string} pId L'ID de l'élément HTML.
+     * @param {string} pTexte La valeur à attribuer.
+     */
+    mRemplirElement(pId, pTexte) {
+        const vElement = document.getElementById(pId);
+        if (vElement) {
+            vElement.textContent = pTexte;
+        } 
+    }
 }
 
 // Global variable pour un accès facile
