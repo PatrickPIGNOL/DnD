@@ -1,6 +1,6 @@
 {
     "page1": {
-        "titre_page": "Création de Personnage - Classe",
+        "titre_page": "Donjons & Dragons",
         "titre_header": "Choisissez votre Classe",
                 
         "categories": {
@@ -11,7 +11,7 @@
             "soutien": "Soutien"
         },
         
-        "introduction": "Veuillez sélectionner une classe pour voir ses détails et continuer.",
+        "introduction": "Veuillez sélectionner votre classe.",
         
         
         "bouton_retour": "Accueil",

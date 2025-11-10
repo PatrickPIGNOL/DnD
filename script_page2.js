@@ -2,12 +2,20 @@ class CPage2 {
     aRacesData;
     aTextes; 
     aRaceSelectionnee = null;
-
-    // L'ID du filtre actif, utilisé pour l'affichage de la liste
     aFiltreActif = 'tout'; 
 
     constructor() {
         this.mInitialiserPage();
+    }
+
+    /**
+     * @brief Vérifie l'existence de l'élément avant de lui attribuer du texte.
+     */
+    mRemplirElement(pId, pTexte) {
+        const vElement = document.getElementById(pId);
+        if (vElement) {
+            vElement.textContent = pTexte;
+        } 
     }
 
     /**
@@ -17,7 +25,7 @@ class CPage2 {
         try {
             // 1. Chargement des données de Race
             const vResponseRaces = await fetch('races.json');
-            this.aRacesData = await vResponseRaces.json();
+            this.aRacesData = await vResponseRaces.json(); // Supposons races.json est un tableau direct
 
             // 2. Chargement des textes (page2.json)
             const vResponseTextes = await fetch('page2.json');
@@ -35,33 +43,37 @@ class CPage2 {
     mRemplirTextes() {
         if (!this.aTextes) return;
 
-        // Titre et Header
-        document.getElementById('vPageTitle').textContent = this.aTextes.titre_page;
-        document.getElementById('vHeaderTitre').textContent = this.aTextes.titre_header;
+        // Mise à jour du titre de la fenêtre
+        document.title = this.aTextes.titre_page;
         
-        // Section Recherche/Filtres
-        document.getElementById('vRechercheTitre').textContent = this.aTextes.section_recherche_titre;
-        document.getElementById('pSearch').placeholder = this.aTextes.recherche_placeholder;
+        // Mise à jour du Header
+        this.mRemplirElement('vHeaderTitre', this.aTextes.titre_header);
 
-        // Section Affichage Race par Défaut
-        document.getElementById('vDefaultRaceTitre').textContent = this.aTextes.race_par_defaut_titre;
-        document.getElementById('vDefaultRaceDesc').textContent = this.aTextes.race_par_defaut_desc;
+        // Les IDs suivants manquent dans le HTML fourni, on les sécurise :
+        this.mRemplirElement('vRechercheTitre', this.aTextes.section_recherche_titre);
+        const vSearchInput = document.getElementById('pSearch');
+        if (vSearchInput) vSearchInput.placeholder = this.aTextes.recherche_placeholder; // Input non géré par mRemplirElement
         
-        // Catégories de filtres (ajustez les IDs dans le HTML si nécessaire)
-        document.getElementById('vFiltreTout').textContent = this.aTextes.categories.tout;
-        document.getElementById('vFiltreHumanoide').textContent = this.aTextes.categories.humanoide;
-        document.getElementById('vFiltreMonstrueux').textContent = this.aTextes.categories.monstrueux;
-        document.getElementById('vFiltreCeleste').textContent = this.aTextes.categories.celeste;
+        // Section Affichage Race par Défaut (Manquante dans le HTML fourni)
+        this.mRemplirElement('vDefaultRaceTitre', this.aTextes.race_par_defaut_titre);
+        this.mRemplirElement('vDefaultRaceDesc', this.aTextes.race_par_defaut_desc);
+        
+        // Catégories de filtres (Manquantes)
+        this.mRemplirElement('vFiltreTout', this.aTextes.categories.tout);
+        // ... autres filtres
 
-        // Bouton DÉTAIL (le détail ne sera pas implémenté ici, mais le texte est là)
-        document.getElementById('vBoutonDetail').textContent = this.aTextes.bouton_detail;
+        // Bouton DÉTAIL (Manquant)
+        this.mRemplirElement('vBoutonDetail', this.aTextes.bouton_detail);
 
         // Boutons de navigation
-        const vRetourBtn = document.getElementById('vBoutonRetour');
-        vRetourBtn.textContent = this.aTextes.bouton_retour;
-        vRetourBtn.href = this.aTextes.lien_retour;
+        const vRetourBtn = document.querySelector('.navigation-buttons a.secondary-button');
+        if (vRetourBtn) {
+            vRetourBtn.textContent = this.aTextes.bouton_retour;
+            vRetourBtn.href = this.aTextes.lien_retour; 
+        }
         
-        document.getElementById('vSuivantButton').textContent = this.aTextes.bouton_suivant;
+        // CORRECTION D'ID : vNextButton est l'ID dans le HTML
+        this.mRemplirElement('vNextButton', this.aTextes.bouton_suivant);
     }
 
     /**
@@ -70,19 +82,24 @@ class CPage2 {
     mGenererListeRaces() {
         if (!this.aRacesData) return;
 
-        const vContainer = document.getElementById('vRaceListContainer');
+        const vContainer = document.getElementById('vRaceOptionsContainer'); // ID dans le HTML
+        if (!vContainer) return; // Sécurité si le conteneur n'est pas là
+
+        // Nettoyer le message de chargement
+        const vLoading = document.getElementById('vLoadingMessage');
+        if (vLoading) vLoading.style.display = 'none';
+
         let vHtml = '';
-        const vTermeRecherche = document.getElementById('pSearch').value.toLowerCase();
+        const vSearchInput = document.getElementById('pSearch');
+        const vTermeRecherche = vSearchInput ? vSearchInput.value.toLowerCase() : '';
         
         this.aRacesData.forEach(vRace => {
             const vCategorieTexte = this.aTextes.categories[vRace.categorie] || vRace.categorie;
             
-            // Logique de Filtrage (Catégorie)
             if (this.aFiltreActif !== 'tout' && vRace.categorie !== this.aFiltreActif) {
                 return;
             }
 
-            // Logique de Filtrage (Recherche)
             if (vTermeRecherche && !vRace.nom.toLowerCase().includes(vTermeRecherche)) {
                 return;
             }
@@ -90,7 +107,7 @@ class CPage2 {
             const vSelectedClass = (this.aRaceSelectionnee && this.aRaceSelectionnee.nom === vRace.nom) ? 'selected' : '';
 
             vHtml += `
-                <div class="race-card ${vSelectedClass}" data-race-nom="${vRace.nom}" onclick="new CPage2().mSelectionnerRace('${vRace.nom}')">
+                <div class="race-card ${vSelectedClass}" data-race-nom="${vRace.nom}" onclick="oCPage2.mSelectionnerRace('${vRace.nom}')">
                     <img src="${vRace.image_url}" alt="${vRace.nom}" class="race-image">
                     <div class="race-info">
                         <h3>${vRace.nom}</h3>
@@ -107,25 +124,21 @@ class CPage2 {
 
     /**
      * @brief Applique un filtre et régénère la liste.
-     * @param pFiltreKey La clé du filtre (ex: 'humanoide').
      */
     mAppliquerFiltre(pFiltreKey) {
         this.aFiltreActif = pFiltreKey;
-        // Mettre à jour les classes actives sur les boutons de filtre si besoin
         this.mGenererListeRaces();
     }
 
     /**
      * @brief Gère la sélection d'une race.
-     * @param pRaceNom Le nom de la race sélectionnée.
      */
     mSelectionnerRace(pRaceNom) {
         this.aRaceSelectionnee = this.aRacesData.find(vRace => vRace.nom === pRaceNom);
         
-        // Stockage dans le localStorage
         localStorage.setItem('raceSelectionnee', JSON.stringify(this.aRaceSelectionnee));
         
-        this.mGenererListeRaces(); // Pour mettre à jour la classe 'selected'
+        this.mGenererListeRaces(); 
         this.mMettreAJourAffichageSelection();
     }
 
@@ -133,21 +146,15 @@ class CPage2 {
      * @brief Met à jour le bloc d'affichage de la race sélectionnée et active le bouton Suivant.
      */
     mMettreAJourAffichageSelection() {
-        const vDisplayContainer = document.getElementById('vSelectedRaceDisplay');
-        const vSuivantButton = document.getElementById('vSuivantButton');
+        // Ces IDs manquent dans le HTML fourni, nous les ignorons ou les créons si vous les ajoutez.
+        const vSuivantButton = document.getElementById('vNextButton'); // ID réel du bouton
 
         if (this.aRaceSelectionnee) {
-            // Mise à jour de la zone de visualisation détaillée (ajustez les IDs dans le HTML si besoin)
-            document.getElementById('vDefaultRaceTitre').textContent = this.aRaceSelectionnee.nom;
-            document.getElementById('vDefaultRaceDesc').textContent = this.aRaceSelectionnee.description_courte;
-            
             // Activer le bouton Suivant
-            vSuivantButton.disabled = false;
+            if (vSuivantButton) vSuivantButton.disabled = false;
         } else {
             // Afficher le message par défaut et désactiver le bouton
-            document.getElementById('vDefaultRaceTitre').textContent = this.aTextes.race_par_defaut_titre;
-            document.getElementById('vDefaultRaceDesc').textContent = this.aTextes.race_par_defaut_desc;
-            vSuivantButton.disabled = true;
+            if (vSuivantButton) vSuivantButton.disabled = true;
         }
     }
 
@@ -171,21 +178,23 @@ class CPage2 {
         this.mRemplirTextes();
         this.mGenererListeRaces();
         
-        // Initialiser l'état du bouton Suivant (désactivé par défaut)
-        document.getElementById('vSuivantButton').disabled = true;
+        // Correction de l'ID pour le bouton Suivant
+        const vSuivantButton = document.getElementById('vNextButton');
+        if (vSuivantButton) {
+             vSuivantButton.disabled = true;
+             vSuivantButton.onclick = (event) => {
+                event.preventDefault(); // Empêche l'envoi du formulaire par défaut
+                this.mAllerPageSuivante();
+            };
+        }
 
-        // Écouteur pour la recherche
-        document.getElementById('pSearch').oninput = () => this.mGenererListeRaces();
-
-        // Écouteur pour la navigation
-        document.getElementById('vSuivantButton').onclick = () => this.mAllerPageSuivante();
-        
-        // Écouteurs pour les filtres (doivent être attachés aux éléments de filtre dans le HTML)
-        // Exemple (si vous avez des éléments avec les IDs vFiltreTout, vFiltreHumanoide, etc.):
-        // document.getElementById('vFiltreTout').onclick = () => this.mAppliquerFiltre('tout');
-        // document.getElementById('vFiltreHumanoide').onclick = () => this.mAppliquerFiltre('humanoide');
-        // document.getElementById('vFiltreMonstrueux').onclick = () => this.mAppliquerFiltre('monstrueux');
+        // Si l'élément pSearch n'existe pas, cette ligne sera ignorée grâce à la sécurité implicite
+        const vSearchInput = document.getElementById('pSearch');
+        if (vSearchInput) {
+            vSearchInput.oninput = () => this.mGenererListeRaces();
+        }
     }
 }
 
-new CPage2();
+// Global variable pour un accès facile
+const oCPage2 = new CPage2();
