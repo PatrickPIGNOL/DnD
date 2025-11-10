@@ -1,12 +1,18 @@
 {
     "index": {
-        "titre_page": "Création de Personnage - Accueil",
-        "titre_header": "Bienvenue dans l'outil de création de personnage",
-        "intro_titre": "Lancez votre aventure",
+        "titre_page": "Donjons & Dragons",
+        "titre_header": "Donjons & Dragons",
+        "intro_titre": "Commencez votre aventure",
         "intro_texte": "Cet outil interactif vous guidera étape par étape dans la création de votre héros, depuis le choix de sa classe jusqu'à son historique personnel et ses statistiques.",
         
         "sections_titre": "Étapes de création",
         "sections": [
+            {
+                "titre": "Quizz de déter",
+                "description": "Définissez la vocation de votre héros (Guerrier, Magicien, etc.).",
+                "lien": "page1_classe.html",
+                "exeternal": true
+            },
             {
                 "titre": "Étape 1 : Classe",
                 "description": "Définissez la vocation de votre héros (Guerrier, Magicien, etc.).",
