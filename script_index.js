@@ -40,6 +40,8 @@ class CIndexPage {
         this.mGenererRessources();
     }
     
+    // Changements dans script_index.js
+
     /**
      * @brief Génère la section de démarrage (Étapes uniquement).
      */
@@ -55,21 +57,19 @@ class CIndexPage {
 
         // Suppression de l'intro et des boutons Démarrer/Continuer
         let vHTMLContent = `            
-            <h2 id="vSectionsTitre">${vData.sections_titre}</h2>
             <div id="vEtapesContainer" class="etapes-grid">
         `;
 
         this.aTextes.sections.forEach(pSection => {
             const vTarget = pSection.external ? 'target="_blank"' : ''; 
-            
-            // Utilisation obligatoire de pSection.bouton_texte car bouton_demarrer n'existe plus
             const vBoutonText = pSection.bouton_texte; 
 
+            // Chaque étape devient une "section" avec son propre titre h2
             vHTMLContent += `
                 <div class="etape-item">
-                    <h3>${pSection.titre}</h3>
-                    <p>${pSection.description}</p>
-                    <a href="${pSection.lien}" ${vTarget} class="button-link">${vBoutonText}</a> </div>
+                    <h2>${pSection.titre}</h2> <p>${pSection.description}</p>
+                    <a href="${pSection.lien}" ${vTarget} class="button-link">${vBoutonText}</a>
+                </div>
             `;
         });
         
