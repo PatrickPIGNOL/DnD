@@ -1,0 +1,26 @@
+{
+    "page2": {
+        "titre_page": "Création de Personnage - Race",
+        "titre_header": "Choisissez votre Race",
+        
+        "section_recherche_titre": "Recherche et Filtres",
+        "recherche_placeholder": "Filtrer les races...",
+        "race_par_defaut_titre": "Race sélectionnée",
+        "race_par_defaut_desc": "Veuillez sélectionner une race pour continuer.",
+        
+        "categories": {
+            "tout": "Tout",
+            "humanoide": "Humanoïde",
+            "monstrueux": "Monstrueux",
+            "celeste": "Céleste"
+        },
+        
+        "bouton_detail": "Détails",
+        
+        "bouton_retour": "Retour",
+        "lien_retour": "page1_classe.html",
+        
+        "bouton_suivant": "Suivant (Caractéristiques)",
+        "lien_suivant": "page3_caracteristiques.html"
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "page1": {
+        "titre_page": "Création de Personnage - Classe",
+        "titre_header": "Choisissez votre Classe",
+        
+        "section_recherche_titre": "Recherche et Filtres",
+        "recherche_placeholder": "Filtrer les classes...",
+        
+        "categories": {
+            "tout": "Tout",
+            "corps_a_corps": "Corps-à-corps",
+            "distance": "Distance",
+            "magie": "Magie",
+            "soutien": "Soutien"
+        },
+        
+        "classe_par_defaut_titre": "Classe sélectionnée",
+        "classe_par_defaut_desc": "Veuillez sélectionner une classe pour voir ses détails et continuer.",
+        
+        "bouton_detail": "Détails",
+        
+        "bouton_retour": "Accueil",
+        "lien_retour": "index.html",
+        
+        "bouton_suivant": "Suivant (Race)",
+        "lien_suivant": "page2_race.html"
+    }
+}

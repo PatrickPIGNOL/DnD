@@ -1,161 +1,191 @@
-const mChargerRace = async () => {
-    // Variables locales pour les éléments du DOM
-    const vForm = document.getElementById('raceSelectionForm');
-    const vOptionsContainer = document.getElementById('vRaceOptionsContainer');
-    const vLoadingMessage = document.getElementById('vLoadingMessage');
-    const vNextButton = document.getElementById('vNextButton');
-    const vErrorMessage = document.getElementById('vErrorMessage');
-    
-    // État
-    let vRacesData = [];
-    let personnage = null;
-    const localStorageKey = 'personnage_en_cours';
+class CPage2 {
+    aRacesData;
+    aTextes; 
+    aRaceSelectionnee = null;
+
+    // L'ID du filtre actif, utilisé pour l'affichage de la liste
+    aFiltreActif = 'tout'; 
+
+    constructor() {
+        this.mInitialiserPage();
+    }
 
     /**
-     * @method mChargerEtatInitial
-     * @description Charge l'état du personnage depuis le localStorage.
+     * @brief Charge les fichiers JSON nécessaires (races.json et page2.json).
      */
-    function mChargerEtatInitial() {
-        const vPersonnageJson = localStorage.getItem(localStorageKey);
-        if (vPersonnageJson) {
-            personnage = JSON.parse(vPersonnageJson);
-            
-            // Vérification de la continuité (doit avoir une classe)
-            if (!personnage.aClasse) {
-                // Si la classe manque, rediriger ou désactiver
-                // window.location.href = 'page1_classe.html'; 
-                vErrorMessage.textContent = "Erreur de session. Veuillez choisir une classe en premier.";
-                vNextButton.disabled = true;
-            } else if (personnage.aRace) {
-                // Activer le bouton si un choix existe déjà
-                vNextButton.disabled = false;
-            }
-        } else {
-             // Si aucune session, redirection vers le début
-             vErrorMessage.textContent = "Session de personnage introuvable.";
-             vNextButton.disabled = true;
-             // window.location.href = 'index.html';
+    async mChargerDonnees() {
+        try {
+            // 1. Chargement des données de Race
+            const vResponseRaces = await fetch('races.json');
+            this.aRacesData = await vResponseRaces.json();
+
+            // 2. Chargement des textes (page2.json)
+            const vResponseTextes = await fetch('page2.json');
+            const vDataTextes = await vResponseTextes.json();
+            this.aTextes = vDataTextes.page2;
+
+        } catch (vError) {
+            console.error("Erreur de chargement des fichiers JSON:", vError);
         }
     }
 
     /**
-     * @method mAfficherListeRaces
-     * @description Injecte le HTML pour chaque race disponible.
+     * @brief Injecte les textes de page2.json dans les éléments HTML.
      */
-    function mAfficherListeRaces() {
-        vOptionsContainer.innerHTML = '';
-        
-        const vRaceSelectionnee = personnage ? personnage.aRace : null;
+    mRemplirTextes() {
+        if (!this.aTextes) return;
 
-        vRacesData.forEach((vRace, vIndex) => {
-            const vChecked = (vRace.nom === vRaceSelectionnee) ? 'checked' : ''; 
+        // Titre et Header
+        document.getElementById('vPageTitle').textContent = this.aTextes.titre_page;
+        document.getElementById('vHeaderTitre').textContent = this.aTextes.titre_header;
+        
+        // Section Recherche/Filtres
+        document.getElementById('vRechercheTitre').textContent = this.aTextes.section_recherche_titre;
+        document.getElementById('pSearch').placeholder = this.aTextes.recherche_placeholder;
+
+        // Section Affichage Race par Défaut
+        document.getElementById('vDefaultRaceTitre').textContent = this.aTextes.race_par_defaut_titre;
+        document.getElementById('vDefaultRaceDesc').textContent = this.aTextes.race_par_defaut_desc;
+        
+        // Catégories de filtres (ajustez les IDs dans le HTML si nécessaire)
+        document.getElementById('vFiltreTout').textContent = this.aTextes.categories.tout;
+        document.getElementById('vFiltreHumanoide').textContent = this.aTextes.categories.humanoide;
+        document.getElementById('vFiltreMonstrueux').textContent = this.aTextes.categories.monstrueux;
+        document.getElementById('vFiltreCeleste').textContent = this.aTextes.categories.celeste;
+
+        // Bouton DÉTAIL (le détail ne sera pas implémenté ici, mais le texte est là)
+        document.getElementById('vBoutonDetail').textContent = this.aTextes.bouton_detail;
+
+        // Boutons de navigation
+        const vRetourBtn = document.getElementById('vBoutonRetour');
+        vRetourBtn.textContent = this.aTextes.bouton_retour;
+        vRetourBtn.href = this.aTextes.lien_retour;
+        
+        document.getElementById('vSuivantButton').textContent = this.aTextes.bouton_suivant;
+    }
+
+    /**
+     * @brief Génère la liste des races dans le conteneur principal.
+     */
+    mGenererListeRaces() {
+        if (!this.aRacesData) return;
+
+        const vContainer = document.getElementById('vRaceListContainer');
+        let vHtml = '';
+        const vTermeRecherche = document.getElementById('pSearch').value.toLowerCase();
+        
+        this.aRacesData.forEach(vRace => {
+            const vCategorieTexte = this.aTextes.categories[vRace.categorie] || vRace.categorie;
             
-            // Structure finale avec styles INLINE pour garantir le centrage du radio bouton
-            const vHtml = `
-                <div class="race-option-card" onclick="document.getElementById('vRaceRadio-${vIndex}').checked = true;">
-                    
-                    <table class="race-layout-table">
-                        <tbody>
-                            <tr>
-                                <td class="radio-cell" rowspan="2" style="text-align: center; vertical-align: middle;">
-                                    <input type="radio" name="pRaceSelectionnee" value="${vRace.nom}" id="vRaceRadio-${vIndex}" ${vChecked}>
-                                </td>
-                                
-                                <td colspan="2" class="race-header-title">
-                                    ${vRace.nom} (${vRace.bonusCarac})
-                                </td>
-                            </tr>
-                            
-                            <tr>
-                                <td class="race-image-cell">
-                                    <img src="${vRace.image_url}" alt="Image de ${vRace.nom}" class="race-image">
-                                </td>
-                                <td class="race-description-cell">
-                                    <div class="race-description">${vRace.description}</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    
+            // Logique de Filtrage (Catégorie)
+            if (this.aFiltreActif !== 'tout' && vRace.categorie !== this.aFiltreActif) {
+                return;
+            }
+
+            // Logique de Filtrage (Recherche)
+            if (vTermeRecherche && !vRace.nom.toLowerCase().includes(vTermeRecherche)) {
+                return;
+            }
+
+            const vSelectedClass = (this.aRaceSelectionnee && this.aRaceSelectionnee.nom === vRace.nom) ? 'selected' : '';
+
+            vHtml += `
+                <div class="race-card ${vSelectedClass}" data-race-nom="${vRace.nom}" onclick="new CPage2().mSelectionnerRace('${vRace.nom}')">
+                    <img src="${vRace.image_url}" alt="${vRace.nom}" class="race-image">
+                    <div class="race-info">
+                        <h3>${vRace.nom}</h3>
+                        <p class="race-category">${vCategorieTexte}</p>
+                        <p class="race-description">${vRace.description_courte}</p>
+                    </div>
                 </div>
             `;
-            vOptionsContainer.innerHTML += vHtml;
         });
-
-        // Écouteur de changement pour vérifier la sélection
-        vOptionsContainer.addEventListener('change', mVerifierSelection);
-    }
-    
-    /**
-     * @method mVerifierSelection
-     * @description Active/Désactive le bouton suivant lors du choix.
-     */
-    function mVerifierSelection() {
-        vNextButton.disabled = !vForm.querySelector('input[name="pRaceSelectionnee"]:checked');
+        
+        vContainer.innerHTML = vHtml;
+        this.mMettreAJourAffichageSelection();
     }
 
     /**
-     * @method mSoumettreRaceEtContinuer
-     * @description Enregistre le choix et passe à l'étape suivante.
+     * @brief Applique un filtre et régénère la liste.
+     * @param pFiltreKey La clé du filtre (ex: 'humanoide').
      */
-    function mSoumettreRaceEtContinuer(pEvent) {
-        pEvent.preventDefault();
-        vErrorMessage.textContent = '';
-        
-        const vSelectionne = vForm.querySelector('input[name="pRaceSelectionnee"]:checked');
-        
-        if (!vSelectionne) {
-            vErrorMessage.textContent = "Veuillez sélectionner une race.";
-            return;
-        }
+    mAppliquerFiltre(pFiltreKey) {
+        this.aFiltreActif = pFiltreKey;
+        // Mettre à jour les classes actives sur les boutons de filtre si besoin
+        this.mGenererListeRaces();
+    }
 
-        const vRaceNom = vSelectionne.value;
+    /**
+     * @brief Gère la sélection d'une race.
+     * @param pRaceNom Le nom de la race sélectionnée.
+     */
+    mSelectionnerRace(pRaceNom) {
+        this.aRaceSelectionnee = this.aRacesData.find(vRace => vRace.nom === pRaceNom);
         
-        // Mise à jour de l'Objet Personnage dans le localStorage
-        if (personnage) {
-            personnage.aRace = vRaceNom;
+        // Stockage dans le localStorage
+        localStorage.setItem('raceSelectionnee', JSON.stringify(this.aRaceSelectionnee));
+        
+        this.mGenererListeRaces(); // Pour mettre à jour la classe 'selected'
+        this.mMettreAJourAffichageSelection();
+    }
+
+    /**
+     * @brief Met à jour le bloc d'affichage de la race sélectionnée et active le bouton Suivant.
+     */
+    mMettreAJourAffichageSelection() {
+        const vDisplayContainer = document.getElementById('vSelectedRaceDisplay');
+        const vSuivantButton = document.getElementById('vSuivantButton');
+
+        if (this.aRaceSelectionnee) {
+            // Mise à jour de la zone de visualisation détaillée (ajustez les IDs dans le HTML si besoin)
+            document.getElementById('vDefaultRaceTitre').textContent = this.aRaceSelectionnee.nom;
+            document.getElementById('vDefaultRaceDesc').textContent = this.aRaceSelectionnee.description_courte;
             
-            // Si la race change, les caractéristiques générées précédemment ne sont plus valides (bonus différents)
-            // Donc, on réinitialise l'étape des caractéristiques
-            personnage.aScoreCarac = null; 
-            
-            // Stockage et redirection (vers la page 3 : Caractéristiques/Niveau)
-            localStorage.setItem(localStorageKey, JSON.stringify(personnage));
-            window.location.href = 'page3_niveau_carac.html'; 
+            // Activer le bouton Suivant
+            vSuivantButton.disabled = false;
         } else {
-             vErrorMessage.textContent = "Erreur: Session de personnage introuvable.";
-             // window.location.href = 'index.html';
+            // Afficher le message par défaut et désactiver le bouton
+            document.getElementById('vDefaultRaceTitre').textContent = this.aTextes.race_par_defaut_titre;
+            document.getElementById('vDefaultRaceDesc').textContent = this.aTextes.race_par_defaut_desc;
+            vSuivantButton.disabled = true;
         }
     }
 
-
-    // --- INITIALISATION PRINCIPALE ---
-    mChargerEtatInitial();
-    
-    try {
-        // Charger les données JSON
-        const vResponse = await fetch('races.json');
-        
-        if (!vResponse.ok) {
-            throw new Error(`Erreur de chargement du fichier (Statut ${vResponse.status}).`);
+    /**
+     * @brief Gère la navigation vers la page suivante.
+     */
+    mAllerPageSuivante() {
+        if (this.aRaceSelectionnee) {
+            const vLienSuivant = this.aTextes.lien_suivant;
+            window.location.href = vLienSuivant;
+        } else {
+            alert("Veuillez sélectionner une race avant de continuer.");
         }
-        
-        vRacesData = await vResponse.json();
-        
-        vLoadingMessage.style.display = 'none';
-        mAfficherListeRaces();
-        
-    } catch (vError) {
-        console.error("Erreur critique lors du chargement de races.json:", vError);
-        vLoadingMessage.style.display = 'none';
-        vErrorMessage.textContent = `Erreur : Impossible de charger les options de race.`;
-        vNextButton.disabled = true; 
     }
 
-    if (vForm) {
-        vForm.addEventListener('submit', mSoumettreRaceEtContinuer);
-    }
-};
+    /**
+     * @brief Initialise la page, charge les données et configure les écouteurs.
+     */
+    async mInitialiserPage() {
+        await this.mChargerDonnees();
+        this.mRemplirTextes();
+        this.mGenererListeRaces();
+        
+        // Initialiser l'état du bouton Suivant (désactivé par défaut)
+        document.getElementById('vSuivantButton').disabled = true;
 
-// Démarrer le processus une fois que le DOM est complètement chargé
-document.addEventListener('DOMContentLoaded', mChargerRace);
+        // Écouteur pour la recherche
+        document.getElementById('pSearch').oninput = () => this.mGenererListeRaces();
+
+        // Écouteur pour la navigation
+        document.getElementById('vSuivantButton').onclick = () => this.mAllerPageSuivante();
+        
+        // Écouteurs pour les filtres (doivent être attachés aux éléments de filtre dans le HTML)
+        // Exemple (si vous avez des éléments avec les IDs vFiltreTout, vFiltreHumanoide, etc.):
+        // document.getElementById('vFiltreTout').onclick = () => this.mAppliquerFiltre('tout');
+        // document.getElementById('vFiltreHumanoide').onclick = () => this.mAppliquerFiltre('humanoide');
+        // document.getElementById('vFiltreMonstrueux').onclick = () => this.mAppliquerFiltre('monstrueux');
+    }
+}
+
+new CPage2();
