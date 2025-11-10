@@ -54,9 +54,7 @@ class CIndexPage {
         const vData = this.aTextes;
 
         // Suppression de l'intro et des boutons Démarrer/Continuer
-        let vHTMLContent = `
-            <hr>
-            
+        let vHTMLContent = `            
             <h2 id="vSectionsTitre">${vData.sections_titre}</h2>
             <div id="vEtapesContainer" class="etapes-grid">
         `;
