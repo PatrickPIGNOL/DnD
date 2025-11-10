@@ -69,7 +69,8 @@ class CIndexPage {
         `;
 
         this.aTextes.sections.forEach(pSection => {
-            const vTarget = pSection.external ? 'target="_blank"' : '';
+            // Logique de lien externe rétablie : ajoute target="_blank" si pSection.external est true
+            const vTarget = pSection.external ? 'target="_blank"' : ''; 
             
             vHTMLContent += `
                 <div class="etape-item">
@@ -81,7 +82,7 @@ class CIndexPage {
         });
         
         vHTMLContent += '</div>';
-        vSection.innerHTML = vHTMLContent; // Utilisation de vSection (CORRIGÉ)
+        vSection.innerHTML = vHTMLContent;
 
         // Attacher les écouteurs après l'injection
         this.mVerifierSauvegarde();
