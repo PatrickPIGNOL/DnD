@@ -52,10 +52,10 @@ class CPage1 {
 
         document.title = this.aTextes.titre_page; 
         
-        this.mRemplirElement('vHeaderTitre', this.aTextes.titre_header);
+        this.mRemplirElement('vHeaderTitre', this.aTextes.titre_page);
         
-        this.mRemplirElement('vPage1Titre', this.aTextes.titre_section); 
-        this.mRemplirElement('vPage1Introduction', this.aTextes.introduction); 
+        this.mRemplirElement('vPageTitre', this.aTextes.titre_header); 
+        this.mRemplirElement('vPageIntroduction', this.aTextes.introduction); 
 
         // Le footer doit utiliser innerHTML car il peut contenir du HTML
         const vFooter = document.getElementById('vFooterTexte');
