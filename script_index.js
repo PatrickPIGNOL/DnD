@@ -43,10 +43,11 @@ class CIndexPage {
     // Changements dans script_index.js
 
     /**
-     * @brief Génère la section de démarrage (Étapes uniquement).
+     * @brief Génère la section de démarrage (Étapes en tant que cartes individuelles).
      */
     mGenererSectionDemarrage() {
-        const vSection = document.getElementById('adventure-start-section');
+        // CORRECTION : S'assurer que vSection est défini
+        const vSection = document.getElementById('adventure-start-section'); 
         
         if (!vSection) {
             console.error("mGenererSectionDemarrage - Élément 'adventure-start-section' introuvable.");
@@ -55,39 +56,14 @@ class CIndexPage {
 
         const vData = this.aTextes;
 
-        // Suppression de l'intro et des boutons Démarrer/Continuer
-        let vHTMLContent = `            
-            <div id="vEtapesContainer" class="etapes-grid">
-        `;
+        let vHTMLContent = ''; 
 
+        // Remplacer l'ancienne grille par des sections individuelles
         this.aTextes.sections.forEach(pSection => {
             const vTarget = pSection.external ? 'target="_blank"' : ''; 
             const vBoutonText = pSection.bouton_texte; 
 
-            // Chaque étape devient une "section" avec son propre titre h2
-            vHTMLContent += `
-                <div class="etape-item">
-                    <h2>${pSection.titre}</h2> <p>${pSection.description}</p>
-                    <a href="${pSection.lien}" ${vTarget} class="button-link">${vBoutonText}</a>
-                </div>
-            `;
-        });
-        
-        vHTMLContent += '</div>';
-        vSection.innerHTML = vHTMLContent;
-    }
-
-    // --- script_index.js - méthode mGenererSectionDemarrage ---
-    
-    mGenererSectionDemarrage() {
-        let vHTMLContent = ''; // Suppression de <hr> et autres éléments si besoin
-
-        // Création d'une <section> unique pour contenir toutes les étapes
-        this.aTextes.sections.forEach(pSection => {
-            const vTarget = pSection.external ? 'target="_blank"' : ''; 
-            const vBoutonText = pSection.bouton_texte; 
-
-            // Chaque étape est maintenant son propre bloc (cadre)
+            // Chaque étape est maintenant son propre cadre (<section>) utilisant la nouvelle classe CSS
             vHTMLContent += `
                 <section class="etape-item-card">
                     <h2>${pSection.titre}</h2>
@@ -96,8 +72,9 @@ class CIndexPage {
                 </section>
             `;
         });
-
-        vSection.innerHTML = vHTMLContent;        
+        
+        // C'est à cette ligne (environ 100) que l'erreur se produisait
+        vSection.innerHTML = vHTMLContent; 
     }
 
     // Les méthodes mVerifierSauvegarde, mDemarrerCreation et mContinuerCreation sont conservées
