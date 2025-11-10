@@ -3,45 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Étape 1 : Choix de la Classe</title>
+    <title>Création de Personnage - Étape 1 : Classe</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        .classe-option-card { margin-bottom: 0; border: none; padding: 0; background-color: transparent; box-shadow: none; }
-        .classe-item-container { background-color: var(--couleur-fond-section); padding: 15px; border-radius: 5px; border: 1px solid var(--couleur-border); }
-        .classe-item-container:hover { background-color: #333333; }
-        .classe-header { color: var(--couleur-accent); font-size: 1.4em; font-weight: bold; margin-bottom: 5px; border-bottom: 2px solid var(--couleur-accent); padding-bottom: 5px; }
-        .classe-content { display: flex; align-items: flex-start; gap: 15px; margin-top: 10px; }
-        .classe-content img { width: 80px; height: 80px; object-fit: cover; border: 2px solid var(--couleur-border); border-radius: 4px; }
-        .classe-details { flex-grow: 1; }
-        .classe-details p { margin: 0; font-size: 0.95em; }
-        /* Style pour aligner correctement le radio button */
-        .classe-content input[type="radio"] { align-self: center; } 
-    </style>
 </head>
 <body>
     <header>
-        <h1>Création de Personnage - Étape 1/11</h1>
+        <h1 id="vHeaderTitre"></h1>
     </header>
 
     <main>
-        <form id="classSelectionForm">
-            <h2>1. Choisissez votre Classe</h2>
-            <p>Sélectionnez la classe que vous avez obtenue, ou celle qui vous inspire le plus !</p>
+        <section>
+            <h2 id="vPage1Titre"></h2>
+            <p id="vPage1Introduction"></p>
             
-            <div id="vClassesOptionsContainer" class="classe-options-list">
-                <p id="vLoadingMessage">Chargement des données de classe...</p>
-            </div>
+            <hr>
 
-            <p id="vErrorMessage" style="color: red; margin-top: 20px;"></p>
+            <div id="vClasseOptionsList" class="classe-options-list">
+                </div>
+            
+            <hr>
 
             <div class="navigation-buttons">
-                <button type="submit" id="vNextButton" disabled>Suivant >> Étape 2</button>
+                <button type="button" class="secondary-button" onclick="window.history.back()">Retour</button>
+                
+                <button id="vBoutonSuivant" type="submit" onclick="oCPage1.mSelectionnerClasse(event)">
+                    Suivant
+                </button>
             </div>
-        </form>
+        </section>
     </main>
-    
+
     <footer>
-        <p>&copy; 2025 Character Builder</p>
+        <p id="vFooterTexte"></p>
     </footer>
 
     <script src="script_page1.js"></script>

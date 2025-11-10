@@ -13,7 +13,7 @@
             },
             {
                 "titre": "Créer votre personnage",
-                "description": "Définissez la vocation de votre héros (Guerrier, Magicien, etc.).",
+                "description": "Créez votre personnage pour pouvoir jouer à Donjons & Dragons et vivre des aventures épiques dans un monde médiéval fantastique",
                 "bouton_texte": "Créez votre personnage",
                 "lien": "page1_classe.html",
                 "external": false
@@ -31,6 +31,13 @@
                 "buttonText": "Visiter le site",
                 "link": "https://www.aidedd.org/"
             },
+            {
+                "name": "AideDD.org - Sorts",
+                "description": "Une base de données complète des sorts par classe et niveau.",
+                "buttonText": "Visiter le site",
+                "link": "https://www.aidedd.org/dnd-filters/sorts.php"
+            },
+            
             {
                 "name": "D&D 5e SRD",
                 "description": "Le manuel de référence des règles de base (en anglais).",
