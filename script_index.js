@@ -28,7 +28,7 @@ class CIndexPage {
         document.getElementById('vHeaderTitre').textContent = this.aTextes.titre_header;
         document.getElementById('vFooterTexte').innerHTML = this.aTextes.footer_texte;
 
-        // Génération de la section de démarrage
+        // Génération de la section de démarrage (Étapes)
         this.mGenererSectionDemarrage();
         
         // Injection des titres de la section Ressources
@@ -41,7 +41,7 @@ class CIndexPage {
     }
     
     /**
-     * @brief Génère la section de démarrage (Intro, Boutons Démarrer/Continuer et Étapes).
+     * @brief Génère la section de démarrage (Étapes uniquement).
      */
     mGenererSectionDemarrage() {
         const vSection = document.getElementById('adventure-start-section');
@@ -53,15 +53,8 @@ class CIndexPage {
 
         const vData = this.aTextes;
 
+        // Suppression de l'intro et des boutons Démarrer/Continuer
         let vHTMLContent = `
-            <h2 id="vIntroTitre">${vData.intro_titre}</h2>
-            <p id="vIntroTexte">${vData.intro_texte}</p>
-            
-            <div class="navigation-buttons">
-                <button type="button" id="vBoutonDemarrer" class="primary-button">${vData.bouton_demarrer}</button>
-                <button type="button" id="vBoutonContinuer" class="secondary-button" disabled>${vData.bouton_continuer}</button>
-            </div>
-            
             <hr>
             
             <h2 id="vSectionsTitre">${vData.sections_titre}</h2>
@@ -69,24 +62,22 @@ class CIndexPage {
         `;
 
         this.aTextes.sections.forEach(pSection => {
-            // Logique de lien externe rétablie : ajoute target="_blank" si pSection.external est true
             const vTarget = pSection.external ? 'target="_blank"' : ''; 
             
+            // Utilisation obligatoire de pSection.bouton_texte car bouton_demarrer n'existe plus
+            const vBoutonText = pSection.bouton_texte; 
+
             vHTMLContent += `
                 <div class="etape-item">
                     <h3>${pSection.titre}</h3>
                     <p>${pSection.description}</p>
-                    <a href="${pSection.lien}" ${vTarget} class="etape-link">${pSection.bouton_texte}</a> 
+                    <a href="${pSection.lien}" ${vTarget} class="etape-link">${vBoutonText}</a>
                 </div>
             `;
         });
         
         vHTMLContent += '</div>';
         vSection.innerHTML = vHTMLContent;
-
-        // Attacher les écouteurs après l'injection
-        this.mVerifierSauvegarde();
-        document.getElementById('vBoutonDemarrer').onclick = () => this.mDemarrerCreation();
     }
 
     /**
@@ -105,7 +96,7 @@ class CIndexPage {
             return;
         }
 
-        vTableBody.innerHTML = ''; // Assurer que le corps est vide avant de le remplir
+        vTableBody.innerHTML = ''; 
 
         this.aTextes.resources.forEach(pResource => {
             const vRow = document.createElement('tr');
@@ -113,10 +104,12 @@ class CIndexPage {
             vRow.innerHTML = `
                 <td data-label="Titre">
                     <strong>${pResource.name}</strong>
-                </td>                
+                </td>
+                
                 <td data-label="Description" style="width: 100%;">
                     ${pResource.description}
-                </td>                
+                </td>
+                
                 <td data-label="Action" style="white-space: nowrap;">
                     <a href="${pResource.link}" target="_blank" class="secondary-button">${pResource.buttonText}</a>
                 </td>
@@ -126,14 +119,11 @@ class CIndexPage {
         });
     }
 
+    // Les méthodes mVerifierSauvegarde, mDemarrerCreation et mContinuerCreation sont conservées
+    // car elles pourraient être nécessaires plus tard pour la navigation, mais elles ne sont plus appelées par la page d'accueil.
+    
     mVerifierSauvegarde() {
-        const vContinuerBtn = document.getElementById('vBoutonContinuer');
-        const vClasseSauvegardee = localStorage.getItem('classeSelectionnee');
-        
-        if (vContinuerBtn && vClasseSauvegardee) {
-            vContinuerBtn.disabled = false;
-            vContinuerBtn.onclick = () => this.mContinuerCreation();
-        }
+        // Logique retirée car les boutons n'existent plus
     }
     
     mDemarrerCreation() {
@@ -142,7 +132,6 @@ class CIndexPage {
     }
     
     mContinuerCreation() {
-        // Les sections sont ordonnées dans le JSON : [0:Classe, 1:Race, 2:Caractéristiques, 3:Historique]
         if (localStorage.getItem('historiqueSelectionne')) {
              window.location.href = this.aTextes.sections[3].lien;
         } else if (localStorage.getItem('raceSelectionnee')) {

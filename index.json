@@ -2,8 +2,6 @@
     "index": {
         "titre_page": "Donjons & Dragons",
         "titre_header": "Donjons & Dragons",
-        "intro_titre": "Commencez votre aventure",
-        "intro_texte": "Cet outil interactif vous guidera étape par étape dans la création de votre héros, depuis le choix de sa classe jusqu'à son historique personnel et ses statistiques.",
         
         "sections_titre": "Étapes de création",
         "sections": [
@@ -22,10 +20,7 @@
                 "external": false
             }
         ],
-        
-        "bouton_demarrer": "Démarrer la création",
-        "bouton_continuer": "Continuer où j'en étais",
-        
+                
         "ressources_titre": "Ressources Utiles 📚",
         "ressources_intro": "Voici des liens vers des ressources externes qui pourraient vous aider pendant votre création de personnage ou pendant votre jeu :",
         "tableau_ressources_colonne": "Ressources",
