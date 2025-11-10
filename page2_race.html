@@ -3,37 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Créateur de Personnage - Étape 2 : Choix de Race</title>
+    <title></title> 
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>🧬 Étape 2 : Choisissez votre Race</h1>
+        <h1 id="vHeaderTitre"></h1>
     </header>
 
     <main>
         <section>
-            <h2>Origines et Traits</h2>
-            <p>La race détermine l'apparence physique de votre personnage, sa longévité, et lui confère des **bonus de caractéristiques** ainsi que des **traits spéciaux**.</p>
+            <h2 id="vPage2Titre"></h2> 
+            <p id="vPage2Introduction"></p> 
             
             <form id="raceSelectionForm">
+                
+                <div id="vSelectedRaceDisplay">
+                    <h3 id="vDefaultRaceTitre"></h3>
+                    <p id="vDefaultRaceDesc"></p>
+                    <button id="vBoutonDetail"></button>
+                </div>
                 
                 <div id="vRaceOptionsContainer" class="race-options-grid">
                     <div id="vLoadingMessage">Chargement des options de race...</div>
                 </div>
 
-                <div id="vErrorMessage" style="color: var(--couleur-accent); margin-top: 15px;"></div>
-
                 <div class="navigation-buttons">
-                    <a href="page1_classe.html" class="secondary-button">Retour</a>
-                    <button type="submit" id="vNextButton" disabled>Continuer vers Caractéristiques >> (Étape 3)</button>
+                    <a id="vBoutonRetour" class="secondary-button"></a>
+                    
+                    <button type="submit" id="vNextButton" disabled></button>
                 </div>
             </form>
         </section>
     </main>
     
     <footer>
-        <p>&copy; 2025 Character Builder</p>
+        <p id="vFooterTexte"></p> 
     </footer>
 
     <script src="script_page2.js"></script>

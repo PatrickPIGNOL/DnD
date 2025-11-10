@@ -2,7 +2,7 @@ class CPage2 {
     aRacesData;
     aTextes; 
     aRaceSelectionnee = null;
-    aFiltreActif = 'tout'; 
+    // aFiltreActif n'est plus nécessaire
 
     constructor() {
         this.mInitialiserPage();
@@ -25,7 +25,7 @@ class CPage2 {
         try {
             // 1. Chargement des données de Race
             const vResponseRaces = await fetch('races.json');
-            this.aRacesData = await vResponseRaces.json(); // Supposons races.json est un tableau direct
+            this.aRacesData = await vResponseRaces.json(); 
 
             // 2. Chargement des textes (page2.json)
             const vResponseTextes = await fetch('page2.json');
@@ -43,92 +43,89 @@ class CPage2 {
     mRemplirTextes() {
         if (!this.aTextes) return;
 
-        // Mise à jour du titre de la fenêtre
         document.title = this.aTextes.titre_page;
         
-        // Mise à jour du Header
+        // Header, Titre de section et Introduction
         this.mRemplirElement('vHeaderTitre', this.aTextes.titre_header);
+        this.mRemplirElement('vPage2Titre', 'Origines et Traits'); // Statistique
+        this.mRemplirElement('vPage2Introduction', 'La race détermine l\'apparence physique de votre personnage, sa longévité, et lui confère des bonus de caractéristiques ainsi que des traits spéciaux.'); // Statistique
 
-        // Les IDs suivants manquent dans le HTML fourni, on les sécurise :
-        this.mRemplirElement('vRechercheTitre', this.aTextes.section_recherche_titre);
-        const vSearchInput = document.getElementById('pSearch');
-        if (vSearchInput) vSearchInput.placeholder = this.aTextes.recherche_placeholder; // Input non géré par mRemplirElement
-        
-        // Section Affichage Race par Défaut (Manquante dans le HTML fourni)
+        // Section Affichage Race par Défaut
         this.mRemplirElement('vDefaultRaceTitre', this.aTextes.race_par_defaut_titre);
         this.mRemplirElement('vDefaultRaceDesc', this.aTextes.race_par_defaut_desc);
-        
-        // Catégories de filtres (Manquantes)
-        this.mRemplirElement('vFiltreTout', this.aTextes.categories.tout);
-        // ... autres filtres
-
-        // Bouton DÉTAIL (Manquant)
         this.mRemplirElement('vBoutonDetail', this.aTextes.bouton_detail);
 
         // Boutons de navigation
-        const vRetourBtn = document.querySelector('.navigation-buttons a.secondary-button');
+        const vRetourBtn = document.getElementById('vBoutonRetour');
         if (vRetourBtn) {
             vRetourBtn.textContent = this.aTextes.bouton_retour;
             vRetourBtn.href = this.aTextes.lien_retour; 
         }
         
-        // CORRECTION D'ID : vNextButton est l'ID dans le HTML
         this.mRemplirElement('vNextButton', this.aTextes.bouton_suivant);
+        
+        // Footer (doit être un innerHTML si vous ajoutez le copyright)
+        const vFooter = document.getElementById('vFooterTexte');
+        if (vFooter) {
+            vFooter.innerHTML = '&copy; 2025 Character Builder'; 
+        }
+
+        // Suppression des tentatives de remplissage d'éléments de filtre/recherche
+        // (vRechercheTitre, pSearch, vFiltreTout, etc.)
     }
 
     /**
-     * @brief Génère la liste des races dans le conteneur principal.
+     * @brief Génère la liste des races dans le conteneur principal (sans filtres).
      */
     mGenererListeRaces() {
         if (!this.aRacesData) return;
 
-        const vContainer = document.getElementById('vRaceOptionsContainer'); // ID dans le HTML
-        if (!vContainer) return; // Sécurité si le conteneur n'est pas là
+        const vContainer = document.getElementById('vRaceOptionsContainer');
+        if (!vContainer) return; 
 
-        // Nettoyer le message de chargement
         const vLoading = document.getElementById('vLoadingMessage');
         if (vLoading) vLoading.style.display = 'none';
 
         let vHtml = '';
-        const vSearchInput = document.getElementById('pSearch');
-        const vTermeRecherche = vSearchInput ? vSearchInput.value.toLowerCase() : '';
         
         this.aRacesData.forEach(vRace => {
-            const vCategorieTexte = this.aTextes.categories[vRace.categorie] || vRace.categorie;
-            
-            if (this.aFiltreActif !== 'tout' && vRace.categorie !== this.aFiltreActif) {
-                return;
-            }
-
-            if (vTermeRecherche && !vRace.nom.toLowerCase().includes(vTermeRecherche)) {
-                return;
-            }
-
             const vSelectedClass = (this.aRaceSelectionnee && this.aRaceSelectionnee.nom === vRace.nom) ? 'selected' : '';
 
+            // Nouvelle structure de carte basée sur un tableau
             vHtml += `
-                <div class="race-card ${vSelectedClass}" data-race-nom="${vRace.nom}" onclick="oCPage2.mSelectionnerRace('${vRace.nom}')">
-                    <img src="${vRace.image_url}" alt="${vRace.nom}" class="race-image">
-                    <div class="race-info">
-                        <h3>${vRace.nom}</h3>
-                        <p class="race-category">${vCategorieTexte}</p>
-                        <p class="race-description">${vRace.description_courte}</p>
-                    </div>
+                <div class="race-option-card ${vSelectedClass}">
+                    <label>
+                        <table class="race-layout-table" onclick="oCPage2.mSelectionnerRace('${vRace.nom}')">
+                            <tr>
+                                <td rowspan="2" style="text-align: center; vertical-align: middle;">
+                                    <input type="radio" name="race" value="${vRace.nom}">
+                                </td>
+                                
+                                <td rowspan="2" class="race-image-cell">
+                                    <img src="${vRace.image_url}" alt="Image de la race ${vRace.nom}" style="width: 90px; height: 90px; object-fit: cover;">
+                                </td>
+                                
+                                <td class="race-header-title" style="width: 100%;">
+                                    ${vRace.nom}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="race-description-cell" style="width: 100%;">
+                                    <p>${vRace.description_courte}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </label>
                 </div>
             `;
         });
         
         vContainer.innerHTML = vHtml;
+        this.mChargerSauvegarde(); // Ajout de la sauvegarde
         this.mMettreAJourAffichageSelection();
     }
 
-    /**
-     * @brief Applique un filtre et régénère la liste.
-     */
-    mAppliquerFiltre(pFiltreKey) {
-        this.aFiltreActif = pFiltreKey;
-        this.mGenererListeRaces();
-    }
+    // Suppression de mAppliquerFiltre()
 
     /**
      * @brief Gère la sélection d'une race.
@@ -146,14 +143,16 @@ class CPage2 {
      * @brief Met à jour le bloc d'affichage de la race sélectionnée et active le bouton Suivant.
      */
     mMettreAJourAffichageSelection() {
-        // Ces IDs manquent dans le HTML fourni, nous les ignorons ou les créons si vous les ajoutez.
-        const vSuivantButton = document.getElementById('vNextButton'); // ID réel du bouton
+        const vSuivantButton = document.getElementById('vNextButton');
 
         if (this.aRaceSelectionnee) {
-            // Activer le bouton Suivant
+            this.mRemplirElement('vDefaultRaceTitre', this.aRaceSelectionnee.nom);
+            this.mRemplirElement('vDefaultRaceDesc', this.aRaceSelectionnee.description_courte);
+            
             if (vSuivantButton) vSuivantButton.disabled = false;
         } else {
-            // Afficher le message par défaut et désactiver le bouton
+            this.mRemplirElement('vDefaultRaceTitre', this.aTextes.race_par_defaut_titre);
+            this.mRemplirElement('vDefaultRaceDesc', this.aTextes.race_par_defaut_desc);
             if (vSuivantButton) vSuivantButton.disabled = true;
         }
     }
@@ -178,21 +177,16 @@ class CPage2 {
         this.mRemplirTextes();
         this.mGenererListeRaces();
         
-        // Correction de l'ID pour le bouton Suivant
         const vSuivantButton = document.getElementById('vNextButton');
         if (vSuivantButton) {
              vSuivantButton.disabled = true;
              vSuivantButton.onclick = (event) => {
-                event.preventDefault(); // Empêche l'envoi du formulaire par défaut
+                if(event) event.preventDefault(); 
                 this.mAllerPageSuivante();
             };
         }
 
-        // Si l'élément pSearch n'existe pas, cette ligne sera ignorée grâce à la sécurité implicite
-        const vSearchInput = document.getElementById('pSearch');
-        if (vSearchInput) {
-            vSearchInput.oninput = () => this.mGenererListeRaces();
-        }
+        // Suppression de l'écouteur de recherche
     }
 }
 
