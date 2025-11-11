@@ -3,42 +3,42 @@
         "nom": "Aarakocre",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": {"Dextérité": 2, "Sagesse": 1}
     },
     {
         "nom": "Aasimar",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },
     {
         "nom": "Centaure",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },
     {
         "nom": "Cervan",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },
     {
         "nom": "Changeling",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },
     {
         "nom": "Conil",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },
     {
@@ -52,14 +52,14 @@
         "nom": "Dhampir",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },
     {
         "nom": "Drakeïde (Sangdragons)",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },
     {
@@ -80,7 +80,7 @@
         "nom": "Elfe astral",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },
     {
@@ -101,161 +101,161 @@
         "nom": "Elfe des profondeurs (Drow)",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },
     {
         "nom": "Elfe Eladrin printemp",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },
     {
         "nom": "Elfe Eladrin été",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },
     {
         "nom": "Elfe Eladrin automne",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },
     {
         "nom": "Elfe Eladrin hiver",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },
     {
         "nom": "Elfe Shadar-kaï",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },
     {
         "nom": "Épouvantail",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },
     {
         "nom": "Fée",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },
     {
         "nom": "Firblolg",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },
     {
         "nom": "Forgelier",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },
     {
         "nom": "Génasi de l'air",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },    
     {
         "nom": "Génasi de l'eau",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },    
     {
         "nom": "Génasi de la terre",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },    
     {
         "nom": "Génasi du feu",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },    
     {
         "nom": "Githyanki",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },    
     {
         "nom": "Githzerai",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },    
     {
         "nom": "Gnome (Autognome)",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },
     {
         "nom": "Gnome des forêts",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },
     {
         "nom": "Gnome des rochers",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },
     {
         "nom": "Gnome des profondeurs (svirfnebelin)",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },
     {
         "nom": "Goliath",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },
     {
         "nom": "Halfelin pied-léger",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },    
     {
         "nom": "Halfelin robuste",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },
     {
@@ -311,7 +311,7 @@
         "nom": "Nain des profondeurs (Duergar)",
         "categorie": "humanoide",
         "description_courte": "",
-        "image_url": "images/races/.png",
+        "image_url": "images/races/humain.png",
         "bonusCarac": "choix"
     },
     {
