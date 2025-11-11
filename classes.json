@@ -1,4 +1,29 @@
-[
+[   
+    {
+        "nom": "Artificier",
+        "image_url": "images/classes/.jpeg",
+        "description_html": "<p></p>"
+    },
+    {
+        "nom": "Barbare",
+        "image_url": "images/classes/barbareicon2.jpeg",
+        "description_html": "<p></p>"
+    },
+    {
+        "nom": "Barde",
+        "image_url": "images/classes/bardeicon2.jpeg",
+        "description_html": "<p></p>"
+    },
+    {
+        "nom": "Clerc",
+        "image_url": "images/classes/clercicon2.jpeg",
+        "description_html": "<p></p>"
+    },
+    {
+        "nom": "Ensorceleur",
+        "image_url": "images/classes/ensorceleuricon2.jpeg",
+        "description_html": "<p></p>"
+    },
     {
         "nom": "Guerrier",
         "image_url": "images/classes/guerriericon2.jpeg",
@@ -8,6 +33,26 @@
         "nom": "Magicien",
         "image_url": "images/classes/magicienicon.jpeg",
         "description_html": "<p>Le Mage est un lanceur de sorts puissant. Il utilise son <strong>Intelligence</strong> pour manipuler l'énergie arcanique. Idéal pour ceux qui aiment la tactique et les effets spectaculaires.</p>"
+    },
+    {
+        "nom": "Moine",
+        "image_url": "images/classes/moineicon2.jpeg",
+        "description_html": "<p></p>"
+    },
+    {
+        "nom": "Occultiste",
+        "image_url": "images/classes/occultisteicon2.jpeg",
+        "description_html": "<p></p>"
+    },
+    {
+        "nom": "Paladin",
+        "image_url": "images/classes/paladinicon2.jpeg",
+        "description_html": "<p></p>"
+    },
+    {
+        "nom": "Rodeur",
+        "image_url": "images/classes/Rodeuricon2.jpeg",
+        "description_html": "<p></p>"
     },
     {
         "nom": "Roublard",
