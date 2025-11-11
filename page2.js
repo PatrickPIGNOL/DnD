@@ -168,8 +168,7 @@ class CPage2 {
      */
     mAllerPageSuivante() {
         if (this.aRaceSelectionnee) {
-            const vLienSuivant = this.aTextes.lien_suivant;
-            window.location.href = vLienSuivant;
+            window.location.href = this.aTextes.lien_suivant;
         } else {
             alert("Veuillez sélectionner une race avant de continuer.");
         }
