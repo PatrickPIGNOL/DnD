@@ -2,19 +2,39 @@
     "classes_scores_fixes": {
         "Barbare": {
             "jetDeVie": "d12",
-            "Force": 17, "Dextérité": 13, "Constitution": 15, "Intelligence": 10, "Sagesse": 12, "Charisme": 8
+            "Force": 17,
+            "Dextérité": 13,
+            "Constitution": 15,
+            "Intelligence": 10,
+            "Sagesse": 12,
+            "Charisme": 8
         },
         "Barde": {
             "jetDeVie": "d8",
-            "Force": 8, "Dextérité": 15, "Constitution": 12, "Intelligence": 13, "Sagesse": 10, "Charisme": 17
+            "Force": 8, 
+            "Dextérité": 15, 
+            "Constitution": 12, 
+            "Intelligence": 13, 
+            "Sagesse": 10, 
+            "Charisme": 17
         },
         "Clerc": {
             "jetDeVie": "d8",
-            "Force": 15, "Dextérité": 8, "Constitution": 13, "Intelligence": 10, "Sagesse": 16, "Charisme": 12
+            "Force": 15,
+            "Dextérité": 8,
+            "Constitution": 13,
+            "Intelligence": 10,
+            "Sagesse": 16,
+            "Charisme": 12
         },
         "Druide": {
             "jetDeVie": "d8",
-            "Force": 8, "Dextérité": 12, "Constitution": 15, "Intelligence": 13, "Sagesse": 16, "Charisme": 10
+            "Force": 8,
+            "Dextérité": 12,
+            "Constitution": 15,
+            "Intelligence": 13,
+            "Sagesse": 16,
+            "Charisme": 10
         },
         "Guerrier": {
             "jetDeVie": "d10",

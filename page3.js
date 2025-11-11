@@ -21,22 +21,32 @@ class CPage3 {
      * @brief Charge tous les fichiers JSON nécessaires.
      */
     async mChargerDonnees() {
+        // 1. Chargement des textes (page3.json)
         try {
-            // 1. Chargement des textes (page3.json)
             const vResponseTextes = await fetch('page3.json'); 
             const vDataTextes = await vResponseTextes.json();
             this.aTextes = vDataTextes.page3;
-            
-            // 2. Chargement des données des classes (classes.json)
+            console.log("page3.json chargé avec succès.");
+        } catch (vError) {
+            console.error("ERREUR lors du chargement ou parsing de page3.json:", vError);
+        }
+        
+        // 2. Chargement des données des classes (classes.json)
+        try {
             const vResponseClasses = await fetch('classes.json');
             this.aClassesListe = await vResponseClasses.json(); 
-            
-            // 3. Chargement des données de caractéristiques (caracteristiques.json)
+            console.log("classes.json chargé avec succès.");
+        } catch (vError) {
+            console.error("ERREUR lors du chargement ou parsing de classes.json:", vError);
+        }
+        
+        // 3. Chargement des données de caractéristiques (caracteristiques.json)
+        try {
             const vResponseCarac = await fetch('caracteristiques.json');
             this.aCaracteristiquesData = await vResponseCarac.json();
-
+            console.log("caracteristiques.json chargé avec succès.");
         } catch (vError) {
-            console.error("Erreur de chargement des fichiers JSON:", vError);
+            console.error("ERREUR lors du chargement ou parsing de caracteristiques.json:", vError);
         }
     }
 
