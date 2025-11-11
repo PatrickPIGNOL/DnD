@@ -49,13 +49,8 @@ class CPage2 {
         this.mRemplirElement('vHeaderTitre', this.aTextes.titre_header);
         
         // Titre de section et Introduction (utilisent des textes statiques si non fournis par JSON)
-        this.mRemplirElement('vPage2Titre', 'Origines et Traits');
-        this.mRemplirElement('vPage2Introduction', 'La race détermine l\'apparence physique de votre personnage, sa longévité, et lui confère des bonus de caractéristiques ainsi que des traits spéciaux.');
-
-        // Section Affichage Race par Défaut
-        this.mRemplirElement('vDefaultRaceTitre', this.aTextes.race_par_defaut_titre);
-        this.mRemplirElement('vDefaultRaceDesc', this.aTextes.race_par_defaut_desc);
-        this.mRemplirElement('vBoutonDetail', this.aTextes.bouton_detail);
+        this.mRemplirElement('vPage2Titre', this.aTextes.titre_section);
+        this.mRemplirElement('vPage2Introduction', this.aTextes.description_section);
 
         // Boutons de navigation
         const vRetourBtn = document.getElementById('vBoutonRetour');

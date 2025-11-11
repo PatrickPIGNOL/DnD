@@ -4,7 +4,6 @@
         "titre_header": "Donjons & Dragons",
         "titre_section": "Choisissez votre Race", 
         "description_section": "La race détermine l'apparence physique de votre personnage, sa longévité, et lui confère des bonus de caractéristiques ainsi que des traits spéciaux.",
-        "race_par_defaut_desc": "Veuillez sélectionner une race pour continuer.",
         
         "categories": {
             "tout": "Tout",
@@ -16,7 +15,7 @@
         "bouton_retour": "Retour",
         "lien_retour": "page1_classe.html",
         
-        "bouton_suivant": "Suivant (Caractéristiques)",
+        "bouton_suivant": "Suivant",
         "lien_suivant": "page3_caracteristiques.html"
     }
 }
