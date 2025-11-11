@@ -95,7 +95,7 @@ class CPage2 {
                             <tr>
                                 <td rowspan="2" style="text-align: center; vertical-align: middle;"><input type="radio" name="race" value="${vRace.nom}"></td>
                                 
-                                <td rowspan="2" class="race-image-cell">
+                                <td rowspan="2" class="race-image-cell" style="text-align: center; vertical-align: middle;">
                                     <img src="${vRace.image_url}" alt="Image de la race ${vRace.nom}" style="width: 90px; height: 90px; object-fit: cover;">
                                 </td>
                                 
@@ -104,7 +104,7 @@ class CPage2 {
                                 </td>
                             </tr>
                             <tr>
-                                <td class="race-description-cell" style="width: 100%;">
+                                <td class="race-description-cell" style="text-align: justify; width: 100%;">
                                     <p>${vRace.description_courte}</p>
                                 </td>
                             </tr>

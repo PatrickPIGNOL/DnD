@@ -310,57 +310,57 @@
     {
         "nom": "Orc",
         "categorie": "humanoide",
-        "description_courte": "Les plus adaptables et ambitieux des peuples. Ils excellent dans tous les domaines, mais pour une courte durée. Bonus : +1 à toutes les caractéristiques.",
-        "bonusCarac": "+1 à toutes les caractéristiques",
+        "description_courte": "",
+        "bonusCarac": "",
         "image_url": "images/races/humain.png"
     },
     {
         "nom": "Revenant",
         "categorie": "humanoide",
-        "description_courte": "Les plus adaptables et ambitieux des peuples. Ils excellent dans tous les domaines, mais pour une courte durée. Bonus : +1 à toutes les caractéristiques.",
-        "bonusCarac": "+1 à toutes les caractéristiques",
+        "description_courte": "",
+        "bonusCarac": "",
         "image_url": "images/races/humain.png"
     },
     {
         "nom": "Satyre",
         "categorie": "humanoide",
-        "description_courte": "Les plus adaptables et ambitieux des peuples. Ils excellent dans tous les domaines, mais pour une courte durée. Bonus : +1 à toutes les caractéristiques.",
-        "bonusCarac": "+1 à toutes les caractéristiques",
+        "description_courte": "",
+        "bonusCarac": "",
         "image_url": "images/races/humain.png"
     },
     {
         "nom": "Tabaxi",
         "categorie": "humanoide",
-        "description_courte": "Les plus adaptables et ambitieux des peuples. Ils excellent dans tous les domaines, mais pour une courte durée. Bonus : +1 à toutes les caractéristiques.",
-        "bonusCarac": "+1 à toutes les caractéristiques",
+        "description_courte": "",
+        "bonusCarac": "",
         "image_url": "images/races/humain.png"
     },
     {
         "nom": "Tieffelin",
         "categorie": "humanoide",
-        "description_courte": "Descendant d'un démon. Bonus : +2 Charisme, +1 Intelligence.",
-        "image_url": "images/races/tiefling.png",
+        "description_courte": "",
+        "bonusCarac": "",
         "bonusCarac": {"Charisme": 2, "Intelligence": 1}
     },
     {
         "nom": "Torte",
         "categorie": "humanoide",
-        "description_courte": "Descendant d'un démon. Bonus : +2 Charisme, +1 Intelligence.",
-        "image_url": "images/races/humain.png",
+        "description_courte": "",
+        "bonusCarac": "",
         "bonusCarac": {"Charisme": 2, "Intelligence": 1}
     },
     {
         "nom": "Triton",
         "categorie": "humanoide",
-        "description_courte": "Descendant d'un démon. Bonus : +2 Charisme, +1 Intelligence.",
-        "image_url": "images/races/humain.png",
+        "description_courte": "",
+        "bonusCarac": "",
         "bonusCarac": {"Charisme": 2, "Intelligence": 1}
     },
     {
         "nom": "Yuan-Ti",
         "categorie": "humanoide",
-        "description_courte": "Descendant d'un démon. Bonus : +2 Charisme, +1 Intelligence.",
-        "image_url": "images/races/humain.png",
+        "description_courte": "",
+        "bonusCarac": "",
         "bonusCarac": {"Charisme": 2, "Intelligence": 1}
     }
 ]
