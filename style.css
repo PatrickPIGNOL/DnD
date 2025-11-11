@@ -1,17 +1,17 @@
 /* ========================================================================= */
-/* 1. STYLES DE BASE & RÉINITIALISATION */
+/* 1. STYLES DE BASE & RÉINITIALISATION (Noir/Gris/Blanc) */
 /* ========================================================================= */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
+    background-color: #f9f9f9; /* Fond très clair */
+    color: #333; /* Texte sombre */
     line-height: 1.6;
 }
 
 header {
-    background-color: #34495e; /* Bleu foncé */
+    background-color: #222; /* Noir/Gris très foncé */
     color: white;
     padding: 20px 0;
     text-align: center;
@@ -32,8 +32,8 @@ section {
 }
 
 h1, h2, h3 {
-    color: #2c3e50;
-    border-bottom: 2px solid #ecf0f1;
+    color: #444; /* Gris foncé pour les titres */
+    border-bottom: 2px solid #ddd;
     padding-bottom: 5px;
     margin-top: 20px;
 }
@@ -44,7 +44,7 @@ hr {
     margin: 30px 0;
 }
 
-/* Alignement du texte (utilisé dans les cellules de tableau) */
+/* Alignement du texte */
 .text-center {
     text-align: center !important;
 }
@@ -95,9 +95,9 @@ hr {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Bouton Principal (Suivant) */
+/* Bouton Principal (Suivant) - Vert */
 #vNextButton {
-    background-color: #2ecc71; /* Vert */
+    background-color: #2ecc71; /* Vert, couleur d'action positive */
     color: white;
 }
 
@@ -105,79 +105,67 @@ hr {
     background-color: #27ae60;
 }
 
-/* Bouton Secondaire (Retour) */
+/* Bouton Secondaire (Retour) - Gris */
 .secondary-button {
-    background-color: #95a5a6;
+    background-color: #7f8c8d;
     color: white;
 }
 
 .secondary-button:hover {
-    background-color: #7f8c8d;
+    background-color: #6a7677;
 }
 
-/* Bouton désactivé (même s'il est toujours actif maintenant) */
+/* Bouton désactivé */
 button:disabled {
     cursor: not-allowed;
     opacity: 0.5;
 }
 
 /* ========================================================================= */
-/* 4. TABLES DE CARACTÉRISTIQUES */
+/* 4. TABLES DE CARACTÉRISTIQUES (Noir/Gris/Rouge) */
 /* ========================================================================= */
 
 .caracteristiques-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    table-layout: fixed; /* Aide à la cohérence des colonnes */
+    table-layout: fixed;
 }
 
-/* En-têtes */
+/* En-têtes (Noir) */
 .caracteristiques-table th {
-    background-color: #34495e; /* Bleu foncé */
+    background-color: #333; /* Noir */
     color: white;
     padding: 12px 10px;
     font-weight: bold;
-    border: 1px solid #2c3e50;
+    border: 1px solid #222;
     text-transform: uppercase;
     font-size: 0.9em;
 }
 
 .caracteristiques-table td {
     padding: 10px;
-    border: 1px solid #ecf0f1;
+    border: 1px solid #eee;
     vertical-align: top;
 }
 
 /* Ligne des Scores / Radios / Modificateur Final */
 .carac-scores-row {
-    background-color: #f8f8f8;
-    border-top: 3px solid #34495e; /* Séparateur principal */
+    background-color: #fcfcfc;
+    border-top: 3px solid #333; /* Séparateur principal Noir */
 }
 
 /* Ligne des Calculs */
 .carac-calc-row {
     font-size: 0.85em;
-    background-color: #eef1f4;
+    background-color: #f0f0f0;
     color: #555;
-    border-bottom: 3px solid #34495e; /* Séparateur principal */
+    border-bottom: 3px solid #333; /* Séparateur principal Noir */
 }
 .carac-calc-row td {
     padding-top: 5px;
     padding-bottom: 10px;
 }
-
-/* Colonnes spécifiques */
-.carac-name-cell {
-    width: 20%;
-}
-.final-mod-cell {
-    width: 15%;
-}
-.carac-radio-cell {
-    width: 65%;
-}
-
 
 /* VALEURS SPÉCIFIQUES DEMANDÉES */
 /* Score Fixe en Rouge */
@@ -186,30 +174,25 @@ button:disabled {
     font-weight: bold;
 }
 
-/* Modificateur Final en évidence */
+/* Modificateur Final en évidence (Gris/Noir) */
 .mod-total-value {
     font-size: 1.4em;
     font-weight: bold;
-    color: #2980b9; /* Bleu */
-}
-
-/* Bonus de Base Calculé (Mod. Base) */
-.mod-base-calc {
-    font-weight: 600;
+    color: #444; /* Gris foncé, pour ne pas être Bleu */
 }
 
 
 /* ========================================================================= */
-/* 5. STYLES DES RADIO BUTTONS (Bonus de Race) */
+/* 5. STYLES DES RADIO BUTTONS */
 /* ========================================================================= */
 .radio-select-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 colonnes pour 0, +1, +2, +3, +4 */
+    grid-template-columns: repeat(5, 1fr);
     gap: 5px;
     align-items: center;
     justify-items: center;
     width: 100%;
-    max-width: 250px; /* Limite la largeur du groupe de radios */
+    max-width: 250px;
     margin: 0 auto;
 }
 
@@ -227,21 +210,21 @@ button:disabled {
     color: #555;
 }
 
-/* Cache le radio button par défaut */
+/* Contour des radio buttons (Noir/Gris) */
 .radio-colonne input[type="radio"] {
     appearance: none;
     width: 1.15em;
     height: 1.15em;
-    border: 0.15em solid #34495e;
+    border: 0.15em solid #777; /* Gris */
     border-radius: 50%;
     display: grid;
     place-content: center;
     cursor: pointer;
 }
 
-/* Style pour l'état coché */
+/* Style pour l'état coché (Vert - pour le feedback visuel) */
 .radio-colonne input[type="radio"]:checked {
-    border-color: #2ecc71; /* Vert */
+    border-color: #2ecc71; /* Vert d'action */
 }
 .radio-colonne input[type="radio"]::before {
     content: "";
@@ -250,7 +233,7 @@ button:disabled {
     border-radius: 50%;
     transform: scale(0);
     transition: transform 0.1s ease-in-out;
-    background-color: #2ecc71; /* Vert */
+    background-color: #2ecc71; /* Vert d'action */
 }
 
 .radio-colonne input[type="radio"]:checked::before {
@@ -258,7 +241,7 @@ button:disabled {
 }
 
 /* ========================================================================= */
-/* 6. TABLE DES POINTS DE VIE (PV) */
+/* 6. TABLE DES POINTS DE VIE (PV - Orange/Rouge) */
 /* ========================================================================= */
 .hp-block {
     border: 1px solid #e67e22; /* Bordure orange */
@@ -292,11 +275,11 @@ button:disabled {
     text-align: center;
 }
 
-/* PV Final mis en évidence */
+/* PV Final mis en évidence (Rouge) */
 .final-hp-value {
     font-size: 1.6em;
     font-weight: bold;
-    color: #e74c3c; /* Rouge pour le résultat */
+    color: #c0392b; /* Rouge pour le résultat */
     background-color: #ffebe8;
 }
 
@@ -313,7 +296,7 @@ footer {
 }
 
 /* ========================================================================= */
-/* 8. RESPONSIVE (Optionnel) */
+/* 8. RESPONSIVE */
 /* ========================================================================= */
 @media (max-width: 768px) {
     main {
@@ -321,7 +304,6 @@ footer {
         padding: 10px;
     }
     
-    /* Réduit l'espace dans les tables sur mobile */
     .caracteristiques-table th, .hp-calculation-table th, 
     .caracteristiques-table td, .hp-calculation-table td {
         padding: 6px 4px;
