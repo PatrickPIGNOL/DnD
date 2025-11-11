@@ -2,7 +2,8 @@
     "page3": {
         "titre_page": "Création de Personnage - Caractéristiques",
         "titre_header": "⚔️ Niveau de Départ & Caractéristiques",
-        
+
+        /* SECTION NIVEAU */
         "section_niveau_titre": "Niveau de Départ",
         "select_niveau_label": "Sélectionnez le niveau de départ :",
         "niveau_options": {
@@ -28,23 +29,44 @@
             "20": "20"
         },
         
-        "section_bonus_titre": "Récapitulatif des Bonus de Race",
-        "bonus_chargement": "Chargement des bonus de race...",
-        "bonus_mod_titre": "Allocation des points de Caractéristique (Race)",
-        "bonus_mod_description": "Vous avez des points de race à distribuer (+2, +1, ou trois +1) sur deux ou trois Caractéristiques différentes.",
-        
+        /* SECTION CARACTÉRISTIQUES DE BASE (POINT BUY) */
+        "titre_section_base": "Scores de Caractéristiques de Base (Point Buy)",
+        "methode_introduction": "Utilisez le 'Point Buy' (27 points) pour la distribution de base :",
+        "points_restants_label": "points restants",
+        "erreur_points_insuffisants": "Vous n'avez pas assez de points pour augmenter ce score.",
+        "erreur_terminer_distribution": "Veuillez dépenser tous les points avant de continuer. (Il vous reste encore des points.)",
+
+        /* SECTION CARACTÉRISTIQUES (LABELS) */
         "section_carac_titre": "Vos Caractéristiques",
-        
         "caracteristiques": {
-            "For": "Force",
-            "Dex": "Dextérité",
-            "Con": "Constitution",
-            "Int": "Intelligence",
-            "Sag": "Sagesse",
-            "Cha": "Charisme"
+            "force": "Force",
+            "dexterite": "Dextérité",
+            "constitution": "Constitution",
+            "intelligence": "Intelligence",
+            "sagesse": "Sagesse",
+            "charisme": "Charisme"
         },
         
+        /* LABELS POUR AFFICHAGE DES CALCULS ET BONUS */
+        "calcul_labels": {
+            "base": "Modificateur de Score de Base",
+            "select": "Bonus Rac. / Cl. Séléctionné",
+            "final": "Modificateur Total Final",
+            "hp_titre": "Points de Vie (PV)",
+            "hp_explication": "Vos PV sont calculés en fonction de votre Niveau et du Modificateur de Constitution (Mod. CON)."
+        },
+        
+        "bonus_labels": {
+            "colonne_reset": "Retirer",
+            "colonne_select": "Attribuer un +1",
+            "colonne_select_max": "Max +1 Attr."
+        },
+
+        /* NAVIGATION */
         "bouton_retour": "Retour",
-        "bouton_suivant": "Suivant (Historique)"
+        "lien_retour": "page2.html", 
+        
+        "bouton_suivant": "Suivant",
+        "lien_suivant": "page4.html" 
     }
 }

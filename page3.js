@@ -1,324 +1,344 @@
 class CPage3 {
-    aTextes;
-    aClassesListe; 
-    aCaracteristiquesData; 
-    
-    aCaracteristiques = ["Force", "Dextérité", "Constitution", "Intelligence", "Sagesse", "Charisme"];
-
-    // NOTE: Ces valeurs doivent être chargées depuis le localStorage. Elles sont simulées ici.
-    aClasseSelectionnee = "Magicien"; 
-    aRaceSelectionnee = { nom: "Half-Elf" }; 
-    
-    aScoresCaracDeBase = {}; // Scores fixes (Classe + Bonus de Classe)
-    aScoresCaracFinaux = {}; // Scores finaux (Base + Race)
-    
+    aTextes; 
+    aScoresBase = {}; 
+    aBonusRaciaux = {}; 
+    aClassesData;
+    aClasseSelectionnee;
+    aPointsRestants = 27; 
+    aNiveau = 1; 
+    aClesCarac = ['force', 'dexterite', 'constitution', 'intelligence', 'sagesse', 'charisme'];
 
     constructor() {
         this.mInitialiserPage();
     }
 
-    /**
-     * @brief Charge tous les fichiers JSON nécessaires.
-     */
+    mRemplirElement(pId, pTexte) {
+        const vElement = document.getElementById(pId);
+        if (vElement) {
+            vElement.textContent = pTexte;
+        } 
+    }
+    
+    mRemplirElementHTML(pId, pHTML) {
+        const vElement = document.getElementById(pId);
+        if (vElement) {
+            vElement.innerHTML = pHTML;
+        } 
+    }
+
     async mChargerDonnees() {
-        // 1. Chargement des textes (page3.json)
+        // Chargement des fichiers JSON
         try {
             const vResponseTextes = await fetch('page3.json'); 
-            const vDataTextes = await vResponseTextes.json();
-            this.aTextes = vDataTextes.page3;
-            console.log("page3.json chargé avec succès.");
+            this.aTextes = (await vResponseTextes.json()).page3;
         } catch (vError) {
             console.error("ERREUR lors du chargement ou parsing de page3.json:", vError);
         }
         
-        // 2. Chargement des données des classes (classes.json)
-        try {
-            const vResponseClasses = await fetch('classes.json');
-            this.aClassesListe = await vResponseClasses.json(); 
-            console.log("classes.json chargé avec succès.");
-        } catch (vError) {
-            console.error("ERREUR lors du chargement ou parsing de classes.json:", vError);
-        }
-        
-        // 3. Chargement des données de caractéristiques (caracteristiques.json)
         try {
             const vResponseCarac = await fetch('caracteristiques.json');
-            this.aCaracteristiquesData = await vResponseCarac.json();
-            console.log("caracteristiques.json chargé avec succès.");
+            this.aClassesData = await vResponseCarac.json();
         } catch (vError) {
             console.error("ERREUR lors du chargement ou parsing de caracteristiques.json:", vError);
         }
-    }
-
-    /**
-     * @brief Rempli les options du sélecteur de niveau.
-     */
-    mRemplirNiveauOptions() {
-        const vSelectLevel = document.getElementById('pLevel');
-        let vOptionsHtml = '';
         
-        const vLevelOptions = this.aTextes.niveau_options; 
-
-        for (const vValue in vLevelOptions) {
-            const vText = vLevelOptions[vValue];
-            const vSelected = (vValue === "3") ? ' selected' : ''; 
-            vOptionsHtml += `<option value="${vValue}"${vSelected}>${vText}</option>`;
+        // Récupération de la classe et des données précédentes
+        const vClasseNom = localStorage.getItem('classeSelectionnee');
+        if (vClasseNom && this.aClassesData && this.aClassesData.classes_scores_fixes) {
+            this.aClasseSelectionnee = this.aClassesData.classes_scores_fixes[vClasseNom];
         }
-        vSelectLevel.innerHTML = vOptionsHtml;
+
+        this.mInitialiserScores();
+        this.mChargerSauvegarde();
     }
 
-    /**
-     * @brief Injecte le contenu du JSON dans le HTML.
-     */
+    mInitialiserScores() {
+        this.aClesCarac.forEach(vCle => {
+            this.aScoresBase[vCle] = 8;
+            this.aBonusRaciaux[vCle] = 0;
+        });
+    }
+    
+    mChargerSauvegarde() {
+        const vSavedScores = localStorage.getItem('scoresCaracteristiques');
+        const vSavedBonus = localStorage.getItem('bonusRaciaux');
+        const vSavedPoints = localStorage.getItem('pointsRestants');
+        const vSavedNiveau = localStorage.getItem('niveauPersonnage');
+
+        if (vSavedScores) {
+            this.aScoresBase = JSON.parse(vSavedScores);
+        }
+        if (vSavedBonus) {
+            this.aBonusRaciaux = JSON.parse(vSavedBonus);
+        }
+        if (vSavedPoints) {
+            this.aPointsRestants = parseInt(vSavedPoints, 10);
+        }
+        if (vSavedNiveau) {
+            this.aNiveau = parseInt(vSavedNiveau, 10);
+        }
+    }
+    
+    mSauvegarderEtat() {
+        localStorage.setItem('scoresCaracteristiques', JSON.stringify(this.aScoresBase));
+        localStorage.setItem('bonusRaciaux', JSON.stringify(this.aBonusRaciaux));
+        localStorage.setItem('pointsRestants', this.aPointsRestants);
+        localStorage.setItem('niveauPersonnage', this.aNiveau);
+    }
+
+    mCalculerModificateur(pScore) {
+        return Math.floor((pScore - 10) / 2);
+    }
+    
+    mCalculerCout(pScore) {
+        let vCout = 0;
+        for (let i = 8; i < pScore; i++) {
+            vCout += (i >= 13) ? 2 : 1;
+        }
+        return vCout;
+    }
+    
+    mFormaterModificateur(pMod) {
+        return pMod >= 0 ? `+${pMod}` : `${pMod}`;
+    }
+
+    mModifierScore(pCle, pValeur) {
+        const vScoreActuel = this.aScoresBase[pCle];
+        const vNouveauScore = vScoreActuel + pValeur;
+        
+        if (vNouveauScore < 8 || vNouveauScore > 15) return; 
+
+        const vCoutActuel = this.mCalculerCout(vScoreActuel);
+        const vCoutNouveau = this.mCalculerCout(vNouveauScore);
+        const vDiffCout = vCoutNouveau - vCoutActuel;
+
+        if (this.aPointsRestants - vDiffCout >= 0) {
+            this.aScoresBase[pCle] = vNouveauScore;
+            this.aPointsRestants -= vDiffCout;
+            
+            this.mMettreAJourAffichageScores(pCle);
+            this.mMettreAJourAffichageGeneral();
+            this.mSauvegarderEtat();
+        } else {
+            alert(this.aTextes.erreur_points_insuffisants);
+        }
+    }
+    
+    mSelectionnerBonusRacial(pCle, pBonus) {
+        this.aBonusRaciaux[pCle] = parseInt(pBonus, 10);
+        this.mMettreAJourAffichageScores(pCle);
+        this.mMettreAJourAffichageGeneral();
+        this.mSauvegarderEtat();
+    }
+    
+    mMettreAJourNiveau(pNouveauNiveau) {
+        this.aNiveau = parseInt(pNouveauNiveau, 10);
+        
+        const vModConstitution = this.mCalculerModificateur(this.aScoresBase.constitution + this.aBonusRaciaux.constitution);
+        this.mCalculerPointsDeVie(vModConstitution);
+        this.mSauvegarderEtat();
+    }
+
+    mGenererCaracBlock(pCle) {
+        const vNomCapitalise = this.aTextes.caracteristiques[pCle];
+        const vScore = this.aScoresBase[pCle];
+        
+        // 1. Boutons de Point Buy (Score de Base)
+        const vHtmlPointBuy = `
+            <div class="score-base-controls">
+                <button type="button" class="btn-modifier point-buy-btn" onclick="this.mModifierScore('${pCle}', -1)">-</button>
+                <span id="vScoreBase${vNomCapitalise}" class="caracteristique-score">${vScore}</span>
+                <button type="button" class="btn-modifier point-buy-btn" onclick="this.mModifierScore('${pCle}', 1)">+</button>
+            </div>
+        `;
+        
+        // 2. Radio Buttons de Bonus (+1 à +4)
+        let vHtmlBonusHeaders = `<div class="bonus-header-colonne">${this.aTextes.bonus_labels.colonne_reset}</div>`;
+        for (let i = 1; i <= 4; i++) {
+             vHtmlBonusHeaders += `<div class="bonus-header-colonne">+${i}</div>`;
+        }
+        
+        let vHtmlBonusSelect = '';
+        for (let i = 0; i <= 4; i++) {
+            const vId = `vBonus${pCle}${i}`;
+            const vIsChecked = (this.aBonusRaciaux[pCle] === i) ? 'checked' : '';
+            
+            vHtmlBonusSelect += `
+                <div class="bonus-colonne">
+                    <input type="radio" id="${vId}" name="bonus_${pCle}" value="${i}" 
+                           ${vIsChecked} 
+                           onclick="this.mSelectionnerBonusRacial('${pCle}', this.value)">
+                    <label for="${vId}" class="radio-label">${i === 0 ? '0' : `+${i}`}</label>
+                </div>
+            `;
+        }
+        
+        // 3. Structure complète du bloc
+        return `
+            <div id="vCaracBlock_${pCle}" class="caracteristique-block">
+                <h3>${vNomCapitalise}</h3>
+                
+                <div class="score-base-row">
+                    ${vHtmlPointBuy}
+                </div>
+
+                <div class="bonus-select-container">
+                    <p class="bonus-select-titre">${this.aTextes.calcul_labels.select} (+0 à +4)</p>
+                    <div class="bonus-select-grid">
+                        ${vHtmlBonusSelect}
+                    </div>
+                </div>
+
+                <div class="calculation-breakdown">
+                    <div>
+                        <span>Score Total :</span>
+                        <strong id="vScoreFinal${vNomCapitalise}" class="result-score"></strong>
+                    </div>
+                    <div>
+                        <span>${this.aTextes.calcul_labels.base} :</span>
+                        <span id="vModBase${vNomCapitalise}"></span>
+                    </div>
+                    <div>
+                        <span>Bonus Racial :</span>
+                        <span id="vModSelect${vNomCapitalise}"></span>
+                    </div>
+                    <div>
+                        <span>${this.aTextes.calcul_labels.final} :</span>
+                        <strong id="vModFinal${vNomCapitalise}" class="result-mod"></strong>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    mGenererNiveauSelect() {
+        const vSelect = document.getElementById('vNiveauSelection');
+        if (!vSelect) return;
+        
+        const vOptions = this.aTextes.niveau_options;
+        vSelect.innerHTML = '';
+        
+        for (const vValue in vOptions) {
+            const vOption = document.createElement('option');
+            vOption.value = vValue;
+            vOption.textContent = vOptions[vValue];
+            if (parseInt(vValue, 10) === this.aNiveau) {
+                vOption.selected = true;
+            }
+            vSelect.appendChild(vOption);
+        }
+        // Attacher l'événement ici si le HTML ne le fait pas
+        vSelect.onchange = (pEvent) => {
+            this.mMettreAJourNiveau(pEvent.target.value);
+        };
+    }
+    
+    mGenererInterface() {
+        this.mGenererNiveauSelect();
+        
+        const vContainer = document.getElementById('vCaracteristiquesWrapper');
+        if (!vContainer) return; 
+        
+        vContainer.innerHTML = ''; 
+
+        this.aClesCarac.forEach(vCle => {
+            vContainer.insertAdjacentHTML('beforeend', this.mGenererCaracBlock(vCle));
+        });
+        
+        this.aClesCarac.forEach(vCle => this.mMettreAJourAffichageScores(vCle));
+    }
+    
+    mMettreAJourAffichageScores(pCle) {
+        const vNomCapitalise = this.aTextes.caracteristiques[pCle];
+
+        const vScoreBase = this.aScoresBase[pCle];
+        const vBonusSelectionne = this.aBonusRaciaux[pCle];
+        const vScoreFinal = vScoreBase + vBonusSelectionne;
+        
+        const vModBase = this.mCalculerModificateur(vScoreBase);
+        const vModFinal = this.mCalculerModificateur(vScoreFinal);
+
+        this.mRemplirElement(`vScoreBase${vNomCapitalise}`, vScoreBase);
+        this.mRemplirElement(`vScoreFinal${vNomCapitalise}`, vScoreFinal);
+        this.mRemplirElement(`vModBase${vNomCapitalise}`, this.mFormaterModificateur(vModBase));
+        this.mRemplirElement(`vModSelect${vNomCapitalise}`, this.mFormaterModificateur(vBonusSelectionne)); 
+        this.mRemplirElement(`vModFinal${vNomCapitalise}`, this.mFormaterModificateur(vModFinal));
+
+        if (pCle === 'constitution') {
+            this.mCalculerPointsDeVie(vModFinal);
+        }
+        
+        // Mettre à jour l'état des radio boutons
+        const vRadio = document.getElementById(`vBonus${pCle}${vBonusSelectionne}`);
+        if (vRadio) vRadio.checked = true;
+    }
+    
+    mCalculerPointsDeVie(pModConstitution) {
+        if (!this.aClasseSelectionnee) {
+            this.mRemplirElement('vHpCalculation', "Sélectionnez d'abord votre classe.");
+            return;
+        }
+
+        const vJetDeVie = this.aClasseSelectionnee.jetDeVie; 
+        const vMaxDeVie = parseInt(vJetDeVie.substring(1), 10);
+        // Utilisation de la moyenne D&D standard (HD/2 + 1)
+        const vMoyenneDeVie = Math.floor(vMaxDeVie / 2) + 1; 
+        
+        // PV au niveau 1 (Max HD + CON mod)
+        let vPVTotal = vMaxDeVie + pModConstitution;
+        let vExplicationPV = `${vMaxDeVie} (Max ${vJetDeVie} de la classe) + ${this.mFormaterModificateur(pModConstitution)} (Mod. CON)`;
+        
+        if (this.aNiveau > 1) {
+            // Ajout des PV pour les niveaux suivants (N-1)
+            const vPVParNiveau = vMoyenneDeVie + pModConstitution;
+            vPVTotal = vMaxDeVie + pModConstitution + ((this.aNiveau - 1) * vPVParNiveau);
+            
+            vExplicationPV = `[${vMaxDeVie} + Mod. CON] (Niv. 1) + [${this.aNiveau - 1} x (${vMoyenneDeVie} + Mod. CON)] (Niv. 2+)`;
+        }
+        
+        this.mRemplirElement('vHpTitre', this.aTextes.calcul_labels.hp_titre);
+        this.mRemplirElementHTML('vHpExplication', this.aTextes.calcul_labels.hp_explication);
+
+        this.mRemplirElementHTML('vHpCalculation', `
+            ${vExplicationPV} = <strong class="final-hp-value">${vPVTotal} PV</strong>
+        `);
+    }
+
+    mMettreAJourAffichageGeneral() {
+        this.mRemplirElement('vPointsRestantsTexte', `${this.aPointsRestants} ${this.aTextes.points_restants_label}`);
+
+        const vSuivantButton = document.getElementById('vNextButton');
+        const vEstFini = this.aPointsRestants === 0;
+        
+        if (vSuivantButton) {
+             vSuivantButton.disabled = !vEstFini;
+             vSuivantButton.style.opacity = vEstFini ? 1 : 0.5;
+        }
+    }
+
+    mAllerPageSuivante() {
+        if (this.aPointsRestants === 0) {
+            const vLienSuivant = this.aTextes.lien_suivant;
+            window.location.href = vLienSuivant;
+        } else {
+            alert(this.aTextes.erreur_terminer_distribution);
+        }
+    }
+    
     mRemplirTextes() {
         if (!this.aTextes) return;
 
-        // Titre et Header
-        document.getElementById('vPageTitle').textContent = this.aTextes.titre_page;
-        document.getElementById('vHeaderTitre').textContent = this.aTextes.titre_header;
+        document.title = this.aTextes.titre_page;
+        this.mRemplirElement('vHeaderTitre', this.aTextes.titre_header);
         
-        // Section Niveau
-        document.getElementById('vNiveauTitre').textContent = this.aTextes.section_niveau_titre;
-        document.getElementById('vNiveauLabel').textContent = this.aTextes.select_niveau_label;
-        this.mRemplirNiveauOptions();
-
-        // Section Bonus Race
-        document.getElementById('vBonusRaceTitre').textContent = this.aTextes.section_bonus_titre;
-        document.getElementById('vBonusChargement').textContent = this.aTextes.bonus_chargement;
-        document.getElementById('vBonusModTitre').textContent = this.aTextes.bonus_mod_titre;
-        document.getElementById('vBonusModDescription').textContent = this.aTextes.bonus_mod_description;
-
-        // Section Caractéristiques
-        document.getElementById('vCaracTitre').textContent = this.aTextes.section_carac_titre;
-
-        // Boutons
-        document.getElementById('vBoutonRetour').textContent = this.aTextes.bouton_retour;
-        document.getElementById('vSuivantButton').textContent = this.aTextes.bouton_suivant;
-    }
-    
-    /**
-     * @brief Calcule le Modificateur de Caractéristique (MOD) pour une valeur donnée.
-     * @param pValeur La valeur de caractéristique brute.
-     * @return Le modificateur.
-     */
-    mCalculerModificateur(pValeur) {
-        // Formule : Arrondi inférieur((Valeur / 2) - 4.5)
-        return Math.floor((pValeur / 2.0) - 4.5);
-    }
-    
-    /**
-     * @brief Calcule les Points de Vie (PV) totaux.
-     * @param pNiveau Le niveau du personnage.
-     * @param pClasseNom Le nom de la classe.
-     * @param pScoreCon La valeur de Constitution du personnage.
-     * @return Le nombre total de Points de Vie.
-     */
-    mCalculerPointsDeVie(pNiveau, pClasseNom, pScoreCon) {
-        const vClasseStats = this.aCaracteristiquesData.classes_scores_fixes[pClasseNom];
-        if (!vClasseStats || !vClasseStats.jetDeVie) return 0;
+        this.mRemplirElement('vNiveauSectionTitre', this.aTextes.section_niveau_titre);
+        this.mRemplirElement('vNiveauSelectLabel', this.aTextes.select_niveau_label);
         
-        const vDeVie = parseInt(vClasseStats.jetDeVie.replace('d', '')); 
-        const vBonusCon = this.mCalculerModificateur(pScoreCon);
+        this.mRemplirElement('vCaracBaseTitre', this.aTextes.titre_section_base);
+        this.mRemplirElement('vMethodeIntroduction', this.aTextes.methode_introduction);
         
-        // Formule : niveau * (dé de vie + bonus de constitution)
-        const vPointsDeVie = pNiveau * (vDeVie + vBonusCon);
-        
-        return Math.max(1, vPointsDeVie);
-    }
+        this.mRemplirElement('vCaracteristiquesTitre', this.aTextes.section_carac_titre);
 
-    /**
-     * @brief Récupère les scores de caractéristiques fixes basés sur la classe sélectionnée.
-     * @param pClasseNom Le nom de la classe sélectionnée.
-     * @return L'objet des scores de base fixes.
-     */
-    mCalculerScoresDeBase(pClasseNom) {
-        const vScoresFixes = this.aCaracteristiquesData.classes_scores_fixes[pClasseNom];
-        if (!vScoresFixes) {
-            let vScores = {};
-            this.aCaracteristiques.forEach(vCarac => vScores[vCarac] = 10);
-            return vScores;
-        }
-
-        return {
-            "Force": vScoresFixes.Force,
-            "Dextérité": vScoresFixes.Dextérité,
-            "Constitution": vScoresFixes.Constitution,
-            "Intelligence": vScoresFixes.Intelligence,
-            "Sagesse": vScoresFixes.Sagesse,
-            "Charisme": vScoresFixes.Charisme
-        };
-    }
-
-    /**
-     * @brief Récupère les bonus de race sélectionnés par l'utilisateur.
-     * @return Objet contenant les bonus totaux (ex: {Force: 0, Dextérité: 1, ...}).
-     */
-    mRecupererBonusRaceSelectionnes() {
-        let vBonusRace = {};
-        
-        this.aCaracteristiques.forEach(vCaracNomComplet => {
-            const vCaracKey = vCaracNomComplet.substring(0, 3);
-            const vRadioGroupName = `pBonus${vCaracKey}`;
-            
-            const vSelectedRadio = document.querySelector(`input[name="${vRadioGroupName}"]:checked`);
-            
-            const vBonus = vSelectedRadio ? parseInt(vSelectedRadio.value) : 0;
-            vBonusRace[vCaracNomComplet] = vBonus;
-        });
-
-        return vBonusRace;
-    }
-
-    /**
-     * @brief Calcule les scores de caractéristiques finaux (Base + Race).
-     */
-    mCalculerScoresFinaux() {
-        let vScoresFinaux = {};
-        
-        // Gérer le cas Humain (+1 partout, non modifiable)
-        const vBonusRace = this.aRaceSelectionnee.nom === "Humain" 
-            ? { "Force": 1, "Dextérité": 1, "Constitution": 1, "Intelligence": 1, "Sagesse": 1, "Charisme": 1 }
-            : this.mRecupererBonusRaceSelectionnes();
-
-        // Ajout des bonus
-        this.aCaracteristiques.forEach(vCarac => {
-            const vScoreBase = this.aScoresCaracDeBase[vCarac] || 0;
-            const vBonus = vBonusRace[vCarac] || 0;
-            vScoresFinaux[vCarac] = vScoreBase + vBonus;
-        });
-
-        this.aScoresCaracFinaux = vScoresFinaux;
-    }
-
-    /**
-     * @brief Affiche les scores finaux et les PV dans la grille.
-     */
-    mAfficherCaracteristiques() {
-        // 1. Calcul des scores FINAUX (Base + Race)
-        this.mCalculerScoresFinaux(); 
-        
-        // 2. Récupération des valeurs pour le calcul des PV
-        const vClasseSelectionnee = this.aClasseSelectionnee;
-        const vNiveauSelectionne = parseInt(document.getElementById('pLevel').value) || 1;
-        
-        const vScoreConFinal = this.aScoresCaracFinaux["Constitution"];
-        const vBonusConFinal = this.mCalculerModificateur(vScoreConFinal);
-        
-        // Calcul des Points de Vie totaux
-        const vPointsDeVie = this.mCalculerPointsDeVie(vNiveauSelectionne, vClasseSelectionnee, vScoreConFinal);
-        
-        // --- Affichage du contenu ---
-        const vContainer = document.getElementById('vCaracGridContainer');
-        let vHtml = '';
-        
-        // 1. Affichage des Points de Vie (PV)
-        vHtml += `
-            <div class="carac-pv">
-                <span class="carac-nom">POINTS DE VIE</span>
-                <span class="carac-score">${vPointsDeVie}</span>
-                <span class="carac-mod">(Mod Con : ${vBonusConFinal >= 0 ? '+' : ''}${vBonusConFinal})</span>
-            </div>
-            <hr>
-        `;
-
-        // 2. Affichage des 6 Caractéristiques
-        this.aCaracteristiques.forEach(vCaracNomComplet => {
-            const vScore = this.aScoresCaracFinaux[vCaracNomComplet];
-            const vModificateur = this.mCalculerModificateur(vScore);
-            const vSigneMod = vModificateur >= 0 ? '+' : '';
-            
-            vHtml += `
-                <div class="carac-item">
-                    <span class="carac-nom">${vCaracNomComplet.toUpperCase()}</span>
-                    <span class="carac-score">${vScore}</span>
-                    <span class="carac-mod">(${vSigneMod}${vModificateur})</span>
-                </div>
-            `;
-        });
-        vContainer.innerHTML = vHtml;
-    }
-
-    /**
-     * @brief Génère les sélecteurs de radio buttons pour les bonus de race, groupés par position verticale.
-     */
-    mGenererSelecteursBonus() {
-        const vContainer = document.getElementById('vRaceBonusPointsContainer');
-        const vBonusModSection = document.getElementById('vRaceBonusModification');
-        
-        // Logique Humain (inchangée)
-        if (this.aRaceSelectionnee && this.aRaceSelectionnee.nom === "Humain") {
-             vBonusModSection.style.display = 'none';
-             document.getElementById('vBonusRaceDisplay').innerHTML = '<p>**Humain : +1 à toutes les Caractéristiques.** Ce bonus est automatique et non modifiable.</p>';
-             return;
-        }
-
-        vBonusModSection.style.display = 'grid'; 
-
-        let vHtml = '';
-        const vCaracMap = this.aTextes.caracteristiques; 
-        
-        // Les noms des groupes de radio buttons (colonnes)
-        const vNames = ["pBonusRace_1", "pBonusRace_2", "pBonusRace_3"];
-
-        for (const vCaracKey in vCaracMap) {
-            const vCaracNomComplet = vCaracMap[vCaracKey];
-            
-            let vInputsHtml = '';
-            
-            // Création des trois radios, chacun appartenant à un groupe de colonne différent
-            vNames.forEach((vName, vIndex) => {
-                // La valeur est le nom de la Caractéristique (ex: Force, Dextérité)
-                // Le nom du groupe est pBonusRace_1, pBonusRace_2, pBonusRace_3
-                // Par défaut, le troisième bonus est coché à 'non' pour que 0 points soit possible si rien n'est sélectionné.
-                
-                vInputsHtml += `
-                    <label>
-                        <input type="radio" name="${vName}" value="${vCaracNomComplet}"> +1 Point
-                    </label>
-                `;
-            });
-            
-            // Ajouter une option "non sélectionné" pour chaque colonne afin de pouvoir ne pas utiliser les points
-            vInputsHtml += `<input type="radio" name="pBonusRace_unassigned_${vCaracKey}" value="0" checked style="display:none;">`;
-
-            vHtml += `
-                <div class="carac-bonus-selector" data-carac-name="${vCaracNomComplet}">
-                    <h4>${vCaracNomComplet}</h4>
-                    <div>
-                        ${vInputsHtml}
-                    </div>
-                </div>
-            `;
-        }
-        vContainer.innerHTML = vHtml;
-
-        // Écouteur pour tous les radio buttons pour le recalcul
-        document.querySelectorAll('#vRaceBonusPointsContainer input[type="radio"]').forEach(pRadio => {
-            pRadio.onchange = () => this.mAfficherCaracteristiques();
-        });
-        
-        // Une logique de sélection par défaut est nécessaire, mais pour l'instant, on laisse l'utilisateur choisir.
-    }
-
-    /**
-     * @brief Initialise la page, charge les données et remplit le contenu.
-     */
-    async mInitialiserPage() {
-        await this.mChargerDonnees();
-        this.mRemplirTextes();
-        
-        // Calculer les scores de base (classe) une seule fois
-        this.aScoresCaracDeBase = this.mCalculerScoresDeBase(this.aClasseSelectionnee);
-        
-        // Afficher les sélecteurs de bonus de race et placer les écouteurs des radios
-        this.mGenererSelecteursBonus(); 
-        
-        // Afficher les scores initiaux et placer l'écouteur du niveau
-        this.mAfficherCaracteristiques();
-        
-        // Écouteur pour le niveau
-        document.getElementById('pLevel').onchange = () => this.mAfficherCaracteristiques();
-    }
-}
-
-new CPage3();
+        const vRetourBtn = document.getElementById('vBoutonRetour');
+        if (vRetourBtn) {
+            vRetourBtn.textContent = this.aTextes.bout
