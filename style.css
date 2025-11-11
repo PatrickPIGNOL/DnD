@@ -1,29 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
 /* ========================================================================= */
-/* 1. STYLES DE BASE & RÉINITIALISATION (Fond de Page Noir) */
+/* 1. STYLES DE BASE & RÉINITIALISATION (Fond Noir, Thème Rouge/Noir) */
 /* ========================================================================= */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Cinzel', serif; /* Police Cinzel pour le look JDR */
     margin: 0;
     padding: 0;
-    background-color: #111; /* FOND NOIR */
+    background-color: #111; /* FOND DE PAGE NOIR */
     color: #ccc; /* Texte de base clair */
     line-height: 1.6;
 }
 
+/* HEADER : FOND ROUGE */
 header {
-    background-color: #333; /* Noir/Gris foncé pour la barre d'en-tête */
-    color: white;
+    background-color: #c0392b; /* ROUGE VIF pour le header */
+    color: white; 
     padding: 20px 0;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    /* Ombre subtile pour le relief */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
 }
 
 main {
     max-width: 900px;
     margin: 30px auto;
     padding: 20px;
-    background-color: #222; /* Conteneur principal plus clair pour le contraste */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    background-color: #222; /* Conteneur principal sombre */
+    /* Bordure et ombre rouge pour le style D&D / cadre */
+    box-shadow: 0 0 20px rgba(192, 57, 43, 0.4); 
+    border: 1px solid #c0392b; /* Bordure fine rouge */
     border-radius: 8px;
 }
 
@@ -31,12 +37,19 @@ section {
     padding: 10px 0;
 }
 
+/* TITRES DE SECTION : ROUGE */
 h1, h2, h3 {
-    color: #eee; /* Titres en blanc */
-    border-bottom: 2px solid #444;
+    color: #c0392b; /* ROUGE VIF pour les titres */
+    border-bottom: 2px solid #444; /* Séparateur sombre */
     padding-bottom: 5px;
     margin-top: 20px;
+    font-weight: 700; /* Plus de relief pour la police Cinzel */
 }
+/* S'assurer que le titre H1 dans le header est blanc */
+header h1 {
+    color: white; 
+}
+
 
 hr {
     border: 0;
@@ -50,7 +63,7 @@ hr {
 }
 
 /* ========================================================================= */
-/* 2. SÉLECTION DE NIVEAU */
+/* 2. SÉLECTION DE NIVEAU (Thème sombre) */
 /* ========================================================================= */
 .niveau-block {
     padding-top: 0;
@@ -98,7 +111,7 @@ hr {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Bouton Principal (Suivant) - NOIR */
+/* Bouton Principal (Suivant) - NOIR/GRIS */
 #vNextButton {
     background-color: #444; 
     color: white;
@@ -173,8 +186,9 @@ button:disabled {
 /* VALEURS SPÉCIFIQUES DEMANDÉES */
 /* Score Fixe en Rouge */
 .score-fixe-valeur {
-    color: #c0392b; /* Rouge vif (CONSERVÉ) */
+    color: #c0392b; /* ROUGE VIF pour le score fixe */
     font-weight: bold;
+    font-size: 1.1em;
 }
 
 /* Modificateur Final en évidence (Clair sur fond sombre) */
