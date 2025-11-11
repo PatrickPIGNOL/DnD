@@ -1,17 +1,17 @@
 [
     {
+        "nom": "Demi-Elf",
+        "categorie": "humanoide",
+        "description_courte": "Bénéficie d'une ascendance double. Bonus : +2 Charisme et +1 à deux autres caracs.",
+        "image_url": "images/races/halfelf.png",
+        "bonusCarac": "choix"
+    },
+    {
         "nom": "Elfe",
         "categorie": "humanoide",
         "description_courte": "Fins, gracieux et immortels. Connus pour leur agilité et leur connexion avec la nature.",
         "bonusCarac": "+2 Dextérité",
         "image_url": "images/races/elfe.png"
-    },
-    {
-        "nom": "Nain",
-        "categorie": "humanoide",
-        "description_courte": "Robustes, forts, et maîtres artisans. Ils ont un penchant naturel pour la forge et la pierre.",
-        "bonusCarac": "+2 Constitution",
-        "image_url": "images/races/nain.png"
     },
     {
         "nom": "Humain",
@@ -21,11 +21,11 @@
         "image_url": "images/races/humain.png"
     },
     {
-        "nom": "Demi-Elf",
+        "nom": "Nain",
         "categorie": "humanoide",
-        "description_courte": "Bénéficie d'une ascendance double. Bonus : +2 Charisme et +1 à deux autres caracs.",
-        "image_url": "images/races/halfelf.png",
-        "bonusCarac": "choix"
+        "description_courte": "Robustes, forts, et maîtres artisans. Ils ont un penchant naturel pour la forge et la pierre.",
+        "bonusCarac": "+2 Constitution",
+        "image_url": "images/races/nain.png"
     },
     {
         "nom": "Tieffelin",

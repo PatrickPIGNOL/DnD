@@ -47,11 +47,8 @@ class CPage2 {
         
         // Header, Titre de section et Introduction
         this.mRemplirElement('vHeaderTitre', this.aTextes.titre_header);
-        this.mRemplirElement('vPage2Titre', 'Origines et Traits'); // Statistique
-        this.mRemplirElement('vPage2Introduction', 'La race détermine l\'apparence physique de votre personnage, sa longévité, et lui confère des bonus de caractéristiques ainsi que des traits spéciaux.'); // Statistique
-
-        // Section Affichage Race par Défaut
-        this.mRemplirElement('vDefaultRaceTitre', this.aTextes.race_par_defaut_titre);
+        this.mRemplirElement('vPage2Titre', this.aTextes.titre_section);
+        this.mRemplirElement('vPage2Introduction', this.aTextes.description_section);
         this.mRemplirElement('vDefaultRaceDesc', this.aTextes.race_par_defaut_desc);
 
         // Boutons de navigation
@@ -94,11 +91,12 @@ class CPage2 {
             vHtml += `
                 <div class="race-option-card ${vSelectedClass}">
                     <label>
-                        <table class="race-layout-table" onclick="oCPage2.mSelectionnerRace('${vRace.nom}')">
+                        <input type="radio" name="race" value="${vRace.nom}" onclick="oCPage2.mSelectionnerRace('${vRace.nom}')">
+
+                        <table class="race-layout-table"> 
                             <tr>
                                 <td rowspan="2" style="text-align: center; vertical-align: middle;">
-                                    <input type="radio" name="race" value="${vRace.nom}">
-                                </td>
+                                    </td>
                                 
                                 <td rowspan="2" class="race-image-cell">
                                     <img src="${vRace.image_url}" alt="Image de la race ${vRace.nom}" style="width: 90px; height: 90px; object-fit: cover;">
@@ -120,7 +118,7 @@ class CPage2 {
         });
         
         vContainer.innerHTML = vHtml;
-        this.mChargerSauvegarde(); // Ajout de la sauvegarde
+        this.mChargerSauvegarde();
         this.mMettreAJourAffichageSelection();
     }
 

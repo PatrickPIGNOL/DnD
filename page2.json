@@ -1,11 +1,9 @@
 {
     "page2": {
-        "titre_page": "Création de Personnage - Race",
-        "titre_header": "Choisissez votre Race",
-        
-        "section_recherche_titre": "Recherche et Filtres",
-        "recherche_placeholder": "Filtrer les races...",
-        "race_par_defaut_titre": "Race sélectionnée",
+        "titre_page": "Donjons & Dragons",
+        "titre_header": "Donjons & Dragons",
+        "titre_section": "Choisissez votre Race", 
+        "description_section": "La race détermine l'apparence physique de votre personnage, sa longévité, et lui confère des bonus de caractéristiques ainsi que des traits spéciaux.",
         "race_par_defaut_desc": "Veuillez sélectionner une race pour continuer.",
         
         "categories": {
