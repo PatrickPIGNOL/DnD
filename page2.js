@@ -129,6 +129,8 @@ class CPage2 {
         localStorage.setItem('raceSelectionnee', JSON.stringify(this.aRaceSelectionnee));
         
         this.mGenererListeRaces(); 
+        // C'EST CET APPEL QUI EST CRUCIAL :
+        this.mMettreAJourAffichageSelection();
     }
     
     /**
@@ -194,6 +196,25 @@ class CPage2 {
         }
         
         window.oCPage2 = this; 
+    }
+
+    /**
+     * @brief Met à jour le bloc d'affichage de la race sélectionnée et active le bouton Suivant.
+     */
+    mMettreAJourAffichageSelection() {
+        const vSuivantButton = document.getElementById('vNextButton');
+
+        if (this.aRaceSelectionnee) {
+            // ... (Mise à jour de l'affichage) ...
+            
+            // ✅ ACTIVER LE BOUTON ICI
+            if (vSuivantButton) vSuivantButton.disabled = false; 
+        } else {
+            // ... (Affichage du message par défaut) ...
+            
+            // 🚫 DÉSACTIVER LE BOUTON ICI
+            if (vSuivantButton) vSuivantButton.disabled = true;
+        }
     }
 }
 
