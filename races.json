@@ -301,13 +301,6 @@
         "image_url": "images/races/humain.png"
     },  
     {
-        "nom": "Humain ",
-        "categorie": "humanoide",
-        "description_courte": "",
-        "bonusCarac": "+1 à toutes les caractéristiques",
-        "image_url": "images/races/humain.png"
-    },  
-    {
         "nom": "Humain Mulien",
         "categorie": "humanoide",
         "description_courte": "Prévalant sur les côtes est et sud-est de la Mer Intérieure, les Muliens sont généralement grands, minces, avec le teint olivâtre et des yeux noisettes ou bruns. Leurs cheveux vont du noir au châtain foncé, mais sur les terres où ils sont prédominants, beaucoup, ainsi que la totalité des nobles, se rasent intégralement le crâne.",
