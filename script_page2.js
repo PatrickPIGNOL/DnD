@@ -2,7 +2,6 @@ class CPage2 {
     aRacesData;
     aTextes; 
     aRaceSelectionnee = null;
-    // aFiltreActif n'est plus nécessaire
 
     constructor() {
         this.mInitialiserPage();
@@ -43,13 +42,20 @@ class CPage2 {
     mRemplirTextes() {
         if (!this.aTextes) return;
 
+        // Titre de la FENÊTRE
         document.title = this.aTextes.titre_page;
         
-        // Header, Titre de section et Introduction
+        // Header
         this.mRemplirElement('vHeaderTitre', this.aTextes.titre_header);
-        this.mRemplirElement('vPage2Titre', this.aTextes.titre_section);
-        this.mRemplirElement('vPage2Introduction', this.aTextes.description_section);
+        
+        // Titre de section et Introduction (utilisent des textes statiques si non fournis par JSON)
+        this.mRemplirElement('vPage2Titre', 'Origines et Traits');
+        this.mRemplirElement('vPage2Introduction', 'La race détermine l\'apparence physique de votre personnage, sa longévité, et lui confère des bonus de caractéristiques ainsi que des traits spéciaux.');
+
+        // Section Affichage Race par Défaut
+        this.mRemplirElement('vDefaultRaceTitre', this.aTextes.race_par_defaut_titre);
         this.mRemplirElement('vDefaultRaceDesc', this.aTextes.race_par_defaut_desc);
+        this.mRemplirElement('vBoutonDetail', this.aTextes.bouton_detail);
 
         // Boutons de navigation
         const vRetourBtn = document.getElementById('vBoutonRetour');
@@ -60,18 +66,17 @@ class CPage2 {
         
         this.mRemplirElement('vNextButton', this.aTextes.bouton_suivant);
         
-        // Footer (doit être un innerHTML si vous ajoutez le copyright)
+        // Footer 
         const vFooter = document.getElementById('vFooterTexte');
         if (vFooter) {
             vFooter.innerHTML = '&copy; 2025 Character Builder'; 
         }
 
-        // Suppression des tentatives de remplissage d'éléments de filtre/recherche
-        // (vRechercheTitre, pSearch, vFiltreTout, etc.)
+        // Les autres IDs (filtres/recherche) sont ignorés.
     }
 
     /**
-     * @brief Génère la liste des races dans le conteneur principal (sans filtres).
+     * @brief Génère la liste des races dans le conteneur principal.
      */
     mGenererListeRaces() {
         if (!this.aRacesData) return;
@@ -87,16 +92,13 @@ class CPage2 {
         this.aRacesData.forEach(vRace => {
             const vSelectedClass = (this.aRaceSelectionnee && this.aRaceSelectionnee.nom === vRace.nom) ? 'selected' : '';
 
-            // Nouvelle structure de carte basée sur un tableau
             vHtml += `
                 <div class="race-option-card ${vSelectedClass}">
                     <label>
-                        <input type="radio" name="race" value="${vRace.nom}" onclick="oCPage2.mSelectionnerRace('${vRace.nom}')">
 
                         <table class="race-layout-table"> 
                             <tr>
-                                <td rowspan="2" style="text-align: center; vertical-align: middle;">
-                                    </td>
+                                <td rowspan="2" style="text-align: center; vertical-align: middle;"><input type="radio" name="race" value="${vRace.nom}"></td>
                                 
                                 <td rowspan="2" class="race-image-cell">
                                     <img src="${vRace.image_url}" alt="Image de la race ${vRace.nom}" style="width: 90px; height: 90px; object-fit: cover;">
@@ -122,10 +124,10 @@ class CPage2 {
         this.mMettreAJourAffichageSelection();
     }
 
-    // Suppression de mAppliquerFiltre()
+    // La logique de mAppliquerFiltre() a été supprimée.
 
     /**
-     * @brief Gère la sélection d'une race.
+     * @brief Gère la sélection d'une race (appelé par l'écouteur 'change').
      */
     mSelectionnerRace(pRaceNom) {
         this.aRaceSelectionnee = this.aRacesData.find(vRace => vRace.nom === pRaceNom);
@@ -153,6 +155,39 @@ class CPage2 {
             if (vSuivantButton) vSuivantButton.disabled = true;
         }
     }
+    
+    /**
+     * @brief Charge la sélection depuis le localStorage si elle existe.
+     */
+    mChargerSauvegarde() {
+        const vSauvegardeRaw = localStorage.getItem('raceSelectionnee');
+        if (vSauvegardeRaw) {
+            const vSauvegarde = JSON.parse(vSauvegardeRaw);
+            
+            const vRadio = document.querySelector(`input[name="race"][value="${vSauvegarde.nom}"]`);
+            if (vRadio) {
+                vRadio.checked = true;
+                this.aRaceSelectionnee = vSauvegarde; // Restaurer l'objet sélectionné
+                this.mMettreAJourAffichageSelection();
+            }
+        }
+    }
+
+    /**
+     * @brief Applique un écouteur d'événement pour intercepter la sélection de la race (méthode stable).
+     */
+    mAppliquerEcouteurSelection() {
+        const vContainer = document.getElementById('vRaceOptionsContainer');
+        if (!vContainer) return;
+
+        // Utiliser l'événement 'change' sur le conteneur (délégation d'événement)
+        vContainer.onchange = (pEvent) => {
+            // Vérifie si l'élément qui a changé est un input radio
+            if (pEvent.target.type === 'radio' && pEvent.target.name === 'race') {
+                this.mSelectionnerRace(pEvent.target.value);
+            }
+        };
+    }
 
     /**
      * @brief Gère la navigation vers la page suivante.
@@ -174,6 +209,8 @@ class CPage2 {
         this.mRemplirTextes();
         this.mGenererListeRaces();
         
+        this.mAppliquerEcouteurSelection();
+
         const vSuivantButton = document.getElementById('vNextButton');
         if (vSuivantButton) {
              vSuivantButton.disabled = true;
@@ -182,8 +219,8 @@ class CPage2 {
                 this.mAllerPageSuivante();
             };
         }
-
-        // Suppression de l'écouteur de recherche
+        
+        window.oCPage2 = this; 
     }
 }
 
