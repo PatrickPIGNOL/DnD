@@ -63,8 +63,7 @@ hr {
     margin-top: 30px;
 }
 
-/* Boutons principaux et Liens d'étape -> ROUGE */
-/* Ceci couvre : Liens d'étape, Bouton Suivant */
+/* Styles communs pour tous les boutons de navigation et liens d'action */
 .navigation-buttons button, 
 .navigation-buttons a,
 .button-link { 
@@ -74,27 +73,31 @@ hr {
     cursor: pointer;
     text-decoration: none;
     font-size: 1em;
-    font-weight: bold;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    
-    background-color: #c0392b; /* ROUGE */
-    color: white;
 }
 
-.button-link:hover,
-#vNextButton:hover:not([disabled]) {
+/* Boutons principaux (ROUGE) */
+.navigation-buttons button:not(.secondary-button), 
+.navigation-buttons a:not(.secondary-button),
+.button-link { 
+    background-color: #c0392b; /* ROUGE VIF */
+    color: white;
+    font-weight: bold;
+}
+
+.navigation-buttons button:hover:not([disabled]):not(.secondary-button),
+.button-link:hover {
     background-color: #a33227; 
 }
 
-/* Boutons Secondaires -> GRIS */
-/* Ceci couvre : Bouton Retour, Liens de Ressources */
+/* Boutons Secondaires (GRIS) */
 .secondary-button {
     background-color: #666; 
     color: white;
     font-weight: 400;
 }
 
-.secondary-button:hover {
+.secondary-button:hover:not([disabled]) {
     background-color: #777;
 }
 
@@ -103,15 +106,31 @@ button:disabled {
     opacity: 0.5;
 }
 
+/* CORRECTION : Liens de ressources doivent être des boutons rouges */
+.resource-table a {
+    /* Override secondary-button class for resource links */
+    background-color: #c0392b !important; 
+    color: white !important;
+    font-weight: bold !important;
+    padding: 10px 15px; /* S'assurer que le padding est là */
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+.resource-table a:hover {
+    background-color: #a33227 !important; 
+}
+
 
 /* ========================================================================= */
 /* 3. STYLES DES LISTES (Classe et Race) */
 /* ========================================================================= */
 
-/* TITRE DE CLASSE & RACE : ROUGE ET GRAS */
+/* CORRECTION : NOMS DES RACES/RESSOURCES : ROUGE ET GRAS */
 .classe-header-title,
-.race-title-text { 
-    color: #c0392b; 
+.race-title-text,
+.resource-table strong { 
+    color: #c0392b; /* ROUGE VIF */
     font-weight: bold;
     font-size: 1.1em;
 }
@@ -127,11 +146,12 @@ button:disabled {
     transition: background-color 0.2s;
 }
 
-/* SÉPARATION ET GRILLE DES RACES (PAGE 2) */
+/* CORRECTION : SÉPARATION ET GRILLE DES RACES (PAGE 2) */
 .race-options-grid {
     display: grid;
+    /* Assure une disposition horizontale avec au moins deux colonnes sur écran large */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px; /* SÉPARATION VISIBLE */
+    gap: 20px; 
     margin-top: 20px;
 }
 .race-option-card { 
@@ -168,6 +188,7 @@ button:disabled {
     vertical-align: top;
     color: #ccc;
 }
+/* ... rest of the CSS ... */
 
 /* Ligne des Calculs */
 .carac-calc-row {

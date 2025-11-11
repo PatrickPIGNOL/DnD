@@ -5,7 +5,6 @@ class CPage3 {
     aClasseSelectionnee
     aJetDeVie
 
-    // Map pour associer le nom complet à l'ID de la caractéristique (value du radio)
     aCaracMap = {
         "Force": 1, 
         "Dextérité": 2, 
@@ -15,8 +14,6 @@ class CPage3 {
         "Charisme": 6
     }
     
-    // CORRECTION : 4 SLOTS de +1 (augmtcarac1 à 4)
-    // Le nom (name) est utilisé verticalement pour limiter le total à 4 choix
     aBonusSlots = [
         { name: "augmtcarac1", bonus: 1, label: "+1" },
         { name: "augmtcarac2", bonus: 1, label: "+1" },
@@ -103,7 +100,7 @@ class CPage3 {
     mRemplirElement(pId, pTexte) {
         const vElement = document.getElementById(pId)
         if (vElement) {
-            this.this.mSetElementText(vElement, pTexte)
+            this.mSetElementText(vElement, pTexte) // CORRECTION: this.this. a été retiré
         }
     }
     
@@ -118,14 +115,14 @@ class CPage3 {
         for (const vKey in this.aTextes.niveau_options) { //
             const vOption = document.createElement('option')
             vOption.value = vKey
-            this.this.mSetElementText(vOption, this.aTextes.niveau_options[vKey]) //
+            this.mSetElementText(vOption, this.aTextes.niveau_options[vKey]) // CORRECTION: this.this. a été retiré
             vSelect.appendChild(vOption)
         }
         
         vSelect.addEventListener('change', () => {
-            this.this.mCalculerTotal() 
-            this.this.mGenererTablePV()
-            this.this.mSauvegarder() 
+            this.mCalculerTotal() 
+            this.mGenererTablePV()
+            this.mSauvegarder() 
         })
         
         const vNiveauSauvegarde = localStorage.getItem('niveauSelectionne')
@@ -147,7 +144,7 @@ class CPage3 {
             vId++
             const vNomComplet = this.aTextes.caracteristiques[vCarac] //
             const vScoreFixe = this.aScoresFixes[vNomComplet] //
-            const vModificateurInitial = this.this.mCalculerModificateur(vScoreFixe)
+            const vModificateurInitial = this.mCalculerModificateur(vScoreFixe)
 
             const vRow = document.createElement('tr')
             vRow.id = `vRow${vCarac}`
@@ -159,11 +156,10 @@ class CPage3 {
             vHTML += `<td id="vScoreFixe${vCarac}" class="score-fixe-valeur">${vScoreFixe}</td>`
             
             // Les 4 radios sont en ligne grâce au CSS, mais gèrent les slots 1 à 4 verticalement
-            vHTML += `<td colspan="4" class="race-bonus-cell">` // Colspan pour couvrir les 4 slots dans le <thead>
+            vHTML += `<td colspan="4" class="race-bonus-cell">`
             this.aBonusSlots.forEach(pSlot => {
                 vHTML += `<label>`
                 vHTML += `<input type="radio" name="${pSlot.name}" value="${vId}" data-bonus="${pSlot.bonus}" id="vRadio${vCarac}${pSlot.name}"`
-                // Pas de 'checked' par défaut (l'utilisateur doit faire 4 choix)
                 vHTML += `>`
                 vHTML += `<span>${pSlot.label}</span>`
                 vHTML += `</label>`
@@ -180,9 +176,9 @@ class CPage3 {
         
         document.querySelectorAll('input[type="radio"]').forEach(pRadio => {
             pRadio.addEventListener('change', () => {
-                this.this.mCalculerTotal()
-                this.this.mGenererTablePV()
-                this.this.mSauvegarder()
+                this.mCalculerTotal()
+                this.mGenererTablePV()
+                this.mSauvegarder()
             })
         })
     }
@@ -196,15 +192,14 @@ class CPage3 {
 
         let vTotalBonus = {}
         for (let vId = 1; vId <= 6; vId++) {
-            vTotalBonus[vId] = 0 // Initialisation des bonus par Carac
+            vTotalBonus[vId] = 0
         }
 
-        // Itère sur les 4 slots de bonus (augmtcarac1 à augmtcarac4)
         this.aBonusSlots.forEach(pSlot => {
             const vRadio = document.querySelector(`input[name="${pSlot.name}"]:checked`)
             if (vRadio) {
                 const vCaracId = parseInt(vRadio.value)
-                const vBonus = parseInt(vRadio.dataset.bonus) // +1 dans ce cas
+                const vBonus = parseInt(vRadio.dataset.bonus)
                 
                 if (vCaracId >= 1 && vCaracId <= 6) {
                     vTotalBonus[vCaracId] += vBonus
@@ -219,12 +214,11 @@ class CPage3 {
             const vBonus = vTotalBonus[vId]
             
             const vScoreTotal = vScoreFixe + vBonus
-            const vModificateur = this.this.mCalculerModificateur(vScoreTotal)
+            const vModificateur = this.mCalculerModificateur(vScoreTotal)
             
-            this.this.mRemplirElement(`vScoreTotal${vCarac}`, vScoreTotal)
-            this.this.mRemplirElement(`vModificateur${vCarac}`, `${vModificateur > 0 ? '+' : ''}${vModificateur}`)
+            this.mRemplirElement(`vScoreTotal${vCarac}`, vScoreTotal) // CORRECTION: this.this. a été retiré
+            this.mRemplirElement(`vModificateur${vCarac}`, `${vModificateur > 0 ? '+' : ''}${vModificateur}`) // CORRECTION: this.this. a été retiré
 
-            // Met à jour le modificateur de Constitution pour le calcul des PV
             if (vCarac === 'Con') {
                 localStorage.setItem('modificateurConstitution', vModificateur)
             }
@@ -243,7 +237,7 @@ class CPage3 {
         let vTotalPV = 0
         
         // Ligne PV Niveau 1
-        const vJetDeVieBase = parseInt(this.aJetDeVie.substring(1)) // Exemple: "d12" donne 12
+        const vJetDeVieBase = parseInt(this.aJetDeVie.substring(1)) //
         const vPVNiveau1 = vJetDeVieBase + vModCon
         vTotalPV += vPVNiveau1
         
@@ -257,7 +251,7 @@ class CPage3 {
         // Ligne PV par Niveaux suivants (si niveau > 1)
         if (vNiveau > 1) {
             const vNiveauxSuivants = vNiveau - 1
-            const vPVJetParNiveau = Math.floor(vJetDeVieBase / 2) + 1 // Règle standard D&D : (Jet/2) + 1
+            const vPVJetParNiveau = Math.floor(vJetDeVieBase / 2) + 1
             const vPVParNiveauTotalJet = vPVJetParNiveau * vNiveauxSuivants
             const vPVParNiveauTotalMod = vModCon * vNiveauxSuivants
             
@@ -290,7 +284,6 @@ class CPage3 {
                 const vValue = vSauvegarde[vNomSlot]
                 
                 if (vValue) {
-                    // Coche le radio correspondant à la caractéristique sauvegardée
                     const vRadio = document.querySelector(`input[name="${vNomSlot}"][value="${vValue}"]`)
                     if (vRadio) {
                         vRadio.checked = true
@@ -308,7 +301,6 @@ class CPage3 {
         this.aBonusSlots.forEach(pSlot => {
             const vRadio = document.querySelector(`input[name="${pSlot.name}"]:checked`)
             if (vRadio) {
-                // Sauvegarde la VALUE (ID de la caractéristique) pour ce slot
                 vBonusSelectionnes[pSlot.name] = vRadio.value 
             }
         })
@@ -317,7 +309,7 @@ class CPage3 {
 
     mPasserEtape(pEvent) {
         if (pEvent) pEvent.preventDefault()
-        this.this.mSauvegarder()
+        this.mSauvegarder() // CORRECTION: this.this. a été retiré
         window.location.href = "page4.html"
     }
 }
