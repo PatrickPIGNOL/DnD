@@ -287,6 +287,26 @@ button:disabled {
 /* 5. STYLES SPÉCIFIQUES PAGE 3 (Bonus Race & PV) */
 /* ========================================================================= */
 
+/* Style pour l'option de reset des bonus de caractéristique (Page 3) */
+#vBonusResetRow {
+    background-color: #333; /* Fond sombre pour la distinguer */
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 15px; /* Sépare le reset du tableau d'allocation */
+}
+
+#vBonusResetRow label {
+    display: block;
+    cursor: pointer;
+}
+
+#vBonusResetRow strong {
+    color: #f39c12; /* Couleur orange/jaune pour la réinitialisation */
+    font-weight: bold;
+    margin-left: 10px;
+}
+
 /* Cellules de bonus de race : l'alignement est géré par la structure <td> */
 .race-bonus-slot label {
     display: block; 
