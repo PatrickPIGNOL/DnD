@@ -144,15 +144,6 @@ button:disabled {
     font-size: 1.1em;
 }
 
-/* CORRECTION : Cible spécifique du titre de la race à l'intérieur de la carte */
-.race-option-card h3 {
-    color: #c0392b !important; /* ROUGE VIF */
-    font-weight: bold !important;
-    font-size: 1.1em;
-    border-bottom: none; /* Retirer la ligne de séparation du h3 */
-    margin-top: 5px; /* Ajustement visuel */
-}
-
 /* SÉPARATION ENTRE LES CLASSES (PAGE 1) */
 .classe-option-card {
     background-color: #2a2a2a;
@@ -164,25 +155,95 @@ button:disabled {
     transition: background-color 0.2s;
 }
 
-/* SÉPARATION ET GRILLE DES RACES (PAGE 2) - Utilisation de inline-block pour l'horizontalité */
+/* Styles internes de la carte de classe (pour servir de modèle) */
+.classe-option-card input[type="radio"] {
+    margin-right: 10px;
+}
+.classe-option-card img {
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-right: 15px;
+}
+.classe-option-card label {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* SÉPARATION DES RACES (PAGE 2) - En colonne 100% de la largeur */
 .race-options-grid {
     margin-top: 20px;
-    font-size: 0; /* Pour éliminer l'espace blanc entre les inline-block */
     text-align: left;
 }
+
+/* CARTE DE RACE : Utilisation de display: table pour la structure 3 colonnes */
 .race-option-card { 
     background-color: #2a2a2a;
     border: 1px solid #444;
     border-radius: 4px;
-    padding: 15px;
+    padding: 10px;
+    margin: 15px 0; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s;
     
-    display: inline-block;
-    width: calc(50% - 20px); /* 2 cartes par ligne avec 20px de marge (10px de chaque côté) */
-    margin: 10px; 
+    /* Structure externe (Force 1 carte par ligne) */
+    display: table; 
+    width: 100%; 
+    table-layout: fixed; /* Fixe la largeur des colonnes */
+}
+
+/* Colonne 1 : Radio (Coche) */
+.race-radio-cell {
+    display: table-cell;
+    vertical-align: middle; /* Centre verticalement */
+    width: 40px; 
+    padding-right: 10px;
+}
+
+/* Colonne 2 : Image (Pleine Hauteur de la carte) */
+.race-image-cell {
+    display: table-cell;
+    vertical-align: top; 
+    width: 80px; 
+    padding-right: 15px;
+}
+.race-option-card img {
+    /* L'image prend toute la hauteur disponible dans sa cellule */
+    display: block;
+    height: 100%; 
+    min-height: 80px; /* Hauteur minimale de l'image (pour l'empêcher d'être trop petite) */
+    width: 80px;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+/* Colonne 3 : Contenu (Titre et Description) */
+.race-content-cell {
+    display: table-cell;
     vertical-align: top;
-    font-size: 16px; /* Rétablit la taille de police après le 0 du conteneur */
+    width: auto; /* Prend l'espace restant */
+}
+
+/* Titre de la race (dans Colonne 3) */
+.race-option-card h3 {
+    color: #c0392b !important; /* ROUGE VIF et GRAS */
+    font-weight: bold !important;
+    font-size: 1.1em;
+    border-bottom: none; 
+    margin: 0; 
+    padding: 0;
+    line-height: 1.2;
+}
+/* Description de la race (dans Colonne 3) */
+.race-option-card p {
+    margin: 5px 0 0 0; 
+    overflow: hidden;
+    /* Limitation à 2 lignes sans Flexbox (utilisation de -webkit-line-clamp) */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
 }
 
 
@@ -287,15 +348,34 @@ footer {
         font-size: 0.85em;
     }
     
-    .mod-total-value {
-        font-size: 1.2em;
+    /* Cartes de race : on revient à un affichage bloc vertical en mobile pour plus de clarté */
+    .race-option-card {
+        display: block; 
+        padding: 15px;
     }
     
-    /* Passage à 1 carte de race par ligne en mobile */
-    .race-option-card {
+    /* Les colonnes s'empilent */
+    .race-radio-cell,
+    .race-image-cell,
+    .race-content-cell {
+        display: block;
         width: 100%;
+        padding: 0;
+        text-align: center; /* Centrer tout le contenu */
+    }
+    
+    /* Réarrangement de l'image en mobile */
+    .race-image-cell {
         margin: 10px 0;
-        display: block; 
+    }
+    .race-option-card img {
+        height: 100px;
+        width: 100px;
+        min-height: auto;
+    }
+    .race-radio-cell input[type="radio"] {
+        display: block;
+        margin: 0 auto 10px auto; 
     }
 
     /* Boutons de navigation empilés */
