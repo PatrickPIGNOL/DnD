@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
 
 /* ========================================================================= */
-/* 1. STYLES DE BASE & RÉINITIALISATION (Fond Noir, Thème Rouge/Noir) */
+/* 1. STYLES DE BASE & TYPOGRAPHIE (Fond Noir, Thème Rouge/Noir) */
 /* ========================================================================= */
 body {
-    font-family: 'Cinzel', serif; /* Police Cinzel pour le look JDR */
+    font-family: 'Cinzel', serif; /* Police JDR */
     margin: 0;
     padding: 0;
     background-color: #111; /* FOND DE PAGE NOIR */
@@ -18,7 +18,6 @@ header {
     color: white; 
     padding: 20px 0;
     text-align: center;
-    /* Ombre subtile pour le relief */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
 }
 
@@ -39,17 +38,15 @@ section {
 
 /* TITRES DE SECTION : ROUGE */
 h1, h2, h3 {
-    color: #c0392b; /* ROUGE VIF pour les titres */
-    border-bottom: 2px solid #444; /* Séparateur sombre */
+    color: #c0392b; /* ROUGE VIF pour les titres h2 et h3 */
+    border-bottom: 2px solid #444; 
     padding-bottom: 5px;
     margin-top: 20px;
-    font-weight: 700; /* Plus de relief pour la police Cinzel */
+    font-weight: 700; 
 }
-/* S'assurer que le titre H1 dans le header est blanc */
 header h1 {
     color: white; 
 }
-
 
 hr {
     border: 0;
@@ -57,40 +54,8 @@ hr {
     margin: 30px 0;
 }
 
-/* Alignement du texte */
-.text-center {
-    text-align: center !important;
-}
-
 /* ========================================================================= */
-/* 2. SÉLECTION DE NIVEAU (Thème sombre) */
-/* ========================================================================= */
-.niveau-block {
-    padding-top: 0;
-}
-.niveau-select-controls {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-.niveau-select-controls label {
-    color: #ccc;
-    margin-bottom: 0;
-}
-.niveau-select-controls select {
-    padding: 8px;
-    border: 1px solid #555;
-    background-color: #333;
-    color: #ccc;
-    border-radius: 4px;
-    width: auto;
-    max-width: 150px;
-    margin-bottom: 0;
-}
-
-
-/* ========================================================================= */
-/* 3. STYLES DES BOUTONS DE NAVIGATION (Noir et Gris) */
+/* 2. BOUTONS & LIENS D'ACTION */
 /* ========================================================================= */
 .navigation-buttons {
     display: flex;
@@ -98,57 +63,96 @@ hr {
     margin-top: 30px;
 }
 
-.navigation-buttons button, .navigation-buttons a {
+/* Boutons principaux et Liens d'étape -> ROUGE */
+/* Ceci couvre : Liens d'étape, Bouton Suivant */
+.navigation-buttons button, 
+.navigation-buttons a,
+.button-link { 
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
     font-size: 1em;
-    transition: background-color 0.2s, opacity 0.2s;
-    text-align: center;
     font-weight: bold;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-/* Bouton Principal (Suivant) - NOIR/GRIS */
-#vNextButton {
-    background-color: #444; 
+    
+    background-color: #c0392b; /* ROUGE */
     color: white;
 }
 
+.button-link:hover,
 #vNextButton:hover:not([disabled]) {
-    background-color: #555;
+    background-color: #a33227; 
 }
 
-/* Bouton Secondaire (Retour) - GRIS */
+/* Boutons Secondaires -> GRIS */
+/* Ceci couvre : Bouton Retour, Liens de Ressources */
 .secondary-button {
-    background-color: #666;
+    background-color: #666; 
     color: white;
+    font-weight: 400;
 }
 
 .secondary-button:hover {
     background-color: #777;
 }
 
-/* Bouton désactivé */
 button:disabled {
     cursor: not-allowed;
     opacity: 0.5;
 }
 
+
 /* ========================================================================= */
-/* 4. TABLES DE CARACTÉRISTIQUES (Noir/Gris/Rouge pour le Score Fixe) */
+/* 3. STYLES DES LISTES (Classe et Race) */
 /* ========================================================================= */
 
+/* TITRE DE CLASSE & RACE : ROUGE ET GRAS */
+.classe-header-title,
+.race-title-text { 
+    color: #c0392b; 
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* SÉPARATION ENTRE LES CLASSES (PAGE 1) */
+.classe-option-card {
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 4px;
+    margin-bottom: 15px; /* SÉPARATION VISIBLE */
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s;
+}
+
+/* SÉPARATION ET GRILLE DES RACES (PAGE 2) */
+.race-options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px; /* SÉPARATION VISIBLE */
+    margin-top: 20px;
+}
+.race-option-card { 
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+}
+
+
+/* ========================================================================= */
+/* 4. TABLES DES CARACTÉRISTIQUES */
+/* ========================================================================= */
 .caracteristiques-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
     table-layout: fixed;
 }
-
-/* En-têtes (Gris foncé) */
 .caracteristiques-table th {
     background-color: #333; 
     color: white;
@@ -158,32 +162,21 @@ button:disabled {
     text-transform: uppercase;
     font-size: 0.9em;
 }
-
 .caracteristiques-table td {
     padding: 10px;
     border: 1px solid #333;
     vertical-align: top;
-}
-
-/* Ligne des Scores / Radios / Modificateur Final */
-.carac-scores-row {
-    background-color: #2a2a2a; /* Ligne sombre */
-    border-top: 3px solid #444; 
+    color: #ccc;
 }
 
 /* Ligne des Calculs */
 .carac-calc-row {
     font-size: 0.85em;
-    background-color: #222; /* Ligne encore plus sombre */
+    background-color: #222; 
     color: #aaa; 
     border-bottom: 3px solid #444; 
 }
-.carac-calc-row td {
-    padding-top: 5px;
-    padding-bottom: 10px;
-}
 
-/* VALEURS SPÉCIFIQUES DEMANDÉES */
 /* Score Fixe en Rouge */
 .score-fixe-valeur {
     color: #c0392b; /* ROUGE VIF pour le score fixe */
@@ -191,92 +184,35 @@ button:disabled {
     font-size: 1.1em;
 }
 
-/* Modificateur Final en évidence (Clair sur fond sombre) */
-.mod-total-value {
-    font-size: 1.4em;
-    font-weight: bold;
-    color: #eee; 
-}
-
 
 /* ========================================================================= */
-/* 5. STYLES DES RADIO BUTTONS (Gris uniquement) */
+/* 5. STYLES SPÉCIFIQUES PAGE 3 (Bonus Race & PV) */
 /* ========================================================================= */
-.radio-select-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 5px;
-    align-items: center;
-    justify-items: center;
-    width: 100%;
-    max-width: 250px;
-    margin: 0 auto;
-}
 
-.radio-colonne {
+/* CORRECTION : Radios en ligne par colonne */
+.race-bonus-cell {
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* LES OPTIONS RESTENT EN LIGNE */
+    justify-content: space-around; /* Pour bien répartir les options */
     align-items: center;
+    gap: 5px;
+    height: 100%;
+}
+.race-bonus-cell label {
+    display: flex; 
+    align-items: center;
+    gap: 3px;
+    font-size: 0.9em;
 }
 
-.radio-label {
-    padding: 2px 0;
-    font-weight: normal;
-    font-size: 0.8em;
-    cursor: pointer;
-    color: #aaa;
-}
-
-/* Contour des radio buttons (Gris) */
-.radio-colonne input[type="radio"] {
-    appearance: none;
-    width: 1.15em;
-    height: 1.15em;
-    border: 0.15em solid #888; 
-    border-radius: 50%;
-    display: grid;
-    place-content: center;
-    cursor: pointer;
-}
-
-/* Style pour l'état coché (Gris foncé) */
-.radio-colonne input[type="radio"]:checked {
-    border-color: #ccc; 
-}
-.radio-colonne input[type="radio"]::before {
-    content: "";
-    width: 0.65em;
-    height: 0.65em;
-    border-radius: 50%;
-    transform: scale(0);
-    transition: transform 0.1s ease-in-out;
-    background-color: #ccc; 
-}
-
-.radio-colonne input[type="radio"]:checked::before {
-    transform: scale(1);
-}
-
-/* ========================================================================= */
-/* 6. TABLE DES POINTS DE VIE (PV - Neutralisé) */
-/* ========================================================================= */
+/* TABLEAU DES POINTS DE VIE (PV) */
 .hp-block {
     border: 1px solid #555; 
     border-radius: 6px;
     padding: 15px;
     margin-top: 30px;
 }
-.hp-block h3 {
-    border-bottom: none;
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-
-.hp-calculation-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
+/* Styles de la table des PV (pour le détail du calcul) */
 .hp-calculation-table th {
     background-color: #555; 
     color: white;
@@ -284,15 +220,11 @@ button:disabled {
     font-weight: bold;
     border: 1px solid #444;
 }
-
 .hp-calculation-table td {
-    padding: 10px;
-    border: 1px solid #444;
     background-color: #333;
-    text-align: center;
+    color: #eee;
 }
 
-/* PV Final mis en évidence (Clair) */
 .final-hp-value {
     font-size: 1.6em;
     font-weight: bold;
@@ -331,8 +263,12 @@ footer {
         font-size: 1.2em;
     }
 
-    .radio-select-grid {
-        gap: 3px;
-        max-width: 200px;
+    /* Radios en mode mobile: moins d'espace */
+    .race-bonus-cell {
+        gap: 2px;
+        justify-content: space-between;
+    }
+    .race-bonus-cell label {
+        font-size: 0.7em;
     }
 }

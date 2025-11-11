@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title> 
+    <title id="vPageTitle"></title>
     <link rel="stylesheet" href="style.css">
-    </head>
+</head>
 <body>
     <header>
         <h1 id="vHeaderTitre"></h1>
@@ -13,41 +13,67 @@
 
     <main>
         <section>
-            
-            <div class="niveau-block">
-                <h2 id="vNiveauSectionTitre"></h2>
-                <div class="niveau-select-controls">
-                    <label for="vNiveauSelection" id="vNiveauSelectLabel"></label>
-                    <select id="vNiveauSelection"></select>
-                </div>
+            <h2 id="vSectionNiveauTitre"></h2>
+
+            <div class="niveau-selection" style="display: flex; gap: 20px; align-items: center; margin-bottom: 20px;">
+                <label for="vSelectNiveau" id="vSelectNiveauLabel"></label>
+                <select id="vSelectNiveau"></select>
             </div>
 
-            <hr>
-
-            <h2 id="vCaracteristiquesTitre"></h2>
-            <form id="caracteristiquesForm">
-                <div id="vCaracteristiquesWrapper" class="caracteristiques-tables-container">
-                    <div id="vChargementMessage">Chargement des données...</div>
-                </div>
-                
-                <hr>
-
-                <div id="vPointsDeVieContainer" class="hp-block">
-                    <h3 id="vHpTitre"></h3>
-                    <div id="vHpCalculationTable" class="hp-details-table">
-                        </div>
-                </div>
-
-                <div class="navigation-buttons">
-                    <a id="vBoutonRetour" class="secondary-button"></a>
-                    <button type="button" id="vNextButton"></button>
-                </div>
-            </form>
+            <div class="hp-block">
+                <h3>Points de Vie (PV) - Calcul détaillé</h3>
+                <table class="hp-calculation-table" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th style="width: 50%; text-align: left;">Détail du Calcul</th>
+                            <th style="width: 15%; text-align: center;">Jet de Vie</th>
+                            <th style="width: 15%; text-align: center;">Mod. CON</th>
+                            <th style="width: 20%; text-align: center;">PV Obtenus</th>
+                        </tr>
+                    </thead>
+                    <tbody id="vHPTableBody">
+                        </tbody>
+                </table>
+            </div>
         </section>
+
+        <hr>
+
+        <section>
+            <h2 id="vSectionCaracTitre"></h2>
+            
+            <h3 id="vBonusModTitre"></h3>
+            <p id="vBonusModDescription">
+                Sélectionnez 4 bonus (+1) au total, un par colonne, à travers les caractéristiques.
+            </p>
+
+            <table class="caracteristiques-table">
+                <thead>
+                    <tr>
+                        <th style="width: 15%;">Caractéristique</th>
+                        <th style="width: 10%;">Score Fixe</th>
+                        <th colspan="4" style="width: 35%; text-align: center;">Allocation des +1 (4 Choix Max)</th>
+                        <th style="width: 10%;">Score Total</th>
+                        <th style="width: 10%;">Mod.</th>
+                    </tr>
+                </thead>
+                <tbody id="vCaracTableBody">
+                    </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <div class="navigation-buttons">
+            <a id="vBoutonRetour" href="page2.html" class="secondary-button"></a>
+            
+            <button id="vNextButton" type="button" disabled>
+                </button>
+        </div>
     </main>
-    
+
     <footer>
-        <p id="vFooterTexte">&copy; 2025 Character Builder</p> 
+        <p id="vFooterTexte"></p>
     </footer>
 
     <script src="page3.js"></script>

@@ -1,8 +1,9 @@
+
 {
     "page3": {
-        "titre_page": "Création de Personnage - Caractéristiques",
+        "titre_page": "Donjons & Dragons",
         "titre_header": "⚔️ Niveau de Départ & Caractéristiques",
-
+        
         "section_niveau_titre": "Niveau de Départ",
         "select_niveau_label": "Sélectionnez le niveau de départ :",
         "niveau_options": {
@@ -28,40 +29,24 @@
             "20": "20"
         },
         
-        "section_carac_titre": "Scores de Caractéristiques Fixes",
+        "section_bonus_titre": "Récapitulatif des Bonus de Race",
+        "bonus_chargement": "Chargement des bonus de race...",
+        "bonus_mod_titre": "Allocation des points de Caractéristique (Race)",
+        
+        "bonus_mod_description": "Vous avez 4 points de race (+1 chacun) à distribuer sur les Caractéristiques de votre choix.",
+        
+        "section_carac_titre": "Vos Caractéristiques",
+        
         "caracteristiques": {
-            "force": "Force",
-            "dexterite": "Dextérité",
-            "constitution": "Constitution",
-            "intelligence": "Intelligence",
-            "sagesse": "Sagesse",
-            "charisme": "Charisme"
+            "For": "Force",
+            "Dex": "Dextérité",
+            "Con": "Constitution",
+            "Int": "Intelligence",
+            "Sag": "Sagesse",
+            "Cha": "Charisme"
         },
         
-        "carac_table_headers": {
-            "nom": "Nom de Caractéristique",
-            "score_fixe": "Score Fixe (Rouge)",
-            "bonus_race": "Bonus de Race (+1 par case)",
-            "bonus_total": "Modificateur Total"
-        },
-        "calcul_labels": {
-            "mod_base_prefixe": "Mod. de Base : ",
-            "mod_base_formule": "floor(Score/2 - 4.5)",
-            "mod_race_prefixe": "Bonus de Race : ",
-            "mod_total_prefixe": "Mod. Final : "
-        },
-        
-        "hp_table_headers": {
-            "niveau": "Niveau",
-            "devie": "Dé de Vie",
-            "modcon": "Mod. Constitution",
-            "pvmax": "Points de Vie Max"
-        },
-
         "bouton_retour": "Retour",
-        "lien_retour": "page2.html", 
-        
-        "bouton_suivant": "Suivant",
-        "lien_suivant": "page4_historique.html" 
+        "bouton_suivant": "Suivant (Historique)"
     }
 }

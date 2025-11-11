@@ -1,360 +1,325 @@
 class CPage3 {
-    aTextes; 
-    // aScoresBase contient les scores fixes (ex: Force 17) de la classe
-    aScoresBase = {}; 
-    // aBonusRaciaux contient le bonus total (0 à 4) sélectionné par les radio boutons
-    aBonusRaciaux = {}; 
-    aClassesData;
-    aClasseSelectionnee;
-    aNiveau = 1; 
-    aClesCarac = ['force', 'dexterite', 'constitution', 'intelligence', 'sagesse', 'charisme'];
+    aTextes
+    aCaracteristiquesData
+    aScoresFixes
+    aClasseSelectionnee
+    aJetDeVie
 
-    constructor() {
-        this.mInitialiserPage();
-    }
-
-    mRemplirElement(pId, pTexte) {
-        const vElement = document.getElementById(pId);
-        if (vElement) {
-            vElement.textContent = pTexte;
-        } 
+    // Map pour associer le nom complet à l'ID de la caractéristique (value du radio)
+    aCaracMap = {
+        "Force": 1, 
+        "Dextérité": 2, 
+        "Constitution": 3, 
+        "Intelligence": 4, 
+        "Sagesse": 5, 
+        "Charisme": 6
     }
     
-    mRemplirElementHTML(pId, pHTML) {
-        const vElement = document.getElementById(pId);
-        if (vElement) {
-            vElement.innerHTML = pHTML;
-        } 
+    // CORRECTION : 4 SLOTS de +1 (augmtcarac1 à 4)
+    // Le nom (name) est utilisé verticalement pour limiter le total à 4 choix
+    aBonusSlots = [
+        { name: "augmtcarac1", bonus: 1, label: "+1" },
+        { name: "augmtcarac2", bonus: 1, label: "+1" },
+        { name: "augmtcarac3", bonus: 1, label: "+1" },
+        { name: "augmtcarac4", bonus: 1, label: "+1" } 
+    ]
+
+    constructor() {
+        this.mInitialiserPage()
+    }
+
+    mInitialiserPage() {
+        this.aClasseSelectionnee = localStorage.getItem('classeSelectionnee')
+        if (!this.aClasseSelectionnee) {
+            console.error("Classe non trouvée. Redirection vers page 1.")
+            window.location.href = "page1.html"
+            return
+        }
+
+        this.mChargerDonnees().then(() => {
+            this.mRemplirTextes()
+            this.mGenererSelectNiveau()
+            this.mGenererTableCaracteristiques()
+            this.mGenererTablePV()
+            this.mChargerSauvegarde()
+            this.mCalculerTotal()
+        })
     }
 
     async mChargerDonnees() {
         try {
-            const vResponseTextes = await fetch('page3.json'); 
-            this.aTextes = (await vResponseTextes.json()).page3;
-        } catch (vError) {
-            console.error("ERREUR lors du chargement ou parsing de page3.json:", vError);
-        }
-        
-        try {
-            const vResponseCarac = await fetch('caracteristiques.json');
-            this.aClassesData = await vResponseCarac.json();
-        } catch (vError) {
-            console.error("ERREUR lors du chargement ou parsing de caracteristiques.json:", vError);
-        }
-        
-        const vClasseNom = localStorage.getItem('classeSelectionnee');
-        if (vClasseNom && this.aClassesData && this.aClassesData.classes_scores_fixes) {
-            this.aClasseSelectionnee = this.aClassesData.classes_scores_fixes[vClasseNom];
-        }
+            const vResponseTextes = await fetch('page3.json')
+            const vDataTextes = await vResponseTextes.json()
+            this.aTextes = vDataTextes.page3 //
 
-        this.mInitialiserScores();
-        this.mChargerSauvegarde();
+            const vResponseCarac = await fetch('caracteristiques.json')
+            const vDataCarac = await vResponseCarac.json()
+            this.aCaracteristiquesData = vDataCarac.classes_scores_fixes //
+            
+            this.aScoresFixes = this.aCaracteristiquesData[this.aClasseSelectionnee] //
+            this.aJetDeVie = this.aScoresFixes.jetDeVie //
+
+        } catch (vError) {
+            console.error("Erreur de chargement des données pour la page 3:", vError)
+        }
     }
 
-    mInitialiserScores() {
-        if (this.aClasseSelectionnee && this.aTextes && this.aTextes.caracteristiques) {
-            this.aClesCarac.forEach(vCle => {
-                const vNomCarac = this.aTextes.caracteristiques[vCle]; // Ex: 'Force' pour 'force'
-                const vScore = this.aClasseSelectionnee[vNomCarac]; 
-                
-                // Utilise les scores fixes, par défaut à 10 si la donnée est manquante
-                this.aScoresBase[vCle] = vScore || 10; 
-                this.aBonusRaciaux[vCle] = 0;
-            });
-        } else {
-            // Fallback
-            this.aClesCarac.forEach(vCle => {
-                this.aScoresBase[vCle] = 10; 
-                this.aBonusRaciaux[vCle] = 0;
-            });
+    mRemplirTextes() {
+        if (!this.aTextes) return
+
+        document.title = this.aTextes.titre_page //
+        this.mRemplirElement('vPageTitle', this.aTextes.titre_page) //
+        this.mRemplirElement('vHeaderTitre', this.aTextes.titre_header) //
+        this.mRemplirElement('vSectionNiveauTitre', this.aTextes.section_niveau_titre) //
+        this.mRemplirElement('vSelectNiveauLabel', this.aTextes.select_niveau_label) //
+        this.mRemplirElement('vBoutonRetour', this.aTextes.bouton_retour) //
+        this.mRemplirElement('vNextButton', this.aTextes.bouton_suivant) //
+        this.mRemplirElement('vSectionBonusTitre', this.aTextes.section_bonus_titre) //
+        this.mRemplirElement('vBonusModTitre', this.aTextes.bonus_mod_titre) //
+        
+        // CORRECTION DU TEXTE DE DESCRIPTION
+        this.mRemplirElement('vBonusModDescription', "Vous avez 4 points de race (+1 chacun) à distribuer sur les Caractéristiques de votre choix.")
+        
+        this.mRemplirElement('vSectionCaracTitre', this.aTextes.section_carac_titre) //
+        
+        const vFooterTexte = document.getElementById('vFooterTexte')
+        if (vFooterTexte) {
+            vFooterTexte.innerHTML = "&copy; 2025 Character Builder"
         }
+        
+        const vBoutonRetour = document.getElementById('vBoutonRetour')
+        if (vBoutonRetour) {
+            vBoutonRetour.href = "page2.html"
+        }
+
+        const vBoutonSuivant = document.getElementById('vNextButton')
+        if (vBoutonSuivant) {
+            vBoutonSuivant.addEventListener('click', (pEvent) => {
+                this.mPasserEtape(pEvent)
+            })
+        }
+    }
+    
+    mRemplirElement(pId, pTexte) {
+        const vElement = document.getElementById(pId)
+        if (vElement) {
+            this.this.mSetElementText(vElement, pTexte)
+        }
+    }
+    
+    mSetElementText(pElement, pTexte) {
+        pElement.textContent = pTexte
+    }
+
+    mGenererSelectNiveau() {
+        const vSelect = document.getElementById('vSelectNiveau')
+        if (!vSelect || !this.aTextes.niveau_options) return
+
+        for (const vKey in this.aTextes.niveau_options) { //
+            const vOption = document.createElement('option')
+            vOption.value = vKey
+            this.this.mSetElementText(vOption, this.aTextes.niveau_options[vKey]) //
+            vSelect.appendChild(vOption)
+        }
+        
+        vSelect.addEventListener('change', () => {
+            this.this.mCalculerTotal() 
+            this.this.mGenererTablePV()
+            this.this.mSauvegarder() 
+        })
+        
+        const vNiveauSauvegarde = localStorage.getItem('niveauSelectionne')
+        if (vNiveauSauvegarde && vSelect.querySelector(`option[value="${vNiveauSauvegarde}"]`)) {
+            vSelect.value = vNiveauSauvegarde
+        } else {
+            vSelect.value = "1"
+        }
+    }
+
+    mGenererTableCaracteristiques() {
+        const vTableBody = document.getElementById('vCaracTableBody')
+        if (!vTableBody || !this.aScoresFixes) return
+
+        vTableBody.innerHTML = ""
+
+        let vId = 0
+        for (const vCarac in this.aTextes.caracteristiques) { //
+            vId++
+            const vNomComplet = this.aTextes.caracteristiques[vCarac] //
+            const vScoreFixe = this.aScoresFixes[vNomComplet] //
+            const vModificateurInitial = this.this.mCalculerModificateur(vScoreFixe)
+
+            const vRow = document.createElement('tr')
+            vRow.id = `vRow${vCarac}`
+            
+            let vHTML = ""
+
+            vHTML += `<td style="font-weight: bold;">${vNomComplet}</td>`
+            
+            vHTML += `<td id="vScoreFixe${vCarac}" class="score-fixe-valeur">${vScoreFixe}</td>`
+            
+            // Les 4 radios sont en ligne grâce au CSS, mais gèrent les slots 1 à 4 verticalement
+            vHTML += `<td colspan="4" class="race-bonus-cell">` // Colspan pour couvrir les 4 slots dans le <thead>
+            this.aBonusSlots.forEach(pSlot => {
+                vHTML += `<label>`
+                vHTML += `<input type="radio" name="${pSlot.name}" value="${vId}" data-bonus="${pSlot.bonus}" id="vRadio${vCarac}${pSlot.name}"`
+                // Pas de 'checked' par défaut (l'utilisateur doit faire 4 choix)
+                vHTML += `>`
+                vHTML += `<span>${pSlot.label}</span>`
+                vHTML += `</label>`
+            })
+            vHTML += `</td>`
+            
+            vHTML += `<td id="vScoreTotal${vCarac}" class="vScoreTotal">${vScoreFixe}</td>`
+            
+            vHTML += `<td id="vModificateur${vCarac}" class="mod-total-value">${vModificateurInitial > 0 ? '+' : ''}${vModificateurInitial}</td>`
+
+            vRow.innerHTML = vHTML
+            vTableBody.appendChild(vRow)
+        }
+        
+        document.querySelectorAll('input[type="radio"]').forEach(pRadio => {
+            pRadio.addEventListener('change', () => {
+                this.this.mCalculerTotal()
+                this.this.mGenererTablePV()
+                this.this.mSauvegarder()
+            })
+        })
+    }
+
+    mCalculerModificateur(pScore) {
+        return Math.floor((pScore - 10) / 2)
+    }
+
+    mCalculerTotal() {
+        if (!this.aScoresFixes) return
+
+        let vTotalBonus = {}
+        for (let vId = 1; vId <= 6; vId++) {
+            vTotalBonus[vId] = 0 // Initialisation des bonus par Carac
+        }
+
+        // Itère sur les 4 slots de bonus (augmtcarac1 à augmtcarac4)
+        this.aBonusSlots.forEach(pSlot => {
+            const vRadio = document.querySelector(`input[name="${pSlot.name}"]:checked`)
+            if (vRadio) {
+                const vCaracId = parseInt(vRadio.value)
+                const vBonus = parseInt(vRadio.dataset.bonus) // +1 dans ce cas
+                
+                if (vCaracId >= 1 && vCaracId <= 6) {
+                    vTotalBonus[vCaracId] += vBonus
+                }
+            }
+        })
+
+        for (const vCarac in this.aTextes.caracteristiques) { //
+            const vNomComplet = this.aTextes.caracteristiques[vCarac] //
+            const vId = this.aCaracMap[vNomComplet]
+            const vScoreFixe = this.aScoresFixes[vNomComplet] //
+            const vBonus = vTotalBonus[vId]
+            
+            const vScoreTotal = vScoreFixe + vBonus
+            const vModificateur = this.this.mCalculerModificateur(vScoreTotal)
+            
+            this.this.mRemplirElement(`vScoreTotal${vCarac}`, vScoreTotal)
+            this.this.mRemplirElement(`vModificateur${vCarac}`, `${vModificateur > 0 ? '+' : ''}${vModificateur}`)
+
+            // Met à jour le modificateur de Constitution pour le calcul des PV
+            if (vCarac === 'Con') {
+                localStorage.setItem('modificateurConstitution', vModificateur)
+            }
+        }
+    }
+    
+    mGenererTablePV() {
+        const vTableBody = document.getElementById('vHPTableBody')
+        const vNiveauSelect = document.getElementById('vSelectNiveau')
+        if (!vTableBody || !vNiveauSelect || !this.aJetDeVie) return
+        
+        const vNiveau = parseInt(vNiveauSelect.value)
+        const vModCon = parseInt(localStorage.getItem('modificateurConstitution') || 0)
+        
+        let vHTML = ""
+        let vTotalPV = 0
+        
+        // Ligne PV Niveau 1
+        const vJetDeVieBase = parseInt(this.aJetDeVie.substring(1)) // Exemple: "d12" donne 12
+        const vPVNiveau1 = vJetDeVieBase + vModCon
+        vTotalPV += vPVNiveau1
+        
+        vHTML += `<tr>`
+        vHTML += `<td style="text-align: left;">PV de Base au Niveau 1 (Jet Max ${this.aJetDeVie})</td>`
+        vHTML += `<td style="text-align: center;">${vJetDeVieBase}</td>`
+        vHTML += `<td style="text-align: center;">${vModCon > 0 ? '+' : ''}${vModCon}</td>`
+        vHTML += `<td class="final-hp-value">${vPVNiveau1}</td>`
+        vHTML += `</tr>`
+
+        // Ligne PV par Niveaux suivants (si niveau > 1)
+        if (vNiveau > 1) {
+            const vNiveauxSuivants = vNiveau - 1
+            const vPVJetParNiveau = Math.floor(vJetDeVieBase / 2) + 1 // Règle standard D&D : (Jet/2) + 1
+            const vPVParNiveauTotalJet = vPVJetParNiveau * vNiveauxSuivants
+            const vPVParNiveauTotalMod = vModCon * vNiveauxSuivants
+            
+            vTotalPV += vPVParNiveauTotalJet + vPVParNiveauTotalMod
+            
+            vHTML += `<tr>`
+            vHTML += `<td style="text-align: left;">PV par Niveaux ${vNiveauxSuivants} (Niv 2 à ${vNiveau})</td>`
+            vHTML += `<td style="text-align: center;">${vPVJetParNiveau} x ${vNiveauxSuivants} = ${vPVParNiveauTotalJet}</td>`
+            vHTML += `<td style="text-align: center;">${vModCon} x ${vNiveauxSuivants} = ${vPVParNiveauTotalMod > 0 ? '+' : ''}${vPVParNiveauTotalMod}</td>`
+            vHTML += `<td class="final-hp-value">${vPVParNiveauTotalJet + vPVParNiveauTotalMod}</td>`
+            vHTML += `</tr>`
+        }
+
+        // Ligne Total
+        vHTML += `<tr>`
+        vHTML += `<td style="font-weight: bold; text-align: left;">Total Points de Vie (PV Max)</td>`
+        vHTML += `<td colspan="2" style="background-color: #333;"></td>`
+        vHTML += `<td class="final-hp-value">${vTotalPV}</td>`
+        vHTML += `</tr>`
+        
+        vTableBody.innerHTML = vHTML
     }
     
     mChargerSauvegarde() {
-        const vSavedBonus = localStorage.getItem('bonusRaciaux');
-        const vSavedNiveau = localStorage.getItem('niveauPersonnage');
-
-        if (vSavedBonus) {
-            this.aBonusRaciaux = JSON.parse(vSavedBonus);
+        const vSauvegarde = JSON.parse(localStorage.getItem('bonusRaceSelectionnes'))
+        
+        if (vSauvegarde) {
+            this.aBonusSlots.forEach(pSlot => {
+                const vNomSlot = pSlot.name
+                const vValue = vSauvegarde[vNomSlot]
+                
+                if (vValue) {
+                    // Coche le radio correspondant à la caractéristique sauvegardée
+                    const vRadio = document.querySelector(`input[name="${vNomSlot}"][value="${vValue}"]`)
+                    if (vRadio) {
+                        vRadio.checked = true
+                    }
+                }
+            })
         }
-        if (vSavedNiveau) {
-            this.aNiveau = parseInt(vSavedNiveau, 10);
-        }
-    }
-    
-    mSauvegarderEtat() {
-        localStorage.setItem('bonusRaciaux', JSON.stringify(this.aBonusRaciaux));
-        localStorage.setItem('niveauPersonnage', this.aNiveau);
     }
 
-    /**
-     * @brief Calcule le modificateur avec la formule demandée : floor(score / 2 - 4.5)
-     */
-    mCalculerModificateur(pScore) {
-        return Math.floor(pScore / 2 - 4.5);
-    }
-    
-    mFormaterModificateur(pMod) {
-        return pMod >= 0 ? `+${pMod}` : `${pMod}`;
-    }
-    
-    mMettreAJourNiveau(pNouveauNiveau) {
-        this.aNiveau = parseInt(pNouveauNiveau, 10);
-        
-        // Recalcul des PV avec le nouveau niveau
-        const vModConstitution = this.mCalculerModificateur(this.aScoresBase.constitution + this.aBonusRaciaux.constitution);
-        this.mCalculerPointsDeVie(vModConstitution);
-        this.mSauvegarderEtat();
-    }
-    
-    mSelectionnerBonusRacial(pCle, pBonus) {
-        this.aBonusRaciaux[pCle] = parseInt(pBonus, 10);
-        this.mMettreAJourAffichageScores(pCle);
-        this.mSauvegarderEtat();
-    }
+    mSauvegarder() {
+        const vNiveau = document.getElementById('vSelectNiveau').value
+        localStorage.setItem('niveauSelectionne', vNiveau)
 
-    /**
-     * @brief Génère la table de caractéristiques
-     */
-    mGenererCaracTable() {
-        const vHeaders = this.aTextes.carac_table_headers;
-        
-        let vHtml = `
-            <table class="caracteristiques-table">
-                <thead>
-                    <tr>
-                        <th class="text-center">${vHeaders.nom}</th>
-                        <th class="text-center">${vHeaders.bonus_race}</th>
-                        <th class="text-center">${vHeaders.bonus_total}</th>
-                    </tr>
-                </thead>
-                <tbody>
-        `;
-        
-        this.aClesCarac.forEach(vCle => {
-            const vNomCapitalise = this.aTextes.caracteristiques[vCle];
-            const vScoreFixe = this.aScoresBase[vCle];
-            const vBonusSelectionne = this.aBonusRaciaux[vCle];
-            
-            const vScoreFinal = vScoreFixe + vBonusSelectionne;
-            const vModBase = this.mCalculerModificateur(vScoreFixe);
-            const vModTotal = this.mCalculerModificateur(vScoreFinal);
-            const vModRaceFinal = vModTotal - vModBase;
-            
-            // 1. Ligne des Scores / Radios / Modificateur Final
-            let vHtmlRow1 = `
-                <tr class="carac-scores-row">
-                    <td class="text-center carac-name-cell"><strong>${vNomCapitalise}</strong></td>
-
-                    <td class="text-center carac-radio-cell">
-                        <div class="radio-select-grid">
-            `;
-            // Génération des 5 options (0, +1, +2, +3, +4)
-            for (let i = 0; i <= 4; i++) {
-                const vId = `vBonus${vCle}${i}`;
-                const vIsChecked = (vBonusSelectionne === i) ? 'checked' : '';
-                vHtmlRow1 += `
-                    <div class="radio-colonne">
-                        <input type="radio" id="${vId}" name="bonus_${vCle}" value="${i}" 
-                               ${vIsChecked} 
-                               onclick="oCPage3.mSelectionnerBonusRacial('${vCle}', this.value)">
-                        <label for="${vId}" class="radio-label">${i === 0 ? '0' : `+${i}`}</label>
-                    </div>
-                `;
+        const vBonusSelectionnes = {}
+        this.aBonusSlots.forEach(pSlot => {
+            const vRadio = document.querySelector(`input[name="${pSlot.name}"]:checked`)
+            if (vRadio) {
+                // Sauvegarde la VALUE (ID de la caractéristique) pour ce slot
+                vBonusSelectionnes[pSlot.name] = vRadio.value 
             }
-            vHtmlRow1 += `
-                        </div>
-                    </td>
-                    
-                    <td class="text-center final-mod-cell">
-                        <span id="vModTotal${vNomCapitalise}" class="mod-total-value">${this.mFormaterModificateur(vModTotal)}</span>
-                    </td>
-                </tr>
-            `;
-            
-            // 2. Ligne des calculs
-            let vHtmlRow2 = `
-                <tr class="carac-calc-row">
-                    <td class="text-center score-fixe-cell">
-                        <span class="score-fixe-valeur">Score Fixe: ${vScoreFixe}</span>
-                        <div class="mod-base-calc">
-                            (${this.aTextes.calcul_labels.mod_base_formule}) = 
-                            <span id="vModBase${vNomCapitalise}">${this.mFormaterModificateur(vModBase)}</span>
-                        </div>
-                    </td>
-                    
-                    <td class="text-center">
-                        + Bonus de Race (<span id="vBonusRaceMod${vNomCapitalise}">${this.mFormaterModificateur(vBonusSelectionne)}</span>)
-                    </td>
-
-                    <td class="text-center">
-                        = ${this.mFormaterModificateur(vModTotal)}
-                    </td>
-                </tr>
-            `;
-
-            vHtml += vHtmlRow1;
-            vHtml += vHtmlRow2;
-        });
-        
-        vHtml += `
-                </tbody>
-            </table>
-        `;
-        
-        return vHtml;
+        })
+        localStorage.setItem('bonusRaceSelectionnes', JSON.stringify(vBonusSelectionnes))
     }
 
-    mGenererNiveauSelect() {
-        const vSelect = document.getElementById('vNiveauSelection');
-        if (!vSelect) return;
-        
-        const vOptions = this.aTextes.niveau_options;
-        vSelect.innerHTML = '';
-        
-        for (const vValue in vOptions) {
-            const vOption = document.createElement('option');
-            vOption.value = vValue;
-            vOption.textContent = vOptions[vValue];
-            if (parseInt(vValue, 10) === this.aNiveau) {
-                vOption.selected = true;
-            }
-            vSelect.appendChild(vOption);
-        }
-        vSelect.onchange = (pEvent) => {
-            this.mMettreAJourNiveau(pEvent.target.value);
-        };
-    }
-    
-    mGenererInterface() {
-        this.mGenererNiveauSelect();
-        
-        const vContainer = document.getElementById('vCaracteristiquesWrapper');
-        if (!vContainer) return; 
-        
-        vContainer.innerHTML = this.mGenererCaracTable();
-    }
-    
-    mMettreAJourAffichageScores(pCle) {
-        const vNomCapitalise = this.aTextes.caracteristiques[pCle];
-
-        // 1. Calculs
-        const vScoreFixe = this.aScoresBase[pCle];
-        const vBonusSelectionne = this.aBonusRaciaux[pCle];
-        const vScoreFinal = vScoreFixe + vBonusSelectionne;
-        
-        const vModBase = this.mCalculerModificateur(vScoreFixe);
-        const vModTotal = this.mCalculerModificateur(vScoreFinal);
-
-        // 2. Affichage des modifications
-        this.mRemplirElement(`vModBase${vNomCapitalise}`, this.mFormaterModificateur(vModBase));
-        this.mRemplirElement(`vBonusRaceMod${vNomCapitalise}`, this.mFormaterModificateur(vBonusSelectionne)); 
-        this.mRemplirElement(`vModTotal${vNomCapitalise}`, this.mFormaterModificateur(vModTotal));
-        
-        // Mise à jour des PV si c'est la Constitution
-        if (pCle === 'constitution') {
-            this.mCalculerPointsDeVie(vModTotal); // Utilise le modificateur TOTAL
-        }
-    }
-    
-    /**
-     * @brief Calcule et affiche les points de vie dans une table.
-     */
-    mCalculerPointsDeVie(pModConstitution) {
-        const vContainer = document.getElementById('vPointsDeVieContainer');
-        if (!this.aClasseSelectionnee || !vContainer) {
-            this.mRemplirElement('vHpCalculationTable', "Sélectionnez d'abord votre classe.");
-            return;
-        }
-
-        const vJetDeVie = this.aClasseSelectionnee.jetDeVie; 
-        const vMaxDeVie = parseInt(vJetDeVie.substring(1), 10);
-        const vMoyenneDeVie = Math.floor(vMaxDeVie / 2) + 1; 
-        
-        const vPVNiveau1 = vMaxDeVie + pModConstitution;
-        const vPVParNiveau = vMoyenneDeVie + pModConstitution;
-
-        let vPVTotal = vPVNiveau1;
-        if (this.aNiveau > 1) {
-            vPVTotal += (this.aNiveau - 1) * vPVParNiveau;
-        }
-
-        const vHeaders = this.aTextes.hp_table_headers;
-        
-        let vHtmlTable = `
-            <table class="hp-calculation-table">
-                <thead>
-                    <tr>
-                        <th class="text-center">${vHeaders.niveau}</th>
-                        <th class="text-center">${vHeaders.devie}</th>
-                        <th class="text-center">${vHeaders.modcon}</th>
-                        <th class="text-center">${vHeaders.pvmax}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="text-center">${this.aNiveau}</td>
-                        <td class="text-center">${vMaxDeVie} (Max ${vJetDeVie})</td>
-                        <td class="text-center">${this.mFormaterModificateur(pModConstitution)}</td>
-                        <td class="text-center final-hp-value">${vPVTotal}</td>
-                    </tr>
-                </tbody>
-            </table>
-        `;
-        
-        this.mRemplirElementHTML('vHpCalculationTable', vHtmlTable);
-    }
-
-
-    mAllerPageSuivante() {
-        // La validation n'est plus nécessaire, on peut toujours continuer
-        const vLienSuivant = this.aTextes.lien_suivant;
-        window.location.href = vLienSuivant;
-    }
-    
-    mRemplirTextes() {
-        if (!this.aTextes) return;
-
-        document.title = this.aTextes.titre_page;
-        this.mRemplirElement('vHeaderTitre', this.aTextes.titre_header);
-        
-        this.mRemplirElement('vNiveauSectionTitre', this.aTextes.section_niveau_titre);
-        this.mRemplirElement('vNiveauSelectLabel', this.aTextes.select_niveau_label);
-        
-        this.mRemplirElement('vCaracteristiquesTitre', this.aTextes.section_carac_titre);
-
-        const vRetourBtn = document.getElementById('vBoutonRetour');
-        if (vRetourBtn) {
-            vRetourBtn.textContent = this.aTextes.bouton_retour;
-            vRetourBtn.href = this.aTextes.lien_retour; 
-        }
-        this.mRemplirElement('vNextButton', this.aTextes.bouton_suivant);
-        
-        this.mRemplirElement('vHpTitre', "Points de Vie");
-    }
-
-    async mInitialiserPage() {
-        await this.mChargerDonnees();
-        this.mRemplirTextes();
-        this.mGenererInterface();
-        
-        // La validation n'est plus nécessaire, le bouton Suivant est toujours actif
-        const vSuivantButton = document.getElementById('vNextButton');
-        if (vSuivantButton) {
-             vSuivantButton.disabled = false; // Toujours actif
-             vSuivantButton.style.opacity = 1;
-             vSuivantButton.onclick = (pEvent) => {
-                if(pEvent) pEvent.preventDefault(); 
-                this.mAllerPageSuivante();
-            };
-        }
-        
-        // Initialiser l'affichage des PV et des Modificateurs après la génération de l'interface
-        this.aClesCarac.forEach(vCle => this.mMettreAJourAffichageScores(vCle));
-        
-        window.oCPage3 = this; 
+    mPasserEtape(pEvent) {
+        if (pEvent) pEvent.preventDefault()
+        this.this.mSauvegarder()
+        window.location.href = "page4.html"
     }
 }
 
-// Initialisation
-const oCPage3 = new CPage3();
+new CPage3()
