@@ -149,7 +149,7 @@ class CPage1 {
         if (vSelectionne) {
             localStorage.setItem('classeSelectionnee', vSelectionne.value);
             // Redirection vers l'étape 2 : Race
-            window.location.href = 'page2_race.html'; 
+            window.location.href = this.aTextes.lien_suivant; 
         } else {
             alert("Veuillez sélectionner une classe avant de continuer.");
         }
