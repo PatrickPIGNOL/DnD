@@ -96,6 +96,8 @@
         },
         
         "bouton_retour": "Retour",
-        "bouton_suivant": "Suivant (Historique)"
+        "lien_retour": "page2.html",
+        "bouton_suivant": "Suivant (Historique)",
+        "lien_suivant": "page4.html"
     }
 }

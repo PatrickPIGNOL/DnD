@@ -13,9 +13,9 @@
         },
                 
         "bouton_retour": "Retour",
-        "lien_retour": "page1_classe.html",
+        "lien_retour": "page1.html",
         
         "bouton_suivant": "Suivant",
-        "lien_suivant": "page3_caracteristiques.html"
+        "lien_suivant": "page3.html"
     }
 }
