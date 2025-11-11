@@ -1,10 +1,11 @@
 class CPage3 {
     aTextes; 
+    // aScoresBase contient les scores fixes (ex: Force 17) de la classe
     aScoresBase = {}; 
+    // aBonusRaciaux contient le bonus total (0 à 4) sélectionné par les radio boutons
     aBonusRaciaux = {}; 
     aClassesData;
     aClasseSelectionnee;
-    aPointsRestants = 27; 
     aNiveau = 1; 
     aClesCarac = ['force', 'dexterite', 'constitution', 'intelligence', 'sagesse', 'charisme'];
 
@@ -27,7 +28,6 @@ class CPage3 {
     }
 
     async mChargerDonnees() {
-        // Chargement des fichiers JSON
         try {
             const vResponseTextes = await fetch('page3.json'); 
             this.aTextes = (await vResponseTextes.json()).page3;
@@ -42,7 +42,6 @@ class CPage3 {
             console.error("ERREUR lors du chargement ou parsing de caracteristiques.json:", vError);
         }
         
-        // Récupération de la classe et des données précédentes
         const vClasseNom = localStorage.getItem('classeSelectionnee');
         if (vClasseNom && this.aClassesData && this.aClassesData.classes_scores_fixes) {
             this.aClasseSelectionnee = this.aClassesData.classes_scores_fixes[vClasseNom];
@@ -53,26 +52,30 @@ class CPage3 {
     }
 
     mInitialiserScores() {
-        this.aClesCarac.forEach(vCle => {
-            this.aScoresBase[vCle] = 8;
-            this.aBonusRaciaux[vCle] = 0;
-        });
+        if (this.aClasseSelectionnee && this.aTextes && this.aTextes.caracteristiques) {
+            this.aClesCarac.forEach(vCle => {
+                const vNomCarac = this.aTextes.caracteristiques[vCle]; // Ex: 'Force' pour 'force'
+                const vScore = this.aClasseSelectionnee[vNomCarac]; 
+                
+                // Utilise les scores fixes, par défaut à 10 si la donnée est manquante
+                this.aScoresBase[vCle] = vScore || 10; 
+                this.aBonusRaciaux[vCle] = 0;
+            });
+        } else {
+            // Fallback
+            this.aClesCarac.forEach(vCle => {
+                this.aScoresBase[vCle] = 10; 
+                this.aBonusRaciaux[vCle] = 0;
+            });
+        }
     }
     
     mChargerSauvegarde() {
-        const vSavedScores = localStorage.getItem('scoresCaracteristiques');
         const vSavedBonus = localStorage.getItem('bonusRaciaux');
-        const vSavedPoints = localStorage.getItem('pointsRestants');
         const vSavedNiveau = localStorage.getItem('niveauPersonnage');
 
-        if (vSavedScores) {
-            this.aScoresBase = JSON.parse(vSavedScores);
-        }
         if (vSavedBonus) {
             this.aBonusRaciaux = JSON.parse(vSavedBonus);
-        }
-        if (vSavedPoints) {
-            this.aPointsRestants = parseInt(vSavedPoints, 10);
         }
         if (vSavedNiveau) {
             this.aNiveau = parseInt(vSavedNiveau, 10);
@@ -80,135 +83,126 @@ class CPage3 {
     }
     
     mSauvegarderEtat() {
-        localStorage.setItem('scoresCaracteristiques', JSON.stringify(this.aScoresBase));
         localStorage.setItem('bonusRaciaux', JSON.stringify(this.aBonusRaciaux));
-        localStorage.setItem('pointsRestants', this.aPointsRestants);
         localStorage.setItem('niveauPersonnage', this.aNiveau);
     }
 
+    /**
+     * @brief Calcule le modificateur avec la formule demandée : floor(score / 2 - 4.5)
+     */
     mCalculerModificateur(pScore) {
-        return Math.floor((pScore - 10) / 2);
-    }
-    
-    mCalculerCout(pScore) {
-        let vCout = 0;
-        for (let i = 8; i < pScore; i++) {
-            vCout += (i >= 13) ? 2 : 1;
-        }
-        return vCout;
+        return Math.floor(pScore / 2 - 4.5);
     }
     
     mFormaterModificateur(pMod) {
         return pMod >= 0 ? `+${pMod}` : `${pMod}`;
     }
-
-    mModifierScore(pCle, pValeur) {
-        const vScoreActuel = this.aScoresBase[pCle];
-        const vNouveauScore = vScoreActuel + pValeur;
+    
+    mMettreAJourNiveau(pNouveauNiveau) {
+        this.aNiveau = parseInt(pNouveauNiveau, 10);
         
-        if (vNouveauScore < 8 || vNouveauScore > 15) return; 
-
-        const vCoutActuel = this.mCalculerCout(vScoreActuel);
-        const vCoutNouveau = this.mCalculerCout(vNouveauScore);
-        const vDiffCout = vCoutNouveau - vCoutActuel;
-
-        if (this.aPointsRestants - vDiffCout >= 0) {
-            this.aScoresBase[pCle] = vNouveauScore;
-            this.aPointsRestants -= vDiffCout;
-            
-            this.mMettreAJourAffichageScores(pCle);
-            this.mMettreAJourAffichageGeneral();
-            this.mSauvegarderEtat();
-        } else {
-            alert(this.aTextes.erreur_points_insuffisants);
-        }
+        // Recalcul des PV avec le nouveau niveau
+        const vModConstitution = this.mCalculerModificateur(this.aScoresBase.constitution + this.aBonusRaciaux.constitution);
+        this.mCalculerPointsDeVie(vModConstitution);
+        this.mSauvegarderEtat();
     }
     
     mSelectionnerBonusRacial(pCle, pBonus) {
         this.aBonusRaciaux[pCle] = parseInt(pBonus, 10);
         this.mMettreAJourAffichageScores(pCle);
-        this.mMettreAJourAffichageGeneral();
-        this.mSauvegarderEtat();
-    }
-    
-    mMettreAJourNiveau(pNouveauNiveau) {
-        this.aNiveau = parseInt(pNouveauNiveau, 10);
-        
-        const vModConstitution = this.mCalculerModificateur(this.aScoresBase.constitution + this.aBonusRaciaux.constitution);
-        this.mCalculerPointsDeVie(vModConstitution);
         this.mSauvegarderEtat();
     }
 
-    mGenererCaracBlock(pCle) {
-        const vNomCapitalise = this.aTextes.caracteristiques[pCle];
-        const vScore = this.aScoresBase[pCle];
+    /**
+     * @brief Génère la table de caractéristiques
+     */
+    mGenererCaracTable() {
+        const vHeaders = this.aTextes.carac_table_headers;
         
-        // 1. Boutons de Point Buy (Score de Base)
-        const vHtmlPointBuy = `
-            <div class="score-base-controls">
-                <button type="button" class="btn-modifier point-buy-btn" onclick="this.mModifierScore('${pCle}', -1)">-</button>
-                <span id="vScoreBase${vNomCapitalise}" class="caracteristique-score">${vScore}</span>
-                <button type="button" class="btn-modifier point-buy-btn" onclick="this.mModifierScore('${pCle}', 1)">+</button>
-            </div>
+        let vHtml = `
+            <table class="caracteristiques-table">
+                <thead>
+                    <tr>
+                        <th class="text-center">${vHeaders.nom}</th>
+                        <th class="text-center">${vHeaders.bonus_race}</th>
+                        <th class="text-center">${vHeaders.bonus_total}</th>
+                    </tr>
+                </thead>
+                <tbody>
         `;
         
-        // 2. Radio Buttons de Bonus (+1 à +4)
-        let vHtmlBonusHeaders = `<div class="bonus-header-colonne">${this.aTextes.bonus_labels.colonne_reset}</div>`;
-        for (let i = 1; i <= 4; i++) {
-             vHtmlBonusHeaders += `<div class="bonus-header-colonne">+${i}</div>`;
-        }
-        
-        let vHtmlBonusSelect = '';
-        for (let i = 0; i <= 4; i++) {
-            const vId = `vBonus${pCle}${i}`;
-            const vIsChecked = (this.aBonusRaciaux[pCle] === i) ? 'checked' : '';
+        this.aClesCarac.forEach(vCle => {
+            const vNomCapitalise = this.aTextes.caracteristiques[vCle];
+            const vScoreFixe = this.aScoresBase[vCle];
+            const vBonusSelectionne = this.aBonusRaciaux[vCle];
             
-            vHtmlBonusSelect += `
-                <div class="bonus-colonne">
-                    <input type="radio" id="${vId}" name="bonus_${pCle}" value="${i}" 
-                           ${vIsChecked} 
-                           onclick="this.mSelectionnerBonusRacial('${pCle}', this.value)">
-                    <label for="${vId}" class="radio-label">${i === 0 ? '0' : `+${i}`}</label>
-                </div>
+            const vScoreFinal = vScoreFixe + vBonusSelectionne;
+            const vModBase = this.mCalculerModificateur(vScoreFixe);
+            const vModTotal = this.mCalculerModificateur(vScoreFinal);
+            const vModRaceFinal = vModTotal - vModBase;
+            
+            // 1. Ligne des Scores / Radios / Modificateur Final
+            let vHtmlRow1 = `
+                <tr class="carac-scores-row">
+                    <td class="text-center carac-name-cell"><strong>${vNomCapitalise}</strong></td>
+
+                    <td class="text-center carac-radio-cell">
+                        <div class="radio-select-grid">
             `;
-        }
+            // Génération des 5 options (0, +1, +2, +3, +4)
+            for (let i = 0; i <= 4; i++) {
+                const vId = `vBonus${vCle}${i}`;
+                const vIsChecked = (vBonusSelectionne === i) ? 'checked' : '';
+                vHtmlRow1 += `
+                    <div class="radio-colonne">
+                        <input type="radio" id="${vId}" name="bonus_${vCle}" value="${i}" 
+                               ${vIsChecked} 
+                               onclick="oCPage3.mSelectionnerBonusRacial('${vCle}', this.value)">
+                        <label for="${vId}" class="radio-label">${i === 0 ? '0' : `+${i}`}</label>
+                    </div>
+                `;
+            }
+            vHtmlRow1 += `
+                        </div>
+                    </td>
+                    
+                    <td class="text-center final-mod-cell">
+                        <span id="vModTotal${vNomCapitalise}" class="mod-total-value">${this.mFormaterModificateur(vModTotal)}</span>
+                    </td>
+                </tr>
+            `;
+            
+            // 2. Ligne des calculs
+            let vHtmlRow2 = `
+                <tr class="carac-calc-row">
+                    <td class="text-center score-fixe-cell">
+                        <span class="score-fixe-valeur">Score Fixe: ${vScoreFixe}</span>
+                        <div class="mod-base-calc">
+                            (${this.aTextes.calcul_labels.mod_base_formule}) = 
+                            <span id="vModBase${vNomCapitalise}">${this.mFormaterModificateur(vModBase)}</span>
+                        </div>
+                    </td>
+                    
+                    <td class="text-center">
+                        + Bonus de Race (<span id="vBonusRaceMod${vNomCapitalise}">${this.mFormaterModificateur(vBonusSelectionne)}</span>)
+                    </td>
+
+                    <td class="text-center">
+                        = ${this.mFormaterModificateur(vModTotal)}
+                    </td>
+                </tr>
+            `;
+
+            vHtml += vHtmlRow1;
+            vHtml += vHtmlRow2;
+        });
         
-        // 3. Structure complète du bloc
-        return `
-            <div id="vCaracBlock_${pCle}" class="caracteristique-block">
-                <h3>${vNomCapitalise}</h3>
-                
-                <div class="score-base-row">
-                    ${vHtmlPointBuy}
-                </div>
-
-                <div class="bonus-select-container">
-                    <p class="bonus-select-titre">${this.aTextes.calcul_labels.select} (+0 à +4)</p>
-                    <div class="bonus-select-grid">
-                        ${vHtmlBonusSelect}
-                    </div>
-                </div>
-
-                <div class="calculation-breakdown">
-                    <div>
-                        <span>Score Total :</span>
-                        <strong id="vScoreFinal${vNomCapitalise}" class="result-score"></strong>
-                    </div>
-                    <div>
-                        <span>${this.aTextes.calcul_labels.base} :</span>
-                        <span id="vModBase${vNomCapitalise}"></span>
-                    </div>
-                    <div>
-                        <span>Bonus Racial :</span>
-                        <span id="vModSelect${vNomCapitalise}"></span>
-                    </div>
-                    <div>
-                        <span>${this.aTextes.calcul_labels.final} :</span>
-                        <strong id="vModFinal${vNomCapitalise}" class="result-mod"></strong>
-                    </div>
-                </div>
-            </div>
+        vHtml += `
+                </tbody>
+            </table>
         `;
+        
+        return vHtml;
     }
 
     mGenererNiveauSelect() {
@@ -227,7 +221,6 @@ class CPage3 {
             }
             vSelect.appendChild(vOption);
         }
-        // Attacher l'événement ici si le HTML ne le fait pas
         vSelect.onchange = (pEvent) => {
             this.mMettreAJourNiveau(pEvent.target.value);
         };
@@ -239,90 +232,84 @@ class CPage3 {
         const vContainer = document.getElementById('vCaracteristiquesWrapper');
         if (!vContainer) return; 
         
-        vContainer.innerHTML = ''; 
-
-        this.aClesCarac.forEach(vCle => {
-            vContainer.insertAdjacentHTML('beforeend', this.mGenererCaracBlock(vCle));
-        });
-        
-        this.aClesCarac.forEach(vCle => this.mMettreAJourAffichageScores(vCle));
+        vContainer.innerHTML = this.mGenererCaracTable();
     }
     
     mMettreAJourAffichageScores(pCle) {
         const vNomCapitalise = this.aTextes.caracteristiques[pCle];
 
-        const vScoreBase = this.aScoresBase[pCle];
+        // 1. Calculs
+        const vScoreFixe = this.aScoresBase[pCle];
         const vBonusSelectionne = this.aBonusRaciaux[pCle];
-        const vScoreFinal = vScoreBase + vBonusSelectionne;
+        const vScoreFinal = vScoreFixe + vBonusSelectionne;
         
-        const vModBase = this.mCalculerModificateur(vScoreBase);
-        const vModFinal = this.mCalculerModificateur(vScoreFinal);
+        const vModBase = this.mCalculerModificateur(vScoreFixe);
+        const vModTotal = this.mCalculerModificateur(vScoreFinal);
 
-        this.mRemplirElement(`vScoreBase${vNomCapitalise}`, vScoreBase);
-        this.mRemplirElement(`vScoreFinal${vNomCapitalise}`, vScoreFinal);
+        // 2. Affichage des modifications
         this.mRemplirElement(`vModBase${vNomCapitalise}`, this.mFormaterModificateur(vModBase));
-        this.mRemplirElement(`vModSelect${vNomCapitalise}`, this.mFormaterModificateur(vBonusSelectionne)); 
-        this.mRemplirElement(`vModFinal${vNomCapitalise}`, this.mFormaterModificateur(vModFinal));
-
-        if (pCle === 'constitution') {
-            this.mCalculerPointsDeVie(vModFinal);
-        }
+        this.mRemplirElement(`vBonusRaceMod${vNomCapitalise}`, this.mFormaterModificateur(vBonusSelectionne)); 
+        this.mRemplirElement(`vModTotal${vNomCapitalise}`, this.mFormaterModificateur(vModTotal));
         
-        // Mettre à jour l'état des radio boutons
-        const vRadio = document.getElementById(`vBonus${pCle}${vBonusSelectionne}`);
-        if (vRadio) vRadio.checked = true;
+        // Mise à jour des PV si c'est la Constitution
+        if (pCle === 'constitution') {
+            this.mCalculerPointsDeVie(vModTotal); // Utilise le modificateur TOTAL
+        }
     }
     
+    /**
+     * @brief Calcule et affiche les points de vie dans une table.
+     */
     mCalculerPointsDeVie(pModConstitution) {
-        if (!this.aClasseSelectionnee) {
-            this.mRemplirElement('vHpCalculation', "Sélectionnez d'abord votre classe.");
+        const vContainer = document.getElementById('vPointsDeVieContainer');
+        if (!this.aClasseSelectionnee || !vContainer) {
+            this.mRemplirElement('vHpCalculationTable', "Sélectionnez d'abord votre classe.");
             return;
         }
 
         const vJetDeVie = this.aClasseSelectionnee.jetDeVie; 
         const vMaxDeVie = parseInt(vJetDeVie.substring(1), 10);
-        // Utilisation de la moyenne D&D standard (HD/2 + 1)
         const vMoyenneDeVie = Math.floor(vMaxDeVie / 2) + 1; 
         
-        // PV au niveau 1 (Max HD + CON mod)
-        let vPVTotal = vMaxDeVie + pModConstitution;
-        let vExplicationPV = `${vMaxDeVie} (Max ${vJetDeVie} de la classe) + ${this.mFormaterModificateur(pModConstitution)} (Mod. CON)`;
-        
+        const vPVNiveau1 = vMaxDeVie + pModConstitution;
+        const vPVParNiveau = vMoyenneDeVie + pModConstitution;
+
+        let vPVTotal = vPVNiveau1;
         if (this.aNiveau > 1) {
-            // Ajout des PV pour les niveaux suivants (N-1)
-            const vPVParNiveau = vMoyenneDeVie + pModConstitution;
-            vPVTotal = vMaxDeVie + pModConstitution + ((this.aNiveau - 1) * vPVParNiveau);
-            
-            vExplicationPV = `[${vMaxDeVie} + Mod. CON] (Niv. 1) + [${this.aNiveau - 1} x (${vMoyenneDeVie} + Mod. CON)] (Niv. 2+)`;
+            vPVTotal += (this.aNiveau - 1) * vPVParNiveau;
         }
-        
-        this.mRemplirElement('vHpTitre', this.aTextes.calcul_labels.hp_titre);
-        this.mRemplirElementHTML('vHpExplication', this.aTextes.calcul_labels.hp_explication);
 
-        this.mRemplirElementHTML('vHpCalculation', `
-            ${vExplicationPV} = <strong class="final-hp-value">${vPVTotal} PV</strong>
-        `);
+        const vHeaders = this.aTextes.hp_table_headers;
+        
+        let vHtmlTable = `
+            <table class="hp-calculation-table">
+                <thead>
+                    <tr>
+                        <th class="text-center">${vHeaders.niveau}</th>
+                        <th class="text-center">${vHeaders.devie}</th>
+                        <th class="text-center">${vHeaders.modcon}</th>
+                        <th class="text-center">${vHeaders.pvmax}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center">${this.aNiveau}</td>
+                        <td class="text-center">${vMaxDeVie} (Max ${vJetDeVie})</td>
+                        <td class="text-center">${this.mFormaterModificateur(pModConstitution)}</td>
+                        <td class="text-center final-hp-value">${vPVTotal}</td>
+                    </tr>
+                </tbody>
+            </table>
+        `;
+        
+        this.mRemplirElementHTML('vHpCalculationTable', vHtmlTable);
     }
 
-    mMettreAJourAffichageGeneral() {
-        this.mRemplirElement('vPointsRestantsTexte', `${this.aPointsRestants} ${this.aTextes.points_restants_label}`);
-
-        const vSuivantButton = document.getElementById('vNextButton');
-        const vEstFini = this.aPointsRestants === 0;
-        
-        if (vSuivantButton) {
-             vSuivantButton.disabled = !vEstFini;
-             vSuivantButton.style.opacity = vEstFini ? 1 : 0.5;
-        }
-    }
 
     mAllerPageSuivante() {
-        if (this.aPointsRestants === 0) {
-            const vLienSuivant = this.aTextes.lien_suivant;
-            window.location.href = vLienSuivant;
-        } else {
-            alert(this.aTextes.erreur_terminer_distribution);
-        }
+        // La validation n'est plus nécessaire, on peut toujours continuer
+        const vLienSuivant = this.aTextes.lien_suivant;
+        window.location.href = vLienSuivant;
     }
     
     mRemplirTextes() {
@@ -334,9 +321,6 @@ class CPage3 {
         this.mRemplirElement('vNiveauSectionTitre', this.aTextes.section_niveau_titre);
         this.mRemplirElement('vNiveauSelectLabel', this.aTextes.select_niveau_label);
         
-        this.mRemplirElement('vCaracBaseTitre', this.aTextes.titre_section_base);
-        this.mRemplirElement('vMethodeIntroduction', this.aTextes.methode_introduction);
-        
         this.mRemplirElement('vCaracteristiquesTitre', this.aTextes.section_carac_titre);
 
         const vRetourBtn = document.getElementById('vBoutonRetour');
@@ -345,26 +329,29 @@ class CPage3 {
             vRetourBtn.href = this.aTextes.lien_retour; 
         }
         this.mRemplirElement('vNextButton', this.aTextes.bouton_suivant);
+        
+        this.mRemplirElement('vHpTitre', "Points de Vie");
     }
 
     async mInitialiserPage() {
         await this.mChargerDonnees();
         this.mRemplirTextes();
         this.mGenererInterface();
-        this.mMettreAJourAffichageGeneral(); 
         
-        // Déclenche un recalcul complet des PV au démarrage avec le niveau et la CON sauvegardés
-        this.mCalculerPointsDeVie(this.mCalculerModificateur(this.aScoresBase.constitution + this.aBonusRaciaux.constitution)); 
-
+        // La validation n'est plus nécessaire, le bouton Suivant est toujours actif
         const vSuivantButton = document.getElementById('vNextButton');
         if (vSuivantButton) {
+             vSuivantButton.disabled = false; // Toujours actif
+             vSuivantButton.style.opacity = 1;
              vSuivantButton.onclick = (pEvent) => {
                 if(pEvent) pEvent.preventDefault(); 
                 this.mAllerPageSuivante();
             };
         }
         
-        // Assurer que la classe est accessible depuis le HTML pour les appels onclick
+        // Initialiser l'affichage des PV et des Modificateurs après la génération de l'interface
+        this.aClesCarac.forEach(vCle => this.mMettreAJourAffichageScores(vCle));
+        
         window.oCPage3 = this; 
     }
 }

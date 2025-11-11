@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title> 
     <link rel="stylesheet" href="style.css">
-</head>
+    </head>
 <body>
     <header>
         <h1 id="vHeaderTitre"></h1>
@@ -24,35 +24,23 @@
 
             <hr>
 
-            <h2 id="vCaracBaseTitre"></h2>
-            <div class="distribution-block">
-                <p id="vMethodeIntroduction"></p>
-                <div id="vPointsRestantsContainer" class="points-restants-display">
-                    <p id="vPointsRestantsTexte"></p>
-                </div>
-            </div>
-
-            <hr>
-
             <h2 id="vCaracteristiquesTitre"></h2>
             <form id="caracteristiquesForm">
-                <div id="vCaracteristiquesWrapper" class="caracteristiques-vertical-list">
-                    <div id="vChargementMessage">Chargement des caractéristiques...</div>
+                <div id="vCaracteristiquesWrapper" class="caracteristiques-tables-container">
+                    <div id="vChargementMessage">Chargement des données...</div>
                 </div>
                 
                 <hr>
 
                 <div id="vPointsDeVieContainer" class="hp-block">
                     <h3 id="vHpTitre"></h3>
-                    <div class="hp-details">
-                        <p id="vHpCalculation" class="hp-result"></p>
-                        <p id="vHpExplication" class="hp-explanation"></p>
-                    </div>
+                    <div id="vHpCalculationTable" class="hp-details-table">
+                        </div>
                 </div>
 
                 <div class="navigation-buttons">
                     <a id="vBoutonRetour" class="secondary-button"></a>
-                    <button type="button" id="vNextButton" disabled></button>
+                    <button type="button" id="vNextButton"></button>
                 </div>
             </form>
         </section>

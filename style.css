@@ -1,442 +1,339 @@
-/* Import de la police - Roboto Slab pour un look de 'manuel' ou de 'parchemin' */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap');
-
-/* Variables pour le thème DnD Noir & Rouge */
-:root {
-    --couleur-fond: #121212; /* Noir très foncé, presque anthracite */
-    --couleur-fond-section: #1E1E1E; /* Fond des blocs intérieurs */
-    --couleur-texte-principal: #F0F0F0; /* Blanc cassé pour la lisibilité */
-    --couleur-accent: #B00020; /* Rouge profond (Crimson) */
-    --couleur-accent-hover: #D32F2F; /* Rouge plus clair au survol */
-    --couleur-border: #333333; /* Gris foncé pour les séparations */
-    --couleur-texte-secondaire: #AAAAAA;
-    --font-principal: 'Roboto Slab', serif;
-}
-
-/* 1. Styles Généraux de la Page */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* ========================================================================= */
+/* 1. STYLES DE BASE & RÉINITIALISATION */
+/* ========================================================================= */
 body {
-    font-family: var(--font-principal);
-    background-color: var(--couleur-fond);
-    color: var(--couleur-texte-principal);
-    line-height: 1.6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
 }
 
 header {
-    background-color: var(--couleur-accent);
+    background-color: #34495e; /* Bleu foncé */
     color: white;
-    padding: 20px;
+    padding: 20px 0;
     text-align: center;
-    border-bottom: 3px solid var(--couleur-texte-principal);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 main {
     max-width: 900px;
     margin: 30px auto;
     padding: 20px;
-    flex-grow: 1;
+    background-color: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
 }
 
-/* LE STYLE DE CADRE UNIFORME EST RETIRÉ D'ICI pour éviter le double encadrement. */
-/* Il ne reste que la mise en page de base pour les sections de la page. */
 section {
-    padding: 20px;
-    margin-bottom: 25px;
+    padding: 10px 0;
 }
 
-/* Styles de titre uniformisés pour toutes les sections */
-h2 {
-    color: var(--couleur-accent);
-    border-bottom: 2px solid var(--couleur-border);
+h1, h2, h3 {
+    color: #2c3e50;
+    border-bottom: 2px solid #ecf0f1;
     padding-bottom: 5px;
-    margin-top: 0;
+    margin-top: 20px;
 }
 
 hr {
     border: 0;
-    height: 1px;
-    background-color: var(--couleur-border);
-    margin: 20px 0;
+    border-top: 1px solid #ccc;
+    margin: 30px 0;
 }
 
-strong {
-    color: var(--couleur-accent-hover);
+/* Alignement du texte (utilisé dans les cellules de tableau) */
+.text-center {
+    text-align: center !important;
 }
 
-/* 2. Formulaires et Entrées */
-label {
-    display: block;
-    margin-top: 15px;
-    font-weight: bold;
-    color: var(--couleur-texte-principal);
+/* ========================================================================= */
+/* 2. SÉLECTION DE NIVEAU */
+/* ========================================================================= */
+.niveau-block {
+    padding-top: 0;
 }
-
-input[type="text"], input[type="number"], select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid var(--couleur-accent);
-    background-color: var(--couleur-fond);
-    color: var(--couleur-texte-principal);
-    border-radius: 3px;
-    box-sizing: border-box;
-}
-
-/* 3. Boutons et Navigation */
-.navigation-buttons {
-    margin-top: 30px;
+.niveau-select-controls {
     display: flex;
+    align-items: center;
     gap: 15px;
 }
+.niveau-select-controls label {
+    margin-bottom: 0;
+}
+.niveau-select-controls select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: auto;
+    max-width: 150px;
+    margin-bottom: 0;
+}
 
-/* Base des boutons et liens pour le style bouton (Inclut .etape-link) */
-.button-link, button[type="submit"], .secondary-button, .etape-link {
-    padding: 12px 25px;
+
+/* ========================================================================= */
+/* 3. STYLES DES BOUTONS DE NAVIGATION */
+/* ========================================================================= */
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.navigation-buttons button, .navigation-buttons a {
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    text-align: center;
     text-decoration: none;
+    font-size: 1em;
+    transition: background-color 0.2s, opacity 0.2s;
+    text-align: center;
     font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.1s;
-    
-    box-sizing: border-box; 
-    display: inline-block;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Bouton Primaire (Rouge) */
-button[type="submit"], .button-link, .etape-link {
-    background-color: var(--couleur-accent);
+/* Bouton Principal (Suivant) */
+#vNextButton {
+    background-color: #2ecc71; /* Vert */
     color: white;
 }
 
-button[type="submit"]:hover, .button-link:hover, .etape-link:hover {
-    background-color: var(--couleur-accent-hover);
-    transform: translateY(-1px);
+#vNextButton:hover:not([disabled]) {
+    background-color: #27ae60;
 }
 
-/* Bouton Secondaire (Gris) */
+/* Bouton Secondaire (Retour) */
 .secondary-button {
-    background-color: var(--couleur-border);
-    color: var(--couleur-texte-principal);
-    margin: 5px 10px 5px 0; 
-    flex-grow: 0; 
-    transition: background-color 0.3s ease; 
+    background-color: #95a5a6;
+    color: white;
 }
 
 .secondary-button:hover {
-    background-color: #555555; 
+    background-color: #7f8c8d;
+}
+
+/* Bouton désactivé (même s'il est toujours actif maintenant) */
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* ========================================================================= */
+/* 4. TABLES DE CARACTÉRISTIQUES */
+/* ========================================================================= */
+
+.caracteristiques-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    table-layout: fixed; /* Aide à la cohérence des colonnes */
+}
+
+/* En-têtes */
+.caracteristiques-table th {
+    background-color: #34495e; /* Bleu foncé */
+    color: white;
+    padding: 12px 10px;
+    font-weight: bold;
+    border: 1px solid #2c3e50;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.caracteristiques-table td {
+    padding: 10px;
+    border: 1px solid #ecf0f1;
+    vertical-align: top;
+}
+
+/* Ligne des Scores / Radios / Modificateur Final */
+.carac-scores-row {
+    background-color: #f8f8f8;
+    border-top: 3px solid #34495e; /* Séparateur principal */
+}
+
+/* Ligne des Calculs */
+.carac-calc-row {
+    font-size: 0.85em;
+    background-color: #eef1f4;
+    color: #555;
+    border-bottom: 3px solid #34495e; /* Séparateur principal */
+}
+.carac-calc-row td {
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+/* Colonnes spécifiques */
+.carac-name-cell {
+    width: 20%;
+}
+.final-mod-cell {
+    width: 15%;
+}
+.carac-radio-cell {
+    width: 65%;
 }
 
 
-/* 4. Section des Étapes (Uniformisation des Cartes) */
-
-/* Classe pour chaque carte d'étape, remplace l'ancienne .etape-item */
-.etape-item-card {
-    /* Style de carte uniforme appliqué ici */
-    background-color: var(--couleur-fond-section); 
-    border: 1px solid var(--couleur-accent);
-    padding: 20px;
-    margin-bottom: 25px; /* Pour un affichage en ligne, séparé verticalement */
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(176, 0, 32, 0.5); 
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+/* VALEURS SPÉCIFIQUES DEMANDÉES */
+/* Score Fixe en Rouge */
+.score-fixe-valeur {
+    color: #c0392b; /* Rouge vif */
+    font-weight: bold;
 }
 
-/* On applique le style de titre de section à chaque h2 de l'étape */
-.etape-item-card h2 {
-    color: var(--couleur-accent);
-    border-bottom: 2px solid var(--couleur-border);
-    padding-bottom: 5px;
-    margin-top: 0;
+/* Modificateur Final en évidence */
+.mod-total-value {
     font-size: 1.4em;
+    font-weight: bold;
+    color: #2980b9; /* Bleu */
 }
 
-.etape-item-card p {
-    margin: 10px 0 15px 0;
-}
-
-/* Suppression des styles inutiles de l'ancienne grille */
-.etapes-grid {
-    display: block; /* Rétablit le flux normal pour que les cartes s'affichent les unes sous les autres */
-    margin-top: 20px;
+/* Bonus de Base Calculé (Mod. Base) */
+.mod-base-calc {
+    font-weight: 600;
 }
 
 
-/* 5. Styles Spécifiques à la Page 1 (Sélection de Classe) */
-.classe-options-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0; 
-    margin-top: 20px;
-}
-
-.classe-option-card { margin-bottom: 0; border: none; padding: 0; background-color: transparent; box-shadow: none; }
-
-.classe-item-container { 
-    background-color: var(--couleur-fond-section); 
-    padding: 15px; 
-    border-radius: 5px; 
-    border: 1px solid var(--couleur-border); 
+/* ========================================================================= */
+/* 5. STYLES DES RADIO BUTTONS (Bonus de Race) */
+/* ========================================================================= */
+.radio-select-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
+    grid-template-columns: repeat(5, 1fr); /* 5 colonnes pour 0, +1, +2, +3, +4 */
+    gap: 5px;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    max-width: 250px; /* Limite la largeur du groupe de radios */
+    margin: 0 auto;
 }
 
-.classe-item-container:hover { background-color: #333333; }
-
-.classe-header { 
-    color: var(--couleur-accent); 
-    font-size: 1.4em; 
-    font-weight: bold; 
-    margin-bottom: 5px; 
-    border-bottom: 2px solid var(--couleur-accent); 
-    padding-bottom: 5px; 
-}
-
-.classe-content { 
-    display: flex; 
-    align-items: flex-start; 
-    gap: 15px; 
-    margin-top: 10px; 
-}
-
-.classe-content img { 
-    width: 80px; 
-    height: 80px; 
-    object-fit: cover; 
-    border: 2px solid var(--couleur-border); 
-    border-radius: 4px; 
-}
-
-.classe-details { flex-grow: 1; }
-.classe-details p { margin: 0; font-size: 0.95em; }
-
-.classe-content input[type="radio"] { 
-    align-self: center; 
-    margin-right: -5px; 
-}
-
-
-/* 6. Styles Spécifiques à la Page 2 (Sélection de Race) */
-.race-options-grid {
+.radio-colonne {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
+    align-items: center;
 }
 
-.race-option-card {
-    background-color: #252525;
-    border: 1px solid var(--couleur-border);
-    border-radius: 8px;
-    position: relative;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    transition: box-shadow 0.3s ease, border-color 0.3s ease;
-    padding: 0; 
-}
-
-/* Positionnement du vrai input radio */
-.race-option-card input[type="radio"] {
-    position: static; 
-    margin: 0; 
-    width: 20px;
-    height: 20px;
-    z-index: 10;
+.radio-label {
+    padding: 2px 0;
+    font-weight: normal;
+    font-size: 0.8em;
     cursor: pointer;
-    vertical-align: middle;
+    color: #555;
 }
 
-.race-option-card label {
-    display: block; 
-    padding: 0; 
+/* Cache le radio button par défaut */
+.radio-colonne input[type="radio"] {
+    appearance: none;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid #34495e;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
     cursor: pointer;
+}
+
+/* Style pour l'état coché */
+.radio-colonne input[type="radio"]:checked {
+    border-color: #2ecc71; /* Vert */
+}
+.radio-colonne input[type="radio"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.1s ease-in-out;
+    background-color: #2ecc71; /* Vert */
+}
+
+.radio-colonne input[type="radio"]:checked::before {
+    transform: scale(1);
+}
+
+/* ========================================================================= */
+/* 6. TABLE DES POINTS DE VIE (PV) */
+/* ========================================================================= */
+.hp-block {
+    border: 1px solid #e67e22; /* Bordure orange */
+    border-radius: 6px;
+    padding: 15px;
+    margin-top: 30px;
+}
+.hp-block h3 {
+    border-bottom: none;
     margin-top: 0;
+    margin-bottom: 10px;
 }
 
-.race-option-card label:hover {
-    background-color: #333333;
-}
-
-/* Style de la carte sélectionnée */
-.race-option-card input[type="radio"]:checked + label {
-    background-color: #38000A; 
-    border-color: var(--couleur-accent-hover);
-    box-shadow: 0 0 15px rgba(176, 0, 32, 0.9);
-}
-
-/* --- Styles du Tableau Interne (race-layout-table) --- */
-.race-layout-table {
+.hp-calculation-table {
     width: 100%;
     border-collapse: collapse;
 }
 
-.race-layout-table td { 
-    padding: 0; 
-    border: none;
-    vertical-align: top;
-}
-
-/* COLONNE 1 (Radio) */
-.radio-cell {
-    width: 40px; 
-    padding: 0 10px; 
-}
-
-/* Titre de la Race (Colspan 2) */
-.race-header-title {
-    background-color: #252525; 
-    color: var(--couleur-accent);
-    font-size: 1.3em;
+.hp-calculation-table th {
+    background-color: #e67e22; /* Orange pour les PV */
+    color: white;
+    padding: 12px 10px;
     font-weight: bold;
-    text-align: left;
-    padding: 0 10px 10px 5px; 
-    border-bottom: 2px solid var(--couleur-border);
-    vertical-align: top;
+    border: 1px solid #d35400;
 }
 
-/* COLONNE 2 (Image) */
-.race-image-cell {
-    width: 100px; 
-    text-align: center;
-    padding: 10px 10px 10px 0; 
-}
-
-/* Image (Taille limitée à 90px comme demandé) */
-.race-image {
-    width: 90px;
-    height: 90px;
-    object-fit: cover;
-    border-radius: 4px;
-    margin: 0 auto;
-    display: block;
-}
-
-/* COLONNE 3 (Description) */
-.race-description-cell {
-    padding: 10px 10px 10px 10px; 
-    text-align: left;
-}
-
-/* Le texte de description */
-.race-description {
-    font-size: 0.9em;
-    color: var(--couleur-texte-secondaire);
-    padding-right: 10px;
-}
-
-
-/* 7. Styles Spécifiques à la Page 3 (Caractéristiques) */
-.carac-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
-    gap: 15px;
-    margin-top: 20px;
+.hp-calculation-table td {
     padding: 10px;
-}
-
-.carac-item {
-    background-color: var(--couleur-fond); 
-    border: 1px solid var(--couleur-accent);
-    padding: 10px;
-    border-radius: 5px;
+    border: 1px solid #f39c12;
+    background-color: #fff8f0;
     text-align: center;
 }
 
-.carac-nom {
-    display: block;
-    font-size: 0.9em;
-    color: var(--couleur-texte-secondaire);
-    text-transform: uppercase;
-    margin-bottom: 5px;
-}
-
-.carac-score {
-    display: block;
-    font-size: 1.8em;
+/* PV Final mis en évidence */
+.final-hp-value {
+    font-size: 1.6em;
     font-weight: bold;
-    color: var(--couleur-accent);
+    color: #e74c3c; /* Rouge pour le résultat */
+    background-color: #ffebe8;
 }
 
-.carac-mod {
-    display: block;
-    font-size: 1.2em;
-    font-weight: bold;
-    color: var(--couleur-texte-principal);
-    margin-top: 5px;
-}
-
-/* 8. Styles pour les Tables de Ressources (index.html) */
-.resource-table {
-    width: 100%; 
-    border-collapse: collapse; 
-    margin-top: 20px;
-    font-size: 0.95em;
-}
-
-.resource-table th, .resource-table td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid var(--couleur-border);
-}
-
-.resource-table th { 
-    background-color: #252525;
-    color: var(--couleur-accent);
-    border-bottom: 2px solid var(--couleur-accent);
-    font-weight: bold;
-    text-transform: uppercase;
-}
-/* Dans style.css */
-
-.caracteristique-block {
-    margin-bottom: 30px;
-    padding: 15px;
-    border: 1px solid #e0e0e0;
-    border-radius: 5px;
-}
-
-.bonus-select-grid {
-    display: grid;
-    /* 5 colonnes pour 0, +1, +2, +3, +4 */
-    grid-template-columns: repeat(5, 1fr); 
-    gap: 10px;
-    margin-top: 10px;
-    text-align: center;
-}
-
-.result-mod, .result-score, .final-hp-value {
-    font-size: 1.1em;
-    color: #4CAF50; /* Couleur pour mettre en évidence les résultats finaux */
-}
-
-/* 9. Footer */
+/* ========================================================================= */
+/* 7. FOOTER */
+/* ========================================================================= */
 footer {
-    background-color: var(--couleur-fond); 
     text-align: center;
     padding: 15px;
-    border-top: 1px solid var(--couleur-border);
-    margin-top: 40px;
-    color: var(--couleur-texte-secondaire);
-    font-size: 0.9em;
+    font-size: 0.8em;
+    color: #7f8c8d;
+    border-top: 1px solid #ecf0f1;
+    margin-top: 20px;
+}
+
+/* ========================================================================= */
+/* 8. RESPONSIVE (Optionnel) */
+/* ========================================================================= */
+@media (max-width: 768px) {
+    main {
+        margin: 10px;
+        padding: 10px;
+    }
+    
+    /* Réduit l'espace dans les tables sur mobile */
+    .caracteristiques-table th, .hp-calculation-table th, 
+    .caracteristiques-table td, .hp-calculation-table td {
+        padding: 6px 4px;
+        font-size: 0.85em;
+    }
+    
+    .mod-total-value {
+        font-size: 1.2em;
+    }
+
+    .radio-select-grid {
+        gap: 3px;
+        max-width: 200px;
+    }
 }
