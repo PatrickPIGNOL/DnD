@@ -6,16 +6,16 @@
         "sections": [
             {
                 "titre": "Quelle est votre classe d'aventurier D&D ?",
-                "description": "Définissez la classe de votre personnage Donjons & Dragons.",
-                "bouton_texte": "Déterminez votre classe en passant le quizz",
+                "description": "Si vous ne l'avez pas encore fait, cliquez ci-dessous pour lancer le test qui déterminera votre classe de départ. Le Maître du Jeu ou le système vous donnera le résultat.",
+                "bouton_texte": "Lancer le Quizz pour déterminer votre Classe",
                 "lien": "https://docs.google.com/forms/d/e/1FAIpQLSdNma04s8TPzZP8g28kWGQxzGNa6o4os5ztF8x-V8B9ELUyRA/viewform?usp=header",
                 "external": true
             },
             {
                 "titre": "Créer votre personnage",
-                "description": "Créez votre personnage pour pouvoir jouer à Donjons & Dragons et vivre des aventures épiques dans un monde médiéval fantastique",
+                "description": "Une fois que vous connaissez votre classe, vous pouvez commencer la création de votre personnage pour pouvoir jouer à Donjons & Dragons et vivre des aventures épiques dans un monde médiéval fantastique",
                 "bouton_texte": "Créez votre personnage...",
-                "lien": "page1_classe.html",
+                "lien": "page1.html",
                 "external": false
             }
         ],

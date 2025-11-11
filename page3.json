@@ -97,7 +97,7 @@
         
         "bouton_retour": "Retour",
         "lien_retour": "page2.html",
-        "bouton_suivant": "Suivant (Historique)",
+        "bouton_suivant": "Suivant",
         "lien_suivant": "page4.html"
     }
 }

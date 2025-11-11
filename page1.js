@@ -63,6 +63,15 @@ class CPage1 {
             vFooter.innerHTML = this.aTextes.footer_texte;
         }
         
+        const vRetourBtn = document.getElementById('vBoutonRetour');
+        if (vRetourBtn) {
+            // 1. Remplir le texte du bouton (ex: "Accueil")
+            vRetourBtn.textContent = this.aTextes.bouton_retour; 
+            
+            // 2. Injecter le lien
+            vRetourBtn.href = this.aTextes.lien_retour; 
+        }
+
         this.mRemplirElement('vBoutonSuivant', this.aTextes.bouton_suivant);
     }
 
