@@ -21,7 +21,7 @@
         "image_url": "images/races/humain.png"
     },
     {
-        "nom": "Half-Elf",
+        "nom": "Demi-Elf",
         "categorie": "humanoide",
         "description_courte": "Bénéficie d'une ascendance double. Bonus : +2 Charisme et +1 à deux autres caracs.",
         "image_url": "images/races/halfelf.png",
@@ -31,7 +31,7 @@
         "nom": "Tieffelin",
         "categorie": "humanoide",
         "description_courte": "Descendant d'un démon. Bonus : +2 Charisme, +1 Intelligence.",
-        "image_url": "images/races/tieffelin.png",
+        "image_url": "images/races/tiefling.png",
         "bonusCarac": {"Charisme": 2, "Intelligence": 1}
     }
 ]

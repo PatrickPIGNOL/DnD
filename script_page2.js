@@ -53,7 +53,6 @@ class CPage2 {
         // Section Affichage Race par Défaut
         this.mRemplirElement('vDefaultRaceTitre', this.aTextes.race_par_defaut_titre);
         this.mRemplirElement('vDefaultRaceDesc', this.aTextes.race_par_defaut_desc);
-        this.mRemplirElement('vBoutonDetail', this.aTextes.bouton_detail);
 
         // Boutons de navigation
         const vRetourBtn = document.getElementById('vBoutonRetour');
