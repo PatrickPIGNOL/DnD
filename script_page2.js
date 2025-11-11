@@ -116,7 +116,6 @@ class CPage2 {
         
         vContainer.innerHTML = vHtml;
         this.mChargerSauvegarde();
-        this.mMettreAJourAffichageSelection();
     }
 
     // La logique de mAppliquerFiltre() a été supprimée.
@@ -130,25 +129,6 @@ class CPage2 {
         localStorage.setItem('raceSelectionnee', JSON.stringify(this.aRaceSelectionnee));
         
         this.mGenererListeRaces(); 
-        this.mMettreAJourAffichageSelection();
-    }
-
-    /**
-     * @brief Met à jour le bloc d'affichage de la race sélectionnée et active le bouton Suivant.
-     */
-    mMettreAJourAffichageSelection() {
-        const vSuivantButton = document.getElementById('vNextButton');
-
-        if (this.aRaceSelectionnee) {
-            this.mRemplirElement('vDefaultRaceTitre', this.aRaceSelectionnee.nom);
-            this.mRemplirElement('vDefaultRaceDesc', this.aRaceSelectionnee.description_courte);
-            
-            if (vSuivantButton) vSuivantButton.disabled = false;
-        } else {
-            this.mRemplirElement('vDefaultRaceTitre', this.aTextes.race_par_defaut_titre);
-            this.mRemplirElement('vDefaultRaceDesc', this.aTextes.race_par_defaut_desc);
-            if (vSuivantButton) vSuivantButton.disabled = true;
-        }
     }
     
     /**
@@ -163,7 +143,6 @@ class CPage2 {
             if (vRadio) {
                 vRadio.checked = true;
                 this.aRaceSelectionnee = vSauvegarde; // Restaurer l'objet sélectionné
-                this.mMettreAJourAffichageSelection();
             }
         }
     }
