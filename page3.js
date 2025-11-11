@@ -341,4 +341,33 @@ class CPage3 {
 
         const vRetourBtn = document.getElementById('vBoutonRetour');
         if (vRetourBtn) {
-            vRetourBtn.textContent = this.aTextes.bout
+            vRetourBtn.textContent = this.aTextes.bouton_retour;
+            vRetourBtn.href = this.aTextes.lien_retour; 
+        }
+        this.mRemplirElement('vNextButton', this.aTextes.bouton_suivant);
+    }
+
+    async mInitialiserPage() {
+        await this.mChargerDonnees();
+        this.mRemplirTextes();
+        this.mGenererInterface();
+        this.mMettreAJourAffichageGeneral(); 
+        
+        // Déclenche un recalcul complet des PV au démarrage avec le niveau et la CON sauvegardés
+        this.mCalculerPointsDeVie(this.mCalculerModificateur(this.aScoresBase.constitution + this.aBonusRaciaux.constitution)); 
+
+        const vSuivantButton = document.getElementById('vNextButton');
+        if (vSuivantButton) {
+             vSuivantButton.onclick = (pEvent) => {
+                if(pEvent) pEvent.preventDefault(); 
+                this.mAllerPageSuivante();
+            };
+        }
+        
+        // Assurer que la classe est accessible depuis le HTML pour les appels onclick
+        window.oCPage3 = this; 
+    }
+}
+
+// Initialisation
+const oCPage3 = new CPage3();
