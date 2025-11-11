@@ -4,7 +4,7 @@
  */
 class CPage3 {
     aTextes;
-    aCaracteristiques;
+    aClassesScoresFixes; // Renommé pour être plus précis
     aRaceSelectionnee;
     aRaceDetails;
     aPointsAllouables;
@@ -38,8 +38,10 @@ class CPage3 {
             const vDataTextes = await vResponseTextes.json();
             this.aTextes = vDataTextes.page3;
 
+            // CHARGEMENT CORRIGÉ: Récupère la racine de caracteristiques.json
             const vResponseCarac = await fetch('caracteristiques.json');
-            this.aCaracteristiques = await vResponseCarac.json();
+            const vDataCarac = await vResponseCarac.json();
+            this.aClassesScoresFixes = vDataCarac.classes_scores_fixes; // Assigner la bonne clé
 
             const vResponseRaces = await fetch('races.json');
             const vRaces = await vResponseRaces.json();
@@ -129,21 +131,24 @@ class CPage3 {
      */
     mGenererTableCaracteristiques() {
         const vTableBody = document.getElementById('vCaracTableBody');
-        if (!vTableBody || !this.aCaracteristiques) return;
+        // VÉRIFICATION CORRIGÉE: Utilise la liste des caractéristiques de page3.json
+        if (!vTableBody || !this.aTextes || !this.aTextes.caracteristiques) return;
 
         vTableBody.innerHTML = '';
         
-        for (const vNom in this.aCaracteristiques) {
-            const vCarac = this.aCaracteristiques[vNom];
+        // ITÉRATION CORRIGÉE: Itère sur les clés courtes (For, Dex, etc.) de page3.json
+        for (const vNomCourt in this.aTextes.caracteristiques) {
+            const vNomComplet = this.aTextes.caracteristiques[vNomCourt];
             const vRow = document.createElement('tr');
             this.vRow = vRow;
+            // Utilisation de vNomCourt dans les IDs pour la manipulation future
             this.vRow.innerHTML = `
-                <td>${vCarac.nom_complet} (${vCarac.nom_court})</td>
-                <td><input type="number" id="vBaseScore-${vNom}" name="score-${vNom}" min="8" max="15" value="8" onchange="oCPage3.mCalculerCaracs()"></td>
-                <td id="vBonusRace-${vNom}">+0</td>
-                <td id="vBonusAlloue-${vNom}">+0</td>
-                <td class="score-fixe-valeur" id="vScoreTotal-${vNom}">8</td>
-                <td id="vModificateur-${vNom}">-1</td>
+                <td>${vNomComplet} (${vNomCourt})</td>
+                <td><input type="number" id="vBaseScore-${vNomCourt}" name="score-${vNomCourt}" min="8" max="15" value="8" onchange="oCPage3.mCalculerCaracs()"></td>
+                <td id="vBonusRace-${vNomCourt}">+0</td>
+                <td id="vBonusAlloue-${vNomCourt}">+0</td>
+                <td class="score-fixe-valeur" id="vScoreTotal-${vNomCourt}">8</td>
+                <td id="vModificateur-${vNomCourt}">-1</td>
             `;
             vTableBody.appendChild(this.vRow);
         }
@@ -165,7 +170,6 @@ class CPage3 {
         
         let vAllocationHTML = '';
         
-        // --- LIGNE DE RESET (value="0") ---
         const vResetHTML = `
             <div id="vBonusResetRow">
                 <label>
@@ -182,7 +186,6 @@ class CPage3 {
         `;
         vAllocationHTML += vResetHTML;
         
-        // 2. Générer les options d'allocation dynamique
         if (this.aPointsAllouables) {
             vAllocationHTML += this.mCreerOptionsAllocation(this.aPointsAllouables);
         } else {
@@ -191,7 +194,6 @@ class CPage3 {
         
         vContainer.innerHTML += vAllocationHTML; 
         
-        // 3. SÉLECTION PAR DÉFAUT de l'option de Reset
         const vRadioReset = document.getElementById('vRadioResetBonus');
         if (vRadioReset) {
             vRadioReset.checked = true;
@@ -208,7 +210,6 @@ class CPage3 {
             return null;
         }
         
-        // Si la race n'a PAS de bonus fixes, on suppose qu'elle a des bonus allouables (+2 et +1)
         if (!this.aRaceDetails.bonus_caracteristique) {
             return {
                 nom: "Allocation Standard (+2 et +1)",
@@ -263,9 +264,7 @@ class CPage3 {
         });
 
         if (vRadioSelectionne && vRadioSelectionne.value !== (this.aTextes.bonus_reset_value || '0')) {
-            // Logique d'allocation des points ici
-            // Pour l'exemple, nous allons juste montrer un +1 sur la Force si l'allocation est choisie
-            const vBonusTest = document.getElementById('vBonusAlloue-FOR');
+            const vBonusTest = document.getElementById('vBonusAlloue-For'); // Utilise "For"
             if (vBonusTest) {
                 this.vBonusTest = vBonusTest;
                 this.vBonusTest.textContent = '+1'; 
@@ -300,12 +299,15 @@ class CPage3 {
      * @brief Calcule les scores totaux et les modificateurs.
      */
     mCalculerCaracs() {
-        for (const vNom in this.aCaracteristiques) {
-            const vInputBase = document.getElementById(`vBaseScore-${vNom}`);
-            const vElementBonusRace = document.getElementById(`vBonusRace-${vNom}`);
-            const vElementBonusAlloue = document.getElementById(`vBonusAlloue-${vNom}`);
-            const vElementScoreTotal = document.getElementById(`vScoreTotal-${vNom}`);
-            const vElementModif = document.getElementById(`vModificateur-${vNom}`);
+        // Utilise la liste des caractéristiques de page3.json pour parcourir les IDs
+        if (!this.aTextes || !this.aTextes.caracteristiques) return;
+        
+        for (const vNomCourt in this.aTextes.caracteristiques) {
+            const vInputBase = document.getElementById(`vBaseScore-${vNomCourt}`);
+            const vElementBonusRace = document.getElementById(`vBonusRace-${vNomCourt}`);
+            const vElementBonusAlloue = document.getElementById(`vBonusAlloue-${vNomCourt}`);
+            const vElementScoreTotal = document.getElementById(`vScoreTotal-${vNomCourt}`);
+            const vElementModif = document.getElementById(`vModificateur-${vNomCourt}`);
             
             if (vInputBase && vElementScoreTotal && vElementModif) {
                 const vScoreBase = parseInt(vInputBase.value) || 0;
@@ -346,10 +348,12 @@ class CPage3 {
         localStorage.setItem('niveauSelectionne', vNiveau);
         
         const vScoresFinaux = {};
-        for (const vNom in this.aCaracteristiques) {
-            const vScore = document.getElementById(`vScoreTotal-${vNom}`).textContent;
+        
+        // Utilise la liste des caractéristiques de page3.json pour parcourir les IDs
+        for (const vNomCourt in this.aTextes.caracteristiques) {
+            const vScore = document.getElementById(`vScoreTotal-${vNomCourt}`).textContent;
             this.vScoresFinaux = vScoresFinaux;
-            this.vScoresFinaux[vNom] = parseInt(vScore);
+            this.vScoresFinaux[vNomCourt] = parseInt(vScore);
         }
         localStorage.setItem('scoresCaracteristiques', JSON.stringify(this.vScoresFinaux));
         
@@ -367,11 +371,12 @@ class CPage3 {
 
         const vScoresSauves = JSON.parse(localStorage.getItem('scoresCaracteristiques'));
         if (vScoresSauves) {
-            for (const vNom in vScoresSauves) {
-                const vInputBase = document.getElementById(`vBaseScore-${vNom}`);
-                if (vInputBase) {
+            // Utilise la liste des caractéristiques de page3.json pour parcourir les IDs
+            for (const vNomCourt in this.aTextes.caracteristiques) {
+                const vInputBase = document.getElementById(`vBaseScore-${vNomCourt}`);
+                if (vInputBase && vScoresSauves[vNomCourt]) {
                     this.vInputBase = vInputBase;
-                    this.vInputBase.value = vScoresSauves[vNom]; 
+                    this.vInputBase.value = vScoresSauves[vNomCourt]; 
                 }
             }
         }
