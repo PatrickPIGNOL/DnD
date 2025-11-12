@@ -197,7 +197,7 @@ class CPage3 {
                 <tr id="vMainRow${vCarac}">
                     <td style="font-weight: bold;">${vNomComplet}</td>
                     <td id="vScoreFixe${vCarac}" class="score-fixe-valeur">${vScoreFixe}</td>
-                    <td colspan="4" class="race-bonus-cell">
+                    <td class="race-bonus-cell">
             `
             
             this.aBonusSlots.forEach(pSlot => {
@@ -220,7 +220,7 @@ class CPage3 {
                 <tr id="vDetailRow${vCarac}" class="detail-row">
                     <td style="font-style: italic; color: #888; font-size: 0.9em; text-align: center;">${this.aTextes.detail_bonus.label}</td>
                     <td style="text-align: center; color: #888; font-size: 0.9em;" id="vDetailBonusBase${vCarac}">${vBonusBase > 0 ? '+' : ''}${vBonusBase}</td>
-                    <td colspan="4" style="text-align: center; color: #888; font-size: 0.9em;" id="vDetailBonusRaciaux${vCarac}">+0</td>
+                    <td style="text-align: center; color: #888; font-size: 0.9em;" id="vDetailBonusRaciaux${vCarac}">+0</td>
                     <td style="text-align: center; font-weight: bold; color: #888; font-size: 0.9em;" id="vDetailBonusTotal${vCarac}">${vBonusBase > 0 ? '+' : ''}${vBonusBase}</td>
                 </tr>
             `
