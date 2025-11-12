@@ -174,7 +174,7 @@ class CPage3 {
         vResetHTML += `<td></td>`
         vResetHTML += `<td class="race-bonus-cell" style="text-align: center;">`
         this.aBonusSlots.forEach(pSlot => {
-            vResetHTML += `<label style="display: inline-block; margin: 0 5px;">`
+            vResetHTML += `<label style="display: inline-block; margin: 0 2px;">`
             vResetHTML += `<input type="radio" name="${pSlot.name}" value="0" data-bonus="0" id="vRadioReset${pSlot.name}">`
             vResetHTML += `<span>${this.aTextes.reset.radio_label}</span>`
             vResetHTML += `</label>`
