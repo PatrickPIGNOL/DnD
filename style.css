@@ -177,7 +177,11 @@ button:disabled {
     margin-top: 20px;
     text-align: left;
 }
-
+.race-header-title
+{
+    color:#c0392b;
+    font-weight: bold !important;
+}
 /* CARTE DE RACE : Utilisation de display: table pour la structure 3 colonnes */
 .race-option-card { 
     background-color: #2a2a2a;
