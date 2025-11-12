@@ -23,7 +23,6 @@
         "bonus_mod_description": "Vous avez 4 points de race (+1 chacun) à distribuer sur les Caractéristiques de votre choix.",
         
         "section_carac_titre": "Vos Caractéristiques",
-        "section_pv_titre": "Points de Vie (PV) - Calcul",
         
         "caracteristiques": {
             "For": "Force",
@@ -51,13 +50,17 @@
             "pv_obtenus": "PV Obtenus"
         },
 
+        "section_pv_titre": "Points de Vie Max (PVMax)",
+
+        "bonus_mod_description": "Sélectionnez 4 bonus (+1) au total, un par colonne, à travers les caractéristiques.",
+        
         "table_pv_headers": {
             "de_vie": "Dé de vie",
             "bonus_constitution": "Bonus de constitution", 
             "niveau_personnage": "Niveau du personnage",
             "pv_max": "Points de vie Max"
         },
-        
+
         "calcul_pv": {
             "pv_base_niveau_1": "PV de Base au Niveau 1 (Jet Max {jetDeVie})",
             "pv_par_niveaux": "PV par Niveaux {niveaux} (Niv 2 à {niveauMax})",

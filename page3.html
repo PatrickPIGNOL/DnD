@@ -27,18 +27,15 @@
             <h2 id="vSectionCaracTitre"></h2>
             
             <h3 id="vBonusModTitre"></h3>
-            <p id="vBonusModDescription">
-                Sélectionnez 4 bonus (+1) au total, un par colonne, à travers les caractéristiques.
-            </p>
+            <p id="vBonusModDescription"></p>
 
             <table class="caracteristiques-table">
                 <thead>
                     <tr>
-                        <th style="width: 15%;">Caractéristique</th>
-                        <th style="width: 10%;">Score Fixe</th>
-                        <th colspan="4" style="width: 35%; text-align: center;">Allocation des +1 (4 Choix Max)</th>
-                        <th style="width: 10%;">Score Total</th>
-                        <th style="width: 10%;">Mod.</th>
+                        <th style="text-align: center;" id="vPVHeaderDeVie"></th>
+                        <th style="text-align: center;" id="vPVHeaderBonusCon"></th>
+                        <th style="text-align: center;" id="vPVHeaderNiveau"></th>
+                        <th style="text-align: center;" id="vPVHeaderPVMax"></th>
                     </tr>
                 </thead>
                 <tbody id="vCaracTableBody">
@@ -49,21 +46,19 @@
         <hr>
         
         <section>
-            <div class="hp-block">
-                <h3>Points de Vie (PV) - Calcul</h3>
-                <table class="hp-calculation-table" style="width: 100%;">
-                    <thead>
-                        <tr>
-                            <th style="text-align: center;">Dé de vie</th>
-                            <th style="text-align: center;">Bonus de constitution</th>
-                            <th style="text-align: center;">Niveau du personnage</th>
-                            <th style="text-align: center;">Points de vie Max</th>
-                        </tr>
-                    </thead>
-                    <tbody id="vHPTableBody">
-                    </tbody>
-                </table>
-            </div>
+            <h3>Points de Vie (PV) - Calcul</h3>
+            <table class="hp-calculation-table" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">Dé de vie</th>
+                        <th style="text-align: center;">Bonus de constitution</th>
+                        <th style="text-align: center;">Niveau du personnage</th>
+                        <th style="text-align: center;">Points de vie Max</th>
+                    </tr>
+                </thead>
+                <tbody id="vHPTableBody">
+                </tbody>
+            </table>
         </section>
 
         <hr>

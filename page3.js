@@ -80,7 +80,12 @@ class CPage3 {
         
         // Section Caractéristiques
         this.mRemplirElement('vSectionCaracTitre', this.aTextes.section_carac_titre)
-        
+            
+        this.mRemplirElement('vPVHeaderDeVie', this.aTextes.table_pv_headers.de_vie)
+        this.mRemplirElement('vPVHeaderBonusCon', this.aTextes.table_pv_headers.bonus_constitution)
+        this.mRemplirElement('vPVHeaderNiveau', this.aTextes.table_pv_headers.niveau_personnage)
+        this.mRemplirElement('vPVHeaderPVMax', this.aTextes.table_pv_headers.pv_max)
+
         // Boutons
         this.mRemplirElement('vBoutonRetour', this.aTextes.boutons.retour_texte)
         this.mRemplirElement('vNextButton', this.aTextes.boutons.suivant_texte)
