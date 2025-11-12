@@ -185,59 +185,47 @@ class CPage3 {
         vResetRow.innerHTML = vResetHTML
         vTableBody.appendChild(vResetRow)
 
-        // Générateur des caractéristiques
+        // Génération des caractéristiques avec LIGNES DOUBLES
         for (const vCarac in this.aTextes.caracteristiques) {
             vId++
             const vNomComplet = this.aTextes.caracteristiques[vCarac]
             const vScoreFixe = this.aScoresFixes[vNomComplet]
-            const vModificateurInitial = this.mCalculerModificateur(vScoreFixe)
+            const vBonusBase = Math.floor((vScoreFixe / 2) - 4.5)
 
             // LIGNE 1 : Caractéristique normale
-            const vMainRow = document.createElement('tr')
-            vMainRow.id = `vMainRow${vCarac}`
+            let vMainHTML = `
+                <tr id="vMainRow${vCarac}">
+                    <td style="font-weight: bold;">${vNomComplet}</td>
+                    <td id="vScoreFixe${vCarac}" class="score-fixe-valeur">${vScoreFixe}</td>
+                    <td colspan="4" class="race-bonus-cell">
+            `
             
-            let vMainHTML = ""
-            vMainHTML += `<td style="font-weight: bold;">${vNomComplet}</td>`
-            vMainHTML += `<td id="vScoreFixe${vCarac}" class="score-fixe-valeur">${vScoreFixe}</td>`
-            
-            vMainHTML += `<td class="race-bonus-cell">`
             this.aBonusSlots.forEach(pSlot => {
-                vMainHTML += `<label>`
-                vMainHTML += `<input type="radio" name="${pSlot.name}" value="${vId}" data-bonus="${pSlot.bonus}" id="vRadio${vCarac}${pSlot.name}">`
-                vMainHTML += `<span>${pSlot.label}</span>`
-                vMainHTML += `</label>`
+                vMainHTML += `
+                    <label>
+                        <input type="radio" name="${pSlot.name}" value="${vId}" data-bonus="${pSlot.bonus}" id="vRadio${vCarac}${pSlot.name}">
+                        <span>${pSlot.label}</span>
+                    </label>
+                `
             })
-            vMainHTML += `</td>`
             
-            vMainHTML += `<td id="vScoreTotal${vCarac}" class="vScoreTotal">${vScoreFixe}</td>`
+            vMainHTML += `
+                    </td>
+                    <td id="vScoreTotal${vCarac}" class="vScoreTotal">${vScoreFixe}</td>
+                </tr>
+            `
 
-            vMainRow.innerHTML = vMainHTML
-            vTableBody.appendChild(vMainRow)
+            // LIGNE 2 : Détail des bonus
+            let vDetailHTML = `
+                <tr id="vDetailRow${vCarac}" class="detail-row">
+                    <td style="font-style: italic; color: #888; font-size: 0.9em; text-align: center;">${this.aTextes.detail_bonus.label}</td>
+                    <td style="text-align: center; color: #888; font-size: 0.9em;" id="vDetailBonusBase${vCarac}">${vBonusBase > 0 ? '+' : ''}${vBonusBase}</td>
+                    <td colspan="4" style="text-align: center; color: #888; font-size: 0.9em;" id="vDetailBonusRaciaux${vCarac}">+0</td>
+                    <td style="text-align: center; font-weight: bold; color: #888; font-size: 0.9em;" id="vDetailBonusTotal${vCarac}">${vBonusBase > 0 ? '+' : ''}${vBonusBase}</td>
+                </tr>
+            `
 
-            // LIGNE 2 : Détail des calculs (NOUVELLE LIGNE)
-            const vDetailRow = document.createElement('tr')
-            vDetailRow.id = `vDetailRow${vCarac}`
-            vDetailRow.className = 'detail-row'
-            
-            // Calcul du bonus de base selon VOTRE formule
-            const vBonusBase = Math.floor((vScoreFixe / 2) - 4.5)
-            
-            let vDetailHTML = ""
-            vDetailHTML += `<td style="font-style: italic; color: #888; font-size: 0.9em;">Calcul ${vNomComplet}</td>`
-            vDetailHTML += `<td style="background-color: #2a2a2a;"></td>`
-            
-            vDetailHTML += `<td style="background-color: #2a2a2a; color: #888; font-size: 0.9em; text-align: center;">`
-            vDetailHTML += `<span id="vDetailBonusBase${vCarac}">Base: ${vBonusBase > 0 ? '+' : ''}${vBonusBase}</span>`
-            vDetailHTML += `<span> + </span>`
-            vDetailHTML += `<span id="vDetailBonusRaciaux${vCarac}">Race: +0</span>`
-            vDetailHTML += `<span> = </span>`
-            vDetailHTML += `<span id="vDetailBonusTotal${vCarac}" style="font-weight: bold;">Total: ${vBonusBase > 0 ? '+' : ''}${vBonusBase}</span>`
-            vDetailHTML += `</td>`
-            
-            vDetailHTML += `<td style="background-color: #2a2a2a;"></td>`
-
-            vDetailRow.innerHTML = vDetailHTML
-            vTableBody.appendChild(vDetailRow)
+            vTableBody.innerHTML += vMainHTML + vDetailHTML
         }
         
         // Écouteurs d'événements

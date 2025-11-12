@@ -37,9 +37,13 @@
             "radio_label": "+0"
         },
 
+        "detail_bonus": {
+            "label": "Bonus"
+        },
+        
         "table_headers": {
             "caracteristique": "Caractéristique",
-            "score_fixe": "Score",
+            "score_fixe": "Score/ Bonus de base",
             "allocation_bonus": "Bonus de race",
             "score_total": "Score Final", 
             "detail_calcul": "Détail du Calcul",
