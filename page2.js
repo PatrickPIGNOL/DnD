@@ -36,51 +36,39 @@ class CPage2 {
         }
     }
 
-    /**
-     * @brief Injecte les textes de page2.json dans les éléments HTML.
-     */
     mRemplirTextes() {
-        if (!this.aTextes) return;
+        if (!this.aTextes) return
 
-        // Titre de la FENÊTRE
-        document.title = this.aTextes.titre_page;
-        
-        // Header
-        this.mRemplirElement('vHeaderTitre', this.aTextes.titre_header);
-        
-        // Titre de section et Introduction (utilisent des textes statiques si non fournis par JSON)
-        this.mRemplirElement('vPage2Titre', this.aTextes.titre_section);
-        this.mRemplirElement('vPage2Introduction', this.aTextes.description_section);
+        document.title = this.aTextes.titre_page
+        this.mRemplirElement('vHeaderTitre', this.aTextes.titre_header)
+        this.mRemplirElement('vPage2Titre', this.aTextes.titre_section)
+        this.mRemplirElement('vPage2Introduction', this.aTextes.description_section)
 
-        // Boutons de navigation
-        const vRetourBtn = document.getElementById('vBoutonRetour');
+        const vRetourBtn = document.getElementById('vBoutonRetour')
         if (vRetourBtn) {
-            vRetourBtn.textContent = this.aTextes.bouton_retour;
-            vRetourBtn.href = this.aTextes.lien_retour; 
+            vRetourBtn.textContent = this.aTextes.bouton_retour
+            vRetourBtn.href = this.aTextes.lien_retour
         }
         
-        this.mRemplirElement('vNextButton', this.aTextes.bouton_suivant);
+        this.mRemplirElement('vNextButton', this.aTextes.bouton_suivant)
         
-        // Footer 
-        const vFooter = document.getElementById('vFooterTexte');
+        const vFooter = document.getElementById('vFooterTexte')
         if (vFooter) {
-            vFooter.innerHTML = '&copy; 2025 Character Builder'; 
+            vFooter.innerHTML = this.aTextes.footer_texte // ← Correction
         }
-
-        // Les autres IDs (filtres/recherche) sont ignorés.
     }
 
-    /**
-     * @brief Génère la liste des races dans le conteneur principal.
-     */
     mGenererListeRaces() {
-        if (!this.aRacesData) return;
+        if (!this.aRacesData || !this.aTextes) return;
 
         const vContainer = document.getElementById('vRaceOptionsContainer');
         if (!vContainer) return; 
 
         const vLoading = document.getElementById('vLoadingMessage');
-        if (vLoading) vLoading.style.display = 'none';
+        if (vLoading) {
+            vLoading.textContent = this.aTextes.messages.chargement;
+            vLoading.style.display = 'none';
+        }
 
         let vHtml = '';
         
@@ -90,13 +78,12 @@ class CPage2 {
             vHtml += `
                 <div class="race-option-card ${vSelectedClass}">
                     <label>
-
                         <table class="race-layout-table"> 
                             <tr>
                                 <td rowspan="2" style="text-align: center; vertical-align: middle;"><input type="radio" name="race" value="${vRace.nom}"></td>
                                 
                                 <td rowspan="2" class="race-image-cell" style="text-align: center; vertical-align: middle;">
-                                    <img src="${vRace.image_url}" alt="Image de la race ${vRace.nom}" style="width: 90px; height: 90px; object-fit: cover;">
+                                    <img src="${vRace.image_url}" alt="${this.aTextes.messages.image_alt.replace('{race}', vRace.nom)}" style="width: 90px; height: 90px; object-fit: cover;">
                                 </td>
                                 
                                 <td class="race-header-title" style="width: 100%;">

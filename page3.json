@@ -1,4 +1,3 @@
-
 {
     "page3": {
         "titre_page": "Donjons & Dragons",
@@ -32,21 +31,40 @@
         "section_bonus_titre": "Récapitulatif des Bonus de Race",
         "bonus_chargement": "Chargement des bonus de race...",
         "bonus_mod_titre": "Allocation des points de Caractéristique (Race)",
-        
         "bonus_mod_description": "Vous avez 4 points de race (+1 chacun) à distribuer sur les Caractéristiques de votre choix.",
         
         "section_carac_titre": "Vos Caractéristiques",
+        "section_pv_titre": "Points de Vie (PV) - Calcul détaillé",
         
         "caracteristiques": {
             "For": "Force",
-            "Dex": "Dextérité",
+            "Dex": "Dextérité", 
             "Con": "Constitution",
             "Int": "Intelligence",
             "Sag": "Sagesse",
             "Cha": "Charisme"
         },
         
+        "table_headers": {
+            "caracteristique": "Caractéristique",
+            "score_fixe": "Score Fixe",
+            "allocation_bonus": "Allocation des +1 (4 Choix Max)",
+            "score_total": "Score Total",
+            "modificateur": "Mod.",
+            "detail_calcul": "Détail du Calcul",
+            "jet_de_vie": "Jet de Vie",
+            "mod_con": "Mod. CON",
+            "pv_obtenus": "PV Obtenus"
+        },
+        
+        "calcul_pv": {
+            "pv_base_niveau_1": "PV de Base au Niveau 1 (Jet Max {jetDeVie})",
+            "pv_par_niveaux": "PV par Niveaux {niveaux} (Niv 2 à {niveauMax})",
+            "total_pv": "Total Points de Vie (PV Max)"
+        },
+        
         "bouton_retour": "Retour",
-        "bouton_suivant": "Suivant (Historique)"
+        "bouton_suivant": "Suivant (Historique)",
+        "footer_texte": "&copy; 2025 Character Builder"
     }
 }

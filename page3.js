@@ -64,24 +64,30 @@ class CPage3 {
     mRemplirTextes() {
         if (!this.aTextes) return
 
-        document.title = this.aTextes.titre_page //
-        this.mRemplirElement('vPageTitle', this.aTextes.titre_page) //
-        this.mRemplirElement('vHeaderTitre', this.aTextes.titre_header) //
-        this.mRemplirElement('vSectionNiveauTitre', this.aTextes.section_niveau_titre) //
-        this.mRemplirElement('vSelectNiveauLabel', this.aTextes.select_niveau_label) //
-        this.mRemplirElement('vBoutonRetour', this.aTextes.bouton_retour) //
-        this.mRemplirElement('vNextButton', this.aTextes.bouton_suivant) //
-        this.mRemplirElement('vSectionBonusTitre', this.aTextes.section_bonus_titre) //
-        this.mRemplirElement('vBonusModTitre', this.aTextes.bonus_mod_titre) //
+        document.title = this.aTextes.titre_page
+        this.mRemplirElement('vPageTitle', this.aTextes.titre_page)
+        this.mRemplirElement('vHeaderTitre', this.aTextes.titre_header)
+        this.mRemplirElement('vSectionNiveauTitre', this.aTextes.section_niveau_titre)
+        this.mRemplirElement('vSelectNiveauLabel', this.aTextes.select_niveau_label)
+        this.mRemplirElement('vBoutonRetour', this.aTextes.bouton_retour)
+        this.mRemplirElement('vNextButton', this.aTextes.bouton_suivant)
+        this.mRemplirElement('vSectionBonusTitre', this.aTextes.section_bonus_titre)
+        this.mRemplirElement('vBonusModTitre', this.aTextes.bonus_mod_titre)
         
-        // CORRECTION DU TEXTE DE DESCRIPTION
-        this.mRemplirElement('vBonusModDescription', "Vous avez 4 points de race (+1 chacun) à distribuer sur les Caractéristiques de votre choix.")
+        // CORRECTION : Utilisation du texte externe
+        this.mRemplirElement('vBonusModDescription', this.aTextes.bonus_mod_description)
         
-        this.mRemplirElement('vSectionCaracTitre', this.aTextes.section_carac_titre) //
+        this.mRemplirElement('vSectionCaracTitre', this.aTextes.section_carac_titre)
         
         const vFooterTexte = document.getElementById('vFooterTexte')
         if (vFooterTexte) {
-            vFooterTexte.innerHTML = "&copy; 2025 Character Builder"
+            vFooterTexte.innerHTML = this.aTextes.footer_texte // ← Correction
+        }
+        
+        // Remplir le titre de la section PV
+        const vSectionPV = document.querySelector('.hp-block h3')
+        if (vSectionPV) {
+            vSectionPV.textContent = this.aTextes.section_pv_titre
         }
         
         const vBoutonRetour = document.getElementById('vBoutonRetour')
@@ -228,7 +234,7 @@ class CPage3 {
     mGenererTablePV() {
         const vTableBody = document.getElementById('vHPTableBody')
         const vNiveauSelect = document.getElementById('vSelectNiveau')
-        if (!vTableBody || !vNiveauSelect || !this.aJetDeVie) return
+        if (!vTableBody || !vNiveauSelect || !this.aJetDeVie || !this.aTextes) return
         
         const vNiveau = parseInt(vNiveauSelect.value)
         const vModCon = parseInt(localStorage.getItem('modificateurConstitution') || 0)
@@ -237,12 +243,12 @@ class CPage3 {
         let vTotalPV = 0
         
         // Ligne PV Niveau 1
-        const vJetDeVieBase = parseInt(this.aJetDeVie.substring(1)) //
+        const vJetDeVieBase = parseInt(this.aJetDeVie.substring(1))
         const vPVNiveau1 = vJetDeVieBase + vModCon
         vTotalPV += vPVNiveau1
         
         vHTML += `<tr>`
-        vHTML += `<td style="text-align: left;">PV de Base au Niveau 1 (Jet Max ${this.aJetDeVie})</td>`
+        vHTML += `<td style="text-align: left;">${this.aTextes.calcul_pv.pv_base_niveau_1.replace('{jetDeVie}', this.aJetDeVie)}</td>`
         vHTML += `<td style="text-align: center;">${vJetDeVieBase}</td>`
         vHTML += `<td style="text-align: center;">${vModCon > 0 ? '+' : ''}${vModCon}</td>`
         vHTML += `<td class="final-hp-value">${vPVNiveau1}</td>`
@@ -258,7 +264,7 @@ class CPage3 {
             vTotalPV += vPVParNiveauTotalJet + vPVParNiveauTotalMod
             
             vHTML += `<tr>`
-            vHTML += `<td style="text-align: left;">PV par Niveaux ${vNiveauxSuivants} (Niv 2 à ${vNiveau})</td>`
+            vHTML += `<td style="text-align: left;">${this.aTextes.calcul_pv.pv_par_niveaux.replace('{niveaux}', vNiveauxSuivants).replace('{niveauMax}', vNiveau)}</td>`
             vHTML += `<td style="text-align: center;">${vPVJetParNiveau} x ${vNiveauxSuivants} = ${vPVParNiveauTotalJet}</td>`
             vHTML += `<td style="text-align: center;">${vModCon} x ${vNiveauxSuivants} = ${vPVParNiveauTotalMod > 0 ? '+' : ''}${vPVParNiveauTotalMod}</td>`
             vHTML += `<td class="final-hp-value">${vPVParNiveauTotalJet + vPVParNiveauTotalMod}</td>`
@@ -267,7 +273,7 @@ class CPage3 {
 
         // Ligne Total
         vHTML += `<tr>`
-        vHTML += `<td style="font-weight: bold; text-align: left;">Total Points de Vie (PV Max)</td>`
+        vHTML += `<td style="font-weight: bold; text-align: left;">${this.aTextes.calcul_pv.total_pv}</td>`
         vHTML += `<td colspan="2" style="background-color: #333;"></td>`
         vHTML += `<td class="final-hp-value">${vTotalPV}</td>`
         vHTML += `</tr>`

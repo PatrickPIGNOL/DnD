@@ -11,11 +11,51 @@
             "monstrueux": "Monstrueux",
             "celeste": "Céleste"
         },
+        
+        "messages": {
+            "chargement": "Chargement des options de race...",
+            "selection_vide": "Aucune race sélectionnée",
+            "selection_avec_race": "Race sélectionnée : {race}"
+        },
                 
         "bouton_retour": "Retour",
         "lien_retour": "page1.html",
         
         "bouton_suivant": "Suivant",
-        "lien_suivant": "page3.html"
+        "lien_suivant": "page3.html",
+        
+        "footer_texte": "&copy; 2025 Character Builder"
+    }
+}
+
+{
+    "page2": {
+        "titre_page": "Donjons & Dragons",
+        "titre_header": "Choisissez votre Race",
+        "titre_section": "Choisissez votre Race", 
+        "description_section": "La race détermine l'apparence physique de votre personnage, sa longévité, et lui confère des bonus de caractéristiques ainsi que des traits spéciaux.",
+        
+        "categories": {
+            "tout": "Tout",
+            "humanoide": "Humanoïde",
+            "monstrueux": "Monstrueux",
+            "celeste": "Céleste"
+        },
+        
+        "messages": {
+            "chargement": "Chargement des options de race...",
+            "image_alt": "Image de la race {race}",
+            "selection_vide": "Aucune race sélectionnée",
+            "selection_avec_race": "Race sélectionnée : {race}",
+            "alerte_selection": "Veuillez sélectionner une race avant de continuer."
+        },
+                
+        "bouton_retour": "Retour",
+        "lien_retour": "page1.html",
+        
+        "bouton_suivant": "Suivant",
+        "lien_suivant": "page3.html",
+        
+        "footer_texte": "&copy; 2025 Character Builder"
     }
 }
