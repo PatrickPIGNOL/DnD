@@ -38,9 +38,9 @@
         },
 
         "detail_bonus": {
-            "label": "Bonus"
+            "label": "Modificateur"
         },
-        
+
         "table_headers": {
             "caracteristique": "Caractéristique",
             "score_fixe": "Score/ Bonus de base",

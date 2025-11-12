@@ -170,17 +170,17 @@ class CPage3 {
         vResetRow.id = 'vResetRow'
         
         let vResetHTML = ""
-        vResetHTML += `<td style="font-weight: bold; text-align: center; background-color: #333; color: white;">Reset</td>`
-        vResetHTML += `<td style="background-color: #333;"></td>`
+        vResetHTML += `<td>Reset</td>`
+        vResetHTML += `<td></td>`
         vResetHTML += `<td class="race-bonus-cell" style="text-align: center;">`
         this.aBonusSlots.forEach(pSlot => {
-            vResetHTML += `<label style="display: inline-block; margin: 0 5px;">`
+            vResetHTML += `<label style="display: inline-block; margin: 0 0px;">`
             vResetHTML += `<input type="radio" name="${pSlot.name}" value="0" data-bonus="0" id="vRadioReset${pSlot.name}">`
             vResetHTML += `<span>${this.aTextes.reset.radio_label}</span>`
             vResetHTML += `</label>`
         })
         vResetHTML += `</td>`
-        vResetHTML += `<td style="background-color: #333;"></td>`
+        vResetHTML += `<td></td>`
 
         vResetRow.innerHTML = vResetHTML
         vTableBody.appendChild(vResetRow)
