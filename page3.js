@@ -217,13 +217,13 @@ class CPage3 {
 
             // LIGNE 2 : Détail des bonus
             let vDetailHTML = `
-                <tr id="vDetailRow${vCarac}" class="detail-row">
-                    <td style="font-style: italic; color: #888; font-size: 0.9em; text-align: center;">${this.aTextes.detail_bonus.label}</td>
-                    <td style="text-align: center; color: #888; font-size: 0.9em;" id="vDetailBonusBase${vCarac}">${vBonusBase > 0 ? '+' : ''}${vBonusBase}</td>
-                    <td style="text-align: center; color: #888; font-size: 0.9em;" id="vDetailBonusRaciaux${vCarac}">+0</td>
-                    <td style="text-align: center; font-weight: bold; color: #888; font-size: 0.9em;" id="vDetailBonusTotal${vCarac}">${vBonusBase > 0 ? '+' : ''}${vBonusBase}</td>
-                </tr>
-            `
+    <tr id="vDetailRow${vCarac}" class="detail-row">
+        <td style="font-style: italic; color: #888; font-size: 0.9em; text-align: center;">${this.aTextes.detail_bonus.label}</td>
+        <td style="text-align: center; color: #888; font-size: 0.9em;" id="vDetailBonusBase${vCarac}">${vBonusBase > 0 ? '+' : ''}${vBonusBase}</td>
+        <td style="background-color: #2a2a2a;"></td> <!-- Case vide sous les radios -->
+        <td style="text-align: center; font-weight: bold; color: #888; font-size: 0.9em;" id="vDetailBonusTotal${vCarac}">${vBonusBase > 0 ? '+' : ''}${vBonusBase}</td>
+    </tr>
+`
 
             vTableBody.innerHTML += vMainHTML + vDetailHTML
         }
@@ -250,32 +250,45 @@ class CPage3 {
             vTotalBonus[vId] = 0
         }
 
+        // Calcul des bonus raciaux
         this.aBonusSlots.forEach(pSlot => {
             const vRadio = document.querySelector(`input[name="${pSlot.name}"]:checked`)
-            if (vRadio) {
+            if (vRadio && vRadio.value !== "0") {
                 const vCaracId = parseInt(vRadio.value)
                 const vBonus = parseInt(vRadio.dataset.bonus)
                 
                 if (vCaracId >= 1 && vCaracId <= 6) {
-                    vTotalBonus[vCaracId] += vBonus
+                    vTotalBonus[vId] += vBonus
                 }
             }
         })
 
-        for (const vCarac in this.aTextes.caracteristiques) { //
-            const vNomComplet = this.aTextes.caracteristiques[vCarac] //
-            const vId = this.aCaracMap[vNomComplet]
-            const vScoreFixe = this.aScoresFixes[vNomComplet] //
-            const vBonus = vTotalBonus[vId]
+        // Mise à jour pour chaque caractéristique
+        let vIndex = 0
+        for (const vCarac in this.aTextes.caracteristiques) {
+            vIndex++
+            const vNomComplet = this.aTextes.caracteristiques[vCarac]
+            const vScoreFixe = this.aScoresFixes[vNomComplet]
+            const vBonusRaciaux = vTotalBonus[vIndex]
             
-            const vScoreTotal = vScoreFixe + vBonus
-            const vModificateur = this.mCalculerModificateur(vScoreTotal)
+            const vScoreTotal = vScoreFixe + vBonusRaciaux
             
-            this.mRemplirElement(`vScoreTotal${vCarac}`, vScoreTotal) // CORRECTION: this.this. a été retiré
-            this.mRemplirElement(`vModificateur${vCarac}`, `${vModificateur > 0 ? '+' : ''}${vModificateur}`) // CORRECTION: this.this. a été retiré
+            // CALCUL 1 : Bonus de base (sur score fixe)
+            const vBonusBase = Math.floor((vScoreFixe / 2) - 4.5)
+            
+            // CALCUL 2 : Bonus final (sur score total)
+            const vBonusFinal = Math.floor((vScoreTotal / 2) - 4.5)
+
+            // Mise à jour ligne principale
+            this.mRemplirElement(`vScoreTotal${vCarac}`, vScoreTotal)
+
+            // Mise à jour ligne détail
+            this.mRemplirElement(`vDetailBonusBase${vCarac}`, `${vBonusBase > 0 ? '+' : ''}${vBonusBase}`)
+            this.mRemplirElement(`vDetailBonusRaciaux${vCarac}`, `+${vBonusRaciaux}`)
+            this.mRemplirElement(`vDetailBonusTotal${vCarac}`, `${vBonusFinal > 0 ? '+' : ''}${vBonusFinal}`)
 
             if (vCarac === 'Con') {
-                localStorage.setItem('modificateurConstitution', vModificateur)
+                localStorage.setItem('modificateurConstitution', vBonusFinal)
             }
         }
     }
