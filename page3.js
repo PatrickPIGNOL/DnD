@@ -250,32 +250,46 @@ class CPage3 {
             vTotalBonus[vId] = 0
         }
 
+        // Calcul des bonus raciaux
         this.aBonusSlots.forEach(pSlot => {
             const vRadio = document.querySelector(`input[name="${pSlot.name}"]:checked`)
-            if (vRadio) {
+            if (vRadio && vRadio.value !== "0") {
                 const vCaracId = parseInt(vRadio.value)
                 const vBonus = parseInt(vRadio.dataset.bonus)
                 
                 if (vCaracId >= 1 && vCaracId <= 6) {
-                    vTotalBonus[vCaracId] += vBonus
+                    vTotalBonus[vCaracId] += vBonus  // ✅ CORRECTION
                 }
             }
         })
 
-        for (const vCarac in this.aTextes.caracteristiques) { //
-            const vNomComplet = this.aTextes.caracteristiques[vCarac] //
-            const vId = this.aCaracMap[vNomComplet]
-            const vScoreFixe = this.aScoresFixes[vNomComplet] //
-            const vBonus = vTotalBonus[vId]
+        // Mise à jour pour chaque caractéristique
+        let vIndex = 0
+        for (const vCarac in this.aTextes.caracteristiques) {
+            vIndex++
+            const vNomComplet = this.aTextes.caracteristiques[vCarac]
+            const vScoreBase = this.aScoresFixes[vNomComplet]  // 1. Score de base
+            const vBonusRaciaux = vTotalBonus[vIndex]
             
-            const vScoreTotal = vScoreFixe + vBonus
-            const vModificateur = this.mCalculerModificateur(vScoreTotal)
-            
-            this.mRemplirElement(`vScoreTotal${vCarac}`, vScoreTotal) // CORRECTION: this.this. a été retiré
-            this.mRemplirElement(`vModificateur${vCarac}`, `${vModificateur > 0 ? '+' : ''}${vModificateur}`) // CORRECTION: this.this. a été retiré
+            const vScoreFinal = vScoreBase + vBonusRaciaux  // 3. Score final = base + race
 
+            // 2. Bonus de base (sur score de base)
+            const vBonusBase = Math.floor((vScoreBase / 2) - 4.5)
+            
+            // 4. Bonus final (sur score final)
+            const vBonusFinal = Math.floor((vScoreFinal / 2) - 4.5)
+
+            // Mise à jour ligne principale (Score final en gras)
+            this.mRemplirElement(`vScoreTotal${vCarac}`, vScoreFinal)
+
+            // Mise à jour ligne détail
+            this.mRemplirElement(`vDetailBonusBase${vCarac}`, `${vBonusBase > 0 ? '+' : ''}${vBonusBase}`)
+            this.mRemplirElement(`vDetailBonusRaciaux${vCarac}`, `+${vBonusRaciaux}`)
+            this.mRemplirElement(`vDetailBonusTotal${vCarac}`, `${vBonusFinal > 0 ? '+' : ''}${vBonusFinal}`)
+
+            // 5. Bonus final utilisé pour les PV (Constitution)
             if (vCarac === 'Con') {
-                localStorage.setItem('modificateurConstitution', vModificateur)
+                localStorage.setItem('modificateurConstitution', vBonusFinal)
             }
         }
     }
