@@ -43,7 +43,7 @@
 
         "table_headers": {
             "caracteristique": "Caractéristique",
-            "score_fixe": "Score/ Bonus de base",
+            "score_fixe": "Score / Bonus de base",
             "allocation_bonus": "Bonus de race",
             "score_total": "Score Final", 
             "detail_calcul": "Détail du Calcul",
