@@ -116,18 +116,13 @@ class CIndexPage {
             vTableBody.appendChild(vRow);
         });
     }
-    // Les méthodes mVerifierSauvegarde, mDemarrerCreation et mContinuerCreation sont conservées
-    // car elles pourraient être nécessaires plus tard pour la navigation, mais elles ne sont plus appelées par la page d'accueil.
-    
-    mVerifierSauvegarde() {
-        // Logique retirée car les boutons n'existent plus
-    }
-    
+    /*    
     mDemarrerCreation() {
         localStorage.clear(); 
         window.location.href = this.aTextes.sections[0].lien;
     }
-    
+    */
+    /*
     mContinuerCreation() {
         if (localStorage.getItem('historiqueSelectionne')) {
              window.location.href = this.aTextes.sections[3].lien;
@@ -139,6 +134,7 @@ class CIndexPage {
              this.mDemarrerCreation();
         }
     }
+    //*/
 }
 
 new CIndexPage();

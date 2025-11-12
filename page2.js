@@ -103,8 +103,6 @@ class CPage2 {
         this.mChargerSauvegarde();
     }
 
-    // La logique de mAppliquerFiltre() a été supprimée.
-
     /**
      * @brief Gère la sélection d'une race (appelé par l'écouteur 'change').
      */
@@ -190,14 +188,10 @@ class CPage2 {
     mMettreAJourAffichageSelection() {
         const vSuivantButton = document.getElementById('vNextButton');
 
-        if (this.aRaceSelectionnee) {
-            // ... (Mise à jour de l'affichage) ...
-            
+        if (this.aRaceSelectionnee) {            
             // ✅ ACTIVER LE BOUTON ICI
             if (vSuivantButton) vSuivantButton.disabled = false; 
-        } else {
-            // ... (Affichage du message par défaut) ...
-            
+        } else {            
             // 🚫 DÉSACTIVER LE BOUTON ICI
             if (vSuivantButton) vSuivantButton.disabled = true;
         }
