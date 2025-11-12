@@ -82,7 +82,6 @@ class CPage3 {
         this.mRemplirElement('vCaracHeaderScoreFixe', this.aTextes.table_headers.score_fixe)
         this.mRemplirElement('vCaracHeaderAllocation', this.aTextes.table_headers.allocation_bonus)
         this.mRemplirElement('vCaracHeaderScoreTotal', this.aTextes.table_headers.score_total)
-        this.mRemplirElement('vCaracHeaderModificateur', this.aTextes.table_headers.modificateur)
         
         // Section Caractéristiques
         this.mRemplirElement('vSectionCaracTitre', this.aTextes.section_carac_titre)
@@ -182,7 +181,6 @@ class CPage3 {
         })
         vResetHTML += `</td>`
         vResetHTML += `<td style="background-color: #333;"></td>`
-        vResetHTML += `<td style="background-color: #333;"></td>`
 
         vResetRow.innerHTML = vResetHTML
         vTableBody.appendChild(vResetRow)
@@ -212,7 +210,6 @@ class CPage3 {
             vMainHTML += `</td>`
             
             vMainHTML += `<td id="vScoreTotal${vCarac}" class="vScoreTotal">${vScoreFixe}</td>`
-            vMainHTML += `<td id="vModificateur${vCarac}" class="mod-total-value">${vModificateurInitial > 0 ? '+' : ''}${vModificateurInitial}</td>`
 
             vMainRow.innerHTML = vMainHTML
             vTableBody.appendChild(vMainRow)
@@ -237,7 +234,6 @@ class CPage3 {
             vDetailHTML += `<span id="vDetailBonusTotal${vCarac}" style="font-weight: bold;">Total: ${vBonusBase > 0 ? '+' : ''}${vBonusBase}</span>`
             vDetailHTML += `</td>`
             
-            vDetailHTML += `<td style="background-color: #2a2a2a;"></td>`
             vDetailHTML += `<td style="background-color: #2a2a2a;"></td>`
 
             vDetailRow.innerHTML = vDetailHTML
