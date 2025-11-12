@@ -19,7 +19,6 @@
         },
         
         "section_bonus_titre": "Récapitulatif des Bonus de Race",
-        "bonus_mod_titre": "Allocation des points de Caractéristique (Race)",
         "bonus_mod_description": "Vous avez 4 points de race (+1 chacun) à distribuer sur les Caractéristiques de votre choix.",
         
         "section_carac_titre": "Vos Caractéristiques",
@@ -41,7 +40,7 @@
         "table_headers": {
             "caracteristique": "Caractéristique",
             "score_fixe": "Score",
-            "allocation_bonus": "Allocation des +1 (4 Choix Max)",
+            "allocation_bonus": "Bonus de race",
             "score_total": "Score Final", 
             "modificateur": "Modificateur",
             "detail_calcul": "Détail du Calcul",
@@ -51,9 +50,7 @@
         },
 
         "section_pv_titre": "Points de Vie Max (PVMax)",
-
-        "bonus_mod_description": "Sélectionnez 4 bonus (+1) au total, un par colonne, à travers les caractéristiques.",
-        
+     
         "table_pv_headers": {
             "de_vie": "Dé de vie",
             "bonus_constitution": "Bonus de constitution", 
