@@ -196,7 +196,7 @@ class CPage3 {
             vMainHTML += `<td style="font-weight: bold;">${vNomComplet}</td>`
             vMainHTML += `<td id="vScoreFixe${vCarac}" class="score-fixe-valeur">${vScoreFixe}</td>`
             
-            vMainHTML += `<td colspan="4" class="race-bonus-cell">`
+            vMainHTML += `<td class="race-bonus-cell">`
             this.aBonusSlots.forEach(pSlot => {
                 vMainHTML += `<label>`
                 vMainHTML += `<input type="radio" name="${pSlot.name}" value="${vId}" data-bonus="${pSlot.bonus}" id="vRadio${vCarac}${pSlot.name}">`
