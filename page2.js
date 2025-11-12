@@ -37,25 +37,23 @@ class CPage2 {
     }
 
     mRemplirTextes() {
-        if (!this.aTextes) return
+        if (!this.aTextes) return;
 
-        document.title = this.aTextes.titre_page
-        this.mRemplirElement('vHeaderTitre', this.aTextes.titre_header)
-        this.mRemplirElement('vPage2Titre', this.aTextes.titre_section)
-        this.mRemplirElement('vPage2Introduction', this.aTextes.description_section)
+        document.title = this.aTextes.titre_page;
+        this.mRemplirElement('vHeaderTitre', this.aTextes.titre_header);
+        this.mRemplirElement('vPage2Titre', this.aTextes.titre_section);
+        this.mRemplirElement('vPage2Introduction', this.aTextes.description_section);
 
-        const vRetourBtn = document.getElementById('vBoutonRetour')
+        const vRetourBtn = document.getElementById('vBoutonRetour');
         if (vRetourBtn) {
-            vRetourBtn.textContent = this.aTextes.bouton_retour
-            vRetourBtn.href = this.aTextes.lien_retour
+            vRetourBtn.textContent = this.aTextes.boutons.retour_texte;
+            vRetourBtn.href = this.aTextes.navigation.retour_url; // ← URL configurable
         }
         
-        this.mRemplirElement('vNextButton', this.aTextes.bouton_suivant)
+        this.mRemplirElement('vNextButton', this.aTextes.boutons.suivant_texte);
         
-        const vFooter = document.getElementById('vFooterTexte')
-        if (vFooter) {
-            vFooter.innerHTML = this.aTextes.footer_texte // ← Correction
-        }
+        const vFooter = document.getElementById('vFooterTexte');
+        if (vFooter) vFooter.innerHTML = this.aTextes.footer_texte;
     }
 
     mGenererListeRaces() {
@@ -157,9 +155,10 @@ class CPage2 {
      */
     mAllerPageSuivante() {
         if (this.aRaceSelectionnee) {
-            window.location.href = this.aTextes.lien_suivant;
+            // Utilisation de l'URL configurée
+            window.location.href = this.aTextes.navigation.suivant_url;
         } else {
-            alert("Veuillez sélectionner une race avant de continuer.");
+            alert(this.aTextes.messages.alerte_selection);
         }
     }
 

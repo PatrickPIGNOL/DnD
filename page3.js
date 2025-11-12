@@ -62,45 +62,23 @@ class CPage3 {
     }
 
     mRemplirTextes() {
-        if (!this.aTextes) return
+        if (!this.aTextes) return;
 
-        document.title = this.aTextes.titre_page
-        this.mRemplirElement('vPageTitle', this.aTextes.titre_page)
-        this.mRemplirElement('vHeaderTitre', this.aTextes.titre_header)
-        this.mRemplirElement('vSectionNiveauTitre', this.aTextes.section_niveau_titre)
-        this.mRemplirElement('vSelectNiveauLabel', this.aTextes.select_niveau_label)
-        this.mRemplirElement('vBoutonRetour', this.aTextes.bouton_retour)
-        this.mRemplirElement('vNextButton', this.aTextes.bouton_suivant)
-        this.mRemplirElement('vSectionBonusTitre', this.aTextes.section_bonus_titre)
-        this.mRemplirElement('vBonusModTitre', this.aTextes.bonus_mod_titre)
+        document.title = this.aTextes.titre_page;
+        this.mRemplirElement('vPageTitle', this.aTextes.titre_page);
+        this.mRemplirElement('vHeaderTitre', this.aTextes.titre_header);
+        // ... autres remplissages ...
         
-        // CORRECTION : Utilisation du texte externe
-        this.mRemplirElement('vBonusModDescription', this.aTextes.bonus_mod_description)
-        
-        this.mRemplirElement('vSectionCaracTitre', this.aTextes.section_carac_titre)
-        
-        const vFooterTexte = document.getElementById('vFooterTexte')
-        if (vFooterTexte) {
-            vFooterTexte.innerHTML = this.aTextes.footer_texte // ← Correction
-        }
-        
-        // Remplir le titre de la section PV
-        const vSectionPV = document.querySelector('.hp-block h3')
-        if (vSectionPV) {
-            vSectionPV.textContent = this.aTextes.section_pv_titre
-        }
-        
-        const vBoutonRetour = document.getElementById('vBoutonRetour')
+        const vBoutonRetour = document.getElementById('vBoutonRetour');
         if (vBoutonRetour) {
-            vBoutonRetour.href = "page2.html"
+            vBoutonRetour.textContent = this.aTextes.boutons.retour_texte;
+            vBoutonRetour.href = this.aTextes.navigation.retour_url; // ← URL configurable
         }
 
-        const vBoutonSuivant = document.getElementById('vNextButton')
-        if (vBoutonSuivant) {
-            vBoutonSuivant.addEventListener('click', (pEvent) => {
-                this.mPasserEtape(pEvent)
-            })
-        }
+        this.mRemplirElement('vNextButton', this.aTextes.boutons.suivant_texte);
+        
+        const vFooterTexte = document.getElementById('vFooterTexte');
+        if (vFooterTexte) vFooterTexte.innerHTML = this.aTextes.footer_texte;
     }
     
     mRemplirElement(pId, pTexte) {
@@ -314,9 +292,10 @@ class CPage3 {
     }
 
     mPasserEtape(pEvent) {
-        if (pEvent) pEvent.preventDefault()
-        this.mSauvegarder() // CORRECTION: this.this. a été retiré
-        window.location.href = "page4.html"
+        if (pEvent) pEvent.preventDefault();
+        this.mSauvegarder();
+        // Utilisation de l'URL configurée
+        window.location.href = this.aTextes.navigation.suivant_url;
     }
 }
 

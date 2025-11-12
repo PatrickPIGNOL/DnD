@@ -47,32 +47,24 @@ class CPage1 {
     /**
      * @brief Rempli les éléments textuels de la page à partir du fichier JSON.
      */
-    mRemplirTextes() {
+    RemplirTextes() {
         if (!this.aTextes) return;
 
-        document.title = this.aTextes.titre_page; 
-        
-        this.mRemplirElement('vHeaderTitre', this.aTextes.titre_page);
-        
-        this.mRemplirElement('vPageTitre', this.aTextes.titre_header); 
-        this.mRemplirElement('vPageIntroduction', this.aTextes.introduction); 
+        document.title = this.aTextes.titre_page;
+        this.mRemplirElement('vHeaderTitre', this.aTextes.titre_header);
+        this.mRemplirElement('vPageTitre', this.aTextes.titre_header);
+        this.mRemplirElement('vPageIntroduction', this.aTextes.introduction);
 
-        // Le footer doit utiliser innerHTML car il peut contenir du HTML
         const vFooter = document.getElementById('vFooterTexte');
-        if (vFooter) {
-            vFooter.innerHTML = this.aTextes.footer_texte;
-        }
+        if (vFooter) vFooter.innerHTML = this.aTextes.footer_texte;
         
         const vRetourBtn = document.getElementById('vBoutonRetour');
         if (vRetourBtn) {
-            // 1. Remplir le texte du bouton (ex: "Accueil")
-            vRetourBtn.textContent = this.aTextes.bouton_retour; 
-            
-            // 2. Injecter le lien
-            vRetourBtn.href = this.aTextes.lien_retour; 
+            vRetourBtn.textContent = this.aTextes.boutons.retour_texte;
+            vRetourBtn.href = this.aTextes.navigation.retour_url; // ← URL configurable
         }
 
-        this.mRemplirElement('vBoutonSuivant', this.aTextes.bouton_suivant);
+        this.mRemplirElement('vBoutonSuivant', this.aTextes.boutons.suivant_texte);
     }
 
     /**
@@ -148,10 +140,10 @@ class CPage1 {
         
         if (vSelectionne) {
             localStorage.setItem('classeSelectionnee', vSelectionne.value);
-            // Redirection vers l'étape 2 : Race
-            window.location.href = this.aTextes.lien_suivant; 
+            // Utilisation de l'URL configurée
+            window.location.href = this.aTextes.navigation.suivant_url;
         } else {
-            alert("Veuillez sélectionner une classe avant de continuer.");
+            alert(this.aTextes.messages.alerte_selection);
         }
     }
     

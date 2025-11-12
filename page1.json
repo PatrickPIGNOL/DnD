@@ -2,22 +2,32 @@
     "page1": {
         "titre_page": "Donjons & Dragons",
         "titre_header": "Choisissez votre Classe",
-                
+        
+        "navigation": {
+            "retour_url": "index.html",
+            "suivant_url": "page2.html"
+        },
+        
         "categories": {
             "tout": "Tout",
             "corps_a_corps": "Corps-à-corps",
-            "distance": "Distance",
+            "distance": "Distance", 
             "magie": "Magie",
             "soutien": "Soutien"
         },
         
         "introduction": "Veuillez sélectionner votre classe.",
         
+        "boutons": {
+            "retour_texte": "Accueil",
+            "suivant_texte": "Suivant"
+        },
         
-        "bouton_retour": "Accueil",
-        "lien_retour": "index.html",
+        "messages": {
+            "chargement": "Chargement des classes...",
+            "alerte_selection": "Veuillez sélectionner une classe avant de continuer."
+        },
         
-        "bouton_suivant": "Suivant",
-        "lien_suivant": "page2.html"
+        "footer_texte": "&copy; 2025 Character Builder"
     }
 }
