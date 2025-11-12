@@ -220,7 +220,7 @@ class CPage3 {
                 <tr id="vDetailRow${vCarac}" class="detail-row">
                     <td style="font-style: italic; color: #888; font-size: 0.9em; text-align: center;">${this.aTextes.detail_bonus.label}</td>
                     <td style="text-align: center; color: #888; font-size: 0.9em;" id="vDetailBonusBase${vCarac}">${vBonusBase > 0 ? '+' : ''}${vBonusBase}</td>
-                    <td style="text-align: center; color: #888; font-size: 0.9em;" id="vDetailBonusRaciaux${vCarac}">+0</td>
+                    <td style="text-align: center; color: #888; font-size: 0.9em;" id="vDetailBonusRaciaux${vCarac}"></td>
                     <td style="text-align: center; font-weight: bold; color: #888; font-size: 0.9em;" id="vDetailBonusTotal${vCarac}">${vBonusBase > 0 ? '+' : ''}${vBonusBase}</td>
                 </tr>
             `
