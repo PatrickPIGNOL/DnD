@@ -4,11 +4,6 @@
         "titre_header": "Choisissez votre Race",
         "titre_section": "Choisissez votre Race",
         
-        "reset": {
-            "label": "Reset",
-            "radio_label": "+0"
-        },
-
         "navigation": {
             "retour_url": "page1.html",
             "suivant_url": "page3.html"

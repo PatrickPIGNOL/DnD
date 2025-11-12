@@ -34,6 +34,11 @@
             "Cha": "Charisme"
         },
         
+        "reset": {
+            "label": "Reset",
+            "radio_label": "+0"
+        },
+        
         "table_headers": {
             "caracteristique": "Caractéristique",
             "score_fixe": "Score Fixe",
