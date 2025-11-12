@@ -47,7 +47,7 @@ class CPage1 {
     /**
      * @brief Rempli les éléments textuels de la page à partir du fichier JSON.
      */
-    RemplirTextes() {
+    mRemplirTextes() {
         if (!this.aTextes) return;
 
         document.title = this.aTextes.titre_page;
