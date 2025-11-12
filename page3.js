@@ -223,7 +223,7 @@ class CPage3 {
             vDetailHTML += `<td style="font-style: italic; color: #888; font-size: 0.9em;">Calcul ${vNomComplet}</td>`
             vDetailHTML += `<td style="background-color: #2a2a2a;"></td>`
             
-            vDetailHTML += `<td colspan="4" style="background-color: #2a2a2a; color: #888; font-size: 0.9em; text-align: center;">`
+            vDetailHTML += `<td style="background-color: #2a2a2a; color: #888; font-size: 0.9em; text-align: center;">`
             vDetailHTML += `<span id="vDetailBonusBase${vCarac}">Base: ${vBonusBase > 0 ? '+' : ''}${vBonusBase}</span>`
             vDetailHTML += `<span> + </span>`
             vDetailHTML += `<span id="vDetailBonusRaciaux${vCarac}">Race: +0</span>`
