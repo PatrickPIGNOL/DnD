@@ -167,7 +167,7 @@ class CPage3 {
         let vResetHTML = ""
         vResetHTML += `<td style="font-weight: bold; text-align: center; background-color: #333; color: white;">Reset</td>`
         vResetHTML += `<td style="background-color: #333;"></td>`
-        vResetHTML += `<td colspan="4" class="race-bonus-cell" style="text-align: center;">`
+        vResetHTML += `<td class="race-bonus-cell" style="text-align: center;">`
         this.aBonusSlots.forEach(pSlot => {
             vResetHTML += `<label style="display: inline-block; margin: 0 5px;">`
             vResetHTML += `<input type="radio" name="${pSlot.name}" value="0" data-bonus="0" id="vRadioReset${pSlot.name}">`
