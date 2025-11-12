@@ -293,43 +293,19 @@ class CPage3 {
         const vNiveau = parseInt(vNiveauSelect.value)
         const vModCon = parseInt(localStorage.getItem('modificateurConstitution') || 0)
         
-        let vHTML = ""
-        let vTotalPV = 0
-        
-        // Ligne PV Niveau 1
+        // Calculs
         const vJetDeVieBase = parseInt(this.aJetDeVie.substring(1))
-        const vPVNiveau1 = vJetDeVieBase + vModCon
-        vTotalPV += vPVNiveau1
+        const vPVMax = (vJetDeVieBase + vModCon) * vNiveau
+        
+        let vHTML = ""
         
         vHTML += `<tr>`
-        vHTML += `<td style="text-align: left;">${this.aTextes.calcul_pv.pv_base_niveau_1.replace('{jetDeVie}', this.aJetDeVie)}</td>`
-        vHTML += `<td style="text-align: center;">${vJetDeVieBase}</td>`
+        vHTML += `<td style="text-align: center;">${this.aJetDeVie} (${vJetDeVieBase})</td>`
         vHTML += `<td style="text-align: center;">${vModCon > 0 ? '+' : ''}${vModCon}</td>`
-        vHTML += `<td class="final-hp-value">${vPVNiveau1}</td>`
-        vHTML += `</tr>`
-
-        // Ligne PV par Niveaux suivants (si niveau > 1)
-        if (vNiveau > 1) {
-            const vNiveauxSuivants = vNiveau - 1
-            const vPVJetParNiveau = Math.floor(vJetDeVieBase / 2) + 1
-            const vPVParNiveauTotalJet = vPVJetParNiveau * vNiveauxSuivants
-            const vPVParNiveauTotalMod = vModCon * vNiveauxSuivants
-            
-            vTotalPV += vPVParNiveauTotalJet + vPVParNiveauTotalMod
-            
-            vHTML += `<tr>`
-            vHTML += `<td style="text-align: left;">${this.aTextes.calcul_pv.pv_par_niveaux.replace('{niveaux}', vNiveauxSuivants).replace('{niveauMax}', vNiveau)}</td>`
-            vHTML += `<td style="text-align: center;">${vPVJetParNiveau} x ${vNiveauxSuivants} = ${vPVParNiveauTotalJet}</td>`
-            vHTML += `<td style="text-align: center;">${vModCon} x ${vNiveauxSuivants} = ${vPVParNiveauTotalMod > 0 ? '+' : ''}${vPVParNiveauTotalMod}</td>`
-            vHTML += `<td class="final-hp-value">${vPVParNiveauTotalJet + vPVParNiveauTotalMod}</td>`
-            vHTML += `</tr>`
-        }
-
-        // Ligne Total
-        vHTML += `<tr>`
-        vHTML += `<td style="font-weight: bold; text-align: left;">${this.aTextes.calcul_pv.total_pv}</td>`
-        vHTML += `<td colspan="2" style="background-color: #333;"></td>`
-        vHTML += `<td class="final-hp-value">${vTotalPV}</td>`
+        vHTML += `<td style="text-align: center;">${vNiveau}</td>`
+        vHTML += `<td style="text-align: center; font-weight: bold; font-size: 1.2em;">`
+        vHTML += `((${vJetDeVieBase} + ${vModCon > 0 ? '+' : ''}${vModCon}) × ${vNiveau}) = ${vPVMax}`
+        vHTML += `</td>`
         vHTML += `</tr>`
         
         vTableBody.innerHTML = vHTML

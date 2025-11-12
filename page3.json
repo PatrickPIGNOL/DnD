@@ -23,7 +23,7 @@
         "bonus_mod_description": "Vous avez 4 points de race (+1 chacun) à distribuer sur les Caractéristiques de votre choix.",
         
         "section_carac_titre": "Vos Caractéristiques",
-        "section_pv_titre": "Points de Vie (PV) - Calcul détaillé",
+        "section_pv_titre": "Points de Vie (PV) - Calcul",
         
         "caracteristiques": {
             "For": "Force",
@@ -38,17 +38,24 @@
             "label": "Reset",
             "radio_label": "+0"
         },
-        
+
         "table_headers": {
             "caracteristique": "Caractéristique",
-            "score_fixe": "Score Fixe",
+            "score_fixe": "Score",
             "allocation_bonus": "Allocation des +1 (4 Choix Max)",
-            "score_total": "Score Total", 
+            "score_total": "Score Final", 
             "modificateur": "Mod.",
             "detail_calcul": "Détail du Calcul",
             "jet_de_vie": "Jet de Vie",
             "mod_con": "Mod. CON",
             "pv_obtenus": "PV Obtenus"
+        },
+
+        "table_pv_headers": {
+            "de_vie": "Dé de vie",
+            "bonus_constitution": "Bonus de constitution", 
+            "niveau_personnage": "Niveau du personnage",
+            "pv_max": "Points de vie Max"
         },
         
         "calcul_pv": {
