@@ -77,6 +77,12 @@ class CPage3 {
         this.mRemplirElement('vSectionBonusTitre', this.aTextes.section_bonus_titre)
         this.mRemplirElement('vBonusModTitre', this.aTextes.bonus_mod_titre)
         this.mRemplirElement('vBonusModDescription', this.aTextes.bonus_mod_description)
+
+        this.mRemplirElement('vCaracHeaderCaracteristique', this.aTextes.table_headers.caracteristique)
+        this.mRemplirElement('vCaracHeaderScoreFixe', this.aTextes.table_headers.score_fixe)
+        this.mRemplirElement('vCaracHeaderAllocation', this.aTextes.table_headers.allocation_bonus)
+        this.mRemplirElement('vCaracHeaderScoreTotal', this.aTextes.table_headers.score_total)
+        this.mRemplirElement('vCaracHeaderModificateur', this.aTextes.table_headers.modificateur)
         
         // Section Caractéristiques
         this.mRemplirElement('vSectionCaracTitre', this.aTextes.section_carac_titre)
