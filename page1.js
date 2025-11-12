@@ -51,17 +51,22 @@ class CPage1 {
         if (!this.aTextes) return;
 
         document.title = this.aTextes.titre_page;
-        this.mRemplirElement('vHeaderTitre', this.aTextes.titre_header);
+        
+        this.mRemplirElement('vHeaderTitre', this.aTextes.titre_page);
         this.mRemplirElement('vPageTitre', this.aTextes.titre_header);
         this.mRemplirElement('vPageIntroduction', this.aTextes.introduction);
 
+        // Footer avec HTML
         const vFooter = document.getElementById('vFooterTexte');
-        if (vFooter) vFooter.innerHTML = this.aTextes.footer_texte;
+        if (vFooter) {
+            vFooter.innerHTML = this.aTextes.footer_texte;
+        }
         
+        // CONFIGURATION DU BOUTON RETOUR - CORRECTION ICI
         const vRetourBtn = document.getElementById('vBoutonRetour');
-        if (vRetourBtn) {
+        if (vRetourBtn && this.aTextes.navigation) {
             vRetourBtn.textContent = this.aTextes.boutons.retour_texte;
-            vRetourBtn.href = this.aTextes.navigation.retour_url; // ← URL configurable
+            vRetourBtn.href = this.aTextes.navigation.retour_url; // ← URL depuis JSON
         }
 
         this.mRemplirElement('vBoutonSuivant', this.aTextes.boutons.suivant_texte);
@@ -157,6 +162,161 @@ class CPage1 {
             if (vRadio) {
                 vRadio.checked = true;
                 this.mActiverBoutonSuivant(true);
+            }
+        }
+    }
+    mGenererTableCaracteristiques() {
+        const vTableBody = document.getElementById('vCaracTableBody')
+        if (!vTableBody || !this.aScoresFixes || !this.aTextes) return
+
+        vTableBody.innerHTML = ""
+
+        let vId = 0
+        
+        // Ligne de reset pour les bonus
+        vId++
+        const vResetRow = document.createElement('tr')
+        vResetRow.id = 'vResetRow'
+        
+        let vResetHTML = ""
+        vResetHTML += `<td style="font-weight: bold; text-align: center; background-color: #333; color: white;">Réinitialiser</td>`
+        vResetHTML += `<td style="background-color: #333;"></td>` // Colonne score fixe vide
+        vResetHTML += `<td colspan="4" class="race-bonus-cell" style="text-align: center;">`
+        this.aBonusSlots.forEach(pSlot => {
+            vResetHTML += `<label style="display: inline-block; margin: 0 5px;">`
+            vResetHTML += `<input type="radio" name="${pSlot.name}" value="0" data-bonus="0" id="vRadioReset${pSlot.name}"`
+            vResetHTML += `>`
+            vResetHTML += `<span>${pSlot.label}</span>`
+            vResetHTML += `</label>`
+        })
+        vResetHTML += `</td>`
+        vResetHTML += `<td style="background-color: #333;"></td>` // Colonne score total vide
+        vResetHTML += `<td style="background-color: #333;"></td>` // Colonne modificateur vide
+
+        vResetRow.innerHTML = vResetHTML
+        vTableBody.appendChild(vResetRow)
+
+        // Ligne séparatrice
+        const vSeparatorRow = document.createElement('tr')
+        vSeparatorRow.innerHTML = `<td colspan="8" style="height: 2px; background-color: #444; padding: 0;"></td>`
+        vTableBody.appendChild(vSeparatorRow)
+
+        // Génération des lignes de caractéristiques
+        for (const vCarac in this.aTextes.caracteristiques) {
+            vId++
+            const vNomComplet = this.aTextes.caracteristiques[vCarac]
+            const vScoreFixe = this.aScoresFixes[vNomComplet]
+            const vModificateurInitial = this.mCalculerModificateur(vScoreFixe)
+
+            // Ligne PRINCIPALE (Score + Radios)
+            const vMainRow = document.createElement('tr')
+            vMainRow.id = `vMainRow${vCarac}`
+            
+            let vMainHTML = ""
+            vMainHTML += `<td style="font-weight: bold;">${vNomComplet}</td>`
+            vMainHTML += `<td id="vScoreFixe${vCarac}" class="score-fixe-valeur">${vScoreFixe}</td>`
+            
+            // Les 4 radios
+            vMainHTML += `<td colspan="4" class="race-bonus-cell">`
+            this.aBonusSlots.forEach(pSlot => {
+                vMainHTML += `<label>`
+                vMainHTML += `<input type="radio" name="${pSlot.name}" value="${vId}" data-bonus="${pSlot.bonus}" id="vRadio${vCarac}${pSlot.name}"`
+                vMainHTML += `>`
+                vMainHTML += `<span>${pSlot.label}</span>`
+                vMainHTML += `</label>`
+            })
+            vMainHTML += `</td>`
+            
+            vMainHTML += `<td id="vScoreTotal${vCarac}" class="vScoreTotal">${vScoreFixe}</td>`
+            vMainHTML += `<td id="vModificateur${vCarac}" class="mod-total-value">${vModificateurInitial > 0 ? '+' : ''}${vModificateurInitial}</td>`
+
+            vMainRow.innerHTML = vMainHTML
+            vTableBody.appendChild(vMainRow)
+
+            // Ligne DÉTAIL (Calcul des bonus)
+            const vDetailRow = document.createElement('tr')
+            vDetailRow.id = `vDetailRow${vCarac}`
+            vDetailRow.className = 'detail-row'
+            
+            const vBonusBase = this.mCalculerModificateur(vScoreFixe)
+            const vBonusRaciaux = 0 // Initialisé à 0, sera mis à jour par mCalculerTotal()
+            
+            let vDetailHTML = ""
+            vDetailHTML += `<td style="font-style: italic; color: #888; font-size: 0.9em;">Détail ${vNomComplet}</td>`
+            vDetailHTML += `<td style="background-color: #2a2a2a;"></td>` // Colonne vide sous score fixe
+            
+            // Colonne détail des bonus
+            vDetailHTML += `<td colspan="4" style="background-color: #2a2a2a; color: #888; font-size: 0.9em;">`
+            vDetailHTML += `<div style="display: flex; justify-content: space-around; text-align: center;">`
+            vDetailHTML += `<span id="vDetailBonusBase${vCarac}">Base: ${vBonusBase > 0 ? '+' : ''}${vBonusBase}</span>`
+            vDetailHTML += `<span> + </span>`
+            vDetailHTML += `<span id="vDetailBonusRaciaux${vCarac}">Race: +0</span>`
+            vDetailHTML += `<span> = </span>`
+            vDetailHTML += `<span id="vDetailBonusTotal${vCarac}" style="font-weight: bold;">Total: ${vBonusBase > 0 ? '+' : ''}${vBonusBase}</span>`
+            vDetailHTML += `</div>`
+            vDetailHTML += `</td>`
+            
+            vDetailHTML += `<td style="background-color: #2a2a2a;"></td>` // Colonne vide sous score total
+            vDetailHTML += `<td style="background-color: #2a2a2a;"></td>` // Colonne vide sous modificateur
+
+            vDetailRow.innerHTML = vDetailHTML
+            vTableBody.appendChild(vDetailRow)
+        }
+        
+        // Configuration des écouteurs d'événements
+        document.querySelectorAll('input[type="radio"]').forEach(pRadio => {
+            pRadio.addEventListener('change', () => {
+                this.mCalculerTotal()
+                this.mGenererTablePV()
+                this.mSauvegarder()
+            })
+        })
+    }
+
+    mCalculerTotal() {
+        if (!this.aScoresFixes) return
+
+        let vTotalBonus = {}
+        for (let vId = 1; vId <= 6; vId++) {
+            vTotalBonus[vId] = 0
+        }
+
+        // Calcul des bonus par caractéristique
+        this.aBonusSlots.forEach(pSlot => {
+            const vRadio = document.querySelector(`input[name="${pSlot.name}"]:checked`)
+            if (vRadio && vRadio.value !== "0") { // Ignorer les reset (value="0")
+                const vCaracId = parseInt(vRadio.value)
+                const vBonus = parseInt(vRadio.dataset.bonus)
+                
+                if (vCaracId >= 1 && vCaracId <= 6) {
+                    vTotalBonus[vCaracId] += vBonus
+                }
+            }
+        })
+
+        // Mise à jour des scores et détails
+        let vIndex = 0
+        for (const vCarac in this.aTextes.caracteristiques) {
+            vIndex++
+            const vNomComplet = this.aTextes.caracteristiques[vCarac]
+            const vScoreFixe = this.aScoresFixes[vNomComplet]
+            const vBonus = vTotalBonus[vIndex]
+            
+            const vScoreTotal = vScoreFixe + vBonus
+            const vModificateur = this.mCalculerModificateur(vScoreTotal)
+            const vBonusBase = this.mCalculerModificateur(vScoreFixe)
+            
+            // Mise à jour des valeurs principales
+            this.mRemplirElement(`vScoreTotal${vCarac}`, vScoreTotal)
+            this.mRemplirElement(`vModificateur${vCarac}`, `${vModificateur > 0 ? '+' : ''}${vModificateur}`)
+
+            // Mise à jour des détails
+            this.mRemplirElement(`vDetailBonusBase${vCarac}`, `Base: ${vBonusBase > 0 ? '+' : ''}${vBonusBase}`)
+            this.mRemplirElement(`vDetailBonusRaciaux${vCarac}`, `Race: +${vBonus}`)
+            this.mRemplirElement(`vDetailBonusTotal${vCarac}`, `Total: ${vModificateur > 0 ? '+' : ''}${vModificateur}`)
+
+            if (vCarac === 'Con') {
+                localStorage.setItem('modificateurConstitution', vModificateur)
             }
         }
     }
