@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title> 
+    <title id="vPageTitle"></title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,58 +13,71 @@
 
     <main>
         <section>
-            <h2 id="vNiveauTitre"></h2> 
-            <form id="levelSelectionForm">
-                <label for="vNiveauSelect" id="vNiveauLabel"></label>
-                <select id="vNiveauSelect"></select>
-            </form>
-            
-            <hr>
+            <h2 id="vSectionNiveauTitre"></h2>
 
-            <h2 id="vRecapRaceTitre"></h2>
-            <div id="vRecapRaceContainer">
-                <p id="vBonusChargement"></p>
+            <div class="niveau-selection" style="display: flex; gap: 20px; align-items: center; margin-bottom: 20px;">
+                <label for="vSelectNiveau" id="vSelectNiveauLabel"></label>
+                <select id="vSelectNiveau"></select>
             </div>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2 id="vSectionCaracTitre"></h2>
             
-            <hr>
+            <h3 id="vBonusModTitre"></h3>
+            <p id="vBonusModDescription">
+                Sélectionnez 4 bonus (+1) au total, un par colonne, à travers les caractéristiques.
+            </p>
 
-            <h2 id="vBonusAllocationTitre"></h2>
-            <p id="vBonusAllocationDescription"></p>
-            
-            <div id="vBonusAllocationContainer">
-                <div id="vBonusResetRow">
-                    </div>
-            </div>
-
-            <hr>
-
-            <h2 id="vCaracTitre"></h2>
             <table class="caracteristiques-table">
                 <thead>
                     <tr>
-                        <th>Caractéristique</th>
-                        <th>Score de base (8-15)</th>
-                        <th>Bonus Race (Fixe)</th>
-                        <th>Bonus Race (Alloué)</th>
-                        <th>Total</th>
-                        <th>Modificateur</th>
+                        <th style="width: 15%;">Caractéristique</th>
+                        <th style="width: 10%;">Score Fixe</th>
+                        <th colspan="4" style="width: 35%; text-align: center;">Allocation des +1 (4 Choix Max)</th>
+                        <th style="width: 10%;">Score Total</th>
+                        <th style="width: 10%;">Mod.</th>
                     </tr>
                 </thead>
                 <tbody id="vCaracTableBody">
                     </tbody>
             </table>
-            
-            <hr>
-            
-            <div class="navigation-buttons">
-                <a id="vBoutonRetour" class="secondary-button"></a>
-                <button type="button" id="vNextButton"></button>
+        </section>
+        
+        <hr>
+        
+        <section>
+            <div class="hp-block">
+                <h3>Points de Vie (PV) - Calcul détaillé</h3>
+                <table class="hp-calculation-table" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th style="width: 50%; text-align: left;">Détail du Calcul</th>
+                            <th style="width: 15%; text-align: center;">Jet de Vie</th>
+                            <th style="width: 15%; text-align: center;">Mod. CON</th>
+                            <th style="width: 20%; text-align: center;">PV Obtenus</th>
+                        </tr>
+                    </thead>
+                    <tbody id="vHPTableBody">
+                        </tbody>
+                </table>
             </div>
         </section>
+
+        <hr>
+
+        <div class="navigation-buttons">
+            <a id="vBoutonRetour" href="page2.html" class="secondary-button"></a>
+            
+            <button id="vNextButton" type="button" disabled>
+                </button>
+        </div>
     </main>
-    
+
     <footer>
-        <p id="vFooterTexte"></p> 
+        <p id="vFooterTexte"></p>
     </footer>
 
     <script src="page3.js"></script>
