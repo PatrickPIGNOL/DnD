@@ -149,45 +149,91 @@ class CPage3 {
 
     mGenererTableCaracteristiques() {
         const vTableBody = document.getElementById('vCaracTableBody')
-        if (!vTableBody || !this.aScoresFixes) return
+        if (!vTableBody || !this.aScoresFixes || !this.aTextes) return
 
         vTableBody.innerHTML = ""
 
         let vId = 0
-        for (const vCarac in this.aTextes.caracteristiques) { //
+
+        // LIGNE DE RESET
+        const vResetRow = document.createElement('tr')
+        vResetRow.id = 'vResetRow'
+        
+        let vResetHTML = ""
+        vResetHTML += `<td style="font-weight: bold; text-align: center; background-color: #333; color: white;">Reset</td>`
+        vResetHTML += `<td style="background-color: #333;"></td>`
+        vResetHTML += `<td colspan="4" class="race-bonus-cell" style="text-align: center;">`
+        this.aBonusSlots.forEach(pSlot => {
+            vResetHTML += `<label style="display: inline-block; margin: 0 5px;">`
+            vResetHTML += `<input type="radio" name="${pSlot.name}" value="0" data-bonus="0" id="vRadioReset${pSlot.name}">`
+            vResetHTML += `<span>${pSlot.label}</span>`
+            vResetHTML += `</label>`
+        })
+        vResetHTML += `</td>`
+        vResetHTML += `<td style="background-color: #333;"></td>`
+        vResetHTML += `<td style="background-color: #333;"></td>`
+
+        vResetRow.innerHTML = vResetHTML
+        vTableBody.appendChild(vResetRow)
+
+        // Générateur des caractéristiques
+        for (const vCarac in this.aTextes.caracteristiques) {
             vId++
-            const vNomComplet = this.aTextes.caracteristiques[vCarac] //
-            const vScoreFixe = this.aScoresFixes[vNomComplet] //
+            const vNomComplet = this.aTextes.caracteristiques[vCarac]
+            const vScoreFixe = this.aScoresFixes[vNomComplet]
             const vModificateurInitial = this.mCalculerModificateur(vScoreFixe)
 
-            const vRow = document.createElement('tr')
-            vRow.id = `vRow${vCarac}`
+            // LIGNE 1 : Caractéristique normale
+            const vMainRow = document.createElement('tr')
+            vMainRow.id = `vMainRow${vCarac}`
             
-            let vHTML = ""
-
-            vHTML += `<td style="font-weight: bold;">${vNomComplet}</td>`
+            let vMainHTML = ""
+            vMainHTML += `<td style="font-weight: bold;">${vNomComplet}</td>`
+            vMainHTML += `<td id="vScoreFixe${vCarac}" class="score-fixe-valeur">${vScoreFixe}</td>`
             
-            vHTML += `<td id="vScoreFixe${vCarac}" class="score-fixe-valeur">${vScoreFixe}</td>`
-            
-            // Les 4 radios sont en ligne grâce au CSS, mais gèrent les slots 1 à 4 verticalement
-            vHTML += `<td colspan="4" class="race-bonus-cell">`
+            vMainHTML += `<td colspan="4" class="race-bonus-cell">`
             this.aBonusSlots.forEach(pSlot => {
-                vHTML += `<label>`
-                vHTML += `<input type="radio" name="${pSlot.name}" value="${vId}" data-bonus="${pSlot.bonus}" id="vRadio${vCarac}${pSlot.name}"`
-                vHTML += `>`
-                vHTML += `<span>${pSlot.label}</span>`
-                vHTML += `</label>`
+                vMainHTML += `<label>`
+                vMainHTML += `<input type="radio" name="${pSlot.name}" value="${vId}" data-bonus="${pSlot.bonus}" id="vRadio${vCarac}${pSlot.name}">`
+                vMainHTML += `<span>${pSlot.label}</span>`
+                vMainHTML += `</label>`
             })
-            vHTML += `</td>`
+            vMainHTML += `</td>`
             
-            vHTML += `<td id="vScoreTotal${vCarac}" class="vScoreTotal">${vScoreFixe}</td>`
-            
-            vHTML += `<td id="vModificateur${vCarac}" class="mod-total-value">${vModificateurInitial > 0 ? '+' : ''}${vModificateurInitial}</td>`
+            vMainHTML += `<td id="vScoreTotal${vCarac}" class="vScoreTotal">${vScoreFixe}</td>`
+            vMainHTML += `<td id="vModificateur${vCarac}" class="mod-total-value">${vModificateurInitial > 0 ? '+' : ''}${vModificateurInitial}</td>`
 
-            vRow.innerHTML = vHTML
-            vTableBody.appendChild(vRow)
+            vMainRow.innerHTML = vMainHTML
+            vTableBody.appendChild(vMainRow)
+
+            // LIGNE 2 : Détail des calculs (NOUVELLE LIGNE)
+            const vDetailRow = document.createElement('tr')
+            vDetailRow.id = `vDetailRow${vCarac}`
+            vDetailRow.className = 'detail-row'
+            
+            // Calcul du bonus de base selon VOTRE formule
+            const vBonusBase = Math.floor((vScoreFixe / 2) - 4.5)
+            
+            let vDetailHTML = ""
+            vDetailHTML += `<td style="font-style: italic; color: #888; font-size: 0.9em;">Calcul ${vNomComplet}</td>`
+            vDetailHTML += `<td style="background-color: #2a2a2a;"></td>`
+            
+            vDetailHTML += `<td colspan="4" style="background-color: #2a2a2a; color: #888; font-size: 0.9em; text-align: center;">`
+            vDetailHTML += `<span id="vDetailBonusBase${vCarac}">Base: ${vBonusBase > 0 ? '+' : ''}${vBonusBase}</span>`
+            vDetailHTML += `<span> + </span>`
+            vDetailHTML += `<span id="vDetailBonusRaciaux${vCarac}">Race: +0</span>`
+            vDetailHTML += `<span> = </span>`
+            vDetailHTML += `<span id="vDetailBonusTotal${vCarac}" style="font-weight: bold;">Total: ${vBonusBase > 0 ? '+' : ''}${vBonusBase}</span>`
+            vDetailHTML += `</td>`
+            
+            vDetailHTML += `<td style="background-color: #2a2a2a;"></td>`
+            vDetailHTML += `<td style="background-color: #2a2a2a;"></td>`
+
+            vDetailRow.innerHTML = vDetailHTML
+            vTableBody.appendChild(vDetailRow)
         }
         
+        // Écouteurs d'événements
         document.querySelectorAll('input[type="radio"]').forEach(pRadio => {
             pRadio.addEventListener('change', () => {
                 this.mCalculerTotal()
