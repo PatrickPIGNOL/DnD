@@ -62,23 +62,53 @@ class CPage3 {
     }
 
     mRemplirTextes() {
-        if (!this.aTextes) return;
+        if (!this.aTextes) return
 
-        document.title = this.aTextes.titre_page;
-        this.mRemplirElement('vPageTitle', this.aTextes.titre_page);
-        this.mRemplirElement('vHeaderTitre', this.aTextes.titre_header);
-        // ... autres remplissages ...
+        // Titres principaux
+        document.title = this.aTextes.titre_page
+        this.mRemplirElement('vPageTitle', this.aTextes.titre_page)
+        this.mRemplirElement('vHeaderTitre', this.aTextes.titre_header)
         
-        const vBoutonRetour = document.getElementById('vBoutonRetour');
-        if (vBoutonRetour) {
-            vBoutonRetour.textContent = this.aTextes.boutons.retour_texte;
-            vBoutonRetour.href = this.aTextes.navigation.retour_url; // ← URL configurable
+        // Section Niveau
+        this.mRemplirElement('vSectionNiveauTitre', this.aTextes.section_niveau_titre)
+        this.mRemplirElement('vSelectNiveauLabel', this.aTextes.select_niveau_label)
+        
+        // Section Bonus Race
+        this.mRemplirElement('vSectionBonusTitre', this.aTextes.section_bonus_titre)
+        this.mRemplirElement('vBonusModTitre', this.aTextes.bonus_mod_titre)
+        this.mRemplirElement('vBonusModDescription', this.aTextes.bonus_mod_description)
+        
+        // Section Caractéristiques
+        this.mRemplirElement('vSectionCaracTitre', this.aTextes.section_carac_titre)
+        
+        // Boutons
+        this.mRemplirElement('vBoutonRetour', this.aTextes.boutons.retour_texte)
+        this.mRemplirElement('vNextButton', this.aTextes.boutons.suivant_texte)
+        
+        // Footer
+        const vFooterTexte = document.getElementById('vFooterTexte')
+        if (vFooterTexte) {
+            vFooterTexte.innerHTML = this.aTextes.footer_texte
+        }
+        
+        // Titre de la section PV (qui est en dur dans le HTML)
+        const vSectionPV = document.querySelector('.hp-block h3')
+        if (vSectionPV && this.aTextes.section_pv_titre) {
+            vSectionPV.textContent = this.aTextes.section_pv_titre
+        }
+        
+        // Configuration de la navigation
+        const vBoutonRetour = document.getElementById('vBoutonRetour')
+        if (vBoutonRetour && this.aTextes.navigation) {
+            vBoutonRetour.href = this.aTextes.navigation.retour_url
         }
 
-        this.mRemplirElement('vNextButton', this.aTextes.boutons.suivant_texte);
-        
-        const vFooterTexte = document.getElementById('vFooterTexte');
-        if (vFooterTexte) vFooterTexte.innerHTML = this.aTextes.footer_texte;
+        const vBoutonSuivant = document.getElementById('vNextButton')
+        if (vBoutonSuivant) {
+            vBoutonSuivant.addEventListener('click', (pEvent) => {
+                this.mPasserEtape(pEvent)
+            })
+        }
     }
     
     mRemplirElement(pId, pTexte) {

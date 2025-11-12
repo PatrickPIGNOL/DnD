@@ -4,7 +4,7 @@
         "titre_header": "⚔️ Niveau de Départ & Caractéristiques",
         
         "navigation": {
-            "retour_url": "page2.html", 
+            "retour_url": "page2.html",
             "suivant_url": "page4.html"
         },
         
@@ -14,12 +14,11 @@
         "niveau_options": {
             "1": "1", "2": "2", "3": "3", "4": "4", "5": "5",
             "6": "6", "7": "7", "8": "8", "9": "9", "10": "10",
-            "11": "11", "12": "12", "13": "13", "14": "14", "15": "15", 
+            "11": "11", "12": "12", "13": "13", "14": "14", "15": "15",
             "16": "16", "17": "17", "18": "18", "19": "19", "20": "20"
         },
         
         "section_bonus_titre": "Récapitulatif des Bonus de Race",
-        "bonus_chargement": "Chargement des bonus de race...",
         "bonus_mod_titre": "Allocation des points de Caractéristique (Race)",
         "bonus_mod_description": "Vous avez 4 points de race (+1 chacun) à distribuer sur les Caractéristiques de votre choix.",
         
@@ -27,25 +26,29 @@
         "section_pv_titre": "Points de Vie (PV) - Calcul détaillé",
         
         "caracteristiques": {
-            "For": "Force", "Dex": "Dextérité", "Con": "Constitution",
-            "Int": "Intelligence", "Sag": "Sagesse", "Cha": "Charisme"
+            "For": "Force",
+            "Dex": "Dextérité",
+            "Con": "Constitution", 
+            "Int": "Intelligence",
+            "Sag": "Sagesse",
+            "Cha": "Charisme"
         },
         
         "table_headers": {
             "caracteristique": "Caractéristique",
-            "score_fixe": "Score Fixe", 
+            "score_fixe": "Score Fixe",
             "allocation_bonus": "Allocation des +1 (4 Choix Max)",
-            "score_total": "Score Total",
+            "score_total": "Score Total", 
             "modificateur": "Mod.",
             "detail_calcul": "Détail du Calcul",
-            "jet_de_vie": "Jet de Vie", 
+            "jet_de_vie": "Jet de Vie",
             "mod_con": "Mod. CON",
             "pv_obtenus": "PV Obtenus"
         },
         
         "calcul_pv": {
             "pv_base_niveau_1": "PV de Base au Niveau 1 (Jet Max {jetDeVie})",
-            "pv_par_niveaux": "PV par Niveaux {niveaux} (Niv 2 à {niveauMax})", 
+            "pv_par_niveaux": "PV par Niveaux {niveaux} (Niv 2 à {niveauMax})",
             "total_pv": "Total Points de Vie (PV Max)"
         },
         
