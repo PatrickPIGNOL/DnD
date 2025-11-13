@@ -52,10 +52,12 @@ class CPage3 {
         }
 
         this.aBonusSlots = []
-        
+
         // DEBUG: Vérifions le contenu de bonus
         console.log("Bonus array:", vRaceBonus.bonus)
         console.log("NombreSlots:", vRaceBonus.nombreSlots)
+        const vCaracAssignee = vNomsCaracs[pSlot.caracAssigned] || "Aucune"
+        console.log(`[${vNomComplet}] Slot ${pSlot.name} -> Assigné à: ${vCaracAssignee}, checked: ${vChecked}`)
 
         // Créer exactement nombreSlots cases +1
         for (let i = 0; i < vRaceBonus.nombreSlots; i++) {
@@ -67,10 +69,10 @@ class CPage3 {
             this.aBonusSlots.push({
                 name: `augmtcarac${i + 1}`,
                 bonus: 1,
-                label: "+1", 
+                label: "+1",
                 visible: true,
                 enabled: vRaceBonus.type === "choix",
-                caracForce: vBonusFixe ? this.aCaracMap[vBonusFixe.carac] : null
+                caracAssigned: vBonusFixe ? this.aCaracMap[vBonusFixe.carac] : null  // ← NOM CORRIGÉ
             })
         }
 
@@ -259,8 +261,9 @@ class CPage3 {
             
             this.aBonusSlots.forEach(pSlot => {
                 if (pSlot.visible) {
+                    console.log(`[${vNomComplet}] Slot ${pSlot.name} -> caracForce: ${pSlot.caracForce}, checked: ${vChecked}`)
                     const vDisabled = !pSlot.enabled ? 'disabled' : ''
-                    const vChecked = (!pSlot.enabled && pSlot.caracForce === vId) ? 'checked' : ''
+                    const vChecked = (pSlot.caracAssigned === vId) ? 'checked' : ''
                     
                     vMainHTML += `
                         <label>
