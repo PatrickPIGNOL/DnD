@@ -78,6 +78,12 @@ class CPage3 {
                 enabled: false
             })
         }
+        // ✅ AJOUTEZ CES LIGNES :
+        console.log("=== DEBUG CONFIGURATION SLOTS ===")
+        console.log("Race:", this.aRaceSelectionnee.nom)
+        console.log("Bonus config:", vRaceBonus)
+        console.log("Slots générés:", this.aBonusSlots)
+        console.log("========================")
     }
 
     async mChargerDonnees() {
