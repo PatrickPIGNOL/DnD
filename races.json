@@ -827,9 +827,9 @@
             "type": "choix",
             "nombreSlots": 3,
             "bonus": [
+                {"carac": "Force", "valeur": 1},
                 {"carac": "Constitution", "valeur": 1},
-                {"carac": "Constitution", "valeur": 1},
-                {"carac": "Force", "valeur": 1}
+                {"carac": "Constitution", "valeur": 1}
             ]
         }
     },
@@ -842,10 +842,10 @@
             "type": "choix",
             "nombreSlots": 4,
             "bonus": [
-                {"carac": "Constitution", "valeur": 1},
-                {"carac": "Constitution", "valeur": 1},
                 {"carac": "Force", "valeur": 1},
-                {"carac": "Force", "valeur": 1}
+                {"carac": "Force", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1}
             ]
         }
     },
