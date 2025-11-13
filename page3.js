@@ -220,7 +220,7 @@ class CPage3 {
         this.aBonusSlots.forEach(pSlot => {
             if (pSlot.visible) {
                 // ✅ AJOUTEZ CES LIGNES DE DEBUG :
-                console.log(`Carac: ${vNomComplet} (ID:${vId}) | Slot: ${pSlot.name} | caracForce: ${pSlot.caracForce} | Checked: ${vChecked}`)
+                //console.log(`Carac: ${vNomComplet} (ID:${vId}) | Slot: ${pSlot.name} | caracForce: ${pSlot.caracForce} | Checked: ${vChecked}`)
 
                 vResetHTML += `<label style="display: inline-block; margin: 0 5px;">`
                 vResetHTML += `<input type="radio" name="${pSlot.name}" value="0" data-bonus="0" id="vRadioReset${pSlot.name}">`
