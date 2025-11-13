@@ -52,17 +52,24 @@ class CPage3 {
         }
 
         this.aBonusSlots = []
+        
+        // DEBUG: Vérifions le contenu de bonus
+        console.log("Bonus array:", vRaceBonus.bonus)
+        console.log("NombreSlots:", vRaceBonus.nombreSlots)
 
         // Créer exactement nombreSlots cases +1
         for (let i = 0; i < vRaceBonus.nombreSlots; i++) {
             const vBonusFixe = vRaceBonus.bonus[i]
             
+            // DEBUG: Vérifions chaque bonus
+            console.log(`Slot ${i}:`, vBonusFixe)
+            
             this.aBonusSlots.push({
                 name: `augmtcarac${i + 1}`,
                 bonus: 1,
-                label: "+1",
+                label: "+1", 
                 visible: true,
-                enabled: vRaceBonus.type === "choix",  // ← SIMPLE : choix = true, fixe = false
+                enabled: vRaceBonus.type === "choix",
                 caracForce: vBonusFixe ? this.aCaracMap[vBonusFixe.carac] : null
             })
         }
