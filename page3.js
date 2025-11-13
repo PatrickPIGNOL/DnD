@@ -46,25 +46,16 @@ class CPage3 {
         
         if (!vRaceBonus) {
             this.aBonusSlots = [
-                { name: "augmtcarac1", bonus: 1, label: "+1", visible: true, enabled: true }
+                { name: "augmtcarac1", bonus: 1, label: "+1", visible: true, enabled: true, caracAssigned: null }
             ]
             return
         }
 
         this.aBonusSlots = []
 
-        // DEBUG: Vérifions le contenu de bonus
-        console.log("Bonus array:", vRaceBonus.bonus)
-        console.log("NombreSlots:", vRaceBonus.nombreSlots)
-        const vCaracAssignee = vNomsCaracs[pSlot.caracAssigned] || "Aucune"
-        console.log(`[${vNomComplet}] Slot ${pSlot.name} -> Assigné à: ${vCaracAssignee}, checked: ${vChecked}`)
-
         // Créer exactement nombreSlots cases +1
         for (let i = 0; i < vRaceBonus.nombreSlots; i++) {
             const vBonusFixe = vRaceBonus.bonus[i]
-            
-            // DEBUG: Vérifions chaque bonus
-            console.log(`Slot ${i}:`, vBonusFixe)
             
             this.aBonusSlots.push({
                 name: `augmtcarac${i + 1}`,
@@ -76,7 +67,7 @@ class CPage3 {
             })
         }
 
-        // Reset invisibles pour compléter à 6 max
+        // Reset invisibles
         const vTotalSlots = Math.max(6, this.aBonusSlots.length)
         for (let i = this.aBonusSlots.length; i < vTotalSlots; i++) {
             this.aBonusSlots.push({
@@ -84,15 +75,10 @@ class CPage3 {
                 bonus: 0,
                 label: "+0",
                 visible: false,
-                enabled: false
+                enabled: false,
+                caracAssigned: null
             })
         }
-        // ✅ AJOUTEZ CES LIGNES :
-        console.log("=== DEBUG CONFIGURATION SLOTS ===")
-        console.log("Race:", this.aRaceSelectionnee.nom)
-        console.log("Bonus config:", vRaceBonus)
-        console.log("Slots générés:", this.aBonusSlots)
-        console.log("========================")
     }
 
     async mChargerDonnees() {
@@ -228,13 +214,24 @@ class CPage3 {
         
         this.aBonusSlots.forEach(pSlot => {
             if (pSlot.visible) {
-                // ✅ AJOUTEZ CES LIGNES DE DEBUG :
-                //console.log(`Carac: ${vNomComplet} (ID:${vId}) | Slot: ${pSlot.name} | caracForce: ${pSlot.caracForce} | Checked: ${vChecked}`)
-
-                vResetHTML += `<label style="display: inline-block; margin: 0 5px;">`
-                vResetHTML += `<input type="radio" name="${pSlot.name}" value="0" data-bonus="0" id="vRadioReset${pSlot.name}">`
-                vResetHTML += `<span>${this.aTextes.reset.radio_label}</span>`
-                vResetHTML += `</label>`
+                const vDisabled = !pSlot.enabled ? 'disabled' : ''
+                const vChecked = (pSlot.caracAssigned === vId) ? 'checked' : ''
+                
+                // DEBUG avec noms explicites
+                const vNomsCaracs = {
+                    1: "Force", 2: "Dextérité", 3: "Constitution", 
+                    4: "Intelligence", 5: "Sagesse", 6: "Charisme"
+                }
+                const vCaracAssignee = vNomsCaracs[pSlot.caracAssigned] || "Aucune"
+                console.log(`[${vNomComplet}] Slot ${pSlot.name} -> Assigné à: ${vCaracAssignee}, checked: ${vChecked}`)
+                
+                vMainHTML += `
+                    <label>
+                        <input type="radio" name="${pSlot.name}" value="${vId}" data-bonus="${pSlot.bonus}" 
+                            id="vRadio${vCarac}${pSlot.name}" ${vDisabled} ${vChecked}>
+                        <span>${pSlot.label}</span>
+                    </label>
+                `
             }
         })
         
