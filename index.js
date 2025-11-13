@@ -10,6 +10,15 @@ class CIndexPage {
             this.mRemplirTextes();
         });
     }
+    
+    mDemarrerNouvelleCreation() {
+        // Vider tout le localStorage
+        localStorage.clear()
+        console.log("✅ Cache vidé - Nouvelle création de personnage")
+        
+        // Rediriger vers la page 1
+        window.location.href = "page1.html"
+    }
 
     async mChargerDonnees() {
         try {
@@ -46,35 +55,35 @@ class CIndexPage {
      * @brief Génère la section de démarrage (Étapes en tant que cartes individuelles).
      */
     mGenererSectionDemarrage() {
-        // CORRECTION : S'assurer que vSection est défini
-        const vSection = document.getElementById('adventure-start-section'); 
-        
-        if (!vSection) {
-            console.error("mGenererSectionDemarrage - Élément 'adventure-start-section' introuvable.");
-            return;
-        }
+        const vSection = document.getElementById('adventure-start-section')
+        if (!vSection) return
 
-        const vData = this.aTextes;
+        let vHTMLContent = ''
 
-        let vHTMLContent = ''; 
-
-        // Remplacer l'ancienne grille par des sections individuelles
         this.aTextes.sections.forEach(pSection => {
-            const vTarget = pSection.external ? 'target="_blank"' : ''; 
-            const vBoutonText = pSection.bouton_texte; 
-
-            // Chaque étape est maintenant son propre cadre (<section>) utilisant la nouvelle classe CSS
+            let vLienHTML = ''
+            
+            if (pSection.external) {
+                vLienHTML = `<a href="${pSection.lien}" target="_blank" class="button-link">${pSection.bouton_texte}</a>`
+            } else {
+                // ✅ MODIFICATION ICI : Ajouter l'effacement du cache pour la création de personnage
+                if (pSection.lien === "page1.html") {
+                    vLienHTML = `<a href="${pSection.lien}" onclick="oIndexPage.mDemarrerNouvelleCreation(); return false;" class="button-link">${pSection.bouton_texte}</a>`
+                } else {
+                    vLienHTML = `<a href="${pSection.lien}" class="button-link">${pSection.bouton_texte}</a>`
+                }
+            }
+            
             vHTMLContent += `
                 <section class="etape-item-card">
                     <h2>${pSection.titre}</h2>
                     <p>${pSection.description}</p>
-                    <a href="${pSection.lien}" ${vTarget} class="button-link">${vBoutonText}</a>
+                    ${vLienHTML}
                 </section>
-            `;
-        });
+            `
+        })
         
-        // C'est à cette ligne (environ 100) que l'erreur se produisait
-        vSection.innerHTML = vHTMLContent; 
+        vSection.innerHTML = vHTMLContent
     }
     /**
      * @brief Génère le contenu de la table des ressources.
