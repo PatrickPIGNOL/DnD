@@ -40,7 +40,7 @@
             "bonus": [
                 {"carac": "Charisme", "valeur": 1},
                 {"carac": "Charisme", "valeur": 1},
-                {"carac": "Sagesse", "valeur": 1}
+                {"carac": "Sagesse", "valeur": 1},
             ]
         }
     },
@@ -306,8 +306,8 @@
             "type": "choix",
             "nombreSlots": 3,
             "bonus": [
-                {"carac": "Force", "valeur": 1},
-                {"carac": "Force", "valeur": 1},
+                {"carac": "Force", "valeur": 1}
+                {"carac": "Force", "valeur": 1}
                 {"carac": "Dextérité", "valeur": 1}
             ]
         }
