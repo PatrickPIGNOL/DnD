@@ -216,14 +216,7 @@ class CPage3 {
             if (pSlot.visible) {
                 const vDisabled = !pSlot.enabled ? 'disabled' : ''
                 const vChecked = (pSlot.caracAssigned === vId) ? 'checked' : ''
-                
-                // DEBUG avec noms explicites
-                const vNomsCaracs = {
-                    1: "Force", 2: "Dextérité", 3: "Constitution", 
-                    4: "Intelligence", 5: "Sagesse", 6: "Charisme"
-                }
                 const vCaracAssignee = vNomsCaracs[pSlot.caracAssigned] || "Aucune"
-                console.log(`[${vNomComplet}] Slot ${pSlot.name} -> Assigné à: ${vCaracAssignee}, checked: ${vChecked}`)
                 
                 vMainHTML += `
                     <label>
@@ -248,14 +241,6 @@ class CPage3 {
             const vScoreFixe = this.aScoresFixes[vNomComplet]
             const vBonusBase = Math.floor((vScoreFixe / 2) - 4.5)
 
-            // ✅ DEBUG: Définir vNomsCaracs ICI, dans la boucle
-            const vNomsCaracs = {
-                1: "Force", 2: "Dextérité", 3: "Constitution", 
-                4: "Intelligence", 5: "Sagesse", 6: "Charisme"
-            }
-
-            console.log(`=== TRAITEMENT ${vNomComplet} (ID:${vId}) ===`)
-
             // LIGNE 1 : Caractéristique
             let vMainHTML = `
                 <tr id="vMainRow${vCarac}">
@@ -268,11 +253,7 @@ class CPage3 {
                 if (pSlot.visible) {
                     const vDisabled = !pSlot.enabled ? 'disabled' : ''
                     const vChecked = (pSlot.caracAssigned === vId) ? 'checked' : ''
-                    
-                    // ✅ MAINTENANT vNomComplet est défini
-                    const vCaracAssignee = vNomsCaracs[pSlot.caracAssigned] || "Aucune"
-                    console.log(`[${vNomComplet}] Slot ${pSlot.name} -> Assigné à: ${vCaracAssignee}, checked: ${vChecked}`)
-                    
+                                        
                     vMainHTML += `
                         <label>
                             <input type="radio" name="${pSlot.name}" value="${vId}" data-bonus="${pSlot.bonus}" 
