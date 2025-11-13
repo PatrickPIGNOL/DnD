@@ -94,17 +94,16 @@ class CPage1 {
                             <tr>
                                 <td rowspan="2" class="radio-cell" style="text-align: center; vertical-align: middle;">
                                     <input type="radio" name="classe" value="${pClasse.nom}" onclick="oCPage1.mActiverBoutonSuivant(true)">
-                                </td>
+                                </td>                            
                                 
-                                <td colspan="2" class="classe-header-title">
+                                <td rowspan="2" class="classe-image-cell">
+                                    <img src="${pClasse.image_url}" alt="Image de la classe ${pClasse.nom}" class="classe-image">
+                                </td>
+                                <td class="classe-header-title">
                                     ${pClasse.nom}
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="classe-image-cell">
-                                    <img src="${pClasse.image_url}" alt="Image de la classe ${pClasse.nom}" class="classe-image">
-                                </td>
-                                
+                            <tr>                                
                                 <td class="classe-description-cell">
                                     <div class="classe-description">
                                         ${pClasse.description_html}
