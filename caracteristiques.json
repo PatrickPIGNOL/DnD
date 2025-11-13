@@ -24,7 +24,7 @@
             "Dextérité": 8,
             "Constitution": 13,
             "Intelligence": 10,
-            "Sagesse": 16,
+            "Sagesse": 15,
             "Charisme": 12
         },
         "Druide": {
@@ -33,7 +33,7 @@
             "Dextérité": 12,
             "Constitution": 14,
             "Intelligence": 13,
-            "Sagesse": 16,
+            "Sagesse": 15,
             "Charisme": 10
         },
         "Guerrier": {
