@@ -201,40 +201,37 @@ class CPage3 {
 
         vTableBody.innerHTML = ""
 
-        let vId = 0
-
-        // Ligne de RESET
-        const vResetRow = document.createElement('tr')
-        vResetRow.id = 'vResetRow'
+        // 1. Créer les radioboutons de reset + tous cochés
+        let vResetHTML = `
+            <tr id="vResetRow">
+                <td style="font-weight: bold; text-align: center; background-color: #333; color: white;">${this.aTextes.reset.label}</td>
+                <td style="background-color: #333;"></td>
+                <td colspan="4" class="race-bonus-cell" style="text-align: center;">
+        `
         
-        let vResetHTML = ""
-        vResetHTML += `<td style="font-weight: bold; text-align: center; background-color: #333; color: white;">${this.aTextes.reset.label}</td>`
-        vResetHTML += `<td style="background-color: #333;"></td>`
-        vResetHTML += `<td class="race-bonus-cell" style="text-align: center;">`
-        
-        this.aBonusSlots.forEach(pSlot => {
-            if (pSlot.visible) {
-                vResetHTML += `<label style="display: inline-block; margin: 0 5px;">`
-                vResetHTML += `<input type="radio" name="${pSlot.name}" value="0" data-bonus="0" id="vRadioReset${pSlot.name}">`
-                vResetHTML += `<span>${this.aTextes.reset.radio_label}</span>`
-                vResetHTML += `</label>`
+        for (let vIndex = 0; vIndex < this.aBonusSlots.length; vIndex++) {
+            if (this.aBonusSlots[vIndex].visible) {
+                vResetHTML += `
+                    <label style="display: inline-block; margin: 0 5px;">
+                        <input type="radio" name="augmtcarac${vIndex + 1}" value="0" data-bonus="0" checked>
+                        <span>${this.aTextes.reset.radio_label}</span>
+                    </label>
+                `
             }
-        })
+        }
         
-        vResetHTML += `</td>`
-        vResetHTML += `<td style="background-color: #333;"></td>`
+        vResetHTML += `</td><td style="background-color: #333;"></td></tr>`
+        vTableBody.innerHTML = vResetHTML
 
-        vResetRow.innerHTML = vResetHTML
-        vTableBody.appendChild(vResetRow)
-
-        // Génération des caractéristiques
+        // 2. Pour chaque caractéristique
+        let vId = 0
         for (const vCarac in this.aTextes.caracteristiques) {
             vId++
             const vNomComplet = this.aTextes.caracteristiques[vCarac]
             const vScoreFixe = this.aScoresFixes[vNomComplet]
             const vBonusBase = Math.floor((vScoreFixe / 2) - 4.5)
 
-            // LIGNE 1 : Caractéristique
+            // Créer la ligne de donnée
             let vMainHTML = `
                 <tr id="vMainRow${vCarac}">
                     <td style="font-weight: bold;">${vNomComplet}</td>
@@ -242,20 +239,23 @@ class CPage3 {
                     <td class="race-bonus-cell">
             `
             
-            this.aBonusSlots.forEach(pSlot => {
+            // Pour chaque slot
+            for (let vIndex = 0; vIndex < this.aBonusSlots.length; vIndex++) {
+                const pSlot = this.aBonusSlots[vIndex]
                 if (pSlot.visible) {
                     const vDisabled = !pSlot.enabled ? 'disabled' : ''
-                    const vChecked = (pSlot.caracAssigned === vId) ? 'checked' : ''
-                                        
+                    // Coche si cette position correspond à cette caractéristique
+                    const vChecked = (pSlot.caracForce === vId) ? 'checked' : ''
+                    
                     vMainHTML += `
                         <label>
-                            <input type="radio" name="${pSlot.name}" value="${vId}" data-bonus="${pSlot.bonus}" 
-                                id="vRadio${vCarac}${pSlot.name}" ${vDisabled} ${vChecked}>
+                            <input type="radio" name="augmtcarac${vIndex + 1}" value="${vId}" data-bonus="${pSlot.bonus}" 
+                                ${vDisabled} ${vChecked}>
                             <span>${pSlot.label}</span>
                         </label>
                     `
                 }
-            })  
+            }
             
             vMainHTML += `
                     </td>
@@ -263,9 +263,9 @@ class CPage3 {
                 </tr>
             `
 
-            // LIGNE 2 : Détail des bonus
+            // Ligne détail
             let vDetailHTML = `
-                <tr id="vDetailRow${vCarac}" class="detail-row">
+                <tr class="detail-row">
                     <td style="font-style: italic; color: #888; font-size: 0.9em; text-align: center;">${this.aTextes.detail_bonus.label}</td>
                     <td style="text-align: center; color: #888; font-size: 0.9em;" id="vDetailBonusBase${vCarac}">${vBonusBase > 0 ? '+' : ''}${vBonusBase}</td>
                     <td style="background-color: #2a2a2a;"></td>
