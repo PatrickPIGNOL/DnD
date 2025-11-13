@@ -206,7 +206,7 @@ class CPage3 {
             <tr id="vResetRow">
                 <td style="font-weight: bold; text-align: center; background-color: #333; color: white;">${this.aTextes.reset.label}</td>
                 <td style="background-color: #333;"></td>
-                <td colspan="4" class="race-bonus-cell" style="text-align: center;">
+                <td class="race-bonus-cell" style="text-align: center;">
         `
         
         for (let vIndex = 0; vIndex < this.aBonusSlots.length; vIndex++) {
