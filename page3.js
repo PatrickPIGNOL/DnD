@@ -4,6 +4,8 @@ class CPage3 {
     aScoresFixes
     aClasseSelectionnee
     aJetDeVie
+    aRaceSelectionnee
+    aBonusSlots = []
 
     aCaracMap = {
         "Force": 1, 
@@ -14,24 +16,20 @@ class CPage3 {
         "Charisme": 6
     }
     
-    aBonusSlots = [
-        { name: "augmtcarac1", bonus: 1, label: "+1" },
-        { name: "augmtcarac2", bonus: 1, label: "+1" },
-        { name: "augmtcarac3", bonus: 1, label: "+1" },
-        { name: "augmtcarac4", bonus: 1, label: "+1" } 
-    ]
-
     constructor() {
         this.mInitialiserPage()
     }
 
     mInitialiserPage() {
         this.aClasseSelectionnee = localStorage.getItem('classeSelectionnee')
+        this.aRaceSelectionnee = JSON.parse(localStorage.getItem('raceSelectionnee') || '{}')
+        
         if (!this.aClasseSelectionnee) {
-            console.error("Classe non trouvée. Redirection vers page 1.")
             window.location.href = "page1.html"
             return
         }
+
+        this.mConfigurerBonusSlots()
 
         this.mChargerDonnees().then(() => {
             this.mRemplirTextes()
@@ -41,6 +39,45 @@ class CPage3 {
             this.mChargerSauvegarde()
             this.mCalculerTotal()
         })
+    }
+    
+    mConfigurerBonusSlots() {
+        const vRaceBonus = this.aRaceSelectionnee.bonusCarac
+        
+        if (!vRaceBonus) {
+            this.aBonusSlots = [
+                { name: "augmtcarac1", bonus: 1, label: "+1", visible: true, enabled: true }
+            ]
+            return
+        }
+
+        this.aBonusSlots = []
+
+        // Créer exactement nombreSlots cases +1
+        for (let i = 0; i < vRaceBonus.nombreSlots; i++) {
+            const vBonusFixe = vRaceBonus.bonus[i]
+            
+            this.aBonusSlots.push({
+                name: `augmtcarac${i + 1}`,
+                bonus: 1,
+                label: "+1",
+                visible: true,
+                enabled: vRaceBonus.type === "choix",  // ← SIMPLE : choix = true, fixe = false
+                caracForce: vBonusFixe ? this.aCaracMap[vBonusFixe.carac] : null
+            })
+        }
+
+        // Reset invisibles pour compléter à 6 max
+        const vTotalSlots = Math.max(6, this.aBonusSlots.length)
+        for (let i = this.aBonusSlots.length; i < vTotalSlots; i++) {
+            this.aBonusSlots.push({
+                name: `augmtcarac${i + 1}`,
+                bonus: 0,
+                label: "+0",
+                visible: false,
+                enabled: false
+            })
+        }
     }
 
     async mChargerDonnees() {
@@ -165,34 +202,38 @@ class CPage3 {
 
         let vId = 0
 
-        // LIGNE DE RESET
+        // Ligne de RESET
         const vResetRow = document.createElement('tr')
         vResetRow.id = 'vResetRow'
         
         let vResetHTML = ""
-        vResetHTML += `<td>Reset</td>`
-        vResetHTML += `<td></td>`
+        vResetHTML += `<td style="font-weight: bold; text-align: center; background-color: #333; color: white;">${this.aTextes.reset.label}</td>`
+        vResetHTML += `<td style="background-color: #333;"></td>`
         vResetHTML += `<td class="race-bonus-cell" style="text-align: center;">`
+        
         this.aBonusSlots.forEach(pSlot => {
-            vResetHTML += `<label style="display: inline-block; margin: 0 2px;">`
-            vResetHTML += `<input type="radio" name="${pSlot.name}" value="0" data-bonus="0" id="vRadioReset${pSlot.name}">`
-            vResetHTML += `<span>${this.aTextes.reset.radio_label}</span>`
-            vResetHTML += `</label>`
+            if (pSlot.visible) {
+                vResetHTML += `<label style="display: inline-block; margin: 0 5px;">`
+                vResetHTML += `<input type="radio" name="${pSlot.name}" value="0" data-bonus="0" id="vRadioReset${pSlot.name}">`
+                vResetHTML += `<span>${this.aTextes.reset.radio_label}</span>`
+                vResetHTML += `</label>`
+            }
         })
+        
         vResetHTML += `</td>`
-        vResetHTML += `<td></td>`
+        vResetHTML += `<td style="background-color: #333;"></td>`
 
         vResetRow.innerHTML = vResetHTML
         vTableBody.appendChild(vResetRow)
 
-        // Génération des caractéristiques avec LIGNES DOUBLES
+        // Génération des caractéristiques
         for (const vCarac in this.aTextes.caracteristiques) {
             vId++
             const vNomComplet = this.aTextes.caracteristiques[vCarac]
             const vScoreFixe = this.aScoresFixes[vNomComplet]
             const vBonusBase = Math.floor((vScoreFixe / 2) - 4.5)
 
-            // LIGNE 1 : Caractéristique normale
+            // LIGNE 1 : Caractéristique
             let vMainHTML = `
                 <tr id="vMainRow${vCarac}">
                     <td style="font-weight: bold;">${vNomComplet}</td>
@@ -201,17 +242,23 @@ class CPage3 {
             `
             
             this.aBonusSlots.forEach(pSlot => {
-                vMainHTML += `
-                    <label>
-                        <input type="radio" name="${pSlot.name}" value="${vId}" data-bonus="${pSlot.bonus}" id="vRadio${vCarac}${pSlot.name}">
-                        <span>${pSlot.label}</span>
-                    </label>
-                `
+                if (pSlot.visible) {
+                    const vDisabled = !pSlot.enabled ? 'disabled' : ''
+                    const vChecked = (!pSlot.enabled && pSlot.caracForce === vId) ? 'checked' : ''
+                    
+                    vMainHTML += `
+                        <label>
+                            <input type="radio" name="${pSlot.name}" value="${vId}" data-bonus="${pSlot.bonus}" 
+                                id="vRadio${vCarac}${pSlot.name}" ${vDisabled} ${vChecked}>
+                            <span>${pSlot.label}</span>
+                        </label>
+                    `
+                }
             })
             
             vMainHTML += `
                     </td>
-                    <td id="vScoreTotal${vCarac}" class="vScoreTotal">${vScoreFixe}</td>
+                    <td id="vScoreTotal${vCarac}" class="vScoreTotal" style="font-weight: bold;">${vScoreFixe}</td>
                 </tr>
             `
 
@@ -220,7 +267,7 @@ class CPage3 {
                 <tr id="vDetailRow${vCarac}" class="detail-row">
                     <td style="font-style: italic; color: #888; font-size: 0.9em; text-align: center;">${this.aTextes.detail_bonus.label}</td>
                     <td style="text-align: center; color: #888; font-size: 0.9em;" id="vDetailBonusBase${vCarac}">${vBonusBase > 0 ? '+' : ''}${vBonusBase}</td>
-                    <td style="text-align: center; color: #888; font-size: 0.9em;" id="vDetailBonusRaciaux${vCarac}"></td>
+                    <td style="background-color: #2a2a2a;"></td>
                     <td style="text-align: center; font-weight: bold; color: #888; font-size: 0.9em;" id="vDetailBonusTotal${vCarac}">${vBonusBase > 0 ? '+' : ''}${vBonusBase}</td>
                 </tr>
             `
