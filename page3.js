@@ -214,17 +214,10 @@ class CPage3 {
         
         this.aBonusSlots.forEach(pSlot => {
             if (pSlot.visible) {
-                const vDisabled = !pSlot.enabled ? 'disabled' : ''
-                const vChecked = (pSlot.caracAssigned === vId) ? 'checked' : ''
-                const vCaracAssignee = vNomsCaracs[pSlot.caracAssigned] || "Aucune"
-                
-                vMainHTML += `
-                    <label>
-                        <input type="radio" name="${pSlot.name}" value="${vId}" data-bonus="${pSlot.bonus}" 
-                            id="vRadio${vCarac}${pSlot.name}" ${vDisabled} ${vChecked}>
-                        <span>${pSlot.label}</span>
-                    </label>
-                `
+                vResetHTML += `<label style="display: inline-block; margin: 0 5px;">`
+                vResetHTML += `<input type="radio" name="${pSlot.name}" value="0" data-bonus="0" id="vRadioReset${pSlot.name}">`
+                vResetHTML += `<span>${this.aTextes.reset.radio_label}</span>`
+                vResetHTML += `</label>`
             }
         })
         
