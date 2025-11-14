@@ -12,9 +12,15 @@ class CIndexPage {
     }
     
     mDemarrerNouvelleCreation() {
-        // Vider tout le localStorage
+        // Vider TOUTES les données de personnage
+        localStorage.removeItem('classeSelectionnee')
+        localStorage.removeItem('raceSelectionnee') 
+        localStorage.removeItem('niveauSelectionne')
+        localStorage.removeItem('bonusRaceSelectionnes')
+        localStorage.removeItem('modificateurConstitution')
         localStorage.clear()
-        console.log("✅ Cache vidé - Nouvelle création de personnage")
+        
+        console.log("✅ Données personnage vidées - Nouvelle création")
         
         // Rediriger vers la page 1
         window.location.href = "page1.html"

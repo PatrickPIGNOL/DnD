@@ -120,14 +120,14 @@ class CPage2 {
      * @brief Charge la sélection depuis le localStorage si elle existe.
      */
     mChargerSauvegarde() {
-        const vSauvegardeRaw = localStorage.getItem('raceSelectionnee');
+        const vSauvegardeRaw = localStorage.getItem('raceSelectionnee')
         if (vSauvegardeRaw) {
-            const vSauvegarde = JSON.parse(vSauvegardeRaw);
-            
-            const vRadio = document.querySelector(`input[name="race"][value="${vSauvegarde.nom}"]`);
+            const vSauvegarde = JSON.parse(vSauvegardeRaw)
+            const vRadio = document.querySelector(`input[name="race"][value="${vSauvegarde.nom}"]`)
             if (vRadio) {
-                vRadio.checked = true;
-                this.aRaceSelectionnee = vSauvegarde; // Restaurer l'objet sélectionné
+                vRadio.checked = true
+                this.aRaceSelectionnee = vSauvegarde
+                this.mMettreAJourAffichageSelection()
             }
         }
     }
