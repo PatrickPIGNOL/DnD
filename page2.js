@@ -120,15 +120,24 @@ class CPage2 {
      * @brief Charge la sélection depuis le localStorage si elle existe.
      */
     mChargerSauvegarde() {
-        const vSauvegardeRaw = localStorage.getItem('raceSelectionnee')
-        if (vSauvegardeRaw) {
-            const vSauvegarde = JSON.parse(vSauvegardeRaw)
+        const vClasseSauvegardee = localStorage.getItem('classeSelectionnee')
+        const vRaceSauvegardee = localStorage.getItem('raceSelectionnee')
+        
+        if (vClasseSauvegardee && vRaceSauvegardee) {
+            const vSauvegarde = JSON.parse(vRaceSauvegardee)
             const vRadio = document.querySelector(`input[name="race"][value="${vSauvegarde.nom}"]`)
             if (vRadio) {
                 vRadio.checked = true
                 this.aRaceSelectionnee = vSauvegarde
                 this.mMettreAJourAffichageSelection()
             }
+        } else {
+            // ✅ Décocher TOUTES les races si données incomplètes
+            document.querySelectorAll('input[name="race"]').forEach(radio => {
+                radio.checked = false
+            })
+            this.aRaceSelectionnee = null
+            this.mMettreAJourAffichageSelection()
         }
     }
 

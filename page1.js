@@ -162,6 +162,12 @@ class CPage1 {
                 vRadio.checked = true;
                 this.mActiverBoutonSuivant(true);
             }
+        } else {
+            // ✅ Décocher TOUTES les classes si pas de sauvegarde
+            document.querySelectorAll('input[name="classe"]').forEach(radio => {
+                radio.checked = false
+            })
+            this.mActiverBoutonSuivant(false)
         }
     }
     mGenererTableCaracteristiques() {

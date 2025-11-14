@@ -369,15 +369,24 @@ class CPage3 {
     }
     
     mChargerSauvegarde() {
-        const vSauvegarde = JSON.parse(localStorage.getItem('bonusRaceSelectionnes'))
+        const vSauvegarde = JSON.parse(localStorage.getItem('bonusRaceSelectionnes') || '{}')
         
-        if (vSauvegarde) {
+        if (Object.keys(vSauvegarde).length > 0) {
+            // Charger les bonus depuis la sauvegarde
             this.aBonusSlots.forEach(pSlot => {
-                const vNomSlot = pSlot.name
-                const vValue = vSauvegarde[vNomSlot]
-                
+                const vValue = vSauvegarde[pSlot.name]
                 if (vValue) {
-                    const vRadio = document.querySelector(`input[name="${vNomSlot}"][value="${vValue}"]`)
+                    const vRadio = document.querySelector(`input[name="${pSlot.name}"][value="${vValue}"]`)
+                    if (vRadio) {
+                        vRadio.checked = true
+                    }
+                }
+            })
+        } else {
+            // ✅ SINON : Pré-sélectionner avec les données fraîches de la race
+            this.aBonusSlots.forEach(pSlot => {
+                if (pSlot.caracForce) {
+                    const vRadio = document.querySelector(`input[name="${pSlot.name}"][value="${pSlot.caracForce}"]`)
                     if (vRadio) {
                         vRadio.checked = true
                     }
