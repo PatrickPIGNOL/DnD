@@ -5,21 +5,22 @@
 /* 1. STYLES DE BASE & TYPOGRAPHIE (Fond Noir, Thème Rouge/Noir) */
 /* ========================================================================= */
 body {
-    font-family: 'Roboto Slab', serif; /* ← NOUVELLE POLICE TEXTE NORMAL */
+    font-family: 'Roboto Slab', serif; /* Texte normal */
     margin: 0;
     padding: 0;
-    background-color: #111; /* FOND DE PAGE NOIR */
-    color: #ccc; /* Texte de base clair */
+    background-color: #111;
+    color: #ccc;
     line-height: 1.6;
 }
 
-/* HEADER : FOND ROUGE */
+/* HEADER : FOND ROUGE - Cinzel */
 header {
-    background-color: #c0392b; /* ROUGE VIF pour le header */
+    background-color: #c0392b;
     color: white; 
     padding: 20px 0;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    font-family: 'Cinzel', serif; /* ← CINZEL POUR HEADER */
 }
 
 main {
@@ -45,6 +46,7 @@ h1, h2, h3 {
     margin-top: 20px;
     font-weight: 700; 
 }
+
 header h1 {
     color: white; 
     border-bottom: none; /* Pas de bordure pour le header */
@@ -282,11 +284,8 @@ button:disabled {
     text-align: left; 
 }
 
-/* Score Fixe en Rouge */
 .score-fixe-valeur {
-    color: #c0392b; 
-    font-weight: bold;
-    font-size: 1.1em;
+    color: #c0392b; /* Score fixe en rouge */
 }
 
 /* ========================================================================= */
@@ -321,9 +320,7 @@ button:disabled {
 }
 
 .final-hp-value {
-    font-size: 1.6em;
-    font-weight: bold;
-    color: #eee; 
+    color: #eee; /* PV en blanc */
     background-color: #444;
 }
 
