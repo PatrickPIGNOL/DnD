@@ -9,7 +9,6 @@ class CPage1 {
     mInitialiserPage() {
         this.mChargerDonnees().then(() => {
             this.mRemplirTextes();
-            this.mChargerSauvegarde();
             this.mGenererOptionsClasse();
         });
     }
@@ -77,28 +76,39 @@ class CPage1 {
      * @brief Génère les cartes d'options de classe en utilisant une structure de tableau interne.
      */
     mGenererOptionsClasse() {
-        if (!this.aClasses || this.aClasses.length === 0) return;
+        if (!this.aClasses || this.aClasses.length === 0) {
+            console.warn("Aucune classe à générer. Vérifiez 'classes.json'.");
+            return;
+        }
         
         const vContainer = document.getElementById('vClasseOptionsList');
         if (!vContainer) return; 
 
         vContainer.innerHTML = '';
         
-        // Récupérer la sauvegarde AVANT de générer
-        const vClasseSauvegardee = localStorage.getItem('classeSelectionnee');
-        
         this.aClasses.forEach(pClasse => {
-            const vChecked = (vClasseSauvegardee === pClasse.nom) ? 'checked' : '';
-            
             const vHTML = `
                 <div class="classe-option-card">
                     <label>
                         <table class="classe-layout-table">
                             <tr>
-                                <td rowspan="2" class="radio-cell">
-                                    <input type="radio" name="classe" value="${pClasse.nom}" ${vChecked}>
+                                <td rowspan="2" class="radio-cell" style="text-align: center; vertical-align: middle;">
+                                    <input type="radio" name="classe" value="${pClasse.nom}" onclick="oCPage1.mActiverBoutonSuivant(true)">
+                                </td>                            
+                                
+                                <td rowspan="2" class="classe-image-cell">
+                                    <img src="${pClasse.image_url}" alt="Image de la classe ${pClasse.nom}" class="classe-image">
                                 </td>
-                                <!-- ... reste inchangé ... -->
+                                <td class="classe-header-title">
+                                    ${pClasse.nom}
+                                </td>
+                            </tr>
+                            <tr>                                
+                                <td class="classe-description-cell">
+                                    <div class="classe-description">
+                                        ${pClasse.description_html}
+                                    </div>
+                                </td>
                             </tr>
                         </table>
                     </label>
@@ -107,8 +117,8 @@ class CPage1 {
             vContainer.innerHTML += vHTML;
         });
 
-        // Activer le bouton si une classe est sélectionnée
-        this.mActiverBoutonSuivant(!!vClasseSauvegardee);
+        this.mActiverBoutonSuivant(false); 
+        this.mChargerSauvegarde();
     }
 
     /**
