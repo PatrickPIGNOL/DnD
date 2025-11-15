@@ -2,6 +2,9 @@
     "page1": {
         "titre_page": "Donjons & Dragons",
         "titre_header": "Donjons & Dragons - Générateur de personnage",
+        "titre_section": "Classes",
+        "introduction": "Veuillez sélectionner votre classe.",
+
         
         "navigation": {
             "retour_url": "index.html",
@@ -15,8 +18,6 @@
             "magie": "Magie",
             "soutien": "Soutien"
         },
-        
-        "introduction": "Veuillez sélectionner votre classe.",
         
         "boutons": {
             "retour_texte": "Accueil",

@@ -52,8 +52,8 @@ class CPage1 {
 
         document.title = this.aTextes.titre_page;
         
-        this.mRemplirElement('vHeaderTitre', this.aTextes.titre_page);
-        this.mRemplirElement('vPageTitre', this.aTextes.titre_header);
+        this.mRemplirElement('vHeaderTitre', this.aTextes.titre_header);
+        this.mRemplirElement('vPageTitre', this.aTextes.titre_section);
         this.mRemplirElement('vPageIntroduction', this.aTextes.introduction);
 
         // Footer avec HTML
