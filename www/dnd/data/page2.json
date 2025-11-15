@@ -1,0 +1,36 @@
+{
+    "page2": {
+        "titre_page": "Donjons & Dragons", 
+        "titre_header": "Choisissez votre Race",
+        "titre_section": "Choisissez votre Race",
+        
+        "navigation": {
+            "retour_url": "page1.html",
+            "suivant_url": "page3.html"
+        },
+        
+        "description_section": "La race détermine l'apparence physique de votre personnage, sa longévité, et lui confère des bonus de caractéristiques ainsi que des traits spéciaux.",
+        
+        "categories": {
+            "tout": "Tout",
+            "humanoide": "Humanoïde",
+            "monstrueux": "Monstrueux",
+            "celeste": "Céleste"
+        },
+        
+        "boutons": {
+            "retour_texte": "Retour", 
+            "suivant_texte": "Suivant"
+        },
+        
+        "messages": {
+            "chargement": "Chargement des options de race...",
+            "image_alt": "Image de la race {race}",
+            "selection_vide": "Aucune race sélectionnée",
+            "selection_avec_race": "Race sélectionnée : {race}",
+            "alerte_selection": "Veuillez sélectionner une race avant de continuer."
+        },
+        
+        "footer_texte": "&copy; 2025 Character Builder"
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "page1": {
+        "titre_page": "Donjons & Dragons",
+        "titre_header": "Donjons & Dragons - Générateur de personnage",
+        "titre_section": "Classes",
+        "introduction": "Veuillez sélectionner votre classe.",
+
+        
+        "navigation": {
+            "retour_url": "index.html",
+            "suivant_url": "page2.html"
+        },
+        
+        "categories": {
+            "tout": "Tout",
+            "corps_a_corps": "Corps-à-corps",
+            "distance": "Distance", 
+            "magie": "Magie",
+            "soutien": "Soutien"
+        },
+        
+        "boutons": {
+            "retour_texte": "Accueil",
+            "suivant_texte": "Suivant"
+        },
+        
+        "messages": {
+            "chargement": "Chargement des classes...",
+            "alerte_selection": "Veuillez sélectionner une classe avant de continuer."
+        },
+        
+        "footer_texte": "&copy; 2025 Character Builder"
+    }
+}

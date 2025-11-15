@@ -1,0 +1,28 @@
+# Protection générale
+Options -Indexes
+
+# Protéger l'accès direct aux fichiers sensibles
+<Files "*.json">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "functions.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Empêcher l'accès au dossier includes
+<Files "includes/*">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Réécriture d'URL pour le sous-dossier dnd
+RewriteEngine On
+RewriteBase /dnd/
+
+# Rediriger vers index.php si le fichier n'existe pas
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [L]

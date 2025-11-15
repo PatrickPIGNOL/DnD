@@ -1,0 +1,77 @@
+{
+    "page3": {
+        "titre_page": "Donjons & Dragons",
+        "titre_header": "⚔️ Niveau de Départ & Caractéristiques",
+        
+        "navigation": {
+            "retour_url": "page2.html",
+            "suivant_url": "page4.html"
+        },
+        
+        "section_niveau_titre": "Niveau de Départ",
+        "select_niveau_label": "Sélectionnez le niveau de départ :",
+        
+        "niveau_options": {
+            "1": "1", "2": "2", "3": "3", "4": "4", "5": "5",
+            "6": "6", "7": "7", "8": "8", "9": "9", "10": "10",
+            "11": "11", "12": "12", "13": "13", "14": "14", "15": "15",
+            "16": "16", "17": "17", "18": "18", "19": "19", "20": "20"
+        },
+        
+        "section_bonus_titre": "Récapitulatif des Bonus de Race",
+        "bonus_mod_description": "Vous avez 4 points de race (+1 chacun) à distribuer sur les Caractéristiques de votre choix.",
+        
+        "section_carac_titre": "Vos Caractéristiques",
+        
+        "caracteristiques": {
+            "For": "Force",
+            "Dex": "Dextérité",
+            "Con": "Constitution", 
+            "Int": "Intelligence",
+            "Sag": "Sagesse",
+            "Cha": "Charisme"
+        },
+        
+        "reset": {
+            "label": "Reset",
+            "radio_label": "+0"
+        },
+
+        "detail_bonus": {
+            "label": "Modificateur"
+        },
+
+        "table_headers": {
+            "caracteristique": "Caractéristique",
+            "score_fixe": "Score / Bonus de base",
+            "allocation_bonus": "Bonus de race",
+            "score_total": "Score Final", 
+            "detail_calcul": "Détail du Calcul",
+            "jet_de_vie": "Jet de Vie",
+            "mod_con": "Mod. CON",
+            "pv_obtenus": "PV Obtenus"
+        },
+
+        "section_pv_titre": "Points de Vie Max (PVMax)",
+     
+        "table_pv_headers": {
+            "de_vie": "Dé de vie",
+            "bonus_constitution": "Bonus de constitution", 
+            "niveau_personnage": "Niveau du personnage",
+            "pv_max": "Points de vie Max"
+        },
+
+        "calcul_pv": {
+            "pv_base_niveau_1": "PV de Base au Niveau 1 (Jet Max {jetDeVie})",
+            "pv_par_niveaux": "PV par Niveaux {niveaux} (Niv 2 à {niveauMax})",
+            "total_pv": "Total Points de Vie (PV Max)"
+        },
+        
+        "boutons": {
+            "retour_texte": "Retour",
+            "suivant_texte": "Suivant (Historique)"
+        },
+        
+        "footer_texte": "&copy; 2025 Character Builder"
+    }
+}

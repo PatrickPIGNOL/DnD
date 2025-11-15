@@ -1,0 +1,3 @@
+# Bloquer tout accès direct au dossier data
+Order Deny,Allow
+Deny from all

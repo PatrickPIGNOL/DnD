@@ -1,0 +1,1080 @@
+[
+    {
+        "nom": "Aarakocre",
+        "categorie": "humanoide",
+        "description_courte": "Piégés dans les hautes montagnes au sommet de grands arbres, les aarakocras, parfois appelés oiseliens, évoquent la crainte et l'émerveillement. Beaucoup d'aarakocras ne sont même pas originaires du plan matériel. Ils viennent d'un monde qui se situe au-delà, depuis les panoramas infinis du plan élémentaire de l'Air. Ce sont des immigrants, des réfugiés, des éclaireurs et des explorateurs, leurs avant-postes fonctionnant comme des points d'ancrage dans un monde à la fois étrange et exotique.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Sagesse", "valeur": 1}
+            ]
+        }        
+    },
+    {
+        "nom": "Aasimar Déchu",
+        "categorie": "humanoide",
+        "description_courte": "Les Aasimars sont le reflet inversé des Tieffelins. Comme ces derniers, les aasimars sont aplanis. Mais alors que les Tieffelins ont dans leurs veines le sang d'une quelconque créature des plans inférieurs, les aasimars sont les descendants, ou parfois les descendants de descendants, de célestes originaires des Plans Supérieurs. Ces créatures ressemblent en général à de beaux humains avec des cheveux dorés, une peau parfaite, et un regard perçant. On pourrait presque les confondre avec des demi-elfes, ou même de vrais aasimons, pour leur pureté innée et leur gloire inhumaine. La plupart des aasimars sont fidèles à leur ascendance et au sang qui coule dans leurs veines, étant pur de coeur, courageux et honnêtes. Leur noblesse et leur bonté sont légendaires. Néanmoins, quelques uns empaillent et deviennent aussi indignes de confiance qu'une bande de débrouillards qui s'adonnent à la gueuserie.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Force", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Aasimar Protecteur",
+        "categorie": "humanoide",
+        "description_courte": "Les Aasimars sont le reflet inversé des Tieffelins. Comme ces derniers, les aasimars sont aplanis. Mais alors que les Tieffelins ont dans leurs veines le sang d'une quelconque créature des plans inférieurs, les aasimars sont les descendants, ou parfois les descendants de descendants, de célestes originaires des Plans Supérieurs. Ces créatures ressemblent en général à de beaux humains avec des cheveux dorés, une peau parfaite, et un regard perçant. On pourrait presque les confondre avec des demi-elfes, ou même de vrais aasimons, pour leur pureté innée et leur gloire inhumaine. La plupart des aasimars sont fidèles à leur ascendance et au sang qui coule dans leurs veines, étant pur de coeur, courageux et honnêtes. Leur noblesse et leur bonté sont légendaires. Néanmoins, quelques uns empaillent et deviennent aussi indignes de confiance qu'une bande de débrouillards qui s'adonnent à la gueuserie.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Sagesse", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Aasimar Fléau",
+        "categorie": "humanoide",
+        "description_courte": "Les Aasimars sont le reflet inversé des Tieffelins. Comme ces derniers, les aasimars sont aplanis. Mais alors que les Tieffelins ont dans leurs veines le sang d'une quelconque créature des plans inférieurs, les aasimars sont les descendants, ou parfois les descendants de descendants, de célestes originaires des Plans Supérieurs. Ces créatures ressemblent en général à de beaux humains avec des cheveux dorés, une peau parfaite, et un regard perçant. On pourrait presque les confondre avec des demi-elfes, ou même de vrais aasimons, pour leur pureté innée et leur gloire inhumaine. La plupart des aasimars sont fidèles à leur ascendance et au sang qui coule dans leurs veines, étant pur de coeur, courageux et honnêtes. Leur noblesse et leur bonté sont légendaires. Néanmoins, quelques uns empaillent et deviennent aussi indignes de confiance qu'une bande de débrouillards qui s'adonnent à la gueuserie.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Centaure",
+        "categorie": "humanoide",
+        "description_courte": "Les centaures ont le torse, les bras et la tête d'un humain, et le corps d'un cheval. Ces êtres des bois sont des créatures sociables, vivant en groupe de familles organisés en tribus plus grandes. Les tribus survivent par la chasse, la cueillette, la pêche, l'agriculture et le commerce. Ils tendent à éviter les humains, mais commercent souvent avec les elfes pour de la nourriture et du vin.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Force", "valeur": 1},
+                {"carac": "Force", "valeur": 1},
+                {"carac": "Sagesse", "valeur": 1}]
+        }
+    },
+    {
+        "nom": "Changelin",
+        "categorie": "humanoide",
+        "description_courte": "Un changelin peut transformer son visage et son apparence par la pensée. Nombre d'entre-eux utilisent ce don comme une forme d'expression artistique et émotionnelle, mais c'est aussi un outil précieux pour les arnaqueurs, les espions et tous ceux qui veulent tromper. C'est ce qui conduit beaucoup de gens à traiter les changelins avec crainte et suspicion.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Conil",
+        "categorie": "humanoide",
+        "description_courte": "Traversant les étendues sauvages, l'homme-lapin (Conil) de la Féerie incarne un esprit de liberté et de voyage. Les homme-lapins sont bipèdes, avec les pieds longs caractéristiques de l'animal, comme leurs variétés de teintes de fourrure. Ils partagent les sens aigus et les jambes puissantes des léporidés et sont pleins d'énergie, tels des ressorts. Les homme-lapins bénéficient d'un peu de la chance des fées, et ils se trouvent souvent par quelques Pas chanceux hors des dangers lors de leurs aventures.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": []
+        }
+    },
+    {
+        "nom": "Demi-Elf",
+        "categorie": "humanoide",
+        "description_courte": "Fréquentant deux mondes, mais n'appartenant vraiment à aucun des deux, les demi-elfes combinent ce que certains disent être les meilleures qualités de leurs parents elfes et humains : la curiosité et la créativité humaine, et une ambition tempérée par des sens raffinés, l'amour de la nature et les goûts artistiques des elfes. Certains demi-elfes vivent parmi les humains, un peu en marge de par leurs différences physiques et émotionnelles, en regardant vieillir leurs amis et leurs proches alors que le temps les touche à peine. D'autres vivent chez les elfes, devenant adultes alors que leurs pairs continuent de vivre comme des enfants, s'agitant de plus en plus dans ces royaumes elfiques intemporels. Beaucoup d'autres demi-elfes, incapables de s'intégrer dans quelle société que ce soit, choisissent une vie d'errance solitaire, ou rejoignent d'autres marginaux et exclus pour partager une vie d'aventures.",
+        "image_url": "images/races/halfelf.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Dhampire",
+        "categorie": "humanoide",
+        "description_courte": "Coincés entre le monde des vivants et celui des morts, les dhampires conservent leur emprise sur la vie, mais sont mis à rude épreuve par une faim dévorante. Leurs liens avec les morts-vivants donnent aux dhampires un avant-goût des prouesses immortelles d'un vampire sous la forme d'une vitesse accrue, de la vision dans le noir et d'une morsure mortelle. Avec ces aperçus de la nature des morts-vivants, de nombreux dhampires se tournent vers la vie d'aventurier et de chasseur de monstres. Leurs raisons sont souvent très personnelles. Certains cherchent le danger, imaginant les monstres comme des personnifications de leur propre faim. D'autres cherchent à se venger de ce qui les a transformés en dhampire. Et d'autres encore embrassent la solitude de la chasse, s'efforçant de se distancier de ceux qui pourraient tenter leur faim.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": []
+        }
+    },
+    {
+        "nom": "Drakeïde (Sangdragons)",
+        "categorie": "humanoide",
+        "description_courte": "Nés de dragons, comme leur nom le laisse entendre, les drakéides marchent fièrement dans un monde qui les accueille avec une incompréhension craintive. Façonnés par les dieux draconiques ou les dragons eux-mêmes, à l'origine les drakéides ont éclos d'œufs de dragons pour ensuite former une race à part entière qui combine les meilleurs attributs des dragons et des humanoïdes. Certains drakéides sont de fidèles serviteurs des vrais dragons, d'autres forment les rangs des soldats dans de grandes guerres, et d'autres encore se trouvent à la dérive, sans vocation claire dans la vie.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Force", "valeur": 1},
+                {"carac": "Force", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "HearthBound (Flora Colossus/Enth)",
+        "categorie": "humanoide",
+        "description_courte": "Les Timberfolk sont une espèce unique de créatures anthropomorphes en bois, chacune abritant un esprit du Foyer en son sein. Ces êtres sont le résultat d'un rituel occulte mené par de puissants sorciers, un processus qui, combiné à leur durée de vie relativement courte, en fait des créatures rares. De nombreux Timberfolk sont créés pour servir d'apprentis ou d'assistants au sorcier qui les a engendrés. Parallèlement, un nombre équivalent est fabriqué par un groupe connu sous le nom de Gardiens de la Flamme. Fondée il y a plus d'un siècle, l'organisation de la Préservation de la Flamme poursuit un objectif unique : donner un sens à l'existence des Esprits du Foyer égarés. Ces esprits, livrés à eux-mêmes en raison de maisons inhabitées pendant des années ou détruites par des catastrophes naturelles, succombent souvent à l'amertume et à la morosité. Un Esprit du Foyer sans foyer à protéger peut chercher à se venger de ceux qu'il perçoit comme l'ayant abandonné. Les Gardiens du Foyer, créés par la Préservation, offrent à ces esprits une seconde chance, certes brève, de retrouver un but.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": []
+        }
+    },
+    {
+        "nom": "Elfe (Haut)",
+        "categorie": "humanoide",
+        "description_courte": "En tant que haut-elfe, vous avez l'esprit vif et connaissez les rudiments de la magie. Notez qu'il existe deux sortes de hauts-elfes. Les premiers (les elfes du soleil) sont hautains et solitaires, se pensant supérieurs aux non-elfes et même aux autres elfes. Les seconds (les elfes de la lune), plus communs et plus conviviaux, sont souvent rencontrés chez les humains et les autres races. Les elfes du soleil ont la peau de couleur bronze et les cheveux de couleur cuivre, noir ou or. Leurs yeux sont de couleur or, d'argent ou noir. Les elfes de la lune sont beaucoup plus pâles. Ils ont souvent les cheveux blanc-argenté, noir ou bleu, mais diverses nuances de blond, brun et roux ne ​​sont pas rares. Leurs yeux sont bleus ou verts et mouchetés d'or.",
+        "image_url": "images/races/elfe.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Intelligence", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Elfe des Bois",
+        "categorie": "humanoide",
+        "description_courte": "En tant qu'elfe des bois, vous avez des sens aiguisés et une forte intuition. Vous vous déplacez rapidement et discrètement dans vos forêts. Les elfes des bois (également appelés elfes sauvages, elfes verts ou elfes des forêts) sont reclus et méfiants envers les non-elfes. La peau des elfes des bois tend à être cuivrée, parfois avec des traces de vert. Leurs cheveux tendent vers le brun et le noir, mais peuvent parfois aussi être blonds ou cuivrés. Leurs yeux sont verts, bruns ou noisette.",
+        "image_url": "images/races/elfe.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Sagesse", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Elfe des Mers",
+        "categorie": "humanoide",
+        "description_courte": "Bien qu'on ne les rencontre pas aussi souvent que les autres, les elfes aquatiques (ou elfes des mers) sont en fait aussi nombreux que leurs cousins terrestres. Ils patrouillent au fond des océans et des vastes mers intérieures ; et souvent, on le les aperçoit que lorqu'ils jouent avec les dauphins dans les bancs de varech. Les elfes aquatiques possèdent des branchies assez semblables à celles des poissons, grâce auxquelles ils traitent l'oxygène. Ils peuvent également survivre hors de l'eau (en respirant) durant une courte période de temps. Leur peau est généralement d'un vert argenté, de la couleur du plancton existant sur leur territoire. Certains arborent des reflets bleus, mais c'est assez rare. Leurs cheveux sont assortis à leur peau : verts ou bleu-verts. L'effet d'ensemble les rend difficilement repérables sous l'eau, tout spécialement à proximité des bancs de varech. Grâce à leur couleur, ils jouissent de la capacité typiquement elfique de se fondre dans leur environnement naturel.",
+        "image_url": "images/races/elfe.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Elfe des profondeurs (Drow)",
+        "categorie": "humanoide",
+        "description_courte": "Les drows apprécient fortement la magie et les magiciennes sont très respectées. Les magiciens sont craints, ce qui est déjà quelque chose et pousse beaucoup de mâles à emprunter cette voie. Comme ce sont eux qui produisent la magie qui protège la société drow, ils sont une clé majeure de la sécurité des drows. Les drows possèdent également des guerriers et des rôdeurs d'une efficacité effrayante.",
+        "image_url": "images/races/elfe.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Elfe Eladrin printemp",
+        "categorie": "humanoide",
+        "description_courte": "Les éladrins sont des elfes natifs de la Féerie, un royaume où la magie est imprévisible et sans limites. En tant que MD, vous pouvez autoriser vos joueurs à opter pour un éladrin en tant que sous-race elfique à la place d’une autre sous-race proposée dans le Manuel des Joueurs. En tant que créature de la Féerie, un éladrin peut se révéler d’une extravagante imprévisibilité. Ils sont généralement d’alignement chaotique neutre, mariant l’amour de la liberté et l’égocentrisme. Les éladrins d’alignement bon ou mauvais suivent leurs principes à l'extrême, devenant alors de grands défenseurs de la justice ou de terrifiants scélérats. Le printemps est la saison de la gaieté, où l’on célèbre le bris des glaces hivernales qui libère la joie et le bonheur trop longtemps endormis. L’éladrin entre dans cet état lorsqu’il éprouve une joie intense.",
+        "image_url": "images/races/elfe.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Intelligence", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Elfe Eladrin été",
+        "categorie": "humanoide",
+        "description_courte": "Les éladrins sont des elfes natifs de la Féerie, un royaume où la magie est imprévisible et sans limites. En tant que MD, vous pouvez autoriser vos joueurs à opter pour un éladrin en tant que sous-race elfique à la place d’une autre sous-race proposée dans le Manuel des Joueurs. En tant que créature de la Féerie, un éladrin peut se révéler d’une extravagante imprévisibilité. Ils sont généralement d’alignement chaotique neutre, mariant l’amour de la liberté et l’égocentrisme. Les éladrins d’alignement bon ou mauvais suivent leurs principes à l'extrême, devenant alors de grands défenseurs de la justice ou de terrifiants scélérats. L’été est la saison de l’audace et de l’agressivité, le temps où se déchaînent les énergies. Les éladrins adoptent cette personnalité lorsqu’ils ressentent une immense fureur.",
+        "image_url": "images/races/elfe.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Intelligence", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Elfe Eladrin automne",
+        "categorie": "humanoide",
+        "description_courte": "Les éladrins sont des elfes natifs de la Féerie, un royaume où la magie est imprévisible et sans limites. En tant que MD, vous pouvez autoriser vos joueurs à opter pour un éladrin en tant que sous-race elfique à la place d’une autre sous-race proposée dans le Manuel des Joueurs. En tant que créature de la Féerie, un éladrin peut se révéler d’une extravagante imprévisibilité. Ils sont généralement d’alignement chaotique neutre, mariant l’amour de la liberté et l’égocentrisme. Les éladrins d’alignement bon ou mauvais suivent leurs principes à l'extrême, devenant alors de grands défenseurs de la justice ou de terrifiants scélérats. L’automne est la saison de la paix et de la bonne volonté, où l’on partage ensemble les récoltes de l’été. Les éladrins adoptent cette personnalité lorsqu’ils sont emplis de satisfaction.",
+        "image_url": "images/races/elfe.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Intelligence", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Elfe Eladrin hiver",
+        "categorie": "humanoide",
+        "description_courte": "Les éladrins sont des elfes natifs de la Féerie, un royaume où la magie est imprévisible et sans limites. En tant que MD, vous pouvez autoriser vos joueurs à opter pour un éladrin en tant que sous-race elfique à la place d’une autre sous-race proposée dans le Manuel des Joueurs. En tant que créature de la Féerie, un éladrin peut se révéler d’une extravagante imprévisibilité. Ils sont généralement d’alignement chaotique neutre, mariant l’amour de la liberté et l’égocentrisme. Les éladrins d’alignement bon ou mauvais suivent leurs principes à l'extrême, devenant alors de grands défenseurs de la justice ou de terrifiants scélérats. L’hiver est la saison de la douleur, où l’énergie vibrante du monde sommeille. C’est le temps de la tristesse et du regret, où l’éladrin pénètre lorsqu’il est submergé par le chagrin.",
+        "image_url": "images/races/elfe.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Intelligence", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Elfe Shadar-kaï",
+        "categorie": "humanoide",
+        "description_courte": "Ayant prêté serment à la Reine corneille, les mystérieux shadar-kai quittent la Grisombre pour s'aventurer dans le plan Matériel. Autrefois, c'étaient des elfes comme les autres, mais ils existent maintenant dans un état entre la vie et la mort, leur peau pâle et leur corps marqués par des piercings et de sinistres tatouages.",
+        "image_url": "images/races/elfe.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Fadette",
+        "categorie": "humanoide",
+        "description_courte": "La Féerie abrite de nombreux peuples fantastiques, dont les fadettes. Il s'agit d'un petit peuple, mais pas autant que leurs amis lutins et farfadets. Imprégnées de la magie de la Féerie, les fadettes ont quelques points communs entre elles, mais peuvent être très différents en termes d'apparence, de comportement et d'attitude. De nombreux êtres féeriques ont une particularité physique qui les distingue de leurs semblables. Pour choisir cette particularité, lancez un dé sur la table suivante ou bien choisissez directement. La Féerie est un endroit sauvage, alors inventez votre propre particularité physique si aucune ne correspond à votre personnage.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": []
+        }
+    },
+    {
+        "nom": "Féral Longues dents",
+        "categorie": "humanoide",
+        "description_courte": "Les férals [ou féraux, les deux orthographes sont correctes] sont les descendants d'humains et de lycanthropes. Ce sont des humanoïdes avec un aspect bestial. Bien qu'ils ne puissent pas changer complètement de forme, ils peuvent améliorer temporairement leurs capacités animales ; un état qu'ils appellent le changement. Quelles que soient leurs origines, les férals ont évolué pour devenir une race unique. Un féral marche sur la lame du couteau entre les mondes sauvages et la civilisation. Quel bord choisira leur instinct primitif ? En tant que féral longues dents, vous êtes un combattant féroce.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Force", "valeur": 1},
+                {"carac": "Force", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Féral Longue foulée",
+        "categorie": "humanoide",
+        "description_courte": "Les férals [ou féraux, les deux orthographes sont correctes] sont les descendants d'humains et de lycanthropes. Ce sont des humanoïdes avec un aspect bestial. Bien qu'ils ne puissent pas changer complètement de forme, ils peuvent améliorer temporairement leurs capacités animales ; un état qu'ils appellent le changement. Quelles que soient leurs origines, les férals ont évolué pour devenir une race unique. Un féral marche sur la lame du couteau entre les mondes sauvages et la civilisation. Quel bord choisira leur instinct primitif ? Les férals longue foulée sont aériens et insaisissables.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Féral Peau de bête",
+        "categorie": "humanoide",
+        "description_courte": "Les férals [ou féraux, les deux orthographes sont correctes] sont les descendants d'humains et de lycanthropes. Ce sont des humanoïdes avec un aspect bestial. Bien qu'ils ne puissent pas changer complètement de forme, ils peuvent améliorer temporairement leurs capacités animales ; un état qu'ils appellent le changement. Quelles que soient leurs origines, les férals ont évolué pour devenir une race unique. Un féral marche sur la lame du couteau entre les mondes sauvages et la civilisation. Quel bord choisira leur instinct primitif ? En tant que féral peau de bête, vous êtes spécialement résistant dans la bataille.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Féral Traque sauvage",
+        "categorie": "humanoide",
+        "description_courte": "Les férals [ou féraux, les deux orthographes sont correctes] sont les descendants d'humains et de lycanthropes. Ce sont des humanoïdes avec un aspect bestial. Bien qu'ils ne puissent pas changer complètement de forme, ils peuvent améliorer temporairement leurs capacités animales ; un état qu'ils appellent le changement. Quelles que soient leurs origines, les férals ont évolué pour devenir une race unique. Un féral marche sur la lame du couteau entre les mondes sauvages et la civilisation. Quel bord choisira leur instinct primitif ? Votre héritage de traque sauvage fait de vous un expert du pistage et de la survie.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Sagesse", "valeur": 1},
+                {"carac": "Sagesse", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Firblolg",
+        "categorie": "humanoide",
+        "description_courte": "Les firbolgs sont les plus puissants des semi-géants. Ils ressemblent à des humains normaux qui auraient une taille de 3,3 m et un poids d'environ 400 kg. Les firbolgs élégants portent de longs cheveux et se laissent pousser une épaisse barbe. Leur peau rose est dense et épaisse, leur conférant une CA naturellement basse. Ils ont des voix douces aux consonances profondes et graves.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": []
+        }
+    },
+    {
+        "nom": "Forgelier",
+        "categorie": "humanoide",
+        "description_courte": "Les forgeliers ont été construits pour se battre lors de la Dernière guerre. Les premiers d'entre-eux étaient des automates stupides, mais la Maison Cannith a mobilisé d'énormes moyens afin d'améliorer ces soldats d'acier. Une avancée inattendue a alors produit des soldats pleinement conscients à base de matériaux organiques et inorganiques. Les forgeliers peuvent être fabriqués à partir de bois et de métal, et ressentir de la douleur et de l'émotion. Construits comme des armes, ils doivent maintenant se trouver un but après la guerre. Un forgelier peut être un inébranlable allié, une machine à tuer au cœur froid, ou un visionnaire en quête de but et de sens.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Force", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Génasi de l'air",
+        "categorie": "humanoide",
+        "description_courte": "En tant que génasi de l’air, vous êtes le descendant d’un djinn. Aussi changeantes que la météo, vos humeurs passent du calme à la sauvagerie et à la violence sans avertissement, mais ces tempêtes ne durent jamais bien longtemps. Les génasis de l’air ont généralement la peau, les yeux et les cheveux de couleur bleue claire. Une faible mais constante brise les accompagne, ébouriffant leurs cheveux et agitant leurs vêtements. Certains génasis de l’air parlent avec une voix soufflée et marquée par un léger écho. Quelques-uns affichent d’étranges motifs sur leur peau ou produisent des cristaux sur leur crane.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1}
+            ]
+        }
+    },    
+    {
+        "nom": "Génasi de l'eau",
+        "categorie": "humanoide",
+        "description_courte": "Le clapotis des vagues, les embruns de la mer portés par le vent, les profondeurs océaniques, toutes ces choses sont chères à votre cœur. Vous errez librement et êtes fier de votre indépendance, à tel point que certains vous considèrent comme égoïste. La plupart des génasis de l’eau semblent toujours être à peine sorti d’un bain, avec des perles d’humidités sur leur peau ou dans leurs cheveux. Ils sentent la pluie fraîche ou l’eau claire. Leur peau est communément bleue ou verte et leurs yeux sont souvent très grands et de couleur bleue ou noire. Les cheveux d’un génasi de l’eau flottent librement, se balançant et s’agitant comme s’ils étaient sous l’eau. Certains ont une voix avec des nuances évoquant le chant des baleines ou un ruissellement d’eau.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Sagesse", "valeur": 1}
+            ]
+        }
+    },    
+    {
+        "nom": "Génasi de la terre",
+        "categorie": "humanoide",
+        "description_courte": "En tant que génasi de la terre, vous êtes le descendant du cruel et avide Dao, bien que vous ne soyez pas nécessairement mauvais. Vous avez hérité d’un certain contrôle sur la terre, d’une force supérieure et d’un pouvoir solide. Vous avez tendance à éviter les décisions irréfléchies, prenant le temps nécessaire pour considérer toutes les options avant de passer à l’action. L’élément de la terre se manifeste différemment d’un individu à l’autre. Certains génasis de la terre ont de la poussière qui émane constamment de leur corps et de la boue s’accroche à leur vêtement, n’arrivant jamais à être propre quelle que soit la fréquence de leurs bains. D’autres sont aussi brillants et polis que des gemmes, leur couleur de peau est brune foncée ou noire et leurs yeux ont l’éclat des agates. Les génasis de la terre peuvent aussi avoir une peau lisse comme le métal, de la couleur du fer terne avec des points de rouilles, de l’aspect de la pierre grossière ou recouverte de minuscules cristaux enchâssés. Les plus impressionnants ont des fissures sur le corps d’où luit une faible lueur.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Force", "valeur": 1}
+            ]
+        }
+    },    
+    {
+        "nom": "Génasi du feu",
+        "categorie": "humanoide",
+        "description_courte": "En tant que génasi du feu, vous avez hérité de l’humeur instable et de l’esprit vif de l’efrit. Vous avez tendance à être impatient et impulsif. Plutôt que de cacher votre apparence particulière, vous exultez dans celle-ci. Quasiment tous les génasis du feu ont une température corporelle élevée, comme s’ils brulaient de l’intérieur. Cette impression est renforcée par leur couleur de peau dans les tons rouge flamme, noir comme le charbon ou gris comme la cendre. Les plus proches des humains physiquement auront des cheveux rouge vif, frémissant lors d’émotions extrêmes, alors que des spécimens plus atypiques arboreront de véritables flammes dansantes sur leur tête. La voix d’un génasi du feu peut sonner comme le crépitement d’un feu et leurs yeux flamboient lors qu’ils s’énervent. Certains émettront une légère odeur de souffre.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Intelligence", "valeur": 1}
+            ]
+        }
+    },    
+    {
+        "nom": "Githyanki",
+        "categorie": "humanoide",
+        "description_courte": "Les gigthyanki sont des être brutaux entraînés depuis leur naissance pour devenir des guerriers.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Force", "valeur": 1},
+                {"carac": "Force", "valeur": 1},
+                {"carac": "Intelligence", "valeur": 1}
+            ]
+        }
+    },    
+    {
+        "nom": "Githzerai",
+        "categorie": "humanoide",
+        "description_courte": "Dans leur forteresse située à l’intérieur de Limbo, les githzerai aiguisent leur esprit comme une lame de rasoir.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Sagesse", "valeur": 1},
+                {"carac": "Sagesse", "valeur": 1},
+                {"carac": "Intelligence", "valeur": 1}
+            ]
+        }
+    },    
+    {
+        "nom": "Gnome (Autognome)",
+        "categorie": "humanoide",
+        "description_courte": "Les autognomes sont des êtres mécaniques construits par des gnomes des roches à leur image, généralement avec un but particulier en tête. Par exemple, un gnome peut construire un autognome pour avoir un collègue inébranlable ou un compagnon fidèle. Parfois, à cause d'un dysfonctionnement ou d'une circonstance unique, un autognome se sépare de son créateur et vit sa vie tout seul. Un autognome ressemble à son créateur, et la plupart des autognomes sont programmés pour parler et comprendre le gnome. Les composants internes utilisés dans la fabrication d'un autognome peuvent varier énormément : l'un pourrait avoir un véritable cœur battant dans sa cavité thoracique, tandis qu'un autre pourrait être alimenté par de la poussière d'étoiles ou des engrenages mécaniques complexes.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": []
+        }
+    },
+    {
+        "nom": "Gnome des forêts",
+        "categorie": "humanoide",
+        "description_courte": "Les gnomes des forêts se réunissent dans des communautés cachées au sein des forêts, souvent loin des routes et des chemins de la civilisation. Timides et discrets, ces gnomes évitent la confrontation autant que possible en utilisant l'illusion et la ruse pour se cacher des menaces ou pour masquer leur fuite s'ils ont été débusqués. Les gnomes des forêts ont tendance à être amicaux avec les autres habitants des bois, et considèrent les elfes et les fées bonnes comme leurs alliés les plus importants. Ils se lient aussi d'amitié avec les petits animaux de la forêt, sur lesquels ils comptent pour obtenir des informations sur les menaces qui pourraient planer sur leurs terres.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Intelligence", "valeur": 1},
+                {"carac": "Intelligence", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Gnome des roches",
+        "categorie": "humanoide",
+        "description_courte": "Les gnomes des roches établissent leurs communautés dans les collines et les montagnes, là où ils peuvent avoir accès aux matériaux dont ils ont besoin pour construire et bricoler. Ces maîtres artisans sont inégalés lorsqu'on parle de tailler des gemmes ou de mécanique et autres merveilles technologiques. Leurs réalisations sont recherchées dans le monde entier.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Intelligence", "valeur": 1},
+                {"carac": "Intelligence", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Gnome des profondeurs (svirfnebelin)",
+        "categorie": "humanoide",
+        "description_courte": "Les svirfnebelins ressemblent plus à des créatures de pierre que de chair. Leur peau coriace est généralement grise, brune ou d'une teinte brun-grisâtre qui agit comme un camouflage naturel avec la roche qui les entoure. Leurs corps sont déformés par les muscles ou la graisse dure, et ils sont plus lourds que leur petite taille le suggère ; les svirfnebelins pèsent souvent 50 kg ou plus, mais dépassent rarement de beaucoup les 90 cm de haut. Les males svirfnebelins sont chauves dès la petite enfance, bien que les adultes puissent se laisser pousser la barbe ou des moustaches raides. Les femelles ont la tête couverte de cheveux, et elles attachent généralement leurs cheveux en arrière sous forme de tresses ou les coupent court pour qu'ils ne gênent pas quand elles travaillent. Les svirfnebelins sont bien adaptés à leur existence souterraine. Ils ont une excellente vision dans le noir, et beaucoup d'entre eux ont des talents magiques qui rivalisent avec les sorts innés des drows et des duergars. Ils sont étonnamment forts pour leur taille, endurant des labeurs et des dangers qui abattraient la plupart des autres personnes.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": []
+        }
+    },
+    {
+        "nom": "Goliath",
+        "categorie": "humanoide",
+        "description_courte": "Sur les plus hauts sommets, loin au-dessus des pentes où les arbres poussent et où l'air est raréfié et les vents glacials hurlent, habitent les goliaths solitaires. Peu de gens peuvent se vanter d'avoir vu un goliath, et encore moins peuvent prétendre avoir lié amitié avec eux. Les goliaths déambulent dans un royaume sombre de roche, de vent et de froid. Leurs corps sont comme sculptés dans la pierre de la montagne et leur donnent une grande puissance physique. Leurs esprits suivent les vents vagabonds, tels des nomades errant de sommets en sommets. Leurs cœurs sont imprégnés du regard froid de leur royaume glacial, laissant à chaque goliath la responsabilité de gagner sa place dans la tribu ou de mourir en essayant.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Force", "valeur": 1},
+                {"carac": "Force", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Halfelin pied-léger",
+        "categorie": "humanoide",
+        "description_courte": "En tant que halfelin pied-léger, vous pouvez facilement vous cacher, en utilisant même d'autres personnes comme abri. Vous avez tendance à être affable et à bien vous entendre avec les autres. Les halfelins pied-léger sont ceux qui ont le plus migré et sont donc la sous-race la plus commune. Ils sont les plus enclins à voyager de tous les halfelins, et vivent souvent avec d'autres races ou embrassent une vie de nomade.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1}
+            ]
+        }
+    },    
+    {
+        "nom": "Halfelin robuste",
+        "categorie": "humanoide",
+        "description_courte": "En tant que halfelin robuste, vous êtes plus costaud que la moyenne et possédez une certaine résistance au poison. Certains disent que les robustes ont du sang nain. Aussi appelés halfelins vaillants, ce sont les plus communs au sud des Royaumes Oubliés.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Humain Damarien",
+        "categorie": "humanoide",
+        "description_courte": "Établis à l’origine dans le nord-ouest de Faerûn, les Damariens sont d’une taille et d’une carrure moyennes, avec un teint allant du mate au plus clair. Leurs cheveux sont généralement bruns ou noirs et la couleur de leurs yeux varie énormément d’un individu à l’autre, bien que la couleur noisette soit la plus commune.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "fixe",
+            "nombreSlots": 6,
+            "bonus": [
+                {"carac": "Force", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Intelligence", "valeur": 1},
+                {"carac": "Sagesse", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1}
+            ]
+        }
+    },   
+    {
+        "nom": "Humain Calishite",
+        "categorie": "humanoide",
+        "description_courte": "Plus petits et fins que la majorité des autres humains, les Calishites ont la peau les yeux et les cheveux brun-sombre. On les trouve principalement au sud-ouest de Faerûn.",        
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "fixe",
+            "nombreSlots": 6,
+            "bonus": [
+                {"carac": "Force", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Intelligence", "valeur": 1},
+                {"carac": "Sagesse", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1}
+            ]
+        }
+    },  
+    {
+        "nom": "Humain Chondathien",
+        "categorie": "humanoide",
+        "description_courte": "Les Chondathiens sont minces, mates de peau, avec des cheveux bruns allant du presque blond au presque noir. La plupart sont grands et ont les yeux vert ou noisette, mais ces traits ne sont pas universels. Les descendants de ce peuple sont prédominants dans les territoires centraux de Faerûn, et sur le pourtour de la Mer Intérieure.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "fixe",
+            "nombreSlots": 6,
+            "bonus": [
+                {"carac": "Force", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Intelligence", "valeur": 1},
+                {"carac": "Sagesse", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1}
+            ]
+        }
+    },  
+    {
+        "nom": "Humain Illuskien",
+        "categorie": "humanoide",
+        "description_courte": "Les Illuskiens sont grands, avec le teint clair et les yeux bleus ou gris-acier. La majorité d’entre eux ont les cheveux noir-corbeaux, mais ceux qui habitent dans l’extrême nord-ouest de Faerûn ont les cheveux blonds, roux ou châtains-clair.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "fixe",
+            "nombreSlots": 6,
+            "bonus": [
+                {"carac": "Force", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Intelligence", "valeur": 1},
+                {"carac": "Sagesse", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1}
+            ]
+        }
+    },  
+    {
+        "nom": "Humain Mulien",
+        "categorie": "humanoide",
+        "description_courte": "Prévalant sur les côtes est et sud-est de la Mer Intérieure, les Muliens sont généralement grands, minces, avec le teint olivâtre et des yeux noisettes ou bruns. Leurs cheveux vont du noir au châtain foncé, mais sur les terres où ils sont prédominants, beaucoup, ainsi que la totalité des nobles, se rasent intégralement le crâne.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "fixe",
+            "nombreSlots": 6,
+            "bonus": [
+                {"carac": "Force", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Intelligence", "valeur": 1},
+                {"carac": "Sagesse", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1}
+            ]
+        }
+    },  
+    {
+        "nom": "Humain Rashémi",
+        "categorie": "humanoide",
+        "description_courte": "Principalement installés à l’est de la Mer Intérieure, et souvent mélangés aux Muliens, les Rashémis sont généralement petits, robustes et musclés. Ils ont habituellement la peau sombre, les yeux noirs et d’épais cheveux noirs.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "fixe",
+            "nombreSlots": 6,
+            "bonus": [
+                {"carac": "Force", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Intelligence", "valeur": 1},
+                {"carac": "Sagesse", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1}
+            ]
+        }
+    },   
+    {
+        "nom": "Humain Shou",
+        "categorie": "humanoide",
+        "description_courte": "Les Shous forment l’ethnie la plus nombreuse et la plus puissante du continent de Kara-Tur, situé loin à l’est de Faerûn. Ils ont une couleur de peau qui tire sur le jaune et le bronze, avec des cheveux noirs et des yeux noirs. Les noms de famille shous sont normalement placés avant les prénoms.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "fixe",
+            "nombreSlots": 6,
+            "bonus": [
+                {"carac": "Force", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Intelligence", "valeur": 1},
+                {"carac": "Sagesse", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1}
+            ]
+        }
+    },   
+    {
+        "nom": "Humain Téthyrien",
+        "categorie": "humanoide",
+        "description_courte": "Répandus le long de la Côte des Épées, à l’ouest de Faerûn, les Téthyriens sont d’une taille et d’une stature moyenne, avec une peau sombre qui tend à devenir plus claire chez ceux qui vivent le plus au nord. La couleur de leurs cheveux et de leurs yeux varie grandement, mais les cheveux châtains et les yeux bleus sont les plus courants. Les Téthyriens utilisent essentiellement des noms d’origine chondathiens.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "fixe",
+            "nombreSlots": 6,
+            "bonus": [
+                {"carac": "Force", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Intelligence", "valeur": 1},
+                {"carac": "Sagesse", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1}
+            ]
+        }
+    },   
+    {
+        "nom": "Humain Turami",
+        "categorie": "humanoide",
+        "description_courte": "Natifs de la côte sud de la Mer Intérieure, les Turamis sont généralement grands et musclés, avec une peau de couleur acajou, des cheveux noirs et frisés, et des yeux noirs.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "fixe",
+            "nombreSlots": 6,
+            "bonus": [
+                {"carac": "Force", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Intelligence", "valeur": 1},
+                {"carac": "Sagesse", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1}
+            ]
+        }
+    },   
+    {
+        "nom": "Kenku",
+        "categorie": "humanoide",
+        "description_courte": "Hommes-oiseaux bipèdes qui ont perdu leur faculté de voler suite à une ancestrale punition, les kenku errent dans le monde comme des vagabonds, en marge des villes construites par les humains.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Sagesse", "valeur": 1}
+            ]
+        }
+    },  
+    {
+        "nom": "Kobold",
+        "categorie": "humanoide",
+        "description_courte": "De tous les habitants qui se cachent dans les recoins sombres du monde, les kobolds sont l'un des peuples les plus communs et la plupart des aventuriers en rencontreront surement au cours de leur dangereuse carrière.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": []
+        }
+    },  
+    {
+        "nom": "Lizardfolk",
+        "categorie": "humanoide",
+        "description_courte": "Certains sages considèrent les hommes-lézards comme des cousins ​​éloignés des draconides et des kobolds. Malgré leur ressemblance avec ces autres créatures à écailles, les hommes-lézards forment un peuple à part entière et peuplent les mondes du Plan Matériel depuis la création de ces derniers. Dotés par les dieux de défenses physiques remarquables et d'un lien mystique avec la nature, ils peuvent survivre grâce à leur seule intelligence dans des situations qui seraient fatales pour les autres. C'est pourquoi de nombreux mythes les concernant affirment que les dieux les ont placés sur le Plan Matériel pour protéger ses merveilles naturelles.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Sagesse", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Minotaure",
+        "categorie": "humanoide",
+        "description_courte": "Dans le monde de Krynn, l'univers de la saga Dragonlance, les minotaures vivent dans une société basée sur l'honneur où la force détermine la puissance dans les arènes de gladiateurs comme dans la vie quotidienne. Chez eux sur la terre ferme comme en mer, les minotaures de Krynn sont de féroces combattants des mers qui se classent comme les plus habiles et les plus dangereux marins au monde.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Force", "valeur": 1},
+                {"carac": "Force", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Nain des collines",
+        "categorie": "humanoide",
+        "description_courte": "REn tant que nain des collines, vous avez les sens aiguisés, une forte intuition et une résistance remarquable. Les nains d'or de Faerûn dans leur puissant royaume du sud sont des nains des collines.",
+        "image_url": "images/races/nain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Sagesse", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Nain des montagnes",
+        "categorie": "humanoide",
+        "description_courte": "En tant que nain des montagnes, vous êtes fort et robuste, et habitué à une vie difficile en terrain accidenté. Vous êtes probablement plus grand que la moyenne (pour un nain) et votre peau est plus claire. Les nains d'écu au nord de Faerûn sont des nains des montagnes.",
+        "image_url": "images/races/nain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Force", "valeur": 1},
+                {"carac": "Force", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Nain des profondeurs (Duergar)",
+        "categorie": "humanoide",
+        "description_courte": "Les duergars sont des nains dont les ancêtres furent transformés par des siècles passés dans les profondeurs de l'underdark. Ce royaume chthonien est imprégné d'une étrange énergie magique, et au fil des générations, les premiers duergars en absorbèrent des traces. Ils furent encore davantage altérés lorsque des flagelleurs mentaux et d'autres aberrations envahirent leurs terres et menèrent d'horribles expériences sur eux. Alimentées par la magie des Profondeurs, ces expériences conférèrent aux premiers duergars des pouvoirs psioniques, transmis à leurs descendants. Avec le temps, ils se libérèrent de leurs tyrans aberrants et se forgèrent une nouvelle vie dans les Profondeurs et au-delà.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Force", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Orc",
+        "categorie": "humanoide",
+        "description_courte": "Engeances d’elfes corrompus par quelque dieu sombre qui exigeait une race maléfique pour l'adorer, ou conçus pour être le fléau des races dites « bonnes », quelle que soit leur véritable origine (les orcs ayant leur propre mythe sur leur création, différent de ceux-ci) le résultat est identique. Les orcs se sont propagés à travers le monde et on en trouve à peu près dans tous les royaumes, partout en nombre substantiel.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 4,
+            "bonus": [
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Force", "valeur": 1},
+                {"carac": "Force", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Revenant",
+        "categorie": "humanoide",
+        "description_courte": "Après avoir trouvé une fin cruelle et imméritée, vous êtes retourné au royaume des vivants. En tant que revenant, vous avez soif de vengeance envers ceux qui vous ont fait du tort, ou cherchez à terminer une chose importante que vous avez dû laisser inachevée. La sous-race de revenant peut s'appliquer à toute race qui possède une sous-race, et remplace les options existantes de cette sous-race. Vous pouvez aussi l'appliquer à une race qui ne possède pas de sous-race, en utilisant les options de modification proposées ci-dessous. Un MD peut également autoriser cette sous-race pour un personnage qui a été tué. Dans ce cas, votre personnage ressuscite en voyant sa sous-race d'origine remplacée (ou avec les modifications nécessaires apportées à ses traits de base), et déterminé à se venger ou à compléter sa mission.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": []
+        }
+    },
+    {
+        "nom": "Satyre",
+        "categorie": "humanoide",
+        "description_courte": "Originaires du Feywild, royaume des émotions pures, les satyres s'épanouissent grâce à l'énergie de la gaieté. Ils ressemblent à des elfes, mais possèdent des jambes de chèvre, des sabots fendus et des cornes de bélier ou de chèvre. La magie du royaume féerique leur a conféré un don inné pour la performance, le plaisir et la résistance aux intrusions magiques. Bien qu'on les trouve généralement dans le Feywild, les satyres errent parfois vers d'autres plans d'existence, le plus souvent vers le Plan Matériel. Là, ils cherchent à apporter un peu de la splendeur de leur plan d'origine à d'autres mondes.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Tabaxi",
+        "categorie": "humanoide",
+        "description_courte": "Hommes-chats venant d'un pays étrange et lointain, les tabaxis sont curieux et affectionnent particulièrement les artefacts et les histoires. Grands voyageurs, les tabaxis restent rarement au même endroit longtemps et aiment à parcourir le monde pour en découvrir toutes les merveilles.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Tieffelin Asmodée",
+        "categorie": "humanoide",
+        "description_courte": "Être accueilli par des regards suspicieux et des murmures, souffrir insultes et violences à chaque coin de rue, croiser le doute et la peur dans chaque regard, tel est le lot quotidien du tieffelin. Et pour remuer le couteau dans la plaie, les tieffelins ont conscience que tout cela vient d'un pacte passé il y a plusieurs générations qui imprégna leur lignée de l'essence d'Asmodée, le seigneur des Neuf enfers. Leur apparence et leur nature ne sont pas le fruit de leur volonté, mais la conséquence d'un péché ancien duquel eux-mêmes, leurs enfants et toute leur descendance, seront toujours redevables.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Intelligence", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Tieffelin Baalzebul",
+        "categorie": "humanoide",
+        "description_courte": "Être accueilli par des regards suspicieux et des murmures, souffrir insultes et violences à chaque coin de rue, croiser le doute et la peur dans chaque regard, tel est le lot quotidien du tieffelin. Et pour remuer le couteau dans la plaie, les tieffelins ont conscience que tout cela vient d'un pacte passé il y a plusieurs générations qui imprégna leur lignée de l'essence d'Asmodée, le seigneur des Neuf enfers. Leur apparence et leur nature ne sont pas le fruit de leur volonté, mais la conséquence d'un péché ancien duquel eux-mêmes, leurs enfants et toute leur descendance, seront toujours redevables.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Intelligence", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Tieffelin Dispater",
+        "categorie": "humanoide",
+        "description_courte": "Être accueilli par des regards suspicieux et des murmures, souffrir insultes et violences à chaque coin de rue, croiser le doute et la peur dans chaque regard, tel est le lot quotidien du tieffelin. Et pour remuer le couteau dans la plaie, les tieffelins ont conscience que tout cela vient d'un pacte passé il y a plusieurs générations qui imprégna leur lignée de l'essence d'Asmodée, le seigneur des Neuf enfers. Leur apparence et leur nature ne sont pas le fruit de leur volonté, mais la conséquence d'un péché ancien duquel eux-mêmes, leurs enfants et toute leur descendance, seront toujours redevables.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Tieffelin Fierna",
+        "categorie": "humanoide",
+        "description_courte": "Être accueilli par des regards suspicieux et des murmures, souffrir insultes et violences à chaque coin de rue, croiser le doute et la peur dans chaque regard, tel est le lot quotidien du tieffelin. Et pour remuer le couteau dans la plaie, les tieffelins ont conscience que tout cela vient d'un pacte passé il y a plusieurs générations qui imprégna leur lignée de l'essence d'Asmodée, le seigneur des Neuf enfers. Leur apparence et leur nature ne sont pas le fruit de leur volonté, mais la conséquence d'un péché ancien duquel eux-mêmes, leurs enfants et toute leur descendance, seront toujours redevables.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Sagesse", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Tieffelin Glasya",
+        "categorie": "humanoide",
+        "description_courte": "Être accueilli par des regards suspicieux et des murmures, souffrir insultes et violences à chaque coin de rue, croiser le doute et la peur dans chaque regard, tel est le lot quotidien du tieffelin. Et pour remuer le couteau dans la plaie, les tieffelins ont conscience que tout cela vient d'un pacte passé il y a plusieurs générations qui imprégna leur lignée de l'essence d'Asmodée, le seigneur des Neuf enfers. Leur apparence et leur nature ne sont pas le fruit de leur volonté, mais la conséquence d'un péché ancien duquel eux-mêmes, leurs enfants et toute leur descendance, seront toujours redevables.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Tieffelin Lévistus",
+        "categorie": "humanoide",
+        "description_courte": "Être accueilli par des regards suspicieux et des murmures, souffrir insultes et violences à chaque coin de rue, croiser le doute et la peur dans chaque regard, tel est le lot quotidien du tieffelin. Et pour remuer le couteau dans la plaie, les tieffelins ont conscience que tout cela vient d'un pacte passé il y a plusieurs générations qui imprégna leur lignée de l'essence d'Asmodée, le seigneur des Neuf enfers. Leur apparence et leur nature ne sont pas le fruit de leur volonté, mais la conséquence d'un péché ancien duquel eux-mêmes, leurs enfants et toute leur descendance, seront toujours redevables.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Tieffelin Mammon",
+        "categorie": "humanoide",
+        "description_courte": "Être accueilli par des regards suspicieux et des murmures, souffrir insultes et violences à chaque coin de rue, croiser le doute et la peur dans chaque regard, tel est le lot quotidien du tieffelin. Et pour remuer le couteau dans la plaie, les tieffelins ont conscience que tout cela vient d'un pacte passé il y a plusieurs générations qui imprégna leur lignée de l'essence d'Asmodée, le seigneur des Neuf enfers. Leur apparence et leur nature ne sont pas le fruit de leur volonté, mais la conséquence d'un péché ancien duquel eux-mêmes, leurs enfants et toute leur descendance, seront toujours redevables.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Intelligence", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Tieffelin Méphistophélès",
+        "categorie": "humanoide",
+        "description_courte": "Être accueilli par des regards suspicieux et des murmures, souffrir insultes et violences à chaque coin de rue, croiser le doute et la peur dans chaque regard, tel est le lot quotidien du tieffelin. Et pour remuer le couteau dans la plaie, les tieffelins ont conscience que tout cela vient d'un pacte passé il y a plusieurs générations qui imprégna leur lignée de l'essence d'Asmodée, le seigneur des Neuf enfers. Leur apparence et leur nature ne sont pas le fruit de leur volonté, mais la conséquence d'un péché ancien duquel eux-mêmes, leurs enfants et toute leur descendance, seront toujours redevables.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Intelligence", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Tieffelin Langue du Diable",
+        "categorie": "humanoide",
+        "description_courte": "Être accueilli par des regards suspicieux et des murmures, souffrir insultes et violences à chaque coin de rue, croiser le doute et la peur dans chaque regard, tel est le lot quotidien du tieffelin. Et pour remuer le couteau dans la plaie, les tieffelins ont conscience que tout cela vient d'un pacte passé il y a plusieurs générations qui imprégna leur lignée de l'essence d'Asmodée, le seigneur des Neuf enfers. Leur apparence et leur nature ne sont pas le fruit de leur volonté, mais la conséquence d'un péché ancien duquel eux-mêmes, leurs enfants et toute leur descendance, seront toujours redevables.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Dextérité", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Tieffelin Zariel",
+        "categorie": "humanoide",
+        "description_courte": "Être accueilli par des regards suspicieux et des murmures, souffrir insultes et violences à chaque coin de rue, croiser le doute et la peur dans chaque regard, tel est le lot quotidien du tieffelin. Et pour remuer le couteau dans la plaie, les tieffelins ont conscience que tout cela vient d'un pacte passé il y a plusieurs générations qui imprégna leur lignée de l'essence d'Asmodée, le seigneur des Neuf enfers. Leur apparence et leur nature ne sont pas le fruit de leur volonté, mais la conséquence d'un péché ancien duquel eux-mêmes, leurs enfants et toute leur descendance, seront toujours redevables.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1},
+                {"carac": "Force", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Tortle",
+        "categorie": "humanoide",
+        "description_courte": "Les tortues ont un dicton : « Nous portons nos maisons sur notre dos. » Ce peuple tortue vit sur de nombreux mondes, voyageant le plus souvent le long des côtes, des cours d’eau et à travers les mers. Les tortues n’ont pas de récit unique sur leur création, mais elles ressentent toutes un lien mystique avec le monde naturel. Porter leur abri sur leur dos leur procure un sentiment de sécurité particulier où qu’elles aillent, car même si elles visitent un pays lointain et inconnu, elles ont un endroit où se reposer. Les tortues terrestres présentent la même gamme de colorations et de motifs que les autres tortues, et beaucoup d'entre elles aiment orner leur carapace de manière originale.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": []
+        }
+    },
+    {
+        "nom": "Triton",
+        "categorie": "humanoide",
+        "description_courte": "Originaires du Plan Élémentaire de l'Eau, de nombreux tritons ont rejoint le Plan Matériel il y a des siècles face à la menace grandissante des élémentaires maléfiques. Ces tritons se sont répandus à travers les océans, protégeant la surface des terreurs des profondeurs. Au fil du temps, leur protection s'est étendue des fonds marins jusqu'à la surface des océans. Les tritons ont les mains et les pieds palmés, de petites nageoires sur les mollets et une coloration qui privilégie les bleus et les verts.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": [
+                {"carac": "Force", "valeur": 1},
+                {"carac": "Constitution", "valeur": 1},
+                {"carac": "Charisme", "valeur": 1}
+            ]
+        }
+    },
+    {
+        "nom": "Yuan-Ti",
+        "categorie": "humanoide",
+        "description_courte": "Les Yuan-ti étaient à l'origine des humains qui se transformèrent en hommes-serpents grâce à d'anciens rituels. La plupart des Yuan-ti furent corrompus en monstres par ces rites, mais certains donnèrent naissance à un nouveau peuple mêlant caractéristiques humaines et serpentines. Dotés d'une résistance aux effets magiques et toxiques grâce aux rituels qui les ont créés, chaque yuan-ti manifeste son héritage serpentin de diverses manières : une langue fourchue, des yeux de serpent, un nez serpentin, ou tout autre trait ophidien. Quelle que soit leur apparence, les yuan-ti ont le pouvoir d'accomplir le bien comme le mal dans le multivers.",
+        "image_url": "images/races/humain.png",
+        "bonusCarac": {
+            "type": "choix",
+            "nombreSlots": 3,
+            "bonus": []
+        }
+    }
+]
