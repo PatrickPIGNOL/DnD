@@ -145,11 +145,21 @@ class CPage1 {
      * @brief Charge la sélection de classe depuis le localStorage si elle existe.
      */
     mChargerSauvegarde() {
-        // Maintenant cette méthode ne fait que la logique supplémentaire
-        // La sélection/désélection est gérée dans mGenererOptionsClasse()
-        console.log("Sauvegarde chargée");
+        const vSauvegarde = localStorage.getItem('classeSelectionnee');
+        if (vSauvegarde) {
+            const vRadio = document.querySelector(`input[name="classe"][value="${vSauvegarde}"]`);
+            if (vRadio) {
+                vRadio.checked = true;
+                this.mActiverBoutonSuivant(true);
+            }
+        } else {
+            // ✅ Décocher TOUTES les classes si pas de sauvegarde
+            document.querySelectorAll('input[name="classe"]').forEach(radio => {
+                radio.checked = false
+            })
+            this.mActiverBoutonSuivant(false)
+        }
     }
-    
     mGenererTableCaracteristiques() {
         const vTableBody = document.getElementById('vCaracTableBody')
         if (!vTableBody || !this.aScoresFixes || !this.aTextes) return
