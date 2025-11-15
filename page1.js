@@ -132,24 +132,6 @@ class CPage1 {
             vBouton.style.opacity = pActiver ? 1 : 0.5;
         }
     }
-
-    /**
-     * @brief Enregistre la sélection et passe à la page suivante.
-     * @param {Event} pEvent L'événement de soumission.
-     */
-    mSelectionnerClasse(pEvent) {
-        if (pEvent) pEvent.preventDefault();
-
-        const vSelectionne = document.querySelector('input[name="classe"]:checked');
-        
-        if (vSelectionne) {
-            localStorage.setItem('classeSelectionnee', vSelectionne.value);
-            // Utilisation de l'URL configurée
-            window.location.href = this.aTextes.navigation.suivant_url;
-        } else {
-            alert(this.aTextes.messages.alerte_selection);
-        }
-    }
     
     /**
      * @brief Charge la sélection de classe depuis le localStorage si elle existe.

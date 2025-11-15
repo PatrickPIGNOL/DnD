@@ -5,7 +5,7 @@
 /* 1. STYLES DE BASE & TYPOGRAPHIE (Fond Noir, Thème Rouge/Noir) */
 /* ========================================================================= */
 body {
-    font-family: 'Roboto Slab', serif; /* ← POLICE POUR TEXTE NORMAL */
+    font-family: 'Roboto Slab', serif; /* ← NOUVELLE POLICE TEXTE NORMAL */
     margin: 0;
     padding: 0;
     background-color: #111; /* FOND DE PAGE NOIR */
@@ -13,7 +13,7 @@ body {
     line-height: 1.6;
 }
 
-/* HEADER : FOND ROUGE - Garder Cinzel pour les titres */
+/* HEADER : FOND ROUGE */
 header {
     background-color: #c0392b; /* ROUGE VIF pour le header */
     color: white; 
@@ -22,17 +22,32 @@ header {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
 }
 
-/* TITRES DE SECTION : ROUGE - Garder Cinzel */
+main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #222; /* Conteneur principal sombre */
+    box-shadow: 0 0 20px rgba(192, 57, 43, 0.4); 
+    border: 1px solid #c0392b; /* Bordure fine rouge */
+    border-radius: 8px;
+}
+
+section {
+    padding: 10px 0;
+}
+
+/* TITRES DE SECTION : ROUGE */
 h1, h2, h3 {
     font-family: 'Cinzel', serif; /* ← POLICE POUR TITRES */
-    color: #c0392b; /* ROUGE VIF pour les titres h2 et h3 */
+    color: #c0392b; /* ROUGE VIF pour les titres */
+    border-bottom: 2px solid #444; 
+    padding-bottom: 5px;
     margin-top: 20px;
     font-weight: 700; 
 }
-
 header h1 {
     color: white; 
-    font-family: 'Cinzel', serif; /* ← TITRE HEADER EN CINZEL */
+    border-bottom: none; /* Pas de bordure pour le header */
 }
 
 hr {
