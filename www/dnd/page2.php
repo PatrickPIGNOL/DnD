@@ -89,32 +89,32 @@ $raceSauvegardee = $_SESSION['raceSelectionnee'] ?? null;
             <p><?= htmlspecialchars($textes['description_section'] ?? 'La race détermine l\'apparence physique de votre personnage, sa longévité, et lui confère des bonus de caractéristiques ainsi que des traits spéciaux.') ?></p>
 
             <form method="POST" id="raceSelectionForm">
-                <div id="vRaceOptionsContainer" class="race-options-grid">
+                <div class="classe-options-list">  <!-- Même classe que page1 -->
                     <?php if (!empty($races)): ?>
                         <?php foreach ($races as $race): ?>
                             <?php if (isset($race['nom']) && isset($race['image_url'])): ?>
-                            <div class="race-option-card <?= ($raceSauvegardee === $race['nom']) ? 'selected' : '' ?>">
+                            <div class="classe-option-card <?= ($raceSauvegardee === $race['nom']) ? 'selected' : '' ?>">
                                 <label>
-                                    <table class="race-layout-table">
+                                    <table class="classe-layout-table">
                                         <tr>
-                                            <td rowspan="2" style="text-align: center; vertical-align: middle;">
+                                            <td rowspan="2" class="radio-cell">
                                                 <input type="radio" name="race" value="<?= htmlspecialchars($race['nom']) ?>" 
                                                        <?= ($raceSauvegardee === $race['nom']) ? 'checked' : '' ?>>
                                             </td>
-                                            
-                                            <td rowspan="2" class="race-image-cell" style="text-align: center; vertical-align: middle;">
+                                            <td rowspan="2" class="classe-image-cell">
                                                 <img src="<?= htmlspecialchars($race['image_url']) ?>" 
                                                      alt="<?= str_replace('{race}', htmlspecialchars($race['nom']), $textes['messages']['image_alt'] ?? 'Image de la race') ?>" 
-                                                     style="width: 90px; height: 90px; object-fit: cover;">
+                                                     class="classe-image">
                                             </td>
-                                            
-                                            <td class="race-header-title" style="width: 100%;">
+                                            <td colspan="2" class="classe-header-title">
                                                 <?= htmlspecialchars($race['nom']) ?>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="race-description-cell" style="text-align: justify; width: 100%;">
-                                                <p><?= htmlspecialchars($race['description_courte'] ?? 'Description non disponible') ?></p>
+                                            <td class="classe-description-cell">
+                                                <div class="classe-description">
+                                                    <?= $race['description_courte'] ?? 'Description non disponible' ?>
+                                                </div>
                                             </td>
                                         </tr>
                                     </table>
@@ -152,7 +152,7 @@ $raceSauvegardee = $_SESSION['raceSelectionnee'] ?? null;
     </footer>
 
     <script>
-        // Activer/désactiver le bouton Suivant basé sur la sélection
+        // Activer/désactiver le bouton Suivant
         document.querySelectorAll('input[name="race"]').forEach(radio => {
             radio.addEventListener('change', function() {
                 document.getElementById('vNextButton').disabled = !document.querySelector('input[name="race"]:checked');

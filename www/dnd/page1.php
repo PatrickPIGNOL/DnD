@@ -79,16 +79,16 @@ $classeSauvegardee = $_SESSION['classeSelectionnee'] ?? null;
                                                 <input type="radio" name="classe" value="<?= htmlspecialchars($nomClasse) ?>" 
                                                        <?= ($classeSauvegardee === $nomClasse) ? 'checked' : '' ?>>
                                             </td>
+                                            <td rowspan="2" class="classe-image-cell">
+                                                <img src="<?= htmlspecialchars($classe['image_url']) ?>" 
+                                                     alt="Image de la classe <?= htmlspecialchars($nomClasse) ?>" 
+                                                     class="classe-image">
+                                            </td>
                                             <td colspan="2" class="classe-header-title">
                                                 <?= htmlspecialchars($nomClasse) ?>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="classe-image-cell">
-                                                <img src="<?= htmlspecialchars($classe['image_url']) ?>" 
-                                                     alt="Image de la classe <?= htmlspecialchars($nomClasse) ?>" 
-                                                     class="classe-image">
-                                            </td>
                                             <td class="classe-description-cell">
                                                 <div class="classe-description">
                                                     <?= $classe['description_html'] ?>
