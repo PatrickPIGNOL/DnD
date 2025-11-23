@@ -1,0 +1,453 @@
+{
+    "Chalemie":{
+        "type": "Instrument de musique",
+        "prix":{
+            "quantité":2,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite":500,
+            "unité":"g"
+        }
+    },
+    "Cor":{
+        "type": "Instrument de musique",
+        "prix":{
+            "quantité":3,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite":1,
+            "unité":"kg"
+        }
+    },
+    "Cornemuse":{
+        "type": "Instrument de musique",
+        "prix":{
+            "quantité":30,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite":3,
+            "unité":"kg"
+        }
+    },
+    "Flûte":{
+        "type": "Instrument de musique",
+        "prix":{
+            "quantité":2,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite":500,
+            "unité":"g"
+        }
+    },
+    "Flûte de pan":{
+        "type": "Instrument de musique",
+        "prix":{
+            "quantité":12,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite":1,
+            "unité":"kg"
+        }
+    },
+    "Luth":{
+        "type": "Instrument de musique",
+        "prix":{
+            "quantité":35,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite":1,
+            "unité":"kg"
+        }
+    },
+    "Lyre":{
+        "type": "Instrument de musique",
+        "prix":{
+            "quantité":30,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite":1,
+            "unité":"kg"
+        }
+    },
+    "Tambour":{
+        "type": "Instrument de musique",
+        "prix":{
+            "quantité":6,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite":1.5,
+            "unité":"kg"
+        }
+    },
+    "Tympanon":{
+        "type": "Instrument de musique",
+        "prix":{
+            "quantité":25,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite":5,
+            "unité":"kg"
+        }
+    },
+    "Viole":{
+        "type": "Instrument de musique",
+        "prix":{
+            "quantité":30,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite":500,
+            "unité":"g"
+        }
+    },
+    "Dés":{
+        "type": "Jeux",
+        "prix":{
+            "quantité":1,
+            "unité":"pa"
+        },
+        "poid":{
+            "quantite":0,
+            "unité":"g"
+        }
+    },
+    "Jeu d'échecs draconiques":{
+        "type": "Jeux",
+        "prix":{
+            "quantité":1,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite":250,
+            "unité":"g"
+        }
+    },
+    "Jeu de cartes":{
+        "type": "Jeux",
+        "prix":{
+            "quantité":5,
+            "unité":"pa"
+        },
+        "poid":{
+            "quantite":0,
+            "unité":"g"
+        }
+    },
+    "Jeu des Dragons":{
+        "type": "Jeux",
+        "prix":{
+            "quantité":1,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite":0,
+            "unité":"g"
+        }
+    },
+    "Kit d'empoisonneur":{
+        "type": "Outils",
+        "prix":{
+            "quantité":50,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite":1,
+            "unité":"kg"
+        }
+    },
+    "Kit d'herboriste":{
+        "type": "Outils",
+        "prix":{
+            "quantité":5,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite":1.5,
+            "unité":"kg"
+        }
+    },
+    "Kit de contrefaçon":{
+        "type": "Outils",
+        "prix":{
+            "quantité":15,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite":2.5,
+            "unité":"kg"
+        }
+    },
+    "Kit de déguisement":{
+        "type": "Outils",
+        "prix":{
+            "quantité":25,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite":1.5,
+            "unité":"kg"
+        }
+    },
+    "Matériel d'alchimiste":{
+        "type": "Outils d'artisan",
+        "prix":{
+            "quantité":50,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite":4,
+            "unité":"kg"
+        }
+    },
+    "Matériel de brasseur":{
+        "type": "Outils d'artisan",
+        "prix":{
+            "quantité":20,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite":4.5,
+            "unité":"kg"
+        }
+    },
+    "Matériel de calligraphe":{
+        "type": "Outils d'artisan",
+        "prix":{
+            "quantité": 10,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite": 2.5,
+            "unité":"kg"
+        }
+    },
+    "Matériel de peintre":{
+        "type": "Outils d'artisan",
+        "prix":{
+            "quantité": 10,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite": 2.5,
+            "unité":"kg"
+        }
+    },
+    "Outils de bijoutier":{
+        "type": "Outils d'artisan",
+        "prix":{
+            "quantité": 25,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite": 1,
+            "unité":"kg"
+        }
+    },
+    "Outils de bricoleur":{
+        "type": "Outils d'artisan",
+        "prix":{
+            "quantité": 50,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite": 5,
+            "unité":"kg"
+        }
+    },
+    "Outils de cartographe":{
+        "type": "Outils d'artisan",
+        "prix":{
+            "quantité": 15,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite": 3,
+            "unité":"kg"
+        }
+    },
+    "Outils de charpentier":{
+        "type": "Outils d'artisan",
+        "prix":{
+            "quantité": 8,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite": 3,
+            "unité":"kg"
+        }
+    },
+    "Outils de cordonnier":{
+        "type": "Outils d'artisan",
+        "prix":{
+            "quantité": 5,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite": 2.5,
+            "unité":"kg"
+        }
+    },
+    "Outils de forgeron":{
+        "type": "Outils d'artisan",
+        "prix":{
+            "quantité": 20,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite": 4,
+            "unité":"kg"
+        }
+    },
+    "Outils de maçon":{
+        "type": "Outils d'artisan",
+        "prix":{
+            "quantité": 10,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite": 4,
+            "unité":"kg"
+        }
+    },
+    "Outils de menuisier":{
+        "type": "Outils d'artisan",
+        "prix":{
+            "quantité": 1,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite": 2.5,
+            "unité":"kg"
+        }
+    },
+    "Outils de potier":{
+        "type": "Outils d'artisan",
+        "prix":{
+            "quantité": 10,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite": 1,
+            "unité":"kg"
+        }
+    },
+    "Outils de souffleur de verre":{
+        "type": "Outils d'artisan",
+        "prix":{
+            "quantité": 30,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite": 2.5,
+            "unité":"kg"
+        }
+    },
+    "Outils de tanneur":{
+        "type": "Outils d'artisan",
+        "prix":{
+            "quantité": 5,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite": 2.5,
+            "unité":"kg"
+        }
+    },
+    "Outils de tisserand":{
+        "type": "Outils d'artisan",
+        "prix":{
+            "quantité": 1,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite": 2.5,
+            "unité":"kg"
+        }
+    },
+    "Ustensiles de cuisinier":{
+        "type": "Outils d'artisan",
+        "prix":{
+            "quantité": 1,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite": 4,
+            "unité":"kg"
+        }
+    },
+    "Outils de navigateur":{
+        "type": "Outils",
+        "prix":{
+            "quantité": 25,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite": 1,
+            "unité":"kg"
+        }
+    },
+    "Outils de voleur":{
+        "type": "Outils",
+        "prix":{
+            "quantité": 25,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite": 500,
+            "unité":"g"
+        }
+    },
+    "10 bouteilles bouchonnées remplies d'un liquide coloré":{
+        "type": "Outils d'escroc",
+        "prix":{
+            "quantité": 25,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite": 5,
+            "unité":"kg"
+        }
+    },
+    "dés truqués":{
+        "type": "Outils d'escroc",
+        "prix":{
+            "quantité": 5,
+            "unité":"pa"
+        },
+        "poid":{
+            "quantite": 0,
+            "unité":"g"
+        }
+    },
+    "cartes marquées":{
+        "type": "Outils d'escroc",
+        "prix":{
+            "quantité": 25,
+            "unité":"pa"
+        },
+        "poid":{
+            "quantite": 0,
+            "unité":"g"
+        }
+    },
+    "fausse chevalière de duc":{
+        "type": "Outils d'escroc",
+        "prix":{
+            "quantité": 30,
+            "unité":"po"
+        },
+        "poid":{
+            "quantite": 0,
+            "unité":"g"
+        }
+    }
+}

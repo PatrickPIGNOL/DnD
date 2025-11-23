@@ -1,0 +1,116 @@
+{
+    "Commun": {
+        "type": "standard", 
+        "RaceTypiques": [
+            "Humain"
+        ], 
+        "Ecriture": "Commun"
+    },
+    "Elfique": {
+        "type": "standard",
+        "RaceTypiques": [
+            "Elfes"
+        ],
+        "Ecriture": "Elfique"}, 
+    "Géant": {
+        "type": "standard", 
+        "RaceTypiques": [
+            "Ogre", 
+            "Géant"
+        ],
+        "Ecriture": "Nain"
+    },
+    "Gnome": {
+        "type": "standard", 
+        "RaceTypiques": [
+            "Gnome"
+        ],
+        "Ecriture": "Nain"
+    },
+    "Gobelin": {
+        "type": "standard", 
+        "RaceTypiques": [
+            "Gobelinoïde"
+        ],
+        "Ecriture": "Nain"
+    },
+    "Halfelin": {
+        "type": "standard", 
+        "RaceTypiques": [
+            "Halfelin"
+        ],
+        "Ecriture": "Commun"
+    },
+    "Nain": {
+        "type": "standard", 
+        "RaceTypiques": [
+            "Nain"
+        ],
+        "Ecriture": "Nain"
+    },
+    "Orc": {
+        "type": "standard", 
+        "RaceTypiques": [
+            "Orc"
+        ],
+        "Ecriture": "Nain"
+    },
+    "Abyssal": {
+        "type": "exotiques", 
+        "RaceTypiques": [
+            "Démon"
+        ],
+        "Ecriture": "Infernal"
+    },
+    "Céleste": {
+        "type": "exotiques", 
+        "RaceTypiques": [
+            "Céleste"
+        ],
+        "Ecriture": "Céleste"
+    },
+    "Commun des profondeurs": {
+        "type": "exotiques", 
+        "RaceTypiques": [
+            "Créatures de l'Outreterre"
+        ],
+        "Ecriture": "Elfique"
+    },
+    "Draconique": {
+        "type": "exotiques", 
+        "RaceTypiques": [
+            "Dragon",
+            "drakéide"
+        ],
+        "Ecriture": "Draconique"
+    },
+    "Infernal": {
+        "type": "exotiques", 
+        "RaceTypiques": [
+            "Diable"
+        ],
+        "Ecriture": "Infernal"
+    },
+    "Primordial": {
+        "type": "exotiques", 
+        "RaceTypiques": [
+            "Élémentaire"
+        ],
+        "Ecriture": "Nain"
+    },
+    "Profond": {
+        "type": "exotiques", 
+        "RaceTypiques": [
+            "Beholder",
+            "flagelleur mental"
+        ],
+        "Ecriture": "-"
+    },
+    "Sylvestre": {
+        "type": "exotiques", 
+        "RaceTypiques": [
+            "Créature féerique"
+        ],
+        "Ecriture": "Elfique"
+    }
+}

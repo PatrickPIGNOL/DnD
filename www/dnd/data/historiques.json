@@ -1,0 +1,384 @@
+{
+    "Acolyte": {
+        "Description": "Vous avez passé votre vie au service du temple d'un dieu spécifique ou d'un panthéon de dieux. Vous agissez comme intermédiaire entre les royaumes des cieux et le monde des mortels, exécutant des rites sacrés et offrant des sacrifices pour conduire les fidèles face aux divins. Vous n'êtes pas nécessairement un clerc, car exécuter des rites sacrés religieux n'est pas la même chose que de canaliser la puissance divine.<br><br>Choisissez un dieu, un panthéon de dieux ou un être quasi-divin, et travaillez avec votre MD pour préciser la nature de votre labeur religieux. Étiez-vous un fonctionnaire de bas rang dans un temple, élevé dès l'enfance pour aider les clercs à réaliser leurs rites sacrés ? Ou étiez-vous un religieux qui a soudainement reçu un appel pour servir son dieu d'une manière différente ? Peut-être êtes-vous le chef d'un petit culte en dehors de la structure établie d'un temple, ou membre d'un groupe occulte qui a servi un maître diabolique que vous reniez à présent.",
+        "MaitriseCompetences": [
+                "Intuition", 
+                "Religion"
+            ],
+        "MaitriseOutils": [],
+        "Langues" : {
+            "Quantité":2,
+            "type": "choix",
+            "Langues":[]
+        },
+        "Capacités":[
+            {"Abri du fidèle": "En tant qu'acolyte, vous imposez le respect à ceux qui partagent votre foi, et pouvez mener les cérémonies religieuses de votre divinité. Vous et vos compagnons aventuriers pouvez vous attendre à recevoir des soins gratuits dans un temple, un sanctuaire ou toute autre présence établie de votre foi, bien que vous soyez responsable de fournir toutes les composantes matérielles nécessaires aux sorts. Ceux qui partagent votre religion vous aideront (mais seulement vous) et vous offriront un mode de vie modeste.<br><br>Vous pouvez également avoir des liens avec un temple spécifique dédié à votre divinité ou votre panthéon, et vous y avez une résidence. Cela pourrait être le temple où vous avez servi, si vous êtes resté en bons termes avec lui, ou un temple dans lequel vous avez trouvé une nouvelle maison. Lorsque vous êtes proche de votre temple, vous pouvez faire appel à des religieux pour vous aider, à condition que l'aide que vous demandiez ne soit pas dangereuse et que vous restiez en règle avec votre temple."}
+        ],        
+        "Equipement": [
+            {"Objet" : "SymboleSacré", "Quantité" : 1},
+            {"Objet" : "LivreDePrière", "Quantité" : 1},
+            {"Objet" : "BatonEncens", "Quantité" : 5},
+            {"Objet" : "Habits de cérémonie", "Quantité" : 1},
+            {"Objet" : "Vetements Communs", "Quantité" : 1},
+            {"Objet" : "bourse", "Quantité" : 1},
+            {"Argent" : {"Quantité" : 15, "Unité": "po"}}
+        ],
+        "ImageUrl": "",
+        "Personnalité":{
+            "Spécial" : {},
+            "Description": "Les acolytes sont façonnés par leur expérience dans les temples ou autres communautés religieuses. Leur étude de l'histoire et des principes de leur foi ainsi que leurs relations avec les temples, les sanctuaires et la hiérarchie affectent leurs manières et leurs idéaux. Leurs défauts pourraient être une certaine hypocrisie cachée ou une pensée hérétique, ou bien un lien ou un idéal poussé à l'extrême.",
+            "Traits": [
+                "J'idolâtre un héros particulier de ma foi, et renvoie constamment à ses actes et à son exemple.",
+                "Je peux trouver un terrain d'entente entre les ennemis les plus féroces, ressentir de l'empathie pour eux et toujours travailler vers la paix.",
+                "Je vois des présages dans chaque événement et action. Les dieux essaient de nous parler, nous avons juste besoin d'écouter.",
+                "J'ai toujours une attitude optimiste.",
+                "Je cite (ou paraphrase) des textes sacrés et des proverbes dans presque toutes les situations.",
+                "Je suis tolérant (ou intolérant) vis-à-vis des autres fois et je respecte (ou condamne) l'adoration des autres dieux.",
+                "J'ai apprécié la bonne nourriture, les boissons et la haute société parmi l'élite de mon temple. La vie rude me fait grincer.",
+                "J'ai passé tellement de temps dans mon temple que j'ai peu d'expérience pratique pour traiter avec les gens du monde extérieur."
+            ],
+            "Ideaux": [
+                "Tradition. Les anciennes traditions de culte et de sacrifice doivent être préservées et respectées (Loyal).",
+                "Charité. J'essaie toujours d'aider ceux dans le besoin, quel qu'en soit le coût (Bon).",
+                "Progrès. Nous devons aider à mettre en place sur terre les changements que les dieux réalisent constamment (Chaotique).",
+                "Pouvoir. J'espère un jour parvenir au sommet de la hiérarchie religieuse de ma foi (Loyal).",
+                "Foi. J'ai confiance dans le fait que ma divinité guidera mes actions et que si je travaille dur, tout ira bien (Loyal).",
+                "Aspiration. Je cherche à me montrer digne de la faveur de mon dieu en faisant correspondre mes actions avec ses enseignements (tout alignement)."
+            ],
+            "Liens": [
+                "Je cherche une ancienne relique de ma foi qui a été perdue il y a longtemps. Je mourrais pour la récupérer.",
+                "Un jour je me vengerai de la hiérarchie corrompue de ce temple qui m'a accusé d'être un hérétique.",
+                "Je dois ma vie au prêtre qui m'a recueilli quand mes parents sont morts.",
+                "Tout ce que je fais est pour les gens ordinaires.",
+                "Je ferais tout pour protéger le temple dans lequel je servais.",
+                "Je cherche à préserver un texte sacré que mes ennemis veulent détruire car ils le considèrent hérétique."
+            ],
+            "Défauts": [
+                "Je juge sévèrement les autres, en partie parce que je suis encore plus sévère envers moi-même.",
+                "J'ai trop confiance en ceux qui exercent le pouvoir au sein de la hiérarchie de mon temple.",
+                "Ma piété me conduit parfois à faire confiance aveuglément à ceux qui professent la foi de mon dieu.",
+                "Je suis inflexible dans ma pensée.",
+                "Je suis méfiant envers les étrangers et m'attends au pire de leur part.",
+                "Une fois que j'ai un but, je deviens obsédé par celui-ci, au détriment du reste de ma vie."
+            ]
+        }
+    },
+    "Artisan de guilde": {
+        "Description": "Vous êtes le membre d'une guilde d'artisans, compétent dans un domaine particulier et en relation étroite avec d'autres artisans. Vous êtes au fait du monde des marchés, libéré des contraintes d'un ordre social féodal grâce à votre talent et à votre richesse. Vous avez appris votre savoir-faire en tant qu'apprenti auprès d'un maître artisan, sous l'égide de votre guilde, jusqu'à ce que vous deveniez à votre tour un maître dans votre branche.",
+        "MaitriseCompetences": [
+                "Intuition", 
+                "Persuasion"
+            ],
+        "MaitriseOutils": [
+            {"type": "Outils d'artisan", "Quantité":1}
+        ],
+        "Langues" : {
+            "Quantité":1,
+            "type": "choix",
+            "Langues":[]
+        },
+        "Capacités":[
+            {"Membre de guilde": "En tant que membre établi et respecté de votre guilde, vous pouvez compter sur certains avantages que vous confère votre adhésion. Vos compagnons de guilde vous procureront le gîte et le couvert si nécessaire, et payeront pour vos funérailles si besoin. Dans certaines villes ou cités, les guildes offrent un endroit où vous pouvez rencontrer d'autres membres de votre profession, ce qui peut être un bon moyen pour faire la connaissance de patrons potentiels, d'alliés ou de larbins. Les guildes exercent souvent un important pouvoir politique. Si vous êtes accusé de crime, votre guilde vous soutiendra si de bons arguments peuvent être déployés pour prouver votre innocence, ou si le crime était justifié. Vous pouvez également avoir accès à certaines figures politiques puissantes grâce à la guilde, si vous êtes un membre de haut rang. Ces mises en relation peuvent toutefois nécessiter que vous fassiez un don d'or ou d'objet magique au coffre de la guilde. Vous devez payer 5 po par mois à la guilde. Si vous manquez un paiement, vous devrez compenser votre retard de cotisation pour revenir dans les bonnes grâces de la guilde."}
+        ],     
+        "Equipement": [
+            {"Outil" : { "type":"Artisan", "Quantité" : 1}},
+            {"Objet" : "Lettre de recommandation de votre guilde", "Quantité" : 1},
+            {"Objet" : "Vêtements de voyages", "Quantité" : 1},
+            {"Objet" : "bourse", "Quantité" : 1},
+            {"Argent" : {"Quantité" : 15, "Unité": "po"}}
+        ],
+        "ImageUrl": "",
+        "Personnalité":{
+            "Spécial": {
+                "NomSpecial": "Affaires de la guilde",
+                "Quantité": 1,
+                "DescriptionSpecial": "Les guildes sont généralement fondées dans des cités suffisamment grandes pour que plusieurs artisans puissent y tenir des commerces de même type. Toutefois, votre guilde pourrait aussi être un réseau d'artisans qui travaillent chacun dans un village différent au sein d'un grand royaume. Travaillez avec votre MD pour déterminer la nature de votre guilde. Vous pouvez sélectionner le type d'affaires de votre guilde sur la table ci-dessous, ou le déterminer de manière aléatoire.<br><br>En tant que membre de la guilde, vous avez les compétences requises pour créer un objet fini à partir de matériaux de base (en rapport avec le type d'outils d'artisan que vous maîtrisez), et vous connaissez les principes du commerce et comment faire de bonnes affaires. La question qui se pose maintenant est de savoir si vous avez abandonné les affaires pour partir à l'aventure, ou bien si vous conciliez tant bien que mal l'aventure et les affaires.",
+                "Special":[
+                    "Alchimistes et apothicaires",
+                    "Armuriers, serruriers, orfèvres",
+                    "Brasseurs, distillateurs, vignerons",
+                    "Calligraphes, scribes, copistes",
+                    "Cartographes, géomètres, architectes",
+                    "Charrons",
+                    "Charpentiers, couvreurs, plâtriers",
+                    "Charpentiers de marine, fabricants de voile",
+                    "Cuisiniers, boulangers",
+                    "Forgerons",
+                    "Joailliers, tailleurs de gemmes",
+                    "Maçons et tailleurs de pierres",
+                    "Maroquiniers, peaussiers, tanneurs",
+                    "Menuisiers, tonneliers, fabricants d'arcs",
+                    "Peintres, enlumineurs, fabricants d'enseignes",
+                    "Potiers et tuiliers",
+                    "Rétameurs, faiseurs d'étain, fondeurs",
+                    "Savetiers, cordonniers",
+                    "Souffleurs de verre, vitriers",
+                    "Tisserands et teinturiers"
+                ]
+            },
+            "Description": "Les artisans de guilde sont parmi les gens les plus ordinaires qui soient, jusqu'à ce qu'ils déposent leurs outils et s'embarquent dans une carrière d'aventurier. Ils comprennent la valeur du travail bien fait et l'importance d'être dans une communauté, mais sont souvent épris de convoitise et teintés d'avarice.",
+            "Traits": [
+                "Je crois que si quelque chose doit être fait, il doit l'être correctement. Je n'y peux rien, je suis un perfectionniste.",
+                "Je suis un snob qui regarde de haut ceux qui ne peuvent apprécier les arts de qualité.",
+                "Je veux tout le temps savoir comment les choses fonctionnent et ce qui pousse les gens à avancer.",
+                "Je lance plein d'aphorismes spirituels et ai un proverbe pour chaque occasion.",
+                "Je suis grossier envers ceux qui n'ont pas mon engagement pour le travail bien fait et mon fair-play.",
+                "J'aime parler de longues heures de ma profession.",
+                "Je ne me sépare pas de mon or facilement et marchande sans relâche pour faire la meilleure affaire possible.",
+                "Je suis reconnu pour mon travail, et je veux m'assurer que tout le monde l'apprécie. Je suis toujours pris au dépourvu lorsque quelqu'un n'a pas entendu parlé de moi."
+            ],
+            "Ideaux": [
+                "Communauté. Il est du devoir de tout peuple civilisé de renforcer les liens qui unissent sa communauté ainsi que d'assurer la sécurité de sa civilisation (Loyal).",
+                "Générosité. Mes talents m'ont été donnés pour que je les utilise pour le plus grand nombre (Bon).",
+                "Liberté. Chacun devrait être libre d'exercer son propre gagne-pain (Chaotique).",
+                "Avarice. Je ne suis là que pour l'argent (Mauvais).",
+                "Peuple. Je m'engage pour des personnes que j'apprécie, pas pour des idées (Neutre).",
+                "Aspiration. Je travaille dur pour être le meilleur dans mon domaine (Tout alignement)."
+            ],
+            "Liens": [
+                "L'atelier où j'ai appris mon métier est l'endroit le plus important au monde pour moi.",
+                "J'ai créé un travail remarquable pour certaines personnes, puis les ai trouvées indignes de le recevoir. Je suis encore à la recherche d'une personne qui le méritera.",
+                "J'ai une énorme dette envers ma guilde, car elle a fait de moi ce que je suis aujourd'hui.",
+                "Je cherche à être riche pour m'assurer l'amour d'une personne.",
+                "Un jour je retournerai à ma guilde et leur prouverai que je suis un bien plus grand artisan qu'eux.",
+                "Je vais prendre ma revanche sur les forces maléfiques qui ont détruit mon atelier et anéanti mon gagne-pain."
+            ],
+            "Défauts": [
+                "Je ferais n'importe quoi pour mettre la main sur quelque chose de rare ou d'inestimable.",
+                "Je me persuade très vite que les gens cherchent à me rouler dans la farine.",
+                "Personne ne doit savoir que j'ai un jour dérobé l'or des coffres d'une guilde.",
+                "Je ne suis jamais satisfait de ce que j'ai, je veux toujours plus.",
+                "Je tuerai pour obtenir un titre de noblesse.",
+                "Je suis horriblement jaloux de tous ceux qui peuvent surpasser mes créations. Partout où je vais, je suis entouré de rivaux."
+            ]
+        }
+    },
+    "Artiste": {
+        "Description": "Vous vous épanouissez lorsque vous vous trouvez devant un public. Vous savez comment l'hypnotiser, comment l'amuser, comment l'inspirer. Vos poèmes font fondre les cœurs de ceux qui vous écoutent, réveillant les colères et les joies, répandant le rire ou la tristesse. Votre musique envahit leur esprit et s'empare de leurs douleurs. Vos pas de danse hypnotisent, votre humour pique au vif. Quelles que soient les techniques que vous utilisiez, l'art est toute votre vie.",
+        "MaitriseCompetences": [
+                "Acrobaties", 
+                "Représentation"
+            ],
+        "MaitriseOutils": [
+            {"type": "Kit de déguisement", "Quantité":1},
+            {"type": "Instrument de musique", "Quantité":1}
+        ],
+        "Langues": {
+            "Quantité": 0,
+            "type": "aucune",
+            "Langues": []
+        },
+        "Capacités":[
+            {"À la demande du public": "Vous pouvez toujours trouver un endroit où vous produire, souvent dans une auberge ou une taverne, mais également dans un cirque, un théâtre ou même dans la cour d'un noble. Dans de tels endroits, on vous offre gratuitement le gîte et le couvert (d'un train de vie modeste ou confortable, selon le type d'établissement), tant que vous faites une représentation chaque nuit. De plus, votre représentation fait de vous une figure locale. Lorsque des étrangers vous reconnaissent dans une ville où vous avez déjà joué, ils se prennent d'amitié pour vous."}
+        ],     
+        "Equipement": [
+            {"Outil" : { "type":"Artisan", "Quantité" : 1}},
+            {"Objet" : "Lettre de recommandation de votre guilde", "Quantité" : 1},
+            {"Objet" : "Vêtements de voyages", "Quantité" : 1},
+            {"Objet" : "bourse", "Quantité" : 1},
+            {"Argent" : {"Quantité" : 15, "Unité": "po"}}
+        ],
+        "ImageUrl": "",
+        "Personnalité":{
+            "Spécial": {
+                "NomSpecial": "Domaine artistique",
+                "Quantité": 3,
+                "DescriptionSpecial": "Un bon artiste est versatile, pimentant chacune de ses représentations avec des numéros différents. Choisissez de un à trois domaines de représentation ou tirez au hasard dans la table ci-dessous pour déterminer le ou les domaines artistiques que vous avez le plus développés.",
+                "Special":[
+                    "Acteur",
+                    "Danseur",
+                    "Cracheur-de-feu",
+                    "Bouffon",
+                    "Jongleur",
+                    "Musicien",
+                    "Poète",
+                    "Chanteur",
+                    "Conteur",
+                    "Acrobate"
+                ]
+            },
+            "Description": "Les artistes qui ont du succès se doivent d'être capables de capturer et conserver l'attention de leur audience, ils tendent donc à avoir des personnalités lumineuses ou charismatiques. Ils penchent souvent vers le romantisme et élèvent au rang d'idéal la pratique de leur art et l'appréciation de la beauté.",
+            "Traits": [
+                "Je connais une histoire en rapport avec chaque situation.",
+                "À chaque fois que j'arrive dans un nouvel endroit, je m'entiche des rumeurs locales et répands les commérages.",
+                "Je suis désespérément romantique, toujours à la recherche de cette \"personne spéciale\".",
+                "Personne ne reste en colère contre moi très longtemps, car je peux désamorcer toute tension.",
+                "J'adore les bonnes insultes, même celles qui sont dirigées contre moi.",
+                "Je deviens acerbe si je ne suis pas le centre de l'attention.",
+                "Je ne peux me contenter que de la perfection.",
+                "Je change mon humeur ou mon état d'esprit aussi vite que je change de note dans une chanson."
+            ],
+            "Ideaux": [
+                "Beauté. Lorsque je fais une représentation, je rends le monde meilleur qu'il ne l'était (Bon).",
+                "Tradition. Les histoires, les légendes et les chansons du passé ne devraient jamais être oubliées, car elles nous apprennent qui nous sommes (Loyal).",
+                "Créativité. Le monde a besoin de nouvelles idées et d'audace (Chaotique).",
+                "Avarice. Je ne fais cela que pour l'or et la gloire (Mauvais).",
+                "Peuple. J'aime voir des sourires sur les visages qui m'entourent lorsque je fais ma représentation. C'est tout ce qui m'importe (Neutre).",
+                "Honnêteté. L'art doit être le reflet de l'âme ; il doit provenir du plus profond de notre être et révéler qui nous sommes (Tout alignement)."
+            ],
+            "Liens": [
+                "Mon instrument est mon bien le plus précieux, et il me rappelle quelqu'un que j'aime.",
+                "Quelqu'un a volé mon précieux instrument, et un jour je le récupérerai.",
+                "Je veux être connu, et ferais n'importe quoi pour cela.",
+                "J'idolâtre le héros d'une vieille histoire et calque mes actions sur les siennes.",
+                "Je ferais n'importe quoi pour me prouver que je suis supérieur à mon détesté rival.",
+                "Je ferais n'importe quoi pour les membres de mon ancienne troupe."
+            ],
+            "Défauts": [
+                "Je ferais n'importe quoi pour gagner gloire et notoriété.",
+                "Je suis sans défense devant un joli minois.",
+                "Un scandale m'empêche de retourner chez moi. Ce genre de désagrément semble me suivre de partout.",
+                "J'ai un jour caricaturé un noble, lequel cherche encore à voir ma tête au bout d'une pique. C'était une erreur que je vais probablement répéter.",
+                "J'ai des difficultés à garder mes vrais sentiments pour moi. Ma langue acérée me cause beaucoup de problèmes.",
+                "En dépit de mes efforts, mes amis ont peu confiance en moi."
+            ]
+        }
+    },
+    "Charlatan": {
+        "Description": "Vous avez toujours eu un bon feeling avec les gens. Vous savez comment les accrocher, vous pouvez percevoir leurs plus profonds désirs après quelques minutes de conversations, et avec quelques questions précises vous pouvez lire en eux comme dans un livre ouvert. C'est un talent très utile, et vous savez exactement comment l'utiliser à votre avantage. <br><br>Vous savez ce que les gens veulent et vous le leur donnez, ou plutôt vous leur promettez de le leur donner. Le sens commun voudrait qu'une personne fuit une offre qui semble trop belle pour être vraie, mais le sens commun semble toujours être absent lorsque vous êtes dans les parages. Cette bouteille d'un liquide rosâtre va soigner à coups sûrs cette vilaine éruption cutanée, cet onguent (rien de plus qu'un peu de graisse saupoudrée de poussière d'argent) peut rendre jeunesse et vigueur, et il y a un pont en ville qui vient tout juste d'être mis en vente. Ces racontars semblent invraisemblables, mais vous parvenez toujours à leur faire prendre l'apparence de très bonnes affaires tout à fait plausibles.",
+        "MaitriseCompetences": [
+                "Escamotage", 
+                "Tromperie"
+            ],
+        "MaitriseOutils": [
+            {"type": "Kit de contrefaçon", "Quantité":1},
+            {"type": "Kit de déguisement", "Quantité":1}
+        ],
+        "Langues" : {},
+        "Capacités":[
+            {"Fausse identité": "Vous vous êtes créé une fausse identité, ce qui inclut des documents, des relations établies et du maquillage qui vous permet d'assumer ce rôle. De plus, vous pouvez contrefaire des documents, dont des papiers officiels et des lettres personnelles, à condition que vous ayez déjà vu un exemplaire de ce type de document, ou l'écriture que vous essayez d'imiter."}
+        ],     
+        "Equipement": [
+            {"Outil" : "Kit de déguisement", "Quantité" : 1},
+            {"Objet" : "des vêtements fins", "Quantité" : 1},            
+            {"Objet" : "bourse", "Quantité" : 1},
+            {"Argent" : {"Quantité" : 15, "Unité": "po"}}
+        ],
+        "ImageUrl": "",
+        "Personnalité":{
+            "Spécial": {
+                "NomSpecial": "Arnaque préférée",
+                "Quantité": 3,
+                "DescriptionSpecial": "Tout charlatan a son arnaque de prédilection, celle qu'il utilise lorsqu'il n'a plus de bonnes idées. Choisissez une escroquerie ou tirez aléatoirement sur la table ci-dessous.",
+                "Special":[
+                    "Je truque un jeu de chance.",
+                    "Je rogne les pièces de monnaie ou contrefait des documents.",
+                    "Je m'introduis dans la vie des gens pour jouer de leurs faiblesses et récupérer leur fortune.",
+                    "Je change d'identité comme de chemise.",
+                    "J'exécute des tours de passe-passe aux coins de rues.",
+                    "Je convaincs les gens qu'une camelote sans valeur vaut largement l'argent qu'ils ont obtenu en travaillant durement."
+
+                ]
+            },
+            "Description": "Les charlatans sont des personnages hauts en couleurs qui dissimulent leur véritable personnalité derrière des masques qu'ils façonnent. Ils s'adaptent à ce que les gens veulent voir, à ce qu'il veulent croire, et à leur façon de voir le monde. Mais leur véritable personnalité est parfois tourmentée par des cas de conscience, un vieil ennemi ou une magouille qui a mal tournée.",
+            "Traits": [
+                "Je tombe facilement amoureux, mais passe rapidement à une autre personne. Je suis toujours en train de faire la cour à quelqu'un.",
+                "J'ai une blague pour n'importe quelle occasion, en particulier pour les situations où l'humour n'est pas approprié.",
+                "La flatterie est mon astuce préférée pour obtenir ce que je veux.",
+                "Je suis un joueur né qui ne peut s'empêcher de prendre des risques pour un gain potentiel.",
+                "Je mens sur à peu près tout, même s'il n'y a aucune bonne raison pour le faire.",
+                "Les sarcasmes et les insultes sont mes armes favorites.",
+                "Je conserve tout un tas de symboles sacrés sur moi et prie toute divinité qui pourrait me venir en aide à un moment.",
+                "Je mets dans mes poches tout ce que je vois et qui pourrait avoir une quelconque valeur."
+            ],
+            "Ideaux": [
+                "<strong>Indépendance.</strong> Je suis un esprit libre, personne ne me dit ce que je dois faire (Chaotique).",
+                "<strong>Justice.</strong> Je ne cible jamais une personne qui ne peut pas se permettre de perdre quelques pièces (Loyal).",
+                "<strong>Charité.</strong> Je distribue l'argent que j'obtiens à ceux qui en ont vraiment besoin (Bon).",
+                "<strong>Créativité.</strong> Je ne fais jamais deux fois la même arnaque (Chaotique).",
+                "<strong>Amitié.</strong> Les biens matériels vont et viennent. Les liens d'amitié qui se tissent durent éternellement (Bon).",
+                "<strong>Aspiration.</strong> Je suis déterminé à faire quelque chose de ma vie (Tout alignement)."
+            ],
+            "Liens": [
+                "J'ai floué la mauvaise personne et ai intérêt à tout faire pour qu'elle ne recroise plus jamais mon chemin ou celui d'un de mes proches.",
+                "Je dois tout à mon maître, une horrible personne qui est probablement en train de pourrir en prison.",
+                "Dehors, quelque part, j'ai un enfant qui ne me connaît pas. Je cherche à rendre le monde meilleur pour lui/elle.",
+                "Je viens d'une famille noble, et un jour je viendrai leur réclamer mes terres et mon titre qu'ils m'ont lâchement dérobés.",
+                "Une personne très puissante a tué quelqu'un que j'aimais. Un jour prochain, j'aurai ma revanche.",
+                "J'ai escroqué et ruiné une personne qui ne le méritait pas. Je cherche à expier mon erreur, mais je ne pourrai jamais me le pardonner."
+            ],
+            "Défauts": [
+                "Je ne peux pas résister à un joli minois.",
+                "J'ai toujours des dettes. Je dépense mon argent sale dans des produits de luxe plus rapidement que je ne le gagne.",
+                "Je suis persuadé que jamais personne ne pourra me rouler de la manière dont je roule les autres.",
+                "Je suis trop gourmand lorsqu'il s'agit de profit. Je ne peux pas m'empêcher de prendre des risques lorsque de l'argent est en jeu.",
+                "Je ne peux pas m'empêcher d'escroquer ceux qui sont plus puissants que moi.",
+                "Je déteste l'admettre et je vais me détester pour cela, mais je prendrai mes jambes à mon cou et sauverai avant tout ma vie si la situation devient critique."
+            ]
+        }
+    },
+    "Criminel": {
+        "Description": "Vous êtes un criminel expérimenté avec un long passif d'infractions à la loi. Vous avez passé beaucoup de temps aux côtés d'autres criminels et avez encore des contacts au sein de la pègre. Vous êtes bien plus familier que la plupart des autres personnes avec le monde du meurtre, du vol et de la violence qui règne au sein de la civilisation, et vous avez survécu jusque là en bafouant les règles et les lois de la société.",
+        "MaitriseCompetences": [
+                "Discrétion", 
+                "Tromperie"
+            ],
+        "MaitriseOutils": [
+            {"type": "Jeux", "Quantité":1},
+            {"type": "Outils de voleur", "Quantité":1}
+        ],
+        "Langues" : {},
+        "Capacités":[
+            {"Fausse identité": "Vous vous êtes créé une fausse identité, ce qui inclut des documents, des relations établies et du maquillage qui vous permet d'assumer ce rôle. De plus, vous pouvez contrefaire des documents, dont des papiers officiels et des lettres personnelles, à condition que vous ayez déjà vu un exemplaire de ce type de document, ou l'écriture que vous essayez d'imiter."}
+        ],     
+        "Equipement": [
+            {"Objet" : "pied de biche", "Quantité" : 1},
+            {"Objet" : "Vetements Communs sombres avec capuche", "Quantité" : 1},
+            {"Objet" : "bourse", "Quantité" : 1},
+            {"Argent" : {"Quantité" : 15, "Unité": "po"}}
+        ],
+        "ImageUrl": "",
+        "Personnalité":{
+            "Spécial": {
+                "NomSpecial": "Spécialité criminelle",
+                "Quantité": 1,
+                "DescriptionSpecial": "Il existe de nombreuses sortes de criminels, et au sein d'une guilde de voleurs ou d'une organisation criminelle similaire, chaque membre a sa spécialité propre. Même les criminels qui opèrent en dehors de ces organisations ont des préférences marquées pour certains types de crimes. Choisissez ou tirez au hasard le rôle que vous avez joué dans votre vie criminelle.",
+                "Special":[
+                    "Maître-chanteur",
+                    "Cambrioleur",
+                    "Homme de main",
+                    "Receleur",
+                    "Voleur de grand chemin",
+                    "Tueur à gages",
+                    "Pickpocket",
+                    "Contrebandier"
+                ]
+            },
+            "Description": "Les charlatans sont des personnages hauts en couleurs qui dissimulent leur véritable personnalité derrière des masques qu'ils façonnent. Ils s'adaptent à ce que les gens veulent voir, à ce qu'il veulent croire, et à leur façon de voir le monde. Mais leur véritable personnalité est parfois tourmentée par des cas de conscience, un vieil ennemi ou une magouille qui a mal tournée.",
+            "Traits": [
+                "J'ai toujours un plan pour savoir quoi faire quand les choses vont mal.",
+                "Je suis toujours calme, quelle que soit la situation. Je n'élève pas la voix ou ne laisse pas mes émotions me contrôler.",
+                "La première chose que je fais dans un nouveau lieu est de noter les emplacements de toute chose précieuse, ou bien là où ces choses pourraient être cachées.",
+                "Je préfère me faire un nouvel ami qu'un nouvel ennemi.",
+                "Je suis incroyablement lent à faire confiance. Ceux qui semblent les plus droits sont souvent ceux qui ont le plus à cacher.",
+                "Je ne fais pas attention aux risques d'une situation.",
+                "La meilleure façon de me faire faire quelque chose est de me dire de ne pas le faire.",
+                "J'explose à la moindre insulte."
+            ],
+            "Ideaux": [
+                "Honneur. Je ne vole pas les autres dans une négociation (Loyal).",
+                "Liberté. Les chaînes sont faites pour être brisées, de même que ceux qui les forgent (Chaotique).",
+                "Charité. Je vole des riches pour pouvoir aider ceux qui sont dans le besoin (Bon).",
+                "Avidité. Je ferai tout ce qu'il faut pour devenir riche (Mauvais).",
+                "Personnes. Je suis fidèle à mes amis, pas à des idéaux, et tous les autres peuvent bien s'embarquer sur le Styx, ça ne m'importe pas (Neutre).",
+                "Rédemption. Il y a une étincelle de bonté en chacun de nous (Bon)."
+            ],
+            "Liens": [
+                "Je suis en train de payer une vieille dette que je dois à un généreux bienfaiteur.",
+                "Mes gains mal acquis vont soutenir ma famille.",
+                "Quelque chose d'important m'a été pris, et je dois le voler de nouveau.",
+                "Je vais devenir le plus grand voleur qui n'ait jamais été.",
+                "Je suis coupable d'un crime terrible. J'espère pouvoir me racheter.",
+                "Quelqu'un que j'aimais est mort à cause d'une erreur que j'ai faite. Cela ne se reproduira plus."
+            ],
+            "Défauts": [
+                "Quand je vois quelque chose de précieux, je ne pense qu'à une chose : comment m'en emparer.",
+                "Lorsque je suis confronté à un choix entre l'argent et mes amis, je choisis généralement l'argent.",
+                "S'il y a un plan, je vais l'oublier. Si je ne l'oublie pas, je l'ignore.",
+                "Il y a quelque chose qui me trahit quand je mens.",
+                "Je tourne le dos et m'enfuis en courant quand les choses vont mal.",
+                "Une personne innocente est en prison pour un crime que j'ai commis. Et je n'ai pas de problème avec cela."
+            ]
+        }
+    }
+}

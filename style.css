@@ -401,4 +401,46 @@ footer {
         color: white;
         font-weight: bold;
     }
+
+    /* Styles pour cacher les radios mais garder le comportement */
+    .radio-container {
+        display: inline-block;
+        margin: 2px;
+    }
+    .bonus-radio {
+        display: none !important;
+    }
+    .radio-label {
+        display: inline-block;
+        padding: 8px 12px;
+        background-color: #333;
+        border: 2px solid #555;
+        border-radius: 4px;
+        cursor: pointer;
+        color: #ccc;
+        transition: all 0.3s ease;
+        font-weight: bold;
+        margin: 2px;
+    }
+    .radio-label:hover:not(.disabled) {
+        background-color: #444;
+        border-color: #777;
+    }
+    .bonus-radio:checked + .radio-label {
+        background-color: #c0392b;
+        border-color: #c0392b;
+        color: white;
+    }
+    .reset-radio:checked + .radio-label {
+        background-color: #666;
+        border-color: #666;
+        color: white;
+    }
+    .radio-label.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        background-color: #222 !important;
+        border-color: #444 !important;
+        color: #666 !important;
+    }
 }

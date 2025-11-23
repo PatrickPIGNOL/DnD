@@ -136,9 +136,6 @@ $raceSauvegardee = $_SESSION['raceSelectionnee'] ?? null;
                     <a href="page1.php" class="secondary-button">
                         <?= htmlspecialchars($textes['boutons']['retour_texte'] ?? 'Retour') ?>
                     </a>
-                    <?php if ($raceSauvegardee): ?>
-                        <a href="?reset=1" class="secondary-button">Réinitialiser</a>
-                    <?php endif; ?>
                     <button type="submit" id="vNextButton" <?= !$raceSauvegardee ? 'disabled' : '' ?>>
                         <?= htmlspecialchars($textes['boutons']['suivant_texte'] ?? 'Suivant') ?>
                     </button>

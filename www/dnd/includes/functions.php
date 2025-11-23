@@ -1,9 +1,27 @@
 <?php
+
+function getValeursDeVie($classe) {
+    $pointsDeVieParDefaut = [
+        'Barbare' => 12,
+        'Barde' => 8,
+        'Clerc' => 8,
+        'Druide' => 8,
+        'Guerrier' => 10,
+        'Magicien' => 6,
+        'Moine' => 8,
+        'Paladin' => 10,
+        'Ranger' => 10,
+        'Roublard' => 8,
+        'Sorcier' => 6,
+        'Ensorceleur' => 6
+    ];
+    
+    return $pointsDeVieParDefaut[$classe] ?? 8; // Valeur par défaut 8 au lieu de 6
+}
 /**
  * Charge un fichier JSON depuis le dossier data avec validation
  */
 function chargerJSON($fichier) {
-    // Correction de la variable $fichier (au lieu de $ichier)
     $chemin = __DIR__ . '/../data/' . $fichier;
     
     if (file_exists($chemin)) {
@@ -23,34 +41,6 @@ function chargerJSON($fichier) {
 }
 
 /**
- * Valide la structure des données de classe
- */
-function validerStructureClasses($data) {
-    if (!is_array($data)) return false;
-    
-    foreach ($data as $classe) {
-        if (!isset($classe['nom']) || !isset($classe['image_url'])) {
-            return false;
-        }
-    }
-    
-    return true;
-}
-/**
- * Valide la structure des données de race
- */
-function validerStructureRaces($data) {
-    if (!is_array($data)) return false;
-    
-    foreach ($data as $race) {
-        if (!isset($race['nom']) || !isset($race['image_url'])) {
-            return false;
-        }
-    }
-    
-    return true;
-}
-/**
  * Valide la structure des données de page
  */
 function validerStructurePage($data) {
@@ -58,22 +48,37 @@ function validerStructurePage($data) {
 }
 
 /**
- * Redirige vers l'index en cas d'erreur
+ * Calcule le modificateur d'une caractéristique selon la formule D&D
  */
-function redirigerVersIndex() {
-    header('Location: /dnd/index.php');
-    exit;
+function calculerModificateur($score) {
+    return floor($score / 2 - 5);
+}
+
+/**
+ * Calcule les points de vie maximum avec formule favorisant le joueur
+ */
+function calculerPointsDeVie($jetDeVie, $niveau, $modConstitution) {
+    $valeursMax = array(
+        'd6' => 6, 
+        'd8' => 8, 
+        'd10' => 10, 
+        'd12' => 12
+    );
+    $valeurMax = isset($valeursMax[$jetDeVie]) ? $valeursMax[$jetDeVie] : 8;
+    
+    return ($valeurMax + $modConstitution) * $niveau;
 }
 
 /**
  * Nettoie les données de session pour une nouvelle création
  */
 function demarrerNouvelleCreation() {
-    // Supprime seulement les données de personnage
-    $keysToRemove = ['classeSelectionnee', 'raceSelectionnee', 'personnageData'];
+    $keysToRemove = array('classeSelectionnee', 'raceSelectionnee', 'personnageData', 'niveau', 'bonusSlots');
     
     foreach ($keysToRemove as $key) {
-        unset($_SESSION[$key]);
+        if (isset($_SESSION[$key])) {
+            unset($_SESSION[$key]);
+        }
     }
 }
 ?>

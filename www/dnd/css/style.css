@@ -139,7 +139,6 @@ button:disabled {
     background-color: #a33227 !important; 
 }
 
-
 /* ========================================================================= */
 /* 3. STYLES DES LISTES (Classe et Race) */
 /* ========================================================================= */
@@ -258,7 +257,6 @@ button:disabled {
     -webkit-box-orient: vertical;
 }
 
-
 /* ========================================================================= */
 /* 4. TABLES DES CARACTÉRISTIQUES (Alignement strict) */
 /* ========================================================================= */
@@ -293,125 +291,183 @@ button:disabled {
 }
 
 /* ========================================================================= */
-/* 5. STYLES SPÉCIFIQUES PAGE 3 (Bonus Race & PV) */
+/* 5. STYLES SPÉCIFIQUES POUR LE TABLEAU DES CARACTÉRISTIQUES PAGE 3 */
 /* ========================================================================= */
 
-/* Cellules de bonus de race : l'alignement est géré par la structure <td> */
-.race-bonus-slot label {
-    display: block; 
-    padding: 2px 0;
-    text-align: center;
+/* Ligne Reset avec style sombre */
+.reset-row {
+    background-color: #2a2a2a !important;
+    border-bottom: 2px solid #444 !important;
 }
 
-/* TABLEAU DES POINTS DE VIE (PV) */
-.hp-block {
-    border: 1px solid #555; 
-    border-radius: 6px;
-    padding: 15px;
-    margin-top: 30px;
+.reset-row .carac-nom {
+    color: #888 !important;
+    font-style: italic;
 }
-/* Styles de la table des PV (pour le détail du calcul) */
-.hp-calculation-table th {
-    background-color: #555; 
-    color: white;
-    padding: 12px 10px;
-    font-weight: bold;
-    border: 1px solid #444;
+
+.reset-row td {
+    background-color: #2a2a2a !important;
+    color: #888 !important;
+    border-color: #444 !important;
 }
-.hp-calculation-table td {
+
+/* Styles des cellules de radio */
+.radio-cell {
+    text-align: center;
+    padding: 5px !important;
+}
+
+.radio-label {
+    display: inline-block;
+    padding: 8px 12px;
     background-color: #333;
-    color: #eee;
+    border: 2px solid #555;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #ccc;
+    transition: all 0.3s ease;
+    font-weight: bold;
 }
 
-.final-hp-value {
-    color: #eee; /* PV en blanc */
+.radio-label:hover:not(.disabled) {
     background-color: #444;
+    border-color: #777;
 }
 
-/* ========================================================================= */
-/* 7. FOOTER */
-/* ========================================================================= */
-footer {
-    text-align: center;
+.bonus-radio:checked + .radio-label {
+    background-color: #c0392b;
+    border-color: #c0392b;
+    color: white;
+}
+
+.reset-radio:checked + .radio-label {
+    background-color: #666;
+    border-color: #666;
+    color: white;
+}
+
+/* Radio buttons désactivés (pour les races fixes) */
+.radio-label.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #222 !important;
+    border-color: #444 !important;
+    color: #666 !important;
+}
+
+input[type="radio"]:disabled + .radio-label {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #222 !important;
+    border-color: #444 !important;
+    color: #666 !important;
+}
+
+/* Message pour les bonus fixes */
+.bonus-fixe-message {
+    background-color: #1a2a3a;
+    border: 1px solid #2c5282;
     padding: 15px;
-    font-size: 0.8em;
-    color: #888;
-    border-top: 1px solid #333;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    color: #90cdf4;
+}
+
+.bonus-fixe-message strong {
+    color: #63b3ed;
+}
+
+/* En-têtes des slots */
+.slot-header {
+    background-color: #333 !important;
+    color: #c0392b !important;
+    font-weight: bold;
+}
+
+/* Scores et modificateurs */
+.score-base {
+    color: #c0392b;
+    font-weight: bold;
+}
+
+.score-total {
+    color: #ffd700;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.modificateur {
+    color: #90ee90;
+    font-weight: bold;
+}
+
+/* Section Points de Vie */
+.pv-calculation {
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 6px;
+    padding: 20px;
     margin-top: 20px;
 }
 
-/* ========================================================================= */
-/* 8. RESPONSIVE (Avec des méthodes classiques) */
-/* ========================================================================= */
-@media (max-width: 768px) {
-    main {
-        margin: 10px;
-        padding: 10px;
-    }
-    
-    .caracteristiques-table th, .hp-calculation-table th, 
-    .caracteristiques-table td, .hp-calculation-table td {
-        padding: 6px 4px;
-        font-size: 0.85em;
-    }
-    
-    /* Cartes de race : on revient à un affichage bloc vertical en mobile pour plus de clarté */
-    .race-option-card {
-        display: block; 
-        padding: 15px;
-    }
-    
-    /* Les colonnes s'empilent */
-    .race-radio-cell,
-    .race-image-cell,
-    .race-content-cell {
-        display: block;
-        width: 100%;
-        padding: 0;
-        text-align: center; /* Centrer tout le contenu */
-    }
-    
-    /* Réarrangement de l'image en mobile */
-    .race-image-cell {
-        margin: 10px 0;
-    }
-    .race-option-card img {
-        height: 100px;
-        width: 100px;
-        min-height: auto;
-    }
-    .race-radio-cell input[type="radio"] {
-        display: block;
-        margin: 0 auto 10px auto; 
-    }
-
-    /* Boutons de navigation empilés */
-    .navigation-buttons {
-        text-align: center;
-    }
-    .navigation-buttons button, .navigation-buttons a {
-        display: block;
-        width: 100%;
-        margin: 5px 0;
-    }
-    .detail-row {
-        background-color: #2a2a2a;
-    }
-
-    .detail-row td {
-        border-top: 1px solid #333;
-        padding: 5px 10px;
-    }
-
-    /* Style pour la ligne de reset */
-    #vResetRow td {
-        background-color: #333;
-        color: white;
-        font-weight: bold;
-    }
+.pv-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
 }
 
-/* Styles pour les races */
+.pv-table th {
+    background-color: #333;
+    color: #c0392b;
+    padding: 12px;
+    border: 1px solid #444;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.pv-table td {
+    background-color: #2a2a2a;
+    color: #ccc;
+    padding: 12px;
+    border: 1px solid #444;
+    text-align: center;
+}
+
+.pv-total {
+    color: #ffd700 !important;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.pv-details {
+    background-color: #333;
+    padding: 15px;
+    border-radius: 4px;
+    border-left: 4px solid #c0392b;
+}
+
+.pv-details p {
+    margin: 5px 0;
+    color: #ccc;
+}
+
+/* Instructions pour les slots */
+.instructions {
+    color: #888;
+    font-style: italic;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+/* Slots restants */
+#slotsRestants {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* ========================================================================= */
+/* 6. STYLES DES RACES */
+/* ========================================================================= */
 .race-options-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -538,4 +594,272 @@ button[type="submit"]:disabled {
     background-color: #666;
     color: #999;
     cursor: not-allowed;
+}
+
+/* ========================================================================= */
+/* 7. FOOTER */
+/* ========================================================================= */
+footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 0.8em;
+    color: #888;
+    border-top: 1px solid #333;
+    margin-top: 20px;
+}
+
+/* ========================================================================= */
+/* 8. RESPONSIVE (Avec des méthodes classiques) */
+/* ========================================================================= */
+@media (max-width: 768px) {
+    main {
+        margin: 10px;
+        padding: 10px;
+    }
+    
+    .caracteristiques-table th, .pv-table th, 
+    .caracteristiques-table td, .pv-table td {
+        padding: 6px 4px;
+        font-size: 0.85em;
+    }
+    
+    /* Cartes de race : on revient à un affichage bloc vertical en mobile pour plus de clarté */
+    .race-option-card {
+        display: block; 
+        padding: 15px;
+    }
+    
+    /* Les colonnes s'empilent */
+    .race-radio-cell,
+    .race-image-cell,
+    .race-content-cell {
+        display: block;
+        width: 100%;
+        padding: 0;
+        text-align: center; /* Centrer tout le contenu */
+    }
+    
+    /* Réarrangement de l'image en mobile */
+    .race-image-cell {
+        margin: 10px 0;
+    }
+    .race-option-card img {
+        height: 100px;
+        width: 100px;
+        min-height: auto;
+    }
+    .race-radio-cell input[type="radio"] {
+        display: block;
+        margin: 0 auto 10px auto; 
+    }
+
+    /* Boutons de navigation empilés */
+    .navigation-buttons {
+        text-align: center;
+        flex-direction: column;
+    }
+    .navigation-buttons button, .navigation-buttons a {
+        display: block;
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    .detail-row {
+        background-color: #2a2a2a;
+    }
+
+    .detail-row td {
+        border-top: 1px solid #333;
+        padding: 5px 10px;
+    }
+
+    /* Style pour la ligne de reset */
+    #vResetRow td {
+        background-color: #333;
+        color: white;
+        font-weight: bold;
+    }
+
+    /* Responsive pour le tableau des caractéristiques */
+    .caracteristiques-table {
+        font-size: 0.8em;
+    }
+    
+    .radio-label {
+        padding: 6px 8px;
+        font-size: 0.9em;
+    }
+    
+    .caracteristiques-table th,
+    .caracteristiques-table td {
+        padding: 6px 4px;
+    }
+}
+
+/* ========================================================================= */
+/* STYLES POUR LES RADIOS CACHÉS AVEC BOUTONS VISIBLES */
+/* ========================================================================= */
+
+.radio-container {
+    display: inline-block;
+    margin: 2px;
+}
+
+.bonus-radio {
+    display: none !important;
+}
+
+.radio-label {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #333;
+    border: 2px solid #555;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #ccc;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    margin: 2px;
+}
+
+.radio-label:hover:not(.disabled) {
+    background-color: #444;
+    border-color: #777;
+}
+
+.bonus-radio:checked + .radio-label {
+    background-color: #c0392b;
+    border-color: #c0392b;
+    color: white;
+}
+
+.reset-radio:checked + .radio-label {
+    background-color: #666;
+    border-color: #666;
+    color: white;
+}
+
+.radio-label.disabled {
+    cursor: not-allowed;
+}
+
+/* ========================================================================= */
+/* STYLES POUR LES RADIOS CACHÉS AVEC BOUTONS VISIBLES */
+/* ========================================================================= */
+
+.radio-container {
+    display: inline-block;
+    margin: 2px;
+}
+
+.bonus-radio {
+    display: none !important;
+}
+
+.radio-label {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #333;
+    border: 2px solid #555;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #ccc;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    margin: 2px;
+}
+
+.radio-label:hover:not(.disabled) {
+    background-color: #444;
+    border-color: #777;
+}
+
+.bonus-radio:checked + .radio-label {
+    background-color: #c0392b;
+    border-color: #c0392b;
+    color: white;
+}
+
+.reset-radio:checked + .radio-label {
+    background-color: #666;
+    border-color: #666;
+    color: white;
+}
+
+.radio-label.disabled {
+    cursor: not-allowed;
+}
+
+/* ========================================================================= */
+/* STYLES POUR LES BONUS FIXES (ROUGE FONCÉ) */
+/* ========================================================================= */
+
+
+/* Style pour les boutons +1 activés mais désactivés (bonus fixes) */
+.radio-label.disabled.bonus-fixe {
+    background-color: #5a1a1a !important; /* Rouge très foncé */
+    border-color: #7a2a2a !important;
+    color: #ff9999 !important; /* Rouge clair pour le texte */
+}
+
+/* Style spécifique pour les reset désactivés dans les bonus fixes */
+.radio-label.disabled.reset-fixe {
+    background-color: #2a2a2a !important;
+    border-color: #444 !important;
+    color: #666 !important;
+}
+
+/* Indication visuelle que c'est un bonus fixe */
+.bonus-fixe-indicator {
+    display: inline-block;
+    margin-left: 5px;
+    color: #ff6b6b;
+    font-size: 0.8em;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+/* Styles pour le tableau des caractéristiques */
+.radio-cell {
+    text-align: center;
+    padding: 10px !important;
+}
+
+/* Message pour les bonus fixes */
+.bonus-fixe-message {
+    background-color: #1a2a3a;
+    border: 1px solid #2c5282;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    color: #90cdf4;
+    border-left: 4px solid #c0392b;
+}
+
+.bonus-fixe-message strong {
+    color: #63b3ed;
+}
+
+/* Style spécial pour le header des races fixes */
+.bonus-fixe-header {
+    color: #ff6b6b !important;
+    border-bottom-color: #7a2a2a !important;
+}
+
+.radio-cell .bonus-radio:checked + .radio-label.disabled.bonus-fixe {
+    background-color: #5a1a1a !important;
+    border-color: #7a2a2a !important;
+    color: #ff9999 !important;
+}
+
+/* Style spécifique pour les reset checked et désactivés dans les bonus fixes */
+.radio-cell .reset-radio:checked + .radio-label.disabled.reset-fixe {
+    background-color: #2a2a2a !important;
+    border-color: #444 !important;
+    color: #666 !important;
 }

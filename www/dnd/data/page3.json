@@ -43,11 +43,11 @@
 
         "table_headers": {
             "caracteristique": "Caractéristique",
-            "score_fixe": "Score / Bonus de base",
+            "score_fixe": "Score de base",
             "allocation_bonus": "Bonus de race",
             "score_total": "Score Final", 
-            "detail_calcul": "Détail du Calcul",
-            "jet_de_vie": "Jet de Vie",
+            "detail_calcul": "Mod.",
+            "jet_de_vie": "Dé de Vie",
             "mod_con": "Mod. CON",
             "pv_obtenus": "PV Obtenus"
         },
@@ -69,7 +69,7 @@
         
         "boutons": {
             "retour_texte": "Retour",
-            "suivant_texte": "Suivant (Historique)"
+            "suivant_texte": "Suivant"
         },
         
         "footer_texte": "&copy; 2025 Character Builder"

@@ -118,9 +118,6 @@ $classeSauvegardee = $_SESSION['classeSelectionnee'] ?? null;
                     <a href="index.php" class="secondary-button">
                         <?= htmlspecialchars($textes['boutons']['retour_texte'] ?? 'Accueil') ?>
                     </a>
-                    <?php if ($classeSauvegardee): ?>
-                        <a href="?reset=1" class="secondary-button">Réinitialiser</a>
-                    <?php endif; ?>
                     <button type="submit" id="vBoutonSuivant" <?= !$classeSauvegardee ? 'disabled' : '' ?>>
                         <?= htmlspecialchars($textes['boutons']['suivant_texte'] ?? 'Suivant') ?>
                     </button>

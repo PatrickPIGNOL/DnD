@@ -1,0 +1,558 @@
+
+{
+    "Bâton":{
+        "classe":"Armes courantes", 
+        "type":"corps à corps", 
+        "dégats":{
+            "quantité": 1,
+            "dé":6,
+            "type": "contondant"
+        }, 
+        "poid":{
+            "quantité":2,
+            "unité":"kg"
+        }, 
+        "prix":{
+            "quantité":2,
+            "unité":"pa"
+        }, 
+        "propriétés":[
+            {
+                "Polyvalente":{
+                    "dégats":{
+                        "quantité":1,
+                        "dé":8,
+                        "type": "contondant"
+                    }
+                }
+            }
+        ]
+    },
+    "Dague":{
+        "classe": "Armes courantes", 
+        "type": "corps à corps", 
+        "dégats":{
+            "quantité": 1,
+            "dé":4,
+            "type": "perforant"
+        },
+        "poid": {
+            "quantité":500,
+            "unité": "g"
+        },	
+        "prix": {
+            "quantité": 2,
+            "unité": "po"
+        }, 
+        "propriétés":[
+            {"finesse":"finesse"}, 
+            {"légère":"légère"}, 
+            {
+                "lancer":{
+                    "nominale":{
+                        "quantité":6,
+                        "unité": "m"
+                    },
+                    "maxi": {
+                        "quantité":18,
+                        "unité":"m"
+                    }
+                }
+            }
+        ]
+    },
+    "Gourdin":{
+        "classe": "Armes courantes", 
+        "type": "corps à corps",
+        "dégats":{
+            "quantité": 1,
+            "dé":4,
+            "type": "contondant"
+        },
+        "poid":{
+            "quantité": 1,
+            "unité":"kg"
+        },
+        "prix":{
+            "quantité":1,
+            "unité":"pa"
+        },
+        "propriétés":[
+            {"légère":"légère"}
+        ]
+    },
+    "Hachette":{
+        "classe": "Armes courantes", 
+        "type": "corps à corps",
+        "dégats":{
+            "quantité": 1,
+            "dé":6,
+            "type": "tranchant"
+        },
+        "poid": {
+            "quantité":1,
+            "unité": "kg"
+        },	
+        "prix": {
+            "quantité": 5,
+            "unité": "po"
+        }, 
+        "propriétés":[
+            {"légère":"légère"},
+            {
+                "lancer":{
+                    "nominale":{
+                        "quantité":6,
+                        "unité": "m"
+                    },
+                    "maxi": {
+                        "quantité":18,
+                        "unité":"m"
+                    }
+                }
+            }
+        ]
+    },
+    "Javeline" :{
+        "classe": "Armes courantes", 
+        "type": "corps à corps",
+        "dégats":{
+            "quantité": 1,
+            "dé":6,
+            "type": "perforant"
+        },
+        "poid":{
+            "quantité": 1,
+            "unité":"kg"
+        },
+        "prix":{
+            "quantité":5,
+            "unité":"pa"
+        },
+        "propriétés" : [
+            {
+                "lancer":{
+                    "nominale":{
+                        "quantité":9,
+                        "unité": "m"
+                    },
+                    "maxi": {
+                        "quantité":36,
+                        "unité":"m"
+                    }
+                }
+            }
+        ]
+    },
+    "Lance":{
+        "classe": "Armes courantes", 
+        "type": "corps à corps",
+        "dégats":{
+            "quantité": 1,
+            "dé":6,
+            "type": "perforant"
+        },
+        "poid":{
+            "quantité": 1.5,
+            "unité":"kg"
+        },
+        "prix":{
+            "quantité":1,
+            "unité":"po"
+        },
+        "propriétés" : [
+            {
+                "lancer":{
+                    "nominale":{
+                        "quantité":6,
+                        "unité": "m"
+                    },
+                    "maxi": {
+                        "quantité":18,
+                        "unité":"m"
+                    }
+                }
+            },
+            {
+                "Polyvalente":{
+                    "dégats":{
+                        "quantité":1,
+                        "dé":8,
+                        "type": "perforant"
+                    }
+                }
+            }
+        ]
+    },
+    "Marteau léger":{
+        "classe": "Armes courantes", 
+        "type": "corps à corps",
+        "dégats":{
+            "quantité": 1,
+            "dé":4,
+            "type": "contondant"
+        },
+        "poid":{
+            "quantité": 1,
+            "unité":"kg"
+        },
+        "prix":{
+            "quantité":2,
+            "unité":"po"
+        },
+        "propriétés" : [
+            {"légère":"légère"},
+            {
+                "lancer":{
+                    "nominale":{
+                        "quantité":6,
+                        "unité": "m"
+                    },
+                    "maxi": {
+                        "quantité":18,
+                        "unité":"m"
+                    }
+                }
+            }
+        ]
+    },
+    "Masse d'armes":{
+        "classe": "Armes courantes", 
+        "type": "corps à corps",
+        "dégats":{
+            "quantité": 1,
+            "dé":6,
+            "type": "contondant"
+        },
+        "poid":{
+            "quantité": 5,
+            "unité":"kg"
+        },
+        "prix":{
+            "quantité":5,
+            "unité":"po"
+        },
+        "propriétés" : []
+    },	
+    "Massue":{
+        "classe": "Armes courantes", 
+        "type": "corps à corps",
+        "dégats":{
+            "quantité": 1,
+            "dé":8,
+            "type": "contondant"
+        },
+        "poid":{
+            "quantité": 5,
+            "unité":"kg"
+        },
+        "prix":{
+            "quantité":2,
+            "unité":"pa"
+        },
+        "propriétés" : [
+            {"À deux mains":"À deux mains"}
+        ]
+    },
+    "Serpe":{
+        "classe": "Armes courantes", 
+        "type": "corps à corps",
+        "dégats":{
+            "quantité": 1,
+            "dé":4,
+            "type": "tranchant"
+        },
+        "poid":{
+            "quantité": 1,
+            "unité":"kg"
+        },
+        "prix":{
+            "quantité":1,
+            "unité":"po"
+        },
+        "propriétés" : [
+            {"legère":"légère"}
+        ]
+    },
+    "Arbalète légère":{
+        "classe": "Armes courantes", 
+        "type": "distance",
+        "dégats":{
+            "quantité": 1,
+            "dé":8,
+            "type": "perforant"
+        },
+        "poid":{
+            "quantité": 2.5,
+            "unité":"kg"
+        },
+        "prix":{
+            "quantité":25,
+            "unité":"po"
+        },
+        "propriétés" : [
+            {
+                "Munitions":{
+                    "nominale":{
+                        "quantité":24,
+                        "unité": "m"
+                    },
+                    "maxi": {
+                        "quantité":96,
+                        "unité":"m"
+                    }
+                }
+            },
+            {"chargement":"Chargement"},
+            {"à deux mains": "À deux mains"}
+        ]
+    },
+    "Arc court":{
+        "classe": "Armes courantes", 
+        "type": "distance",
+        "dégats":{
+            "quantité": 1,
+            "dé":6,
+            "type": "perforant"
+        },
+        "poid":{
+            "quantité": 1,
+            "unité":"kg"
+        },
+        "prix":{
+            "quantité":25,
+            "unité":"po"
+        },
+        "propriétés" : [
+            {
+                "Munitions":{
+                    "nominale":{
+                        "quantité":24,
+                        "unité": "m"
+                    },
+                    "maxi": {
+                        "quantité":96,
+                        "unité":"m"
+                    }
+                }
+            },
+            {"à deux mains": "À deux mains"}
+        ]
+    },
+    "Fléchette"	:{
+        "classe": "Armes courantes", 
+        "type": "distance",
+        "dégats":{
+            "quantité": 1,
+            "dé":4,
+            "type": "perforant"
+        },
+        "poid":{
+            "quantité": 100,
+            "unité":"g"
+        },
+        "prix":{
+            "quantité":5,
+            "unité":"pc"
+        },
+        "propriétés" : [
+            {"Finesse": "Finesse"},
+            {
+                "lancer":{
+                    "nominale":{
+                        "quantité":6,
+                        "unité": "m"
+                    },
+                    "maxi": {
+                        "quantité":18,
+                        "unité":"m"
+                    }
+                }
+            }
+        ]
+    },
+    "Fronde":{
+        "classe": "Armes courantes", 
+        "type": "distance",
+        "dégats":{
+            "quantité": 1,
+            "dé":4,
+            "type": "contondant"
+        },
+        "poid":{
+            "quantité": 100,
+            "unité":"g"
+        },
+        "prix":{
+            "quantité":1,
+            "unité":"pa"
+        },
+        "propriétés" : [
+            {"Finesse": "Finesse"},
+            {
+                "Munitions":{
+                    "nominale":{
+                        "quantité":9,
+                        "unité": "m"
+                    },
+                    "maxi": {
+                        "quantité":96,
+                        "unité":"m"
+                    }
+                }
+            }
+        ]
+    },
+    "Cimeterre":{
+        "classe": "Armes de guerre", 
+        "type": "corps à corps",
+        "dégats":{
+            "quantité": 1,
+            "dé":6,
+            "type": "tranchant"
+        },
+        "poid":{
+            "quantité": 1.5,
+            "unité":"kg"
+        },
+        "prix":{
+            "quantité": 25,
+            "unité":"po"
+        },
+        "propriétés" : [
+            {"Finesse": "Finesse"},
+            {"légère" : "légère"}
+        ]
+    },
+    "Coutille":{
+        "classe": "Armes de guerre", 
+        "type": "corps à corps",
+        "dégats":{
+            "quantité": 1,
+            "dé":10,
+            "type": "tranchant"
+        },
+        "poid":{
+            "quantité": 3,
+            "unité":"kg"
+        },
+        "prix":{
+            "quantité": 20,
+            "unité":"po"
+        },
+        "propriétés" : [
+            {"allonge": "allonge"},
+            {"lourde" : "lourde"},
+            {"à deux mains" : "À deux mains"}
+        ]
+    },
+    "Épée à deux mains":{
+        "classe": "Armes de guerre", 
+        "type": "corps à corps",
+        "dégats":{
+            "quantité": 2,
+            "dé":6,
+            "type": "tranchant"
+        },
+        "poid":{
+            "quantité": 3,
+            "unité":"kg"
+        },
+        "prix":{
+            "quantité": 50,
+            "unité":"po"
+        },
+        "propriétés" : [
+            {"lourde" : "lourde"},
+            {"à deux mains" : "À deux mains"}
+        ]
+    },
+    "Épée courte":{
+        "classe": "Armes de guerre", 
+        "type": "corps à corps",
+        "dégats":{
+            "quantité": 1,
+            "dé":6,
+            "type": "perforant"
+        },
+        "poid":{
+            "quantité": 3,
+            "unité":"kg"
+        },
+        "prix":{
+            "quantité": 50,
+            "unité":"po"
+        },
+        "propriétés" : [
+            {"finesse" : "finesse"},
+            {"légère" : "légère"}
+        ]
+    },
+    "Épée longue":{
+        "classe": "Armes de guerre", 
+        "type": "corps à corps",
+        "dégats":{
+            "quantité": 1,
+            "dé":8,
+            "type": "tranchant"
+        },
+        "poid":{
+            "quantité": 1.5,
+            "unité":"kg"
+        },
+        "prix":{
+            "quantité": 15,
+            "unité":"po"
+        },
+        "propriétés" : [
+            {
+                "Polyvalente":{
+                    "dégats":{
+                        "quantité":1,
+                        "dé":10,
+                        "type": "tranchant"
+                    }
+                }
+            }
+        ]
+    },
+    "Fléau d'armes":{
+        "classe": "Armes de guerre", 
+        "type": "corps à corps",
+        "dégats":{
+            "quantité": 1,
+            "dé":8,
+            "type": "contondant"
+        },
+        "poid":{
+            "quantité": 1,
+            "unité":"kg"
+        },
+        "prix":{
+            "quantité": 10,
+            "unité":"po"
+        },
+        "propriétés" : []
+    },
+    Fouet	Whip	1d4 tranchant	1,5 kg	2 po	Finesse, allonge
+    Hache à deux mains	Greataxe	1d12 tranchant	3,5 kg	30 po	Lourde, à deux mains
+    Hache d'armes	Battleaxe	1d8 tranchant	2 kg	10 po	Polyvalente (1d10)
+    Hallebarde	Halberd	1d10 tranchant	3 kg	20 po	Lourde, allonge, à deux mains
+    Lance d’arçon	Lance	1d12 perforant	3 kg	10 po	Allonge, spécial
+    Maillet	Maul	2d6 contondant	5 kg	10 po	Lourde, à deux mains
+    Marteau de guerre	Warhammer	1d8 contondant	1 kg	15 po	Polyvalente (1d10)
+    Morgenstern	Morningstar	1d8 perforant	2 kg	15 po	-
+    Pic de guerre	War pick	1d8 perforant	1 kg	5 po	-
+    Pique	Pike	1d10 perforant	9 kg	5 po	Lourde, allonge, à deux mains
+    Rapière	Rapier	1d8 perforant	1 kg	25 po	Finesse
+    Trident	Trident	1d6 perforant	2 kg	5 po	Lancer (portée 6 m/18 m), polyvalente (1d8)
+
+    
+    Armes de guerre à distance
+    Arbalète de poing	Crossbow, hand	1d6 perforant	1,5 kg	75 po	Munitions (portée 9 m/36 m), légère, chargement
+    Arbalète lourde	Crossbow, heavy	1d10 perforant	9 kg	50 po	Munitions (portée 30 m/120 m), lourde, chargement,
+    à deux mains
+    Arc long	Longbow	1d8 perforant	1 kg	50 po	Munitions (portée 45 m/180 m), lourde, à deux mains
+    Filet	Net	 	1,5 kg	1 po	Spécial, lancer (portée 1,50 m/ 4,50 m)
+    Sarbacane	Blowgun	1 perforant	500 g	10 po	Munitions (portée 7,50 m/30 m), chargement
+}

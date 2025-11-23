@@ -10,10 +10,1156 @@
             "Intelligence": 15,
             "Sagesse": 14,
             "Charisme": 8
-        }
+        },
+        "Argent": {
+            "Quantité":4, 
+            "Dé": "d4", 
+            "Multiplicateur":10
+        },
+        "historiques":[
+            "Artisan de guilde",
+            "Sage",
+            "Ciseleur de runes",
+            "Archéologue",
+            "Gardien des portails"
+        ],
+        "equipement":[
+            {"Arme":{"classe":"Armes courente","quantite":2}},
+            {"Arme":{"Arbalette légère":{"quantité":1}}},
+            {"Munitions":[{"Carreaux":{"quantité":20}}]},
+            {"Armure":{"options":["Armure de cuir clouté","Armure d'écailles"], "quantité":1}},
+            {"Outils":{"Outils de voleurs":{"quantité":1}}},
+            {"Sac":{"Sac d'exploration soutéraine":{"quantité":1}}}
+        ],
+
+        "Table de classe":[
+            {
+                "niveau":1,
+                "Bonus de maitrise":2,
+                "Aptitudes":[
+                    "Bricolage magique",
+                    "Incantation"    
+                ],
+                "Imprégnations connues":0,
+                "Objets imprégnés":0,
+                "Sorts":[
+                    {
+                        "niveau":0,
+                        "quantité":2
+                    },
+                    {
+                        "niveau":1,
+                        "quantité":2
+                    }                    
+                ]
+            },
+            {
+                "niveau":2,
+                "Bonus de maitrise":2,
+                "Aptitudes":[
+                    "Impregnation d'objets"
+                ],
+                "Imprégnations connues":4,
+                "Objets imprégnés":2,
+                "Sorts":[
+                    {
+                        "niveau":0,
+                        "quantité":2
+                    },
+                    {
+                        "niveau":1,
+                        "quantité":2
+                    }                    
+                ]
+            },
+            {
+                "niveau":3,
+                "Bonus de maitrise":2,
+                "Aptitudes":[
+                    "Spécialité d'artificier", 
+                    "Outil de circonstance"
+                ],
+                "Imprégnations connues":4,
+                "Objets imprégnés":2,
+                "Sorts":[
+                    {
+                        "niveau":0,
+                        "quantité":2
+                    },
+                    {
+                        "niveau":1,
+                        "quantité":3
+                    }                    
+                ]
+            },
+            {
+                "niveau":4,
+                "Bonus de maitrise":2,
+                "Aptitudes":[
+                    "Amélioration de caractéristiques"
+                ],
+                "Imprégnations connues":4,
+                "Objets imprégnés":2,
+                "Sorts":[
+                    {
+                        "niveau":0,
+                        "quantité":2
+                    },
+                    {
+                        "niveau":1,
+                        "quantité":3
+                    }                    
+                ]
+            },
+            {
+                "niveau":5,
+                "Bonus de maitrise":3,
+                "Aptitudes":[
+                    "Capacité de la spécialité d'artificier"
+                ],
+                "Imprégnations connues":4,
+                "Objets imprégnés":2,
+                "Sorts":[
+                    {
+                        "niveau":0,
+                        "quantité":2
+                    },
+                    {
+                        "niveau":1,
+                        "quantité":4
+                    },
+                    {
+                        "niveau":2,
+                        "quantité":2
+                    }                    
+                ]
+            },
+            {
+                "niveau":6,
+                "Bonus de maitrise":3,
+                "Aptitudes":[
+                    "Expertise de l'outillage"
+                ],
+                "Imprégnations connues":6,
+                "Objets imprégnés":3,
+                "Sorts":[
+                    {
+                        "niveau":0,
+                        "quantité":2
+                    },
+                    {
+                        "niveau":1,
+                        "quantité":4
+                    },
+                    {
+                        "niveau":2,
+                        "quantité":2
+                    }                    
+                ]
+            },
+            {
+                "niveau":7,
+                "Bonus de maitrise":3,
+                "Aptitudes":[
+                    "Trait de génie"
+                ],
+                "Imprégnations connues":6,
+                "Objets imprégnés":3,
+                "Sorts":[
+                    {
+                        "niveau":0,
+                        "quantité":2
+                    },
+                    {
+                        "niveau":1,
+                        "quantité":4
+                    },
+                    {
+                        "niveau":2,
+                        "quantité":3
+                    }                    
+                ]
+            },
+            {
+                "niveau":8,
+                "Bonus de maitrise":3,
+                "Aptitudes":[
+                    "Amélioration de caractéristiques"
+                ],
+                "Imprégnations connues":6,
+                "Objets imprégnés":3,
+                "Sorts":[
+                    {
+                        "niveau":0,
+                        "quantité":2
+                    },
+                    {
+                        "niveau":1,
+                        "quantité":4
+                    },
+                    {
+                        "niveau":2,
+                        "quantité":3
+                    }                    
+                ]
+            },
+            {
+                "niveau":9,
+                "Bonus de maitrise":4,
+                "Aptitudes":[
+                    "Capacité de la spécialité d'artificier"
+                ],
+                "Imprégnations connues":6,
+                "Objets imprégnés":3,
+                "Sorts":[
+                    {
+                        "niveau":0,
+                        "quantité":2
+                    },
+                    {
+                        "niveau":1,
+                        "quantité":4
+                    },
+                    {
+                        "niveau":2,
+                        "quantité":3
+                    },
+                    {
+                        "niveau":3,
+                        "quantité":2
+                    }                    
+                ]
+            },
+            {
+                "niveau":10,
+                "Bonus de maitrise":4,
+                "Aptitudes":[
+                    "Adepte des objets magiques"
+                ],
+                "Imprégnations connues":8,
+                "Objets imprégnés":4,
+                "Sorts":[
+                    {
+                        "niveau":0,
+                        "quantité":3
+                    },
+                    {
+                        "niveau":1,
+                        "quantité":4
+                    },
+                    {
+                        "niveau":2,
+                        "quantité":3
+                    },
+                    {
+                        "niveau":3,
+                        "quantité":2
+                    }                    
+                ]
+            },
+            {
+                "niveau":11,
+                "Bonus de maitrise":4,
+                "Aptitudes":[
+                    "Objet de stoquage de sorts"
+                ],
+                "Imprégnations connues":8,
+                "Objets imprégnés":4,
+                "Sorts":[
+                    {
+                        "niveau":0,
+                        "quantité":3
+                    },
+                    {
+                        "niveau":1,
+                        "quantité":4
+                    },
+                    {
+                        "niveau":2,
+                        "quantité":3
+                    },
+                    {
+                        "niveau":3,
+                        "quantité":3
+                    }
+                ]
+            },
+            {
+                "niveau":12,
+                "Bonus de maitrise":4,
+                "Aptitudes":[
+                    "Objet de stoquage de sorts"
+                ],
+                "Imprégnations connues":8,
+                "Objets imprégnés":4,
+                "Sorts":[
+                    {
+                        "niveau":0,
+                        "quantité":3
+                    },
+                    {
+                        "niveau":1,
+                        "quantité":4
+                    },
+                    {
+                        "niveau":2,
+                        "quantité":3
+                    },
+                    {
+                        "niveau":3,
+                        "quantité":3
+                    }
+                ]
+            },
+            {
+                "niveau":13,
+                "Bonus de maitrise":5,
+                "Aptitudes":[
+                ],
+                "Imprégnations connues":8,
+                "Objets imprégnés":4,
+                "Sorts":[
+                    {
+                        "niveau":0,
+                        "quantité":3
+                    },
+                    {
+                        "niveau":1,
+                        "quantité":4
+                    },
+                    {
+                        "niveau":2,
+                        "quantité":3
+                    },
+                    {
+                        "niveau":3,
+                        "quantité":3
+                    },
+                    {
+                        "niveau":4,
+                        "quantité":1
+                    }
+                ]
+            },
+            {
+                "niveau":14,
+                "Bonus de maitrise":5,
+                "Aptitudes":[
+                    "Érudi des objets magiques"
+                ],
+                "Imprégnations connues":10,
+                "Objets imprégnés":5,
+                "Sorts":[
+                    {
+                        "niveau":0,
+                        "quantité":4
+                    },
+                    {
+                        "niveau":1,
+                        "quantité":4
+                    },
+                    {
+                        "niveau":2,
+                        "quantité":3
+                    },
+                    {
+                        "niveau":3,
+                        "quantité":3
+                    },
+                    {
+                        "niveau":4,
+                        "quantité":1
+                    }
+                ]
+            },
+            {
+                "niveau":15,
+                "Bonus de maitrise":5,
+                "Aptitudes":[
+                    "Capacité de la spécialité d'artificier"
+                ],
+                "Imprégnations connues":10,
+                "Objets imprégnés":5,
+                "Sorts":[
+                    {
+                        "niveau":0,
+                        "quantité":4
+                    },
+                    {
+                        "niveau":1,
+                        "quantité":4
+                    },
+                    {
+                        "niveau":2,
+                        "quantité":3
+                    },
+                    {
+                        "niveau":3,
+                        "quantité":3
+                    },
+                    {
+                        "niveau":4,
+                        "quantité":2
+                    }
+                ]
+            },
+            {
+                "niveau":16,
+                "Bonus de maitrise":5,
+                "Aptitudes":[
+                    "Amélioration de caractéristiques"
+                ],
+                "Imprégnations connues":10,
+                "Objets imprégnés":5,
+                "Sorts":[
+                    {
+                        "niveau":0,
+                        "quantité":4
+                    },
+                    {
+                        "niveau":1,
+                        "quantité":4
+                    },
+                    {
+                        "niveau":2,
+                        "quantité":3
+                    },
+                    {
+                        "niveau":3,
+                        "quantité":3
+                    },
+                    {
+                        "niveau":4,
+                        "quantité":2
+                    }
+                ]
+            },
+            {
+                "niveau":17,
+                "Bonus de maitrise":6,
+                "Aptitudes":[
+                ],
+                "Imprégnations connues":10,
+                "Objets imprégnés":5,
+                "Sorts":[
+                    {
+                        "niveau":0,
+                        "quantité":4
+                    },
+                    {
+                        "niveau":1,
+                        "quantité":4
+                    },
+                    {
+                        "niveau":2,
+                        "quantité":3
+                    },
+                    {
+                        "niveau":3,
+                        "quantité":3
+                    },
+                    {
+                        "niveau":4,
+                        "quantité":3
+                    },
+                    {
+                        "niveau":5,
+                        "quantité":1
+                    }
+                ]
+            },
+            {
+                "niveau":18,
+                "Bonus de maitrise":6,
+                "Aptitudes":[
+                    "Maitrise des objets magiques"
+                ],
+                "Imprégnations connues":12,
+                "Objets imprégnés":6,
+                "Sorts":[
+                    {
+                        "niveau":0,
+                        "quantité":4
+                    },
+                    {
+                        "niveau":1,
+                        "quantité":4
+                    },
+                    {
+                        "niveau":2,
+                        "quantité":3
+                    },
+                    {
+                        "niveau":3,
+                        "quantité":3
+                    },
+                    {
+                        "niveau":4,
+                        "quantité":3
+                    },
+                    {
+                        "niveau":5,
+                        "quantité":1
+                    }
+                ]
+            },
+            {
+                "niveau":19,
+                "Bonus de maitrise":6,
+                "Aptitudes":[
+                    "Amélioration de caractéristiques"
+                ],
+                "Imprégnations connues":12,
+                "Objets imprégnés":6,
+                "Sorts":[
+                    {
+                        "niveau":0,
+                        "quantité":4
+                    },
+                    {
+                        "niveau":1,
+                        "quantité":4
+                    },
+                    {
+                        "niveau":2,
+                        "quantité":3
+                    },
+                    {
+                        "niveau":3,
+                        "quantité":3
+                    },
+                    {
+                        "niveau":4,
+                        "quantité":3
+                    },
+                    {
+                        "niveau":5,
+                        "quantité":2
+                    }
+                ]
+            },
+            {
+                "niveau":20,
+                "Bonus de maitrise":6,
+                "Aptitudes":[
+                    "Âme de l'artifice"
+                ],
+                "Imprégnations connues":12,
+                "Objets imprégnés":6,
+                "Sorts":[
+                    {
+                        "niveau":0,
+                        "quantité":4
+                    },
+                    {
+                        "niveau":1,
+                        "quantité":4
+                    },
+                    {
+                        "niveau":2,
+                        "quantité":3
+                    },
+                    {
+                        "niveau":3,
+                        "quantité":3
+                    },
+                    {
+                        "niveau":4,
+                        "quantité":3
+                    },
+                    {
+                        "niveau":5,
+                        "quantité":2
+                    }
+                ]
+            }
+        ],
+        "Aptitudes":[
+            {
+                "Bricolage magique":{
+                    "niveaurequis":1,
+                    "description" : "Au niveau 1, vous apprenez à imprégner une étincelle de magie dans des objets ordinaires. Pour utiliser cette capacité, vous devez avoir en main des outils de bricoleur ou tout autre outil d'artisan. Vous touchez ensuite par une action un objet non magique de taille TP et lui conférez une propriété magique de votre choix parmi la liste suivante : <br><br>L'objet émet une lumière vive dans un rayon de 1,50 mètre et une lumière faible sur 1,50 mètre supplémentaire. <br>Lorsqu'une créature le tapote, l'objet émet un message enregistré qui peut être entendu jusqu'à 3 mètres. Vous prononcez le message lorsque vous conférez cette propriété à l'objet, et l'enregistrement ne peut durer plus de 6 secondes. <br>L'objet émet continuellement, au choix, une odeur ou un son non verbal (bruit de vent, de vagues, gazouillis, etc). L'effet choisi est perceptible jusqu'à 3 mètres.<br>Un effet visuel statique apparaît sur l'une des surfaces de l'objet. Cet effet peut être une image, un texte (jusqu'à 25 mots), des lignes et des formes, ou encore un mélange à votre guise de ces éléments.<br>La propriété choisie dure indéfiniment. Par une action, vous pouvez toucher l'objet et mettre fin à la propriété prématurément. Vous pouvez appliquer la magie de cette capacité à plusieurs objets à la fois, en touchant un objet différent chaque fois que vous utilisez cette capacité, mais un objet donné ne peut porter qu'une seule propriété à la fois. Le nombre maximum d'objets que vous pouvez affecter de manière simultanée avec cette capacité est égal à votre modificateur d'Intelligence (minimum 1 objet). Si vous essayez de dépasser ce maximum, la propriété la plus ancienne prend fin immédiatement et la nouvelle propriété s'applique."
+                }
+            },
+            {
+                "Incantation":{
+                    "niveaurequis":1,
+                    "description" : "Vous avez étudié les rouages de la magie, comment la canaliser à travers des objets, et comment l'éveiller à travers eux. En conséquence, vous avez gagné une capacité limitée à lancer des sorts. Pour un observateur, vous ne semblez pas vraiment lancer des sorts dans le sens usuel ; c'est plutôt comme si vous produisiez des miracles au moyen de divers objets.<br><br>LA MAGIE DE L'ARTIFICE<br><br>En tant qu'artificier, vous utilisez des outils lorsque vous lancez vos sorts. Lorsque vous décrivez votre incantation, réfléchissez à la manière dont vous utilisez un outil pour effectuer l'effet de sort. Si vous utilisez du matériel d'alchimiste pour lancer soins, vous pourriez rapidement produire un onguent. Si vous lancez ce sort à l'aide d'outils de bricoleur, vous pourriez avoir une araignée mécanique miniature qui ferme les blessures. Lorsque vous lancez bouffée de poison, vous pourriez jeter des produits chimiques ou utiliser une baguette magique qui crache du venin. L'effet du sort est le même que pour un lanceur de sorts de n'importe quelle autre classe, mais votre méthode pour les lancer est spéciale.<br>Le même principe s'applique lorsque vous préparez vos sorts. En tant qu'artificier, vous n'étudiez pas un livre de sorts ni ne préparez vos sorts. Au lieu de cela, vous travaillez avec vos outils et créez les éléments spécialisés que vous utiliserez pour produire vos effets. Si vous remplacez soins par poigne électrique, vous pourriez désassembler l’objet utilisé pour soigner et en créer un autre plus offensif à la place, peut-être un gant qui vous permettra de canaliser une vague d'énergie.<br><br>Ces détails ne vous limitent pas, ni ne vous procurent aucun avantage. Vous n'êtes pas obligé d'expliquer comment vous utilisez les outils pour lancer un sort. Mais décrire votre incantation de façon créative est une façon amusante de vous distinguer des autres lanceurs de sorts.<br><br>Outils requis<br>Vous produisez les effets de vos sorts d'artificier grâce à vos outils. Vous devez avoir un focaliseur d'incantation (des outils de voleur ou tout autre outil d'artisan) en main quand vous lancez un sort avec la capacité Incantation. Vous devez maîtriser ces outils pour pouvoir les utiliser de cette façon. Référez-vous au chapitre Équipements du Manuel des Joueurs pour la description de ces outils. Après avoir acquis la capacité Imprégnation d'objet au niveau 2, vous pourrez également utiliser n'importe quel objet portant une de vos imprégnations comme focaliseur d'incantation.<br><br>Sorts mineurs<br>Au niveau 1, vous connaissez deux sorts mineurs de votre choix parmi la liste de sorts d'artificier ci-dessous. Vous apprendrez des sorts mineurs supplémentaires de votre choix aux niveaux supérieurs, comme indiqué dans la colonne Sorts mineurs connus de la table ci-dessus. Lorsque vous gagnez un niveau dans cette classe, vous pouvez remplacer un de vos sorts mineurs d'artificier connu par un autre de la liste de sorts d'artificier.<br>Préparer et lancer des sorts<br>La table de l'artificier indique combien d'emplacements de sorts vous avez pour lancer vos sorts d'artificier. Pour lancer un de vos sorts de niveau 1 ou supérieur, vous devez dépenser un emplacement du niveau du sort ou supérieur. Vous regagnez tous les emplacements de sorts dépensés lorsque vous terminez un repos long.<br><br>Vous devez préparer la liste des sorts d'artificier qui vous sont disponibles pour les lancer, en les choisissant dans la liste de sorts d'artificier. Pour ce faire, choisissez un nombre de sorts d'artificier égal à votre modificateur d'Intelligence + la moitié de votre niveau d'artificier, arrondi à l'inférieur (minimum un sort). Les sorts doivent être d'un niveau pour lequel vous avez des emplacements de sorts.<br><br>Par exemple, si vous êtes un artificier de niveau 5, vous possédez quatre emplacements de sorts de niveau 1 et deux emplacements de sorts de niveau 2. Avec une Intelligence de 14, votre liste de sorts préparés peut inclure quatre sorts de niveau 1 ou 2, selon n'importe quelle combinaison. Si vous préparez le sort de niveau 1 soins, vous pouvez le lancer en utilisant un emplacement de niveau 1 ou de niveau 2. Lancer le sort ne le supprime pas de votre liste de sorts préparés.<br><br>Vous pouvez modifier votre liste de sorts préparés lorsque vous terminez un repos long. Préparer une nouvelle liste de sorts d'artificier demande du temps pour bricoler avec vos focaliseurs d'incantations : au moins 1 minute par niveau de sort pour chaque sort de votre liste.<br>Caractéristique d'incantation<br>L'Intelligence est votre caractéristique d'incantation pour vos sorts d'artificier ; votre compréhension théorique de la magie vous permet de manier ces sorts avec une grande habileté. Vous utilisez votre Intelligence chaque fois qu'un sort d'artificier se réfère à votre caractéristique d'incantation. En outre, vous utilisez votre modificateur d'Intelligence pour définir le DD du jet de sauvegarde d'un sort d'artificier que vous lancez ainsi que pour le jet d'attaque de celui-ci.<br>DD de sauvegarde des sorts = 8 + votre bonus de maîtrise + votre modificateur d'Intelligence<br>Modificateur aux attaques avec un sort = votre bonus de maîtrise + votre modificateur d'Intelligence<br><br>Rituel<br>Vous pouvez lancer un sort d'artificier en tant que rituel si ce sort possède l'étiquette rituel et si vous avez préparé ce sort."
+                }
+            },
+            {
+                "Impregnation d'objets":{
+                    "niveaurequis":2,
+                    "description" : "Au niveau 2, vous gagnez la capacité d'imprégner des objets ordinaires avec certaines imprégnations magiques. Les objets magiques que vous créez grâce à cette capacité sont considérés comme des prototypes d'objets permanents.<br><br>Imprégnations connues<br>Lorsque vous gagnez cette capacité, choisissez quatre imprégnations d'artificier que vous apprenez parmi celles proposées à la fin de la description de cette classe. Vous apprenez des imprégnations supplémentaires de votre choix lorsque vous atteignez certains niveaux dans cette classe, comme le montre la colonne Imprégnations connues de la table de l'artificier. Lorsque vous gagnez un niveau dans cette classe, vous pouvez remplacer une imprégnation d'artificier que vous connaissez par une nouvelle.<br><br>Imprégner un objet<br>Lorsque vous terminez un repos long, vous pouvez toucher un objet non magique et l'imprégner avec l'une de vos imprégnations d'artificier pour en faire un objet magique. Une imprégnation ne fonctionne que sur certains types d'objet, comme indiqué dans la description de l'imprégnation. Si l'objet requiert d'être lié, vous pouvez vous y lier vous-même au moment où vous imprégnez l'objet, ou bien vous pouvez renoncer au lien afin que quelqu'un d'autre puisse se lier à l'objet. Si vous décidez de vous lier à l'objet plus tard, vous devrez alors suivre le processus normal pour se lier (voir Lien dans le Guide du Maître).<br><br>Votre imprégnation demeure indéfiniment dans un objet, mais si vous mourez l'imprégnation disparaît après un nombre de jours égal à votre modificateur d'Intelligence (minimum 1 jour). L'imprégnation disparaît également si vous abandonnez la connaissance de cette imprégnation pour une autre. Vous pouvez imprégnez plus d'un objet non magique à la fois à la fin d'un repos long ; le nombre maximum d'objets imprégnables est indiqué dans la colonne Objets imprégnés de la table de l'artificier. Vous devez toucher chaque objet, et chacune de vos imprégnations ne peut imprégner qu'un seul objet à la fois. De plus, aucun objet ne peut supporter plus d'une de vos infusions à la fois. Si vous tentez de dépasser votre nombre maximum d'imprégnations, l'imprégnation la plus ancienne prend fin immédiatement et la nouvelle imprégnation s'applique."
+                }
+            },
+            {
+                "Spécialité d'artificier":{
+                    "niveaurequis":3,
+                    "description" : "Au niveau 3, vous choisissez le type de spécialiste que vous êtes : alchimiste, artilleur ou forgeron de guerre, détaillé à la fin de la description de classe. Votre choix vous accorde des capacités spéciales au niveau 5 puis aux niveaux 9 et 15."
+                }
+            },
+            {
+                "Outil de circonstance":{
+                    "niveaurequis":3,
+                    "description" : "Au niveau 3, vous apprenez à produire exactement l'outil dont vous avez besoin : avec des outils de bricoleur en mains, vous pouvez créer magiquement des outils d'artisan dans un espace inoccupé à 1,50 mètre ou moins de vous. Cette création demande 1 heure de travail ininterrompu, qui peut coïncider avec un repos court ou long. Bien qu'ils soient le produit de la magie, les outils ne sont pas magiques et disparaissent dès que vous utilisez cette capacité à nouveau."
+                }
+            },
+            {
+                "Amélioration de caractéristiques":{
+                    "niveaurequis":4,
+                    "description" : "Au niveau 4, vous pouvez augmenter une valeur de caractéristique de votre choix de +2, ou bien augmenter deux valeurs de caractéristique de votre choix de +1. Vous ne pouvez cependant pas augmenter une caractéristique au-delà de 20 par ce biais."
+                }
+            },
+            {
+                "Expertise de l'outillage":{
+                    "niveaurequis":6,
+                    "description" : "À partir du niveau 6, votre bonus de maîtrise est doublé pour tout jet de caractéristique que vous réalisez et qui utilise votre maîtrise d'un outil."
+                }
+            },
+            {
+                "Trait de génie":{
+                    "niveaurequis":7,
+                    "description" : "À partir du niveau 7, vous gagnez la capacité de proposer des solutions tout en étant sous pression. Lorsque vous ou une autre créature que vous voyez à 9 mètres ou moins de vous fait un jet de caractéristique ou de sauvegarde, vous pouvez utiliser votre réaction pour ajouter votre modificateur d'Intelligence au jet. Vous pouvez utiliser cette capacité un nombre de fois égal à votre modificateur Intelligence (minimum une fois). Vous récupérez toutes les utilisations dépensées lorsque vous terminez un repos long."
+                }
+            },
+            {
+                "Amélioration de caractéristiques":{
+                    "niveaurequis":8,
+                    "description" : "Au niveau 8, vous pouvez augmenter une valeur de caractéristique de votre choix de +2, ou bien augmenter deux valeurs de caractéristique de votre choix de +1. Vous ne pouvez cependant pas augmenter une caractéristique au-delà de 20 par ce biais."
+                }
+            },
+            {
+                "Adepte des objets magiques":{
+                    "niveaurequis":10,
+                    "description" : "Au niveau 10, vous obtenez une compréhension approfondie de la façon d'utiliser et de fabriquer des objets magiques :<br><br>Vous pouvez vous lier avec quatre objets magiques à la fois.<br>Si vous fabriquez un objet magique qui possède une rareté commun ou peu commun, cela ne vous prend qu'un quart du temps normal, et ne vous coûte que la moitié de l'or habituel.Au niveau 10, vous obtenez une compréhension approfondie de la façon d'utiliser et de fabriquer des objets magiques :<br><br>Vous pouvez vous lier avec quatre objets magiques à la fois.<br>Si vous fabriquez un objet magique qui possède une rareté commun ou peu commun, cela ne vous prend qu'un quart du temps normal, et ne vous coûte que la moitié de l'or habituel."
+                }
+            },
+            {
+                "Objet de stockage de sort":{
+                    "niveaurequis":11,
+                    "description" : "Au niveau 11, vous apprenez à stocker un sort dans un objet. Lorsque vous terminez un repos long, vous pouvez toucher une arme courante ou de guerre, ou n'importe quel objet que vous pouvez utiliser comme focaliseur d'incantation, et y stocker un sort à l'intérieur. Vous choisissez ce sort qui doit être un sort d'artificier de niveau 1 ou 2 et qui se lance par 1 action (vous n'avez pas besoin d'avoir préparé ce sort). Si elle tient l'objet en main, une créature peut utiliser une action pour produire l'effet du sort, en utilisant le modificateur de votre caractéristique d'incantation. Si le sort nécessite de la concentration, la créature doit se concentrer. Le sort demeure dans l'objet jusqu'à ce qu'il ait été utilisé un nombre de fois égal à deux fois votre modificateur d'Intelligence (minimum 2) ou jusqu'à ce que vous utilisiez à nouveau cette capacité pour stocker un sort dans un objet."
+                }
+            },
+            {
+                "Amélioration de caractéristiques":{
+                    "niveaurequis":12,
+                    "description" : "Au niveau 12, vous pouvez augmenter une valeur de caractéristique de votre choix de +2, ou bien augmenter deux valeurs de caractéristique de votre choix de +1. Vous ne pouvez cependant pas augmenter une caractéristique au-delà de 20 par ce biais."
+                }
+            },
+            {
+                "Érudit des objets magiques":{
+                    "niveaurequis":14,
+                    "description" : "Au niveau 14, votre compétence avec les objets magiques s'approfondit davantage :<br><br>Vous pouvez vous lier avec cinq objets magiques à la fois.<br>Vous ignorez toutes les exigences de classe, de race, de sort et de niveau pour utiliser ou se lier avec un objet magique."
+                }
+            },
+            {
+                "Amélioration de caractéristiques":{
+                    "niveaurequis":16,
+                    "description" : "Au niveau 16, vous pouvez augmenter une valeur de caractéristique de votre choix de +2, ou bien augmenter deux valeurs de caractéristique de votre choix de +1. Vous ne pouvez cependant pas augmenter une caractéristique au-delà de 20 par ce biais."
+                }
+            },
+            {
+                "Maître des objets magiques":{
+                    "niveaurequis":18,
+                    "description" : "À partir du niveau 18, vous pouvez vous lier avec six objets magiques à la fois."
+                }
+            },
+            {
+                "Amélioration de caractéristiques":{
+                    "niveaurequis":19,
+                    "description" : "Au niveau 19, vous pouvez augmenter une valeur de caractéristique de votre choix de +2, ou bien augmenter deux valeurs de caractéristique de votre choix de +1. Vous ne pouvez cependant pas augmenter une caractéristique au-delà de 20 par ce biais."
+                }
+            },
+            {
+                "Âme de l'artifice":{
+                    "niveaurequis":20,
+                    "description" : "Au niveau 20, vous développez une connexion mystique avec vos objets magiques, que vous pouvez utiliser pour vous protéger :<br><br>Vous gagnez un bonus de +1 à tous les jets de sauvegarde par objet magique auquel vous êtes lié.<br>Si vous êtes réduit à 0 point de vie mais pas tué, vous pouvez utiliser votre réaction pour mettre fin à l'une de vos imprégnations d'artificier, ce qui vous rétablit à 1 point de vie au lieu de 0."
+                }
+            }
+        ],
+        "Spécialité d'artificier":[
+            {
+                "Alchimiste":{
+                    "description":"Un alchimiste est un expert dans la combinaison de réactifs chimiques pour produire des effets mystiques. Les alchimistes utilisent leurs créations pour donner la vie et la reprendre. L'alchimie est la plus ancienne des traditions d'artificier, et sa polyvalence est appréciée depuis longtemps, en temps de guerre comme en temps de paix.Un alchimiste est un expert dans la combinaison de réactifs chimiques pour produire des effets mystiques. Les alchimistes utilisent leurs créations pour donner la vie et la reprendre. L'alchimie est la plus ancienne des traditions d'artificier, et sa polyvalence est appréciée depuis longtemps, en temps de guerre comme en temps de paix.",
+                    "sorts":[
+                        {
+                            "Mot de guerison":{
+                                "niveaurequis":3
+                            }
+                        },
+                        {
+                            "Rayon empoisoné":{
+                                "niveaurequis":3
+                            }
+                        },
+                        {
+                            "Flèche acide de Melf":{
+                                "niveaurequis":5
+                            }
+                        },
+                        {
+                            "Sphère de feu":{
+                                "niveaurequis":5
+                            }
+                        },
+                        {
+                            "Forme gazeuse":{
+                                "niveaurequis":9
+                            }
+                        },
+                        {
+                            "Mot de guérison de groupe":{
+                                "niveaurequis":9
+                            }
+                        },
+                        {
+                            "Flétrissement":{
+                                "niveaurequis":13
+                            }
+                        },
+                        {
+                            "Protection contre la mort":{
+                                "niveaurequis":13
+                            }
+                        },
+                        {
+                            "Brume mortelle":{
+                                "niveaurequis":17
+                            }
+                        },
+                        {
+                            "Rappel à la vie":{
+                                "niveaurequis":17
+                            }
+                        }
+                    ],
+                    "Aptitudes":[
+                        {
+                            "Maîtrise des outils":{
+                                "niveaurequis":3,
+                                "description":"Lorsque vous adoptez cette spécialité au niveau 3, vous gagnez la maîtrise du matériel d'alchimiste. Si vous possédez déjà cette maîtrise, vous acquérez la maîtrise d'un autre type d'outils d'artisan de votre choix.",
+                                "effets":[]
+                            }
+                        },
+                        {
+                            "Élixir expérimental":{
+                                "niveaurequis":3,
+                                "description":"À partir du niveau 3, chaque fois que vous terminez un repos long, vous pouvez magiquement produire un élixir expérimental dans une fiole vide que vous touchez. Lancez un dé sur la table ci-dessous pour définir l'effet de l'élixir, lequel se déclenche lorsque quelqu'un boit l'élixir. Par une action, une créature peut boire l'élixir ou l'administrer à une créature incapable d'agir. Créer un élixir expérimental demande d'avoir un matériel d'alchimiste sur soi, et tout élixir créé avec cette capacité dure jusqu'à ce qu'il soit bu ou jusqu'à la fin de votre prochain repos long.<br><br>Lorsque vous atteignez certains niveaux dans cette classe, vous pouvez fabriquer plus d'élixirs à la fin d'un repos long : deux au niveau 6 et trois au niveau 15. Lancez séparément l'effet de chaque élixir. Chaque élixir nécessite son propre flacon. Vous pouvez créer des élixirs expérimentaux supplémentaires en dépensant pour chacun un emplacement de sort de niveau 1 ou supérieur. Dans ce cas, vous utilisez votre action pour créer l'élixir dans une fiole vide que vous touchez, et vous choisissez l'effet de l'élixir dans la table ci-dessous.",
+                                "effets":[
+                                    "<strong>Soins.</strong> Le buveur regagne un nombre de points de vie égal à 2d4 + votre modificateur d'Intelligence.",
+                                    "<strong>Rapidité.</strong> La vitesse du buveur augmente de 3 mètres durant 1 heure.",
+                                    "<strong>Résilience.</strong> Le buveur obtient un bonus de +1 à la CA durant 10 minutes.",
+                                    "<strong>Audace.</strong> Le buveur peut lancer un d4 et ajouter le nombre obtenu à chaque jet d'attaque ou de sauvegarde qu'il effectue dans la minute qui suit.",
+                                    "<strong>Vol.</strong> Le buveur obtient une vitesse de vol de 3 mètres durant 10 minutes.",
+                                    "<strong>Transformation.</strong> Le corps du buveur est transformé comme par le sort modification d'apparence. Le buveur détermine la transformation provoquée par le sort, dont les effets durent 10 minutes."
+                                ]
+                            }
+                        },
+                        {
+                            "Érudit alchimique":{
+                                "niveaurequis":5,
+                                "description":"Au niveau 5, votre contrôle des réactifs magico-chimiques est devenu magistral, améliorant les soins et les dégâts que vous en tirez. Lorsque vous lancez un sort en utilisant votre matériel d'alchimiste comme focaliseur d'incantation, vous recevez un bonus à un jet du sort. Ce jet doit restaurer des points de vie ou être un jet qui inflige des dégâts d'acide, de feu, nécrotique ou de poison, et le bonus est égal à votre modificateur d'Intelligence (minimum +1).",
+                                "effets":[]
+                            }
+                        },
+                        {
+                            "Ingrédients revigorants":{
+                                "niveaurequis":9,
+                                "description":"À partir du niveau 9, vous pouvez incorporer des ingrédients revigorants dans certains de vos travaux :<br><br>Chaque fois qu'une créature boit un élixir expérimental que vous avez créé, la créature gagne des points de vie temporaires égaux à 2d6 + votre modificateur d'Intelligence (minimum 1 point de vie temporaire).<br>Vous pouvez lancer restauration partielle sans dépenser d'emplacement de sort et sans avoir à le préparer, du moment que vous utilisez votre matériel d'alchimiste comme focaliseur d'incantation. Vous pouvez lancer ce sort de cette façon un nombre de fois égal à votre modificateur d'Intelligence (minimum une fois) et vous récupérez toutes les utilisations dépensées lorsque vous terminez un repos long.",
+                                "effets":[]
+                            }
+                        },
+                        {
+                            "Maîtrise chimique":{
+                                "niveaurequis":15,
+                                "description":"Au niveau 15, vous avez été exposé à tant d'éléments chimiques dont vous avez percé les secrets qu'ils ne présentent plus aucun risque pour vous, au point que vous les utilisez même pour mettre fin prestement à certaines affections :<br><br>Vous gagnez la résistance aux dégâts d'acide et de poison, et vous êtes désormais immunisé à l'état empoisonné.<br>Vous pouvez lancer restauration supérieure et guérison sans dépenser d'emplacement de sort, sans avoir à les préparer et sans utiliser de composantes matérielles, du moment que vous utilisez votre matériel d'alchimiste comme focaliseur d'incantation. Une fois que vous avez lancé l'un ou l'autre de ces sorts avec cette capacité, vous ne pouvez plus lancer ce sort de cette manière avant d'avoir terminé un repos long.",
+                                "effets":[]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "Artilleur":{
+                    "description":"Un artilleur est spécialisé dans l'utilisation de la magie pour lancer de l'énergie, des projectiles et des explosions sur un champ de bataille. Cette puissance destructrice était appréciée par toutes les armées de la Dernière guerre. Maintenant que la guerre est terminée, certains membres de cette spécialisation ont cherché à construire un monde plus pacifique en utilisant leurs pouvoirs pour lutter contre la résurgence des conflits au Khorvaire. L'artificier gnome Vi, un membre clé bien qu'improbable du projet forgé par la maison Cannith, a particulièrement insisté sur le fait de bien faire les choses : « Il est temps que nous réparions les choses au lieu de les faire exploser ».",
+                    "Maîtrise des outils":{
+                        "niveaurequis":3,
+                        "description":"Lorsque vous adoptez cette spécialité au niveau 3, vous gagnez la maîtrise des outils de menuisier. Si vous possédez déjà cette maîtrise, vous acquérez la maîtrise d'un autre type d'outils d'artisan de votre choix."
+                    },
+                    "sorts":[
+                        {
+                            "Bouclier":{
+                                "niveaurequis":3
+                            }
+                        },
+                        {
+                            "Vague tonnante":{
+                                "niveaurequis":3
+                            }
+                        },
+                        {
+                            "Rayon ardent":{
+                                "niveaurequis":5
+                            }
+                        },
+                        {
+                            "Fracassement":{
+                                "niveaurequis":5
+                            }
+                        },
+                        {
+                            "Boule de feu":{
+                                "niveaurequis":9
+                            }
+                        },
+                        {
+                            "Mur de vent":{
+                                "niveaurequis":9
+                            }
+                        },
+                        {
+                            "Tempête de grêle":{
+                                "niveaurequis":13
+                            }
+                        },
+                        {
+                            "Mur de feu":{
+                                "niveaurequis":13
+                            }
+                        },
+                        {
+                            "Cône de froid":{
+                                "niveaurequis":17
+                            }
+                        },
+                        {
+                            "Mur de force":{
+                                "niveaurequis":17
+                            }
+                        }
+                    ],
+                    "Aptitudes":[
+                        {
+                            "Canon occulte":{
+                                "niveaurequis":3,
+                                "description":"Au niveau 3, vous apprenez à créer un canon occulte. Avec des outils de menuisier ou de forgeron en main, vous pouvez par une action créer magiquement un canon occulte de taille TP ou P dans un espace inoccupé sur une surface horizontale dans un rayon de 1,50 mètre autour de vous. Un canon occulte de taille P occupe son espace, et un canon de taille TP peut être porté dans une main. Une fois que vous avez créé un canon, vous ne pouvez plus recommencer avant d'avoir terminé un repos long ou d'avoir dépensé un emplacement de sort de niveau 1 ou supérieur. Vous ne pouvez avoir qu'un seul canon à la fois et vous ne pouvez pas en créer un autre tant que votre canon est présent.<br><br>Le canon est un objet magique. Quelle que soit sa taille, il a une CA de 18 et un nombre de points de vie égal à cinq fois votre niveau d'artificier. Il est immunisé aux dégâts de poison, aux dégâts psychiques et à tous les états. S'il est contraint d'effectuer un jet de caractéristiques ou de sauvegarde, considérez toutes ses valeurs de caractéristiques comme étant de 10 (+0). Si le sort réparation le prend pour cible, il récupère 2d6 points de vie. Il disparaît s'il tombe à 0 point de vie ou au bout de 1 heure. Vous pouvez le révoquer prématurément par une action. Lorsque vous créez le canon, vous choisissez son apparence et s'il possède des jambes ou pas. Vous choisissez également son type dans la table ci-dessous. À chacun de vos tours, vous pouvez prendre une action bonus pour l'activer si vous êtes dans un rayon de 18 mètres autour de lui. Au cours de la même action, vous pouvez le faire marcher ou grimper de 4,50 m vers un espace inoccupé, s'il possède des jambes.",
+                                "effets":[
+                                    "<strong>Lance-flammes.</strong> Le canon exhale du feu dans un cône adjacent de 4,50 m que vous indiquez. Chaque créature dans cette zone doit réaliser un jet de sauvegarde de Dextérité contre le DD de sauvegarde de vos sorts et subir 2d8 dégâts de feu en cas d'échec ou la moitié en cas de réussite. Le feu enflamme tout objet inflammable dans la zone qui n'est pas tenu ou porté.",
+                                    "<strong>Baliste de choc.</strong> Effectuez une attaque à distance avec un sort en prenant le canon pour origine et en ciblant une créature ou un objet à 36 mètres ou moins de lui. Si l'attaque touche, la cible subit 2d8 dégâts de Force et, si la cible est une créature, celle-ci est repoussée de 1,50 m.",
+                                    "<strong>Protecteur.</strong> Le canon émet un jaillissement d'énergie positive qui lui octroie, ainsi qu'à chaque créature de votre choix dans un rayon de 3 mètres, un nombre de points de vie temporaires égal à 1d8 + votre modificateur d'Intelligence (minimum +1)."
+                                ]
+                            }
+                        },
+                        {
+                            "Arme à feu arcanique":{
+                                "niveaurequis":5,
+                                "description":"Au niveau 5, vous savez comment transformer une baguette, un bâton ou un sceptre en une arme à feu arcanique, un conduit pour vos sorts destructeurs. Lorsque vous terminez un repos long, vous pouvez utiliser des outils de menuisier pour sculpter des symboles spéciaux sur une baguette, un bâton ou un sceptre et ainsi le transformer en votre arme à feu arcanique. Les symboles disparaissent de l'objet si vous les gravez ensuite sur un autre objet. Sinon, ils durent indéfiniment.<br><br>Vous pouvez utiliser votre arme à feu arcanique comme focaliseur d'incantation pour vos sorts d'artificier. Lorsque vous lancez un sort d'artificier à travers l'arme à feu, lancez un d8 et vous obtenez un bonus à l'un des jets de dégâts du sort égal au nombre obtenu.",
+                                "effets":[]
+                            }
+                        },
+                        {
+                            "Canon explosif":{
+                                "niveaurequis":9,
+                                "description":"À partir du niveau 9, chaque canon occulte que vous créez est plus destructeur :<br><br>Tous les jets de dégâts du canon augmentent de 1d8.<br>Par une action, vous pouvez ordonner au canon d'exploser si vous êtes dans un rayon de 18 mètres autour de lui. Cela détruit le canon et force toute créature à 6 mètres ou moins de lui à effectuer un jet de sauvegarde de Dextérité contre le DD de sauvegarde de vos sorts, subissant 3d8 dégâts de force en cas d'échec ou la moitié de ces dégâts en cas de réussite.",
+                                "effets":[]
+                            }
+                        },
+                        {
+                            "Position fortifiée":{
+                                "niveaurequis":15,
+                                "description":"À partir du niveau 15, vous êtes passé maître dans l'art de défendre une position avec Canon occulte.<br><br>Grâce à un champ scintillant de protection magique émanant du canon, vous et vos alliés bénéficiez d'un abri partiel dans un rayon de 3 mètres autour du canon que vous avez créé avec Canon occulte.<br>Vous pouvez maintenant avoir deux canons au même moment. Vous pouvez en créer deux avec la même action (mais pas avec le même emplacement de sort) et vous pouvez activer les deux avec la même action bonus. Vous choisissez si les canons sont identiques ou différents. Vous ne pouvez pas créer un troisième canon tant que vous en avez deux.",
+                                "effets":[]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "Forgeron de guerre":{
+                    "description":"Les armées ont besoin de protection, et si les défenses échouent quelqu'un doit bien se charger de recoller les morceaux. Combinaison de protecteur et de soigneur, le forgeron de guerre est un expert pour défendre les autres et pour réparer aussi bien le matériel que le personnel. Pour les aider dans leur travail, les forgerons de guerre sont généralement accompagnés d'un défenseur d'acier, un compagnon protecteur de leur propre création. Nombre de soldats racontent comment, à l'article de la mort, ils ont été sauvés par un forgeron de guerre et son défenseur d'acier. Les forgerons de guerre ont joué un rôle crucial dans la conception par la maison Cannith des artificiels de combat et des forgeliers originaux, et après la Dernière guerre, ces artificiers se sont consacrés à aider les mutilés des horribles batailles de la guerre.",                    
+                    "sorts":[
+                        {
+                            "Bouclier":{
+                                "niveaurequis":3
+                            }
+                        },
+                        {
+                            "Héroïsme":{
+                                "niveaurequis":3
+                            }
+                        },
+                        {
+                            "Châtiment révélateur":{
+                                "niveaurequis":5
+                            }
+                        },
+                        {
+                            "Lien de protection":{
+                                "niveaurequis":5
+                            }
+                        },
+                        {
+                            "Aura de vitalité":{
+                                "niveaurequis":9
+                            }
+                        },
+                        {
+                            "Invocation de projectiles":{
+                                "niveaurequis":9
+                            }
+                        },
+                        {
+                            "Aura de pureté":{
+                                "niveaurequis":15
+                            }
+                        },
+                        {
+                            "Bouclier de feu":{
+                                "niveaurequis":15
+                            }
+                        },
+                        {
+                            "Châtiment du ban":{
+                                "niveaurequis":17
+                            }
+                        },
+                        {
+                            "Soins de groupe":{
+                                "niveaurequis":17
+                            }
+                        }
+                    ],
+                    "Aptitudes":[
+                        {
+                            "Maîtrise des outils":{
+                                "niveaurequis":3,
+                                "description":"Lorsque vous adoptez cette spécialité au niveau 3, vous gagnez la maîtrise des outils de forgeron. Si vous possédez déjà cette maîtrise, vous acquérez la maîtrise d'un autre type d'outils d'artisan de votre choix.",
+                                "effets":[]
+                            }
+                        },
+                        {
+                            "Apte au combat":{
+                                "niveaurequis":3,
+                                "description":"Au niveau 3, votre entraînement au combat et vos expérimentations avec la magie ont porté leurs fruits de deux manières :<br><br>Vous gagnez la maîtrise des armes de guerre.<br>Lorsque vous portez une attaque avec une arme magique, vous pouvez utiliser votre modificateur d'intelligence, à la place de votre modificateur de Force ou de Dextérité, pour les jets d'attaque et de dégâts.",
+                                "effets":[]
+                            }
+                        },
+                        {
+                            "Défenseur d'acier":{
+                                "niveaurequis":3,
+                                "description":"Au niveau 3, vos bricolages dans vos temps libres ont donné naissance à un compagnon fidèle, un défenseur d'acier. Il est amical envers vous et vos compagnons, et obéit à vos ordres. Référez-vous au bloc de stat du défenseur d'acier. Vous déterminez l'apparence de la créature et si elle a deux ou quatre pattes ; votre choix n'a aucun effet sur ses statistiques.<br><br>En combat, le défenseur d'acier partage votre initiative, mais prend son tour immédiatement après le vôtre. Il peut bouger et utiliser sa réaction par lui-même, mais la seule action qu'il peut entreprendre à son tour est l'action Esquiver, à moins que vous ne preniez une action bonus à votre tour pour lui ordonner d'entreprendre l'une des actions de son bloc de stat, ou bien encore une action parmi Aider, Chercher, Foncer, Se cacher et Se désengager.<br><br>Si le sort réparation est lancé sur le défenseur d'acier, il récupère 2d6 points de vie. S'il est mort depuis moins d'une heure, vous pouvez par une action utiliser vos outils de forgeron pour le ramener à la vie, à condition de vous trouver à 1,50 m ou moins de lui et de dépenser un emplacement de sort de niveau 1 ou supérieur. Le défenseur d'acier revient à la vie avec tous ses points de vie récupérés. À la fin de repos long, vous pouvez créer un nouveau défenseur d'acier si vous avez vos outils de forgeron avec vous. Si vous avez déjà un défenseur d'acier dû à cette capacité, le premier périt immédiatement.",
+                                "effets":[
+                                    "<strong>Defenseur d'acier</strong>"
+                                ]
+                            }
+                        },
+                        {
+                            "Attaque supplémentaire":{
+                                "niveaurequis":5,
+                                "description":"À partir du niveau 5, vous pouvez attaquer deux fois, au lieu d'une seule, chaque fois que vous réalisez l’action Attaquer durant votre tour.",
+                                "effets":[]
+                            }
+                        },
+                        {
+                            "Décharge arcanique":{
+                                "niveaurequis":9,
+                                "description":"Au niveau 9, vous apprenez de nouvelles façons de canaliser l'énergie arcanique pour endommager ou soigner. Lorsque vous touchez une cible lors d'une attaque avec une arme magique ou que votre défenseur d'acier touche une cible, vous pouvez canaliser l'énergie magique dans le coup pour créer l'un des effets suivants :<br><br>La cible subit 2d6 dégâts de force supplémentaires.<br>Choisissez une créature ou un objet que vous pouvez voir dans un rayon de 9 mètres autour de la cible. Une énergie curative se répand dans le bénéficiaire choisi, qui récupère 2d6 points de vie.<br>Vous pouvez canaliser cette énergie magique un nombre de fois égal à votre modificateur d'intelligence (minimum une fois), mais pas plus d'une fois par tour. Vous récupérez toutes les utilisations de cette capacité lorsque vous terminez un repos long.",
+                                "effets":[]
+                            }
+                        },
+                        {
+                            "Défenseur amélioré":{
+                                "niveaurequis":15,
+                                "description":"Au niveau 15, votre décharge arcanique et votre défenseur d'acier deviennent encore plus puissants :<br><br>Les dégâts supplémentaires et les soins de votre décharge arcanique passent à 4d6.<br>Votre défenseur d'acier gagne un bonus de +2 à la CA.<br>Lorsque votre défenseur d'acier utilise sa Parade d'attaque, l'attaquant subit des dégâts de force égaux à 1d4 + votre modificateur d'intelligence.",
+                                "effets":[]
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "Impregnation d'artificier":[
+            {
+                "Bottes du sentier sinueux":{
+                    "niveaurequis": 6,
+                    "objet":"une paire de bottes",
+                    "lien": true,
+                    "description":"Une créature qui porte ces bottes peut se téléporter par une action bonus jusqu'à une distance de 4,50 m dans un espace inoccupé qu'elle peut voir. La créature doit avoir occupé cet espace à un moment donné au cours du tour en cours."
+                }
+            },
+            {
+                "Focaliseur arcanique amélioré":{
+                    "niveaurequis": 0,
+                    "objet":"une baguette ou un bâton",
+                    "lien": true,
+                    "description":"Tant qu'elle tient cet objet, une créature gagne un bonus de + 1 aux jets d'attaque avec un sort. De plus, la créature ignore les abris partiels lorsqu'elle effectue une attaque avec un sort. Le bonus passe à +2 lorsque vous atteignez le niveau 10 dans cette classe."
+                }
+            },
+            {
+                "Défense améliorée":{
+                    "niveaurequis": 0,
+                    "objet":"une armure ou un bouclier",
+                    "lien": false,
+                    "description":"Une créature reçoit un bonus de +1 à sa Classe d'Armure lorsqu'elle porte l'objet imprégné (armure ou bouclier). Le bonus passe à +2 lorsque vous atteignez le niveau 10 dans cette classe."
+                }
+            },
+            {
+                "Arme améliorée":{
+                    "niveaurequis": 0,
+                    "objet":"une arme courante ou de guerre",
+                    "lien": false,
+                    "description":"Octroie un bonus de +1 aux jets d'attaque et de dégâts effectués avec cette arme magique. Le bonus passe à +2 lorsque vous atteignez le niveau 10 dans cette classe."
+                }
+            },
+            {
+                "Serviteur homoncule":{
+                    "niveaurequis": 0,
+                    "objet":"une gemme ou un cristal d'une valeur d'au moins 100 po",
+                    "lien": false,
+                    "description":"Vous découvrez d'anciennes méthodes pour créer magiquement un homoncule spécial qui vous sert. L'objet que vous imprégnez sert de cœur à la créature, autour duquel se forme instantanément le corps de la créature. Vous déterminez l'apparence de l'homoncule. Certains artificiers préféreront un oiseau d'aspect mécanique, tandis que d'autres voudront une fiole ailée ou un chaudron miniature. L'homoncule est amical envers vous et vos compagnons, et obéit à vos ordres. Référez-vous au bloc de stat du serviteur homoncule.<br><br>En combat, l'homoncule partage votre initiative, mais prend son tour immédiatement après le vôtre. Il peut bouger et utiliser sa réaction par lui-même, mais la seule action qu'il peut entreprendre à son tour est l'action Esquiver, à moins que vous ne preniez une action bonus à votre tour pour lui ordonner d'entreprendre l'une des actions de son bloc de stat, ou bien encore une action parmi Aider, Chercher, Foncer, Se cacher et Se désengager.<br><br>Si le sort réparation est lancé sur l'homoncule, il récupère 2d6 points de vie. S'il meurt, il disparaît, ne laissant sur place que son cœur."
+                }
+            },
+            {
+                "Arme radiante":{
+                    "niveaurequis": 6,
+                    "objet":"une arme courante ou de guerre",
+                    "lien": true,
+                    "description":"Vous obtenez un bonus de +1 aux jets d'attaque et de dégâts effectués avec cette arme magique. Lorsqu'il la tient en main, le porteur peut prendre une action bonus pour lui faire émaner une lumière vive dans un rayon de 9 mètres et une lumière faible sur 9 mètres supplémentaires. Le porteur peut arrêter la lumière par une action bonus. L'arme possède 4 charges. Par une réaction, immédiatement après avoir été touché par une attaque, le porteur peut dépenser 1 charge et faire que l'attaquant soit aveuglé jusqu'à la fin du prochain tour de ce dernier, à moins qu'il ne réussisse un jet de sauvegarde de Constitution contre le DD de sauvegarde de vos sorts. L'arme récupère 1d4 charges dépensées chaque jour à l'aube."
+                }
+            },
+            {
+                "Réplique d'objet magique":{
+                    "niveaurequis": 2,
+                    "objet":"Cruche alchimique",
+                    "lien": false,
+                    "description":"En utilisant cette imprégnation, vous reproduisez un objet magique spécifique. Vous pouvez apprendre cette imprégnation plusieurs fois : à chaque fois, choisissez un objet magique différent à reproduire parmi les tables ci-dessous. Si la table indique un niveau dans son intitulé, vous devez avoir au moins ce niveau dans cette classe pour choisir un objet y figurant.<br><br>Dans les tables, l'entrée de chaque objet indique s'il nécessite un lien ou non. Référez-vous à la description de l'objet magique dans le Dungeon Master's Guide pour plus d'informations, y compris sur le type d'objet requis pour sa fabrication. Si vous avez le Xanathar's Guide to Everything, vous pouvez choisir parmi les objets magiques courants de ce livre lorsque vous choisissez un objet magique à reproduire avec cette imprégnation."
+                }
+            },
+            {
+                "Réplique d'objet magique":{
+                    "niveaurequis": 2,
+                    "objet":"Sac sans fond",
+                    "lien": false,
+                    "description":"En utilisant cette imprégnation, vous reproduisez un objet magique spécifique. Vous pouvez apprendre cette imprégnation plusieurs fois : à chaque fois, choisissez un objet magique différent à reproduire parmi les tables ci-dessous. Si la table indique un niveau dans son intitulé, vous devez avoir au moins ce niveau dans cette classe pour choisir un objet y figurant.<br><br>Dans les tables, l'entrée de chaque objet indique s'il nécessite un lien ou non. Référez-vous à la description de l'objet magique dans le Dungeon Master's Guide pour plus d'informations, y compris sur le type d'objet requis pour sa fabrication. Si vous avez le Xanathar's Guide to Everything, vous pouvez choisir parmi les objets magiques courants de ce livre lorsque vous choisissez un objet magique à reproduire avec cette imprégnation."
+                }
+            },
+            {
+                "Réplique d'objet magique":{
+                    "niveaurequis": 2,
+                    "objet":"Capuchon de respiration aquatique",
+                    "lien": false,
+                    "description":"En utilisant cette imprégnation, vous reproduisez un objet magique spécifique. Vous pouvez apprendre cette imprégnation plusieurs fois : à chaque fois, choisissez un objet magique différent à reproduire parmi les tables ci-dessous. Si la table indique un niveau dans son intitulé, vous devez avoir au moins ce niveau dans cette classe pour choisir un objet y figurant.<br><br>Dans les tables, l'entrée de chaque objet indique s'il nécessite un lien ou non. Référez-vous à la description de l'objet magique dans le Dungeon Master's Guide pour plus d'informations, y compris sur le type d'objet requis pour sa fabrication. Si vous avez le Xanathar's Guide to Everything, vous pouvez choisir parmi les objets magiques courants de ce livre lorsque vous choisissez un objet magique à reproduire avec cette imprégnation."
+                }
+            },
+            {
+                "Réplique d'objet magique":{
+                    "niveaurequis": 2,
+                    "objet":"Lunettes de nuit",
+                    "lien": false,
+                    "description":"En utilisant cette imprégnation, vous reproduisez un objet magique spécifique. Vous pouvez apprendre cette imprégnation plusieurs fois : à chaque fois, choisissez un objet magique différent à reproduire parmi les tables ci-dessous. Si la table indique un niveau dans son intitulé, vous devez avoir au moins ce niveau dans cette classe pour choisir un objet y figurant.<br><br>Dans les tables, l'entrée de chaque objet indique s'il nécessite un lien ou non. Référez-vous à la description de l'objet magique dans le Dungeon Master's Guide pour plus d'informations, y compris sur le type d'objet requis pour sa fabrication. Si vous avez le Xanathar's Guide to Everything, vous pouvez choisir parmi les objets magiques courants de ce livre lorsque vous choisissez un objet magique à reproduire avec cette imprégnation."
+                }
+            },
+            {
+                "Réplique d'objet magique":{
+                    "niveaurequis": 2,
+                    "objet":"Corde d'escalade",
+                    "lien": false,
+                    "description":"En utilisant cette imprégnation, vous reproduisez un objet magique spécifique. Vous pouvez apprendre cette imprégnation plusieurs fois : à chaque fois, choisissez un objet magique différent à reproduire parmi les tables ci-dessous. Si la table indique un niveau dans son intitulé, vous devez avoir au moins ce niveau dans cette classe pour choisir un objet y figurant.<br><br>Dans les tables, l'entrée de chaque objet indique s'il nécessite un lien ou non. Référez-vous à la description de l'objet magique dans le Dungeon Master's Guide pour plus d'informations, y compris sur le type d'objet requis pour sa fabrication. Si vous avez le Xanathar's Guide to Everything, vous pouvez choisir parmi les objets magiques courants de ce livre lorsque vous choisissez un objet magique à reproduire avec cette imprégnation."
+                }
+            },
+            {
+                "Réplique d'objet magique":{
+                    "niveaurequis": 2,
+                    "objet":"Pierres de communication à distance",
+                    "lien": false,
+                    "description":"En utilisant cette imprégnation, vous reproduisez un objet magique spécifique. Vous pouvez apprendre cette imprégnation plusieurs fois : à chaque fois, choisissez un objet magique différent à reproduire parmi les tables ci-dessous. Si la table indique un niveau dans son intitulé, vous devez avoir au moins ce niveau dans cette classe pour choisir un objet y figurant.<br><br>Dans les tables, l'entrée de chaque objet indique s'il nécessite un lien ou non. Référez-vous à la description de l'objet magique dans le Dungeon Master's Guide pour plus d'informations, y compris sur le type d'objet requis pour sa fabrication. Si vous avez le Xanathar's Guide to Everything, vous pouvez choisir parmi les objets magiques courants de ce livre lorsque vous choisissez un objet magique à reproduire avec cette imprégnation."
+                }
+            },
+            {
+                "Réplique d'objet magique":{
+                    "niveaurequis": 2,
+                    "objet":"Baguette de détection de la magie",
+                    "lien": false,
+                    "description":"En utilisant cette imprégnation, vous reproduisez un objet magique spécifique. Vous pouvez apprendre cette imprégnation plusieurs fois : à chaque fois, choisissez un objet magique différent à reproduire parmi les tables ci-dessous. Si la table indique un niveau dans son intitulé, vous devez avoir au moins ce niveau dans cette classe pour choisir un objet y figurant.<br><br>Dans les tables, l'entrée de chaque objet indique s'il nécessite un lien ou non. Référez-vous à la description de l'objet magique dans le Dungeon Master's Guide pour plus d'informations, y compris sur le type d'objet requis pour sa fabrication. Si vous avez le Xanathar's Guide to Everything, vous pouvez choisir parmi les objets magiques courants de ce livre lorsque vous choisissez un objet magique à reproduire avec cette imprégnation."
+                }
+            },
+            {
+                "Réplique d'objet magique":{
+                    "niveaurequis": 2,
+                    "objet":"Baguette des secrets",
+                    "lien": false,
+                    "description":"En utilisant cette imprégnation, vous reproduisez un objet magique spécifique. Vous pouvez apprendre cette imprégnation plusieurs fois : à chaque fois, choisissez un objet magique différent à reproduire parmi les tables ci-dessous. Si la table indique un niveau dans son intitulé, vous devez avoir au moins ce niveau dans cette classe pour choisir un objet y figurant.<br><br>Dans les tables, l'entrée de chaque objet indique s'il nécessite un lien ou non. Référez-vous à la description de l'objet magique dans le Dungeon Master's Guide pour plus d'informations, y compris sur le type d'objet requis pour sa fabrication. Si vous avez le Xanathar's Guide to Everything, vous pouvez choisir parmi les objets magiques courants de ce livre lorsque vous choisissez un objet magique à reproduire avec cette imprégnation."
+                }
+            },
+            {
+                "Réplique d'objet magique":{
+                    "niveaurequis": 6,
+                    "objet":"Bottes elfiques",
+                    "lien": false,
+                    "description":"En utilisant cette imprégnation, vous reproduisez un objet magique spécifique. Vous pouvez apprendre cette imprégnation plusieurs fois : à chaque fois, choisissez un objet magique différent à reproduire parmi les tables ci-dessous. Si la table indique un niveau dans son intitulé, vous devez avoir au moins ce niveau dans cette classe pour choisir un objet y figurant.<br><br>Dans les tables, l'entrée de chaque objet indique s'il nécessite un lien ou non. Référez-vous à la description de l'objet magique dans le Dungeon Master's Guide pour plus d'informations, y compris sur le type d'objet requis pour sa fabrication. Si vous avez le Xanathar's Guide to Everything, vous pouvez choisir parmi les objets magiques courants de ce livre lorsque vous choisissez un objet magique à reproduire avec cette imprégnation."
+                }
+            },
+            {
+                "Réplique d'objet magique":{
+                    "niveaurequis": 6,
+                    "objet":"Cape elfique",
+                    "lien": true,
+                    "description":"En utilisant cette imprégnation, vous reproduisez un objet magique spécifique. Vous pouvez apprendre cette imprégnation plusieurs fois : à chaque fois, choisissez un objet magique différent à reproduire parmi les tables ci-dessous. Si la table indique un niveau dans son intitulé, vous devez avoir au moins ce niveau dans cette classe pour choisir un objet y figurant.<br><br>Dans les tables, l'entrée de chaque objet indique s'il nécessite un lien ou non. Référez-vous à la description de l'objet magique dans le Dungeon Master's Guide pour plus d'informations, y compris sur le type d'objet requis pour sa fabrication. Si vous avez le Xanathar's Guide to Everything, vous pouvez choisir parmi les objets magiques courants de ce livre lorsque vous choisissez un objet magique à reproduire avec cette imprégnation."
+                }
+            },
+            {
+                "Réplique d'objet magique":{
+                    "niveaurequis": 6,
+                    "objet":"Cape de la raie manta",
+                    "lien": false,
+                    "description":"En utilisant cette imprégnation, vous reproduisez un objet magique spécifique. Vous pouvez apprendre cette imprégnation plusieurs fois : à chaque fois, choisissez un objet magique différent à reproduire parmi les tables ci-dessous. Si la table indique un niveau dans son intitulé, vous devez avoir au moins ce niveau dans cette classe pour choisir un objet y figurant.<br><br>Dans les tables, l'entrée de chaque objet indique s'il nécessite un lien ou non. Référez-vous à la description de l'objet magique dans le Dungeon Master's Guide pour plus d'informations, y compris sur le type d'objet requis pour sa fabrication. Si vous avez le Xanathar's Guide to Everything, vous pouvez choisir parmi les objets magiques courants de ce livre lorsque vous choisissez un objet magique à reproduire avec cette imprégnation."
+                }
+            },
+            {
+                "Réplique d'objet magique":{
+                    "niveaurequis": 6,
+                    "objet":"Yeux de charme",
+                    "lien": true,
+                    "description":"En utilisant cette imprégnation, vous reproduisez un objet magique spécifique. Vous pouvez apprendre cette imprégnation plusieurs fois : à chaque fois, choisissez un objet magique différent à reproduire parmi les tables ci-dessous. Si la table indique un niveau dans son intitulé, vous devez avoir au moins ce niveau dans cette classe pour choisir un objet y figurant.<br><br>Dans les tables, l'entrée de chaque objet indique s'il nécessite un lien ou non. Référez-vous à la description de l'objet magique dans le Dungeon Master's Guide pour plus d'informations, y compris sur le type d'objet requis pour sa fabrication. Si vous avez le Xanathar's Guide to Everything, vous pouvez choisir parmi les objets magiques courants de ce livre lorsque vous choisissez un objet magique à reproduire avec cette imprégnation."
+                }
+            },
+            {
+                "Réplique d'objet magique":{
+                    "niveaurequis": 6,
+                    "objet":"Gants de cambrioleur",
+                    "lien": false,
+                    "description":"En utilisant cette imprégnation, vous reproduisez un objet magique spécifique. Vous pouvez apprendre cette imprégnation plusieurs fois : à chaque fois, choisissez un objet magique différent à reproduire parmi les tables ci-dessous. Si la table indique un niveau dans son intitulé, vous devez avoir au moins ce niveau dans cette classe pour choisir un objet y figurant.<br><br>Dans les tables, l'entrée de chaque objet indique s'il nécessite un lien ou non. Référez-vous à la description de l'objet magique dans le Dungeon Master's Guide pour plus d'informations, y compris sur le type d'objet requis pour sa fabrication. Si vous avez le Xanathar's Guide to Everything, vous pouvez choisir parmi les objets magiques courants de ce livre lorsque vous choisissez un objet magique à reproduire avec cette imprégnation."
+                }
+            },
+            {
+                "Réplique d'objet magique":{
+                    "niveaurequis": 6,
+                    "objet":"Lanterne de révélation",
+                    "lien": false,
+                    "description":"En utilisant cette imprégnation, vous reproduisez un objet magique spécifique. Vous pouvez apprendre cette imprégnation plusieurs fois : à chaque fois, choisissez un objet magique différent à reproduire parmi les tables ci-dessous. Si la table indique un niveau dans son intitulé, vous devez avoir au moins ce niveau dans cette classe pour choisir un objet y figurant.<br><br>Dans les tables, l'entrée de chaque objet indique s'il nécessite un lien ou non. Référez-vous à la description de l'objet magique dans le Dungeon Master's Guide pour plus d'informations, y compris sur le type d'objet requis pour sa fabrication. Si vous avez le Xanathar's Guide to Everything, vous pouvez choisir parmi les objets magiques courants de ce livre lorsque vous choisissez un objet magique à reproduire avec cette imprégnation."
+                }
+            },
+            {
+                "Réplique d'objet magique":{
+                    "niveaurequis": 6,
+                    "objet":"Flûte terrifiante",
+                    "lien": false,
+                    "description":"En utilisant cette imprégnation, vous reproduisez un objet magique spécifique. Vous pouvez apprendre cette imprégnation plusieurs fois : à chaque fois, choisissez un objet magique différent à reproduire parmi les tables ci-dessous. Si la table indique un niveau dans son intitulé, vous devez avoir au moins ce niveau dans cette classe pour choisir un objet y figurant.<br><br>Dans les tables, l'entrée de chaque objet indique s'il nécessite un lien ou non. Référez-vous à la description de l'objet magique dans le Dungeon Master's Guide pour plus d'informations, y compris sur le type d'objet requis pour sa fabrication. Si vous avez le Xanathar's Guide to Everything, vous pouvez choisir parmi les objets magiques courants de ce livre lorsque vous choisissez un objet magique à reproduire avec cette imprégnation."
+                }
+            },
+            {
+                "Réplique d'objet magique":{
+                    "niveaurequis": 6,
+                    "objet":"Anneau de marche sur l'eau",
+                    "lien": false,
+                    "description":"En utilisant cette imprégnation, vous reproduisez un objet magique spécifique. Vous pouvez apprendre cette imprégnation plusieurs fois : à chaque fois, choisissez un objet magique différent à reproduire parmi les tables ci-dessous. Si la table indique un niveau dans son intitulé, vous devez avoir au moins ce niveau dans cette classe pour choisir un objet y figurant.<br><br>Dans les tables, l'entrée de chaque objet indique s'il nécessite un lien ou non. Référez-vous à la description de l'objet magique dans le Dungeon Master's Guide pour plus d'informations, y compris sur le type d'objet requis pour sa fabrication. Si vous avez le Xanathar's Guide to Everything, vous pouvez choisir parmi les objets magiques courants de ce livre lorsque vous choisissez un objet magique à reproduire avec cette imprégnation."
+                }
+            }
+        ]        
     },
     "Barbare": {
-        "image_url": "images/classes/barbareicon2.jpeg",
+        "image_url": "images/classes/barbareicon.jpeg",
         "description_html": "<p>Les barbares sont de puissants guerriers animés par les forces primitives du multivers qui se manifestent par leur Rage. Plus qu'une simple émotion – et pas seulement de la colère – cette Rage incarne la férocité du prédateur, la fureur de la tempête et le tumulte des mers. Barbarian DnD 2024Certains barbares personnifient leur Rage par un esprit féroce ou un ancêtre vénéré. D'autres la voient comme un lien avec la douleur et l'angoisse du monde, comme un enchevêtrement impersonnel de magie sauvage, ou comme l'expression de leur moi profond. Mais pour tous les barbares, la Rage est un pouvoir qui nourrit non seulement leurs prouesses au combat, mais aussi des réflexes surnaturels et des sens exacerbés. Les barbares servent souvent de protecteurs et de leaders au sein de leurs communautés. Ils foncent tête baissée face au danger pour que ceux qu'ils protègent n'aient pas à le faire. Leur courage face au danger fait des barbares des candidats parfaits pour l'aventure.</p>",
         "jetDeVie": "d12",
         "scores_fixes": {
@@ -23,10 +1169,22 @@
             "Intelligence": 10,
             "Sagesse": 12,
             "Charisme": 8
-        }
+        },
+        "Argent": {
+            "Quantité":2, 
+            "Dé": "d4", 
+            "Multiplicateur":10
+        },
+        "historiques":[
+            "Sauvageon",
+            "Héros du peuple",
+            "Mercenaire vétéran",
+            "Gigantin",
+            "Captif"
+        ]
     },
     "Barde": {
-        "image_url": "images/classes/bardeicon2.jpeg",
+        "image_url": "images/classes/bardeicon.jpeg",
         "description_html": "<p>Invoquant la magie par la musique, la danse et la poésie, les bardes sont experts dans l'art d'inspirer les autres, apaiser les blessures, décourager les ennemis et créer des illusions. Ils pensent que le multivers a été créé par la parole et que les vestiges du Verbe de la Création résonnent et scintillent encore sur tous les plans d'existence. La magie bardique tente d'exploiter ces mots, qui transcendent toute langue. Bard DnD 2024Tout peut inspirer une nouvelle chanson ou un nouveau conte, c'est pourquoi les bardes sont fascinés par presque tout. Ils maîtrisent de nombreux domaines, notamment la musique, la magie et la plaisanterie. La vie d'un barde se résume à voyager, à recueillir des connaissances, à raconter des histoires et à vivre de la gratitude du public, comme tout artiste. Mais la profondeur de leurs connaissances et leur maîtrise de la magie les distinguent.</p>",
         "jetDeVie": "d8",
         "scores_fixes": {
@@ -36,10 +1194,22 @@
             "Intelligence": 13,
             "Sagesse": 10,
             "Charisme": 15
-        }
+        },
+        "Argent": {
+            "Quantité":5, 
+            "Dé": "d4", 
+            "Multiplicateur":10
+        },
+        "historiques":[
+            "Artiste",
+            "Noble",
+            "Charlatan",
+            "Idiot du village",
+            "Grand voyageur"
+        ]
     },
     "Clerc": {
-        "image_url": "images/classes/clercicon2.jpeg",
+        "image_url": "images/classes/clercicon.jpeg",
         "description_html": "<p>Les clercs puisent leur pouvoir dans les royaumes des dieux et l'exploitent pour accomplir des miracles. Béni par une divinité, un panthéon ou autre entité immortelle, un clerc peut puiser dans la magie divine des plans Extérieurs – où résident les dieux – et la canaliser pour soutenir son peuple et combattre ses ennemis. Parce que leur pouvoir est un don divin, les clercs fréquentent généralement les temples dédiés à la divinité ou à la force immortelle qui a libéré leur magie. Contrôler la magie divine ne requiert pas d'entraînement spécifique, mais les clercs peuvent apprendre des prières et des rites qui les aident à puiser dans le pouvoir des plans Extérieurs. Clerc DnD 2024Tous les membres d'un temple ou d'un sanctuaire ne sont pas des clercs. Certains sont appelés à une vie simple au service d'un temple, accomplissant leur dévotion uniquement par la prière et les rituels, et non par la magie. Nombre de mortuels prétendent parler au nom des dieux, mais rares sont ceux qui peuvent maîtriser le pouvoir de ces dieux comme un clerc.</p>",
         "jetDeVie": "d8",
         "scores_fixes": {
@@ -49,10 +1219,22 @@
             "Intelligence": 10,
             "Sagesse": 15,
             "Charisme": 12
-        }
+        },
+        "Argent": {
+            "Quantité":5, 
+            "Dé": "d4", 
+            "Multiplicateur":10
+        },
+        "historiques":[
+            "Acolyte",
+            "Ermite",
+            "Philosophe planaire",
+            "Sage",
+            "Hanté"
+        ]
     },
     "Druide": {
-        "image_url": "images/classes/druideicon2.jpeg",
+        "image_url": "images/classes/druideicon.jpeg",
         "description_html": "<p>Les druides appartiennent à des ordres ancestraux qui invoquent les forces de la nature. Exploitant la magie des animaux, des plantes et des quatre éléments, ils soignent, se transforment en animaux et contrôlent la destruction élémentaire. Vénérant la nature avant tout, les druides tirent leur magie de la nature, d'une divinité de la nature, ou des deux, et s'unissent généralement à d'autres druides pour accomplir des rites marquant le passage des saisons et autres cycles naturels. Les druides se préoccupent du fragile équilibre écologique qui préserve la vie végétale et animale, et de la nécessité pour les humains de vivre en harmonie avec la nature. Ils protègent souvent des sites sacrés ou des régions de nature préservée, mais lorsqu'un danger majeur survient, ils jouent un rôle plus actived'aventuriers qui combattent la menace.</p>",
         "jetDeVie": "d8",
         "scores_fixes": {
@@ -62,10 +1244,22 @@
             "Intelligence": 13,
             "Sagesse": 15,
             "Charisme": 10
-        }
+        },
+        "Argent": {
+            "Quantité":2, 
+            "Dé": "d4", 
+            "Multiplicateur":10
+        },
+        "historiques":[
+            "Ermite", 
+            "Sauvageon", 
+            "Sage", 
+            "Hanté", 
+            "Grand voyageur"
+        ]
     },
     "Ensorceleur": {
-        "image_url": "images/classes/ensorceleuricon2.jpeg",
+        "image_url": "images/classes/ensorceleuricon.jpeg",
         "description_html": "<p>Les ensorceleurs exercent une magie innée, gravée dans leur être. Certains ne peuvent nommer l'origine de leur pouvoir, tandis que d'autres l'imputent à d'étranges événements de leur histoire personnelle ou familiale. La bénédiction d'un dragon ou d'une dryade à la naissance d'un bébé, ou la foudre tombée d'un ciel clair, peuvent déclencher le don d'un ensorceleur. De même, le don d'une divinité, l'exposition à l'étrange magie d'un autre plan d'existence, ou un aperçu des rouages de la réalité, peuvent déclencher le don d'un ensorceleur. Quelle qu'en soit l'origine, le résultat laisse une marque indélébile sur l'ensorceleur, une magie bouillonnante qui peut se transmettre de génération en génération. Les ensorceleurs n'apprennent pas la magie ; leur pouvoir brut et bouillonnant est inné. L'art essentiel d'un ensorceleur consiste à maîtriser et à canaliser cette magie innée, lui permettant ainsi de découvrir de nouvelles et étonnantes façons de libérer son pouvoir. À mesure que les ensorceleurs maîtrisent leur magie innée, ils se lient davantage à leur origine, développant des pouvoirs distincts qui reflètent sa source. Sorcerer DnD 2024Les ensorceleurs sont rares. Certaines lignées familiales n'en produisent qu'un seul à chaque génération, mais la plupart du temps, les talents de sorcellerie apparaissent spontanément. Ceux qui possèdent ce pouvoir magique découvrent vite qu'il n'aime pas rester silencieux. La magie d'un ensorceleur ne demande qu'à être exercée.</p>",
         "jetDeVie": "d6",
         "scores_fixes": {
@@ -75,10 +1269,22 @@
             "Intelligence": 8,
             "Sagesse": 12,
             "Charisme": 15
-        }
+        },
+        "Argent": {
+            "Quantité":3, 
+            "Dé": "d4", 
+            "Multiplicateur":10
+        },
+        "historiques":[
+            "Noble", 
+            "Artiste", 
+            "Hanté", 
+            "Philosophe planaire", 
+            "Voyageur"
+        ]
     },
     "Guerrier": {
-        "image_url": "images/classes/guerriericon2.jpeg",
+        "image_url": "images/classes/guerriericon.jpeg",
         "description_html": "<p>Les guerriers dominent sur de nombreux champs de bataille. Chevaliers menant une quête, champions royaux, soldats d'élite ou mercenaires aguerris, en tant que guerriers ils partagent tous une maîtrise inégalée des armes et des armures. Ils connaissent bien la mort, pour l'avoir donnée et l'avoir défiée. Les guerriers maîtrisent diverses armes et techniques, et un guerrier bien équipé possède toujours l'outil adéquat à portée de main pour chaque situation de combat. De même, un guerrier maîtrisent toutes les armures. Au-delà de ces capacités de base, chaque guerrier se spécialise dans certains styles de combat. Certains se spécialisent dans le tir à l'arc, d'autres dans le combat avec une arme dans chaque main, et d'autres encore dans l'amélioration de leurs talents martiaux grâce à la magie. Cette combinaison de solides compétences et de spécialisation poussée fait des guerriers d'excellents combattants.</p>",
         "jetDeVie": "d10",
         "scores_fixes": {
@@ -88,7 +1294,19 @@
             "Intelligence": 8,
             "Sagesse": 10,
             "Charisme": 12
-        }
+        },
+        "Argent": {
+            "Quantité":5, 
+            "Dé": "d4", 
+            "Multiplicateur":10
+        },
+        "historiques":[
+            "Soldat", 
+            "Mercenaire vétéran", 
+            "Noble", 
+            "Chevalier", 
+            "Agent de faction"
+        ]
     },
     "Magicien": {
         "image_url": "images/classes/magicienicon.jpeg",
@@ -101,10 +1319,22 @@
             "Intelligence": 15,
             "Sagesse": 14,
             "Charisme": 10
-        }
+        },
+        "Argent": {
+            "Quantité":4, 
+            "Dé": "d4", 
+            "Multiplicateur":10
+        },
+        "historiques":[
+            "Sage", 
+            "Acolyte", 
+            "Archéologue", 
+            "Philosophe planaire", 
+            "Gardien des portails"
+        ]
     },
     "Moine": {
-        "image_url": "images/classes/moineicon2.jpeg",
+        "image_url": "images/classes/moineicon.jpeg",
         "description_html": "<p>Les moines utilisent un entraînement au combat rigoureux et une discipline mentale pour s'aligner avec le multivers et puiser dans leurs réserve de puissance intérieure. Les moines conceptualisent ce pouvoir de diverses manières : souffle, énergie, force vitale, essence ou le soi, par exemple. Qu'il soit canalisé dans une démonstration éclatante de prouesse martiale ou par une manifestation plus subtile de défense et de vitesse, ce pouvoir imprègne tout ce qu'un moine fait. Les moines concentrent leur puissance intérieure pour créer des effets extraordinaires, voire surnaturels. Ils canalisent une vitesse et une force surnaturelles dans leurs attaques, avec ou sans armes. Entre les mains d'un moine, même les armes les plus basiques peuvent devenir des instruments sophistiqués de maîtrise du combat. De nombreux moines considèrent qu'une vie structurée de retrait ascétique les aide à mieux cultiver la concentration physique et mentale nécessaire pour maîtriser leur pouvoir. D'autres pensent que s'immerger dans la confusion vibrante de la vie nourrit leur détermination et leur discipline. Les moines considèrent généralement les aventures comme des tests de leur développement physique et mental. Animés par le désir d'accomplir une mission plus grande que simplement tuer des monstres et piller des trésors, ils s'efforcent de se transformer en armes vivantes.</p>",
         "jetDeVie": "d8",
         "scores_fixes": {
@@ -114,10 +1344,22 @@
             "Intelligence": 10,
             "Sagesse": 14,
             "Charisme": 8
-        }
+        },
+        "Argent": {
+            "Quantité":5, 
+            "Dé": "d4", 
+            "Multiplicateur":1
+        },
+        "historiques":[
+            "Ermite", 
+            "Acolyte", 
+            "Sage", 
+            "Grand voyageur", 
+            "Idiot du village"
+        ]
     },
     "Occultiste": {
-        "image_url": "images/classes/occultisteicon2.jpeg",
+        "image_url": "images/classes/occultisteicon.jpeg",
         "description_html": "<p>Les occultistes sont en quête du savoir caché dans la trame du multivers. Ils commencent souvent leur quête de pouvoir magique en fouillant dans des livres de savoir interdit, en s'adonnant à des invocations destinées à attirer le pouvoir d'êtres extraplanaires, ou en recherchant des lieux de pouvoir où l'influence de ces êtres peut se faire sentir. En un rien de temps, chaque occultiste est lié par un pacte avec un puissant protecteur. S'appuyant sur le savoir ancestral d'êtres tels que les anges, archifées, démons, diables, guenaudes et entités extraterrestres du Royaume Lointain, les occultistes rassemblent des secrets arcanes pour renforcer leur propre pouvoir. Les occultistes considèrent leur protecteur comme des ressources, des moyens d'acquérir des pouvoirs magiques. Certains les respectent, les révèrent, voire les aiment ; d'autres les servent à contrecœur ; et d'autres encore cherchent à les affaiblir tout en exerçant le pouvoir qu'ils leur ont conféré. Une fois le pacte conclu, la soif de savoir et de pouvoir d'un occultiste ne peut être étanchée par de simples études. La plupart des occultistes passent leurs journées à rechercher un pouvoir accru et un savoir plus approfondi, ce qui implique généralement une forme d'aventure.</p>",
         "jetDeVie": "d8",
         "scores_fixes": {
@@ -127,10 +1369,22 @@
             "Intelligence": 12,
             "Sagesse": 10,
             "Charisme": 15
-        }
+        },
+        "Argent": {
+            "Quantité":4, 
+            "Dé": "d4", 
+            "Multiplicateur":10
+        },
+        "historiques":[
+            "Charlatan", 
+            "Acolyte", 
+            "Sage", 
+            "Hanté", 
+            "Philosophe planaire"
+        ]
     },
     "Paladin": {
-        "image_url": "images/classes/paladinicon2.jpeg",
+        "image_url": "images/classes/paladinicon.jpeg",
         "description_html": "<p>Les paladins sont unis par leur serment pour lutter contre les forces de l'annihilation et de la corruption. Qu'il soit prêté devant l'autel d'un dieu, dans une clairière sacrée devant les esprits de la nature ou dans un moment de désespoir et de chagrin avec les morts pour seuls témoins, le serment d'un paladin est un lien puissant. C'est une source de pouvoir qui transforme un combattant dévoué en un champion béni. Les paladins s'entraînent au combat et maîtrisent une variété d'armes et d'armures. Pourtant, leurs compétences martiales sont secondaires face à leurs pouvoirs magiques : soigner les blessés, frapper les ennemis et protéger les faibles et ceux qui combattent à leurs côtés. Par définition, la vie d'un paladin est une vie d'aventurier, car chaque paladin vit en première ligne de la lutte cosmique contre l'annihilation. Les guerriers sont rares dans les rangs des armées du monde, mais encore plus rares sont ceux qui peuvent prétendre à la vocation de paladin. Lorsqu'ils reçoivent cet appel, ces êtres bénis abandonnent leurs anciennes occupations pour prendre les armes et utiliser la magie.</p>",
         "jetDeVie": "d10",
         "scores_fixes": {
@@ -140,10 +1394,22 @@
             "Intelligence": 8,
             "Sagesse": 12,
             "Charisme": 14
-        }
+        },
+        "Argent": {
+            "Quantité":5, 
+            "Dé": "d4", 
+            "Multiplicateur":10
+        },
+        "historiques":[
+            "Noble", 
+            "Acolyte", 
+            "Chevalier", 
+            "Héros du peuple", 
+            "Agent de faction"
+        ]
     },
     "Rodeur": {
-        "image_url": "images/classes/rodeuricon2.jpeg",
+        "image_url": "images/classes/rodeuricon.jpeg",
         "description_html": "<p>Loin des villes animées, au cœur de forêts impénétrables ou de vastes plaines, les rôdeurs exercent une surveillance constante sur la nature. Ils traquent leur proie comme le ferait un prédateur, se déplaçant furtivement dans les étendues sauvages et se cachant dans les broussailles et les décombres. Grâce à leur connexion avec la nature, les rôdeurs peuvent également lancer des sorts qui exploitent les pouvoirs primitifs de la nature. Leurs talents et leur magie sont affinés avec une précision redoutable pour protéger le monde des ravages des monstres et des tyrans.</p>",
         "jetDeVie": "d10",
         "scores_fixes": {
@@ -153,10 +1419,22 @@
             "Intelligence": 8,
             "Sagesse": 14,
             "Charisme": 10
-        }
+        },
+        "Argent": {
+            "Quantité":5, 
+            "Dé": "d4", 
+            "Multiplicateur":10
+        },
+        "historiques":[
+            "Sauvageon", 
+            "Chasseur de primes urbain", 
+            "Grand voyageur", 
+            "Ermite", 
+            "Marin"
+        ]
     },
     "Roublard": {
-        "image_url": "images/classes/roublardicon2.jpeg",
+        "image_url": "images/classes/roublardicon.jpeg",
         "description_html": "<p>Les roublards comptent sur leur ruse, leur discrétion et les vulnérabilités de leurs ennemis pour prendre le dessus en toute situation. Ils ont le don de trouver la solution à presque tous les problèmes. Certains apprennent même des tours de magie pour compléter leurs autres capacités. Nombre d'entre eux se concentrent sur la discrétion et la tromperie, tandis que d'autres perfectionnent des compétences qui les aident dans les souterrains, comme l'escalade, la recherche et le désamorçage de pièges, et le crochetage de serrures. Au combat, les roublards privilégient les coups subtils à la force brute. Ils préfèrent porter un coup précis plutôt qu'épuiser leur adversaire sous un délique de coups. Certains roublards ont débuté leur carrière en tant que criminels, tandis que d'autres ont utilisé leur ruse pour combattre le crime. Quel que soit le rapport à la loi d'un roublard, aucun criminel de droit commun ou représentant de la loi ne peut égaler l'intelligence subtile des plus grands roublards.</p>",
         "jetDeVie": "d8",
         "scores_fixes": {
@@ -166,6 +1444,18 @@
             "Intelligence": 14,
             "Sagesse": 10,
             "Charisme": 8
-        }
+        },
+        "Argent": {
+            "Quantité":4, 
+            "Dé": "d4", 
+            "Multiplicateur":10
+        },
+        "historiques":[
+            "Charlatan", 
+            "Criminel", 
+            "Enfant des rues", 
+            "Chasseur de primes urbain", 
+            "Artisan de guilde"
+        ]
     }
 }
